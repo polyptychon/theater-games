@@ -173,9 +173,9 @@ a {
 		&#game { img, svg { .absPos(0,0); } }
 		
 		/* svg styles */
-		polygon { cursor:pointer; fill:@blue; .transparent(0,0); .transition(all .2s ease-in-out); &:hover { .transparent(.5,50); } }
+		polygon { cursor:pointer; fill:@blue; .transparent(0,0); .transition(all .2s ease-in-out); &:hover, &:focus { .transparent(.5,50); } }
 		/* */
 	}
-	#tools { background:@red; width:100px; height:100px; .absPosRight(50px,50px); .transition(all .2s ease-in-out); &.hidden { .tranparent(0,0); } }	
+	#tools { background:@red; .absPos(0,0); width:150px; height:50px; .transparent(1,100); .transition(opacity .2s ease-in-out); &.hidden { .transparent(0,0); } }	
 }
 /* */

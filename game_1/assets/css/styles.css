@@ -588,7 +588,8 @@ a.footer:hover {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-#container .screen polygon:hover {
+#container .screen polygon:hover,
+#container .screen polygon:focus {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
@@ -596,19 +597,24 @@ a.footer:hover {
 }
 #container #tools {
   background: #ff0000;
-  width: 100px;
-  height: 100px;
   position: absolute;
-  top: 50px;
-  right: 50px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 50px;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 #container #tools.hidden {
-  position: absolute !important;
-  top: -100% !important;
-  left: -100% !important;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 /* */
