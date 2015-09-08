@@ -560,6 +560,10 @@ a.footer:hover {
   width: 1024px;
   height: 768px;
   background: #ffffff;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:dximagetransform.microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
   margin: 0 auto;
   overflow: hidden;
   position: relative;

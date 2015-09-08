@@ -7,13 +7,9 @@ var removed_areas = 0;
 
 
 /* window/document states */
-$(window).ready(function() {
+$(window).load(function() {
 	init();
 	$("*[theTitle]").titlesBehaviour();
-	if (isMobile) {
-		$("polygon").bind("touchstart", function (event) { event.stopPropagation(); });
-		$("polygon").disableSelection();
-	}
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
 /* */
@@ -40,6 +36,7 @@ function select_svg_area(which_area) {
 		if (which_area.id != selected_area) { $("#" + selected_area).attr({ "class" : "" }); selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); }
 		else { selected_area = ""; $("polygon").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
+	console.log(selected_area);
 }
 
 function remove_svg_area(which_tool) {

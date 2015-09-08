@@ -3,13 +3,20 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Theater Games - Game 1"/>
+	<meta name="description" content="Εκπαιδευτικά παιχνίδια για το αρχαίο θέατρο - Εφαρμογή 1"/>
 	<link rel="icon" href="assets/img/icon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Τι κρύβεται κάτω από την πόλη</title>	
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
 </head>
 <body>
+	
+	<!-- preload images -->
+	<script>
+		var img_1 = new Image(1024,768); img_1.src = "assets/img/init_stage.jpg";
+		var img_2 = new Image(1024,768); img_1.src = "assets/img/medium_stage.jpg";
+		var img_3 = new Image(1024,768); img_1.src = "assets/img/last_stage.jpg";
+	</script>
 	
 	<!-- tooltip -->
 	<div id="dhtmltooltip"></div>
@@ -18,7 +25,6 @@
 	<script src="assets/libs/jquery-1.11.1.min.js"></script>
 	<script src="assets/libs/jquery-migrate.min.js"></script>
 	<script src="assets/libs/jquery.easing.min.js"></script>
-	<script src="assets/libs/snap.svg-min.js"></script>	
 	<!-- custom js -->
 	<script src="assets/js/functions.js"></script>
 	
