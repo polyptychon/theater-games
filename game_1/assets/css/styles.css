@@ -117,8 +117,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-* {
-  -webkit-font-variant-ligatures: no-common-ligatures;
+*:focus {
+  outline: 0;
 }
 /* */
 /* start: general reusable rules */
@@ -541,6 +541,21 @@ a.footer:hover {
   background: #b9b6b0;
   overflow: hidden;
 }
+#dhtmltooltip {
+  position: absolute;
+  max-width: 350px;
+  background: #ffffee !important;
+  color: #222222;
+  padding: 10px;
+  visibility: hidden;
+  z-index: 5500;
+  font-size: 0.875em;
+  margin: 4px;
+  -moz-opacity: 0.95;
+  -khtml-opacity: 0.95;
+  opacity: 0.95;
+  filter: alpha(opacity=95);
+}
 #container {
   width: 1024px;
   height: 768px;
@@ -582,7 +597,7 @@ a.footer:hover {
   -moz-opacity: 0;
   -khtml-opacity: 0;
   opacity: 0;
-  filter: alpha(opacity=0);
+  filter: alpha(opacity=95);
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -593,28 +608,51 @@ a.footer:hover {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
-  filter: alpha(opacity=0);
+  filter: alpha(opacity=95);
+}
+#container .screen polygon.selected {
+  fill: #ffff00;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  opacity: 0.5 !important;
+  filter: alpha(opacity=95) !important;
+}
+#container .screen polygon.wrong_tool {
+  fill: #ff0000;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  opacity: 0.5 !important;
+  filter: alpha(opacity=95) !important;
 }
 #container #tools {
-  background: #ff0000;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
+  top: 25px;
+  right: 25px;
+  width: 160px;
   height: 50px;
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  opacity: 1;
-  filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
+}
+#container #tools .tool {
+  cursor: pointer!important;
+  background: #ffffff;
+  display: inline-block;
+  width: 50px;
+  height: 27px;
+  padding: 13px 0 10px;
+  margin: 0;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #tools .tool:hover {
+  background: #00cc66;
+  color: #ffffff;
 }
 #container #tools.hidden {
   -moz-opacity: 0;
   -khtml-opacity: 0;
   opacity: 0;
-  filter: alpha(opacity=0);
+  filter: alpha(opacity=95);
 }
 /* */

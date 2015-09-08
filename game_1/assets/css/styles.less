@@ -7,7 +7,7 @@ body{line-height:1.5}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
-* { -webkit-font-variant-ligatures: no-common-ligatures; }
+* { &:focus { outline:0; } }
 /* */
 
 /* start: general reusable rules */
@@ -168,14 +168,24 @@ a {
 
 /* custom objects */
 #loader { width:100%; height:100%; .fixPos(0,0); .z(20000); background:@sitebeize - #222; overflow:hidden; }
+#dhtmltooltip { .abs; max-width:350px; background:@lightYellow!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
 #container { width:1024px; height:768px; background:@white; margin:0 auto; overflow:hidden; .rel;
 	.screen { width:100%; height:100%; background:@white; .absPos(0,0); .transition(all .2s ease-in-out); &.hidden { .absPos(-100%,0); }
 		&#game { img, svg { .absPos(0,0); } }
 		
 		/* svg styles */
-		polygon { cursor:pointer; fill:@blue; .transparent(0,0); .transition(all .2s ease-in-out); &:hover, &:focus { .transparent(.5,50); } }
+		polygon { cursor:pointer; fill:@blue; .transparent(0,0); .transition(all .2s ease-in-out);
+			&:hover, &:focus { .transparent(.5,50); }
+			&.selected { fill:@yellow; .transparent(.5,50)!important; }
+			&.wrong_tool { fill:@red; .transparent(.5,50)!important; }
+		}
 		/* */
 	}
-	#tools { background:@red; .absPos(0,0); width:150px; height:50px; .transparent(1,100); .transition(opacity .2s ease-in-out); &.hidden { .transparent(0,0); } }	
+	#tools { .absPosRight(25px,25px); width:160px; height:50px;
+		.tool { .active; background:@white; .visible(inline-block); width:50px; height:27px; padding:13px 0 10px; margin:0; text-align:center; .transition(all .2s ease-in-out);
+			&:hover { background:@green; color:@white; }
+		}
+		&.hidden { .transparent(0,0); }
+	}
 }
 /* */

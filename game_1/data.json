@@ -1,3 +1,3 @@
 {
-	"buildings_and_tools" : { "area_1":"bulldozer", "area_2":"pick", "area_3":"drill", "area_4":"drill", "area_5":"drill", "area_6":"drill", "area_7":"drill", "area_8":"drill" }
+	"buildings_and_tools" : { "area_1":"bulldozer", "area_2":"drill", "area_3":"pick", "area_4":"bulldozer", "area_5":"bulldozer", "area_6":"pick", "area_7":"bulldozer", "area_8":"drill" }
 }
