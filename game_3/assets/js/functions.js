@@ -6,8 +6,7 @@ var game_data = "";
 
 /* window/document states */
 $(window).load(function() {
-	init();
-	$("*[theTitle]").titlesBehaviour();
+	init();	
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
 /* */
@@ -19,7 +18,8 @@ function init() {
 		console.log(game_data);
 		add_theaters("greece");
 		add_theaters("mediterranean");
-		goto_screen("level_mediterranean");
+		$("*[theTitle]").titlesBehaviour();
+		goto_screen("level_greece");
 	});
 }
 
@@ -31,7 +31,7 @@ function goto_screen(which) {
 function add_theaters(where) {
 	var theaters = game_data.theaters[where];
 	for (t = 0; t < theaters.length; t++) {
-		$( "#" + where + "_theaters" ).append("<div class='theater' name='" + theaters[t].name + "' type='" + theaters[t].type + "' inUse='" + theaters[t].in_use + "' style='left:" + theaters[t].left + "px; top:" + theaters[t].top + "px;'><span>" + theaters[t].description + "</span></div>");		
+		$( "#" + where + "_theaters" ).append("<div class='theater' theTitle='" + theaters[t].name + "' type='" + theaters[t].type + "' inUse='" + theaters[t].in_use + "' style='left:" + theaters[t].left + "px; top:" + theaters[t].top + "px;'><span>" + theaters[t].description + "</span></div>");		
 	}
 }
 
