@@ -4,24 +4,48 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="Theater Games - Game 3"/>
-	<link rel="icon" href="_assets/img/icon.png"/>		
-	<link rel="apple-touch-icon-precomposed" href="_assets/img/icon_512.png"/>
+	<link rel="icon" href="assets/img/icon.png"/>		
+	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Ένας σύγχρονος θίασος στα αρχαία θέατρα του κόσμου</title>	
-	<link rel="stylesheet" type="text/css" href="_assets/css/styles.css"/>	
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
 </head>
 <body>
 	
+	<!-- preload images -->
+	<script>
+		var img_1 = new Image(1024,768); img_1.src = "assets/img/greece.jpg";
+		var img_2 = new Image(1024,768); img_1.src = "assets/img/mediterranean.jpg";
+	</script>
+	
 	<!-- external libs -->
-	<script src="_assets/libs/jquery-1.11.1.min.js"></script>
-	<script src="_assets/libs/jquery-migrate.min.js"></script>
-	<script src="_assets/libs/jquery.easing.min.js"></script>
-	<script src="_assets/libs/snap.svg-min.js"></script>
+	<script src="assets/libs/jquery-1.11.1.min.js"></script>
+	<script src="assets/libs/jquery-migrate.min.js"></script>
+	<script src="assets/libs/jquery.easing.min.js"></script>
 	
 	<!-- custom js -->
-	<script src="_assets/js/functions.js"></script>
+	<script src="assets/js/functions.js"></script>
 	
 	<!-- fade in loader -->
 	<div id="loader"></div>
+	
+	<!-- main game board container -->
+	<div id="container">
+		<div class="screen" id="init">1</div>
+		<div class="screen hidden" id="help">2</div>
+		<div class="screen hidden" id="level_greece">
+			<img class="bg" src="assets/img/greece.jpg"/>
+			<div id="greece_theaters" class="theaters"><!-- dynamic content --></div>
+        </div>
+        <div class="screen hidden" id="level_mediterranean">
+			<img class="bg" src="assets/img/mediterranean.jpg"/>
+			<div id="mediterranean_theaters" class="theaters"><!-- dynamic content --></div>
+        </div>        
+		<div class="screen hidden" id="last">4</div>
+		
+		<div id="tour_schedule">
+			<h1>ΠΡΟΓΡΑΜΜΑ ΠΕΡΙΟΔΕΙΑΣ</h1>
+		</div>
+	</div>
 	
 </body>
 </html>	
