@@ -18,7 +18,7 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		console.log(game_data.buildings_and_tools);
+		console.log(game_data);
 		selected_area = "";
 		removed_areas = 0;
 		goto_screen("game");
@@ -36,7 +36,6 @@ function select_svg_area(which_area) {
 		if (which_area.id != selected_area) { $("#" + selected_area).attr({ "class" : "" }); selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); }
 		else { selected_area = ""; $("polygon").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
-	console.log(selected_area);
 }
 
 function remove_svg_area(which_tool) {
@@ -55,8 +54,7 @@ function remove_svg_area(which_tool) {
 }
 
 function end_game() {
-	console.log("Game over");	
-	$("#init_stage, #tools").fadeOut(3000);
+	setTimeout(function() { $("#init_stage, #tools").fadeOut(3000); }, 2000);
 	setTimeout(function() { $("#medium_stage").fadeOut(3000); }, 6000);	
 }
 /* */
