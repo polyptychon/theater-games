@@ -21,31 +21,36 @@ function init() {
 		console.log(game_data);
 		selected_area = "";
 		removed_areas = 0;
-		goto_screen("game");
+		goto_screen("level_1");
 	});
 }
 
 function goto_screen(which) {
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
+	$(".tool").removeClass("open").filter("[for~=" + which + "]").addClass("open");
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
-function select_svg_area(which_area) {
+function select_svg_area(level,which_area) {
 	if (selected_area == "") { selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); }
 	else {
 		if (which_area.id != selected_area) { $("#" + selected_area).attr({ "class" : "" }); selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); }
-		else { selected_area = ""; $("polygon").each(function() { $(this).attr({ "class" : "" }); }); }
+		else { selected_area = ""; $("#" + level + " polygon").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
+	console.log(selected_area);
 }
 
 function remove_svg_area(which_tool) {
+	var level = selected_area.split("_")[1];
+	
 	if (selected_area != "") {
 		if (game_data.buildings_and_tools[selected_area] == which_tool.id) {
 			var id = selected_area.split("_");		
 			$("#" + selected_area).unbind('mouseenter mouseleave').attr("style", "fill:#0c0;").fadeOut(100).fadeIn(500).fadeOut(100);
-			$("#" + id[0] + "_" + id[1] + "_group").fadeOut(1000); selected_area = "";
+			$("#" + selected_area + "_group").fadeOut(1000); selected_area = "";
 			removed_areas++;
-			if (removed_areas == 8) end_game();
+			if (level == 1) { if (removed_areas == 8) end_game(level); }
+			else if (level == 2) { if (removed_areas == 6) end_game(level); }
 		} else {
 			$("#" + selected_area).attr({ "class" : "wrong_tool" });
 			setTimeout(function() { $("#" + selected_area).attr({ "class" : "selected" }); }, 500);
@@ -53,9 +58,13 @@ function remove_svg_area(which_tool) {
 	}
 }
 
-function end_game() {
-	setTimeout(function() { $("#init_stage, #tools").fadeOut(3000); }, 2000);
-	setTimeout(function() { $("#medium_stage").fadeOut(3000); }, 6000);	
+function end_game(level) {
+	if (level == 1) {
+		setTimeout(function() { $("#init_stage, #tools").fadeOut(3000); }, 2000);
+		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_2"); }, 6000);
+	} else if (level == 2) {
+		setTimeout(function() { $("#medium_stage, #tools").fadeOut(3000); }, 2000);
+	}
 }
 /* */
 

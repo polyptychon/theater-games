@@ -575,10 +575,14 @@ a.footer:hover {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
+  -webkit-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
+  -o-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
+  transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
   /* svg styles */
 
   /* */
@@ -586,16 +590,23 @@ a.footer:hover {
 }
 #container .screen.hidden {
   position: absolute;
-  top: -100%;
+  top: 100%;
   left: 0;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
 }
-#container .screen#game img,
-#container .screen#game svg {
+#container .screen#level_1 img,
+#container .screen#level_2 img,
+#container .screen#level_1 svg,
+#container .screen#level_2 svg {
   position: absolute;
   top: 0;
   left: 0;
 }
-#container .screen polygon {
+#container .screen polygon,
+#container .screen path {
   cursor: pointer;
   fill: #0099ff;
   -moz-opacity: 0;
@@ -608,20 +619,24 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container .screen polygon:hover,
-#container .screen polygon:focus {
+#container .screen path:hover,
+#container .screen polygon:focus,
+#container .screen path:focus {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
   filter: alpha(opacity=95);
 }
-#container .screen polygon.selected {
+#container .screen polygon.selected,
+#container .screen path.selected {
   fill: #ffff00;
   -moz-opacity: 0.5 !important;
   -khtml-opacity: 0.5 !important;
   opacity: 0.5 !important;
   filter: alpha(opacity=95) !important;
 }
-#container .screen polygon.wrong_tool {
+#container .screen polygon.wrong_tool,
+#container .screen path.wrong_tool {
   fill: #ff0000;
   -moz-opacity: 0.5 !important;
   -khtml-opacity: 0.5 !important;
@@ -638,12 +653,16 @@ a.footer:hover {
 #container #tools .tool {
   cursor: pointer!important;
   background: #ffffff;
-  display: inline-block;
+  display: none;
   width: 50px;
   height: 27px;
   padding: 13px 0 10px;
   margin: 0;
   text-align: center;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -652,6 +671,13 @@ a.footer:hover {
 #container #tools .tool:hover {
   background: #00cc66;
   color: #ffffff;
+}
+#container #tools .tool.open {
+  display: inline-block !important;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
 }
 #container #tools.hidden {
   -moz-opacity: 0;

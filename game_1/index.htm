@@ -33,64 +33,112 @@
 	
 	<!-- main game board container -->
 	<div id="container">
-		<div class="screen" id="init">1</div>
-		<div class="screen hidden" id="help">2</div>
-		<div class="screen hidden" id="game">
+		<div class="screen" id="init">1</div>		
+		<div class="screen hidden" id="level_1">
 		
-			<img id="last_stage" src="assets/img/last_stage.jpg"/>
 			<img id="medium_stage" src="assets/img/medium_stage.jpg"/>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="init_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
 				<defs>
 					<image id="init_stage_jpg" overflow="visible" width="1024" height="768" xlink:href="assets/img/init_stage.jpg" transform="matrix(1 0 0 1 0 0)"></image>
-					<path id="area_1_path" d="M126.997,339.5l52-27.5h51l41-17h24l45-18.75l68,21.875	l8,47.938l-82,170.469l-7-12.531h-12l-12,23h-66l-12-17.75l-58-5.125l-12-51.062l-9-4.906L126.997,339.5z"/>
-					<path id="area_2_path" d="M448.497,276.25h22V389.5h-8l-9,29h9l-51,208.516l-89-8.516	l-49,116l-42-3L448.497,276.25z"/>
-					<path id="area_3_path" d="M619.497,389.5v-103h24l56-18l-6,43l203,50l49,65l-117-2l-14-13	l-80-2l-5-20H619.497z"/>
-					<path id="area_4_path" d="M511.997,235.5l113.5,6l10,11h-16v137h-149v-148L511.997,235.5z	"/>
-					<path id="area_5_path" d="M441.122,640.416l3.375-9.916l-33-3.484l51-208.516h-9l9-29h267	l6,24h-88l-10,193l1,47L441.122,640.416z"/>
-					<path id="area_6_path" d="M239.683,714.327L63.497,695l-8.5-16.5l-13-3l-10-34L0,634.5 l79.497-73l79,12l0.5-12l-10.5-15.5l18.5-41.875l58,5.125l12,17.75h66l12-23h12l6.982,12.5L239.683,714.327z"/>
-					<path id="area_7_path" d="M638.497,653.5l-1-47l10-193h88l-1-4l80,2l14,13l117,2l78.497,1	v313L770.997,724l1-74l-70-2.5v9.5L638.497,653.5z"/>
-					<path id="area_8_path" d="M294.997,295h-24l-41,17h-16l15-8.5l-38-4.5l3-18.5h11.5l32-19 l-18.5-137l-6.5-5.5l5.5-8.5h31l9,8l-6,6l14.5,95.5l5,37l85.5-0.5l-17,19.75L294.997,295z"/>
-					<path id="area_rest_path" d="M-0.003,0v768h1024V0H-0.003z M1023.994,740.5L770.997,724l1-74 l-70-2.5v9.5l-63.5-3.5l-197.375-13.084l3.375-9.916l-33-3.484l-89-8.516l-49,116l-42-3l30.76-64.531l-22.574,47.358L63.497,695 l-8.5-16.5l-13-3l-10-34L0,634.5l79.497-73l79,12l0.5-12l-10.5-15.5l18.5-41.875l-12-51.062l-9-4.906l-19-108.656l52-27.5h35l15-8.5	l-38-4.5l3-18.5h11.5l32-19l-18.5-137l-6.5-5.5l5.5-8.5h31l9,8l-6,6l14.5,95.5l5,37l85.5-0.5l-17,19.75l68,21.875l7.798,46.73 l32.702-68.605h22V241.5l41.5-6l113.5,6l10,11h-16v34h24l56-18l-6,43l203,50l49,65l78.497,1V740.5z"/>
-					<clipPath id="area_1_clip"><use xlink:href="#area_1_path" overflow="visible"/></clipPath>
-					<clipPath id="area_2_clip"><use xlink:href="#area_2_path" overflow="visible"/></clipPath>
-					<clipPath id="area_3_clip"><use xlink:href="#area_3_path" overflow="visible"/></clipPath>
-					<clipPath id="area_4_clip"><use xlink:href="#area_4_path" overflow="visible"/></clipPath>
-					<clipPath id="area_5_clip"><use xlink:href="#area_5_path" overflow="visible"/></clipPath>
-					<clipPath id="area_6_clip"><use xlink:href="#area_6_path" overflow="visible"/></clipPath>
-					<clipPath id="area_7_clip"><use xlink:href="#area_7_path" overflow="visible"/></clipPath>
-					<clipPath id="area_8_clip"><use xlink:href="#area_8_path" overflow="visible"/></clipPath>
-					<clipPath id="area_rest_clip"><use xlink:href="#area_rest_path" overflow="visible"/></clipPath>
+					<path id="level_1_area_1_path" d="M126.997,339.5l52-27.5h51l41-17h24l45-18.75l68,21.875	l8,47.938l-82,170.469l-7-12.531h-12l-12,23h-66l-12-17.75l-58-5.125l-12-51.062l-9-4.906L126.997,339.5z"/>
+					<path id="level_1_area_2_path" d="M448.497,276.25h22V389.5h-8l-9,29h9l-51,208.516l-89-8.516	l-49,116l-42-3L448.497,276.25z"/>
+					<path id="level_1_area_3_path" d="M619.497,389.5v-103h24l56-18l-6,43l203,50l49,65l-117-2l-14-13	l-80-2l-5-20H619.497z"/>
+					<path id="level_1_area_4_path" d="M511.997,235.5l113.5,6l10,11h-16v137h-149v-148L511.997,235.5z	"/>
+					<path id="level_1_area_5_path" d="M441.122,640.416l3.375-9.916l-33-3.484l51-208.516h-9l9-29h267	l6,24h-88l-10,193l1,47L441.122,640.416z"/>
+					<path id="level_1_area_6_path" d="M239.683,714.327L63.497,695l-8.5-16.5l-13-3l-10-34L0,634.5 l79.497-73l79,12l0.5-12l-10.5-15.5l18.5-41.875l58,5.125l12,17.75h66l12-23h12l6.982,12.5L239.683,714.327z"/>
+					<path id="level_1_area_7_path" d="M638.497,653.5l-1-47l10-193h88l-1-4l80,2l14,13l117,2l78.497,1	v313L770.997,724l1-74l-70-2.5v9.5L638.497,653.5z"/>
+					<path id="level_1_area_8_path" d="M294.997,295h-24l-41,17h-16l15-8.5l-38-4.5l3-18.5h11.5l32-19 l-18.5-137l-6.5-5.5l5.5-8.5h31l9,8l-6,6l14.5,95.5l5,37l85.5-0.5l-17,19.75L294.997,295z"/>
+					<path id="level_1_area_rest_path" d="M-0.003,0v768h1024V0H-0.003z M1023.994,740.5L770.997,724l1-74 l-70-2.5v9.5l-63.5-3.5l-197.375-13.084l3.375-9.916l-33-3.484l-89-8.516l-49,116l-42-3l30.76-64.531l-22.574,47.358L63.497,695 l-8.5-16.5l-13-3l-10-34L0,634.5l79.497-73l79,12l0.5-12l-10.5-15.5l18.5-41.875l-12-51.062l-9-4.906l-19-108.656l52-27.5h35l15-8.5	l-38-4.5l3-18.5h11.5l32-19l-18.5-137l-6.5-5.5l5.5-8.5h31l9,8l-6,6l14.5,95.5l5,37l85.5-0.5l-17,19.75l68,21.875l7.798,46.73 l32.702-68.605h22V241.5l41.5-6l113.5,6l10,11h-16v34h24l56-18l-6,43l203,50l49,65l78.497,1V740.5z"/>
+					<clipPath id="level_1_area_1_clip"><use xlink:href="#level_1_area_1_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_2_clip"><use xlink:href="#level_1_area_2_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_3_clip"><use xlink:href="#level_1_area_3_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_4_clip"><use xlink:href="#level_1_area_4_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_5_clip"><use xlink:href="#level_1_area_5_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_6_clip"><use xlink:href="#level_1_area_6_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_7_clip"><use xlink:href="#level_1_area_7_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_8_clip"><use xlink:href="#level_1_area_8_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_rest_clip"><use xlink:href="#level_1_area_rest_path" overflow="visible"/></clipPath>
 				</defs>
 	
-				<g id="area_1_group" clip-path="url(#area_1_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_2_group" clip-path="url(#area_2_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_3_group" clip-path="url(#area_3_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_4_group" clip-path="url(#area_4_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_5_group" clip-path="url(#area_5_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_6_group" clip-path="url(#area_6_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_7_group" clip-path="url(#area_7_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_8_group" clip-path="url(#area_8_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
-				<g id="area_rest_group" clip-path="url(#area_rest_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_1_group" clip-path="url(#level_1_area_1_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_2_group" clip-path="url(#level_1_area_2_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_3_group" clip-path="url(#level_1_area_3_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_4_group" clip-path="url(#level_1_area_4_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_5_group" clip-path="url(#level_1_area_5_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_6_group" clip-path="url(#level_1_area_6_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_7_group" clip-path="url(#level_1_area_7_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_8_group" clip-path="url(#level_1_area_8_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_rest_group" clip-path="url(#level_1_area_rest_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
 	
-				<polygon id="area_1" onclick="select_svg_area(this);" points="126.99700164794922,339.5 178.99700164794922,312 229.99700164794922,312 270.9970016479492,295 294.9970016479492,295 339.9970016479492,276.25 407.9970016479492,298.125 415.9970016479492,346.0629997253418 333.9970016479492,516.5319938659668 326.9970016479492,504.0009937286377 314.9970016479492,504.0009937286377 302.9970016479492,527.0009937286377 236.99700164794922,527.0009937286377 224.99700164794922,509.2509937286377 166.99700164794922,504.1259937286377 154.99700164794922,453.0639934539795 145.99700164794922,448.1579933166504 126.99700164794922,339.5"></polygon>
-				<polygon id="area_2" onclick="select_svg_area(this);" points="448.49700927734375,276.25 470.49700927734375,276.25 470.49700927734375,389.5 462.49700927734375,389.5 453.49700927734375,418.5 462.49700927734375,418.5 411.49700927734375,627.0160064697266 322.49700927734375,618.5000066757202 273.49700927734375,734.5000066757202 231.49700927734375,731.5000066757202 448.49700927734375,276.25"></polygon>
-				<polygon id="area_3" onclick="select_svg_area(this);" points="619.4970092773438,389.5 619.4970092773438,286.5 643.4970092773438,286.5 699.4970092773438,268.5 693.4970092773438,311.5 896.4970092773438,361.5 945.4970092773438,426.5 828.4970092773438,424.5 814.4970092773438,411.5 734.4970092773438,409.5 729.4970092773438,389.5 619.4970092773438,389.5"></polygon>
-				<polygon id="area_4" onclick="select_svg_area(this);" points="511.99700927734375,235.5 625.4970092773438,241.5 635.4970092773438,252.5 619.4970092773438,252.5 619.4970092773438,389.5 470.49700927734375,389.5 470.49700927734375,241.5 511.99700927734375,235.5"></polygon>
-				<polygon id="area_5" onclick="select_svg_area(this);" points="441.12200927734375,640.416015625 444.49700927734375,630.5000152587891 411.49700927734375,627.016015291214 462.49700927734375,418.5000088214874 453.49700927734375,418.5000088214874 462.49700927734375,389.5000088214874 729.4970092773438,389.5000088214874 735.4970092773438,413.5000088214874 647.4970092773438,413.5000088214874 637.4970092773438,606.5000088214874 638.4970092773438,653.5000088214874 441.12200927734375,640.416015625"></polygon>
-				<polygon id="area_6" onclick="select_svg_area(this);" points="239.68299865722656,714.3270263671875 63.49700164794922,695 54.99700164794922,678.5 41.99700164794922,675.5 31.99700164794922,641.5 0,634.5 79.49700164794922,561.5 158.49700164794922,573.5 158.99700164794922,561.5 148.49700164794922,546 166.99700164794922,504.125 224.99700164794922,509.25 236.99700164794922,527 302.9970016479492,527 314.9970016479492,504 326.9970016479492,504 333.9790015220642,516.5 239.68299865722656,714.3270263671875"></polygon>
-				<polygon id="area_7" onclick="select_svg_area(this);" points="638.4970092773438,653.5 637.4970092773438,606.5 647.4970092773438,413.5 735.4970092773438,413.5 734.4970092773438,409.5 814.4970092773438,411.5 828.4970092773438,424.5 945.4970092773438,426.5 1023.994010925293,427.5 1023.994010925293,740.5 770.9970092773438,724 771.9970092773438,650 701.9970092773438,647.5 701.9970092773438,657 638.4970092773438,653.5"></polygon>
-				<polygon id="area_8" onclick="select_svg_area(this);" points="294.99700927734375,295 270.99700927734375,295 229.99700927734375,312 213.99700927734375,312 228.99700927734375,303.5 190.99700927734375,299 193.99700927734375,280.5 205.49700927734375,280.5 237.49700927734375,261.5 218.99700927734375,124.5 212.49700927734375,119 217.99700927734375,110.5 248.99700927734375,110.5 257.99700927734375,118.5 251.99700927734375,124.5 266.49700927734375,220 271.49700927734375,257 356.99700927734375,256.5 339.99700927734375,276.25 294.99700927734375,295"></polygon>
+				<polygon id="level_1_area_1" onclick="select_svg_area('level_1',this);" points="126.99700164794922,339.5 178.99700164794922,312 229.99700164794922,312 270.9970016479492,295 294.9970016479492,295 339.9970016479492,276.25 407.9970016479492,298.125 415.9970016479492,346.0629997253418 333.9970016479492,516.5319938659668 326.9970016479492,504.0009937286377 314.9970016479492,504.0009937286377 302.9970016479492,527.0009937286377 236.99700164794922,527.0009937286377 224.99700164794922,509.2509937286377 166.99700164794922,504.1259937286377 154.99700164794922,453.0639934539795 145.99700164794922,448.1579933166504 126.99700164794922,339.5"></polygon>
+				<polygon id="level_1_area_2" onclick="select_svg_area('level_1',this);" points="448.49700927734375,276.25 470.49700927734375,276.25 470.49700927734375,389.5 462.49700927734375,389.5 453.49700927734375,418.5 462.49700927734375,418.5 411.49700927734375,627.0160064697266 322.49700927734375,618.5000066757202 273.49700927734375,734.5000066757202 231.49700927734375,731.5000066757202 448.49700927734375,276.25"></polygon>
+				<polygon id="level_1_area_3" onclick="select_svg_area('level_1',this);" points="619.4970092773438,389.5 619.4970092773438,286.5 643.4970092773438,286.5 699.4970092773438,268.5 693.4970092773438,311.5 896.4970092773438,361.5 945.4970092773438,426.5 828.4970092773438,424.5 814.4970092773438,411.5 734.4970092773438,409.5 729.4970092773438,389.5 619.4970092773438,389.5"></polygon>
+				<polygon id="level_1_area_4" onclick="select_svg_area('level_1',this);" points="511.99700927734375,235.5 625.4970092773438,241.5 635.4970092773438,252.5 619.4970092773438,252.5 619.4970092773438,389.5 470.49700927734375,389.5 470.49700927734375,241.5 511.99700927734375,235.5"></polygon>
+				<polygon id="level_1_area_5" onclick="select_svg_area('level_1',this);" points="441.12200927734375,640.416015625 444.49700927734375,630.5000152587891 411.49700927734375,627.016015291214 462.49700927734375,418.5000088214874 453.49700927734375,418.5000088214874 462.49700927734375,389.5000088214874 729.4970092773438,389.5000088214874 735.4970092773438,413.5000088214874 647.4970092773438,413.5000088214874 637.4970092773438,606.5000088214874 638.4970092773438,653.5000088214874 441.12200927734375,640.416015625"></polygon>
+				<polygon id="level_1_area_6" onclick="select_svg_area('level_1',this);" points="239.68299865722656,714.3270263671875 63.49700164794922,695 54.99700164794922,678.5 41.99700164794922,675.5 31.99700164794922,641.5 0,634.5 79.49700164794922,561.5 158.49700164794922,573.5 158.99700164794922,561.5 148.49700164794922,546 166.99700164794922,504.125 224.99700164794922,509.25 236.99700164794922,527 302.9970016479492,527 314.9970016479492,504 326.9970016479492,504 333.9790015220642,516.5 239.68299865722656,714.3270263671875"></polygon>
+				<polygon id="level_1_area_7" onclick="select_svg_area('level_1',this);" points="638.4970092773438,653.5 637.4970092773438,606.5 647.4970092773438,413.5 735.4970092773438,413.5 734.4970092773438,409.5 814.4970092773438,411.5 828.4970092773438,424.5 945.4970092773438,426.5 1023.994010925293,427.5 1023.994010925293,740.5 770.9970092773438,724 771.9970092773438,650 701.9970092773438,647.5 701.9970092773438,657 638.4970092773438,653.5"></polygon>
+				<polygon id="level_1_area_8" onclick="select_svg_area('level_1',this);" points="294.99700927734375,295 270.99700927734375,295 229.99700927734375,312 213.99700927734375,312 228.99700927734375,303.5 190.99700927734375,299 193.99700927734375,280.5 205.49700927734375,280.5 237.49700927734375,261.5 218.99700927734375,124.5 212.49700927734375,119 217.99700927734375,110.5 248.99700927734375,110.5 257.99700927734375,118.5 251.99700927734375,124.5 266.49700927734375,220 271.49700927734375,257 356.99700927734375,256.5 339.99700927734375,276.25 294.99700927734375,295"></polygon>
 			</svg>
 			
+        </div>
+        <div class="screen hidden" id="level_2">
+        	
+        	<img id="last_stage" src="assets/img/last_stage.jpg"/>
+        	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="medium_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+				<defs>
+					<image id="medium_stage_bg" overflow="visible" width="1024" height="768" xlink:href="assets/img/medium_stage_bw.jpg" transform="matrix(1 0 0 1 0 0)"></image>
+					<path id="level_2_area_1_path" d="M285.75,686.25L81.375,636.125L145.5,548H276l180.333,53.667L454.25,613L708,683v10.667 l-269.75-42l4.708-11.334l-129.995-24.458L285.75,686.25z"/>
+					<path id="level_2_area_2_path" d="M145.5,548L0,523v-39l100-109l39,14l54,109.333L220,498v10h24v40H145.5z"/>
+					<path id="level_2_area_3_path" d="M100,375c0,0,62.248-33.027,127.667-45.333C295,317,347.5,314,347.5,314l37,112.5 c0,0-41,2-86.258,28.045C263.357,474.62,244,508,244,508h-24v-10l-27,0.333L139,389L100,375z"/>
+					<path id="level_2_area_4_path" d="M384.5,426.5l-37-112.5c0,0,79.729-8.875,164.5,3c85.667,12,133.667,34.667,133.667,34.667 l-83.334,106c0,0-47.999-29.666-87.333-34.333C435.667,418.667,384.5,426.5,384.5,426.5z"/>
+					<path id="level_2_area_5_path" d="M645.667,351.667c0,0,108,38,147.333,120.667s5.333,148.167,5.333,148.167L605,573v-18 c0,0,16.667-30.667,0-62s-42.667-35.333-42.667-35.333L645.667,351.667z"/>
+					<path id="level_2_area_6_path" d="M623.274,577.49l175.059,43.01L708,683l-215.31-59.373L454.333,613l2-11.333L276,548h-32v-40 c0,0,19.357-33.38,54.242-53.455C343.5,428.5,384.5,426.5,384.5,426.5s51.167-7.833,90.5-3.166 c39.334,4.667,87.333,34.333,87.333,34.333s26,4,42.667,35.333s0,62,0,62v18L623.274,577.49z"/>
+					<path id="level_2_area_rest_path" d="M0,0v484l100-109c0,0,62.248-33.027,127.667-45.333C295,317,347.5,314,347.5,314 s79.729-8.875,164.5,3c85.667,12,133.667,34.667,133.667,34.667s108,38,147.333,120.667s5.333,148.167,5.333,148.167L708,683v10.667 l-269.75-42l4.708-11.334l-129.995-24.458L285.75,686.25L81.375,636.125L145.5,548L0,523v245h1024V0H0z M623.274,577.49 l175.059,43.01L605,573L623.274,577.49z M454.25,613l19.346,5.337L454.333,613l2-11.333L454.25,613z"/>
+					<clipPath id="level_2_area_1_clip"><use xlink:href="#level_2_area_1_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_2_clip"><use xlink:href="#level_2_area_2_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_3_clip"><use xlink:href="#level_2_area_3_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_4_clip"><use xlink:href="#level_2_area_4_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_5_clip"><use xlink:href="#level_2_area_5_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_6_clip"><use xlink:href="#level_2_area_6_path" overflow="visible"/></clipPath>
+					<clipPath id="level_2_area_rest_clip"><use xlink:href="#level_2_area_rest_path" overflow="visible"/></clipPath>
+				</defs>
+				
+				<g id="level_2_area_1_group" clip-path="url(#level_2_area_1_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_2_group" clip-path="url(#level_2_area_2_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_3_group" clip-path="url(#level_2_area_3_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_4_group" clip-path="url(#level_2_area_4_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_5_group" clip-path="url(#level_2_area_5_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_6_group" clip-path="url(#level_2_area_6_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_rest_group" clip-path="url(#level_2_area_rest_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				
+				<path id="level_2_area_1" onclick="select_svg_area('level_2',this);" d="M285.75,686.25L81.375,636.125L145.5,548H276l180.333,53.667L454.25,613L708,683v10.667 l-269.75-42l4.708-11.334l-129.995-24.458L285.75,686.25z"/>
+				<path id="level_2_area_2" onclick="select_svg_area('level_2',this);" d="M145.5,548L0,523v-39l100-109l39,14l54,109.333L220,498v10h24v40H145.5z"/>
+				<path id="level_2_area_3" onclick="select_svg_area('level_2',this);" d="M100,375c0,0,62.248-33.027,127.667-45.333C295,317,347.5,314,347.5,314l37,112.5 c0,0-41,2-86.258,28.045C263.357,474.62,244,508,244,508h-24v-10l-27,0.333L139,389L100,375z"/>
+				<path id="level_2_area_4" onclick="select_svg_area('level_2',this);" d="M384.5,426.5l-37-112.5c0,0,79.729-8.875,164.5,3c85.667,12,133.667,34.667,133.667,34.667 l-83.334,106c0,0-47.999-29.666-87.333-34.333C435.667,418.667,384.5,426.5,384.5,426.5z"/>
+				<path id="level_2_area_5" onclick="select_svg_area('level_2',this);" d="M645.667,351.667c0,0,108,38,147.333,120.667s5.333,148.167,5.333,148.167L605,573v-18 c0,0,16.667-30.667,0-62s-42.667-35.333-42.667-35.333L645.667,351.667z"/>
+				<path id="level_2_area_6" onclick="select_svg_area('level_2',this);" d="M623.274,577.49l175.059,43.01L708,683l-215.31-59.373L454.333,613l2-11.333L276,548h-32v-40 c0,0,19.357-33.38,54.242-53.455C343.5,428.5,384.5,426.5,384.5,426.5s51.167-7.833,90.5-3.166 c39.334,4.667,87.333,34.333,87.333,34.333s26,4,42.667,35.333s0,62,0,62v18L623.274,577.49z"/>					
+			</svg>
+        
         </div>
 		<div class="screen hidden" id="last">4</div>
 		
 		<!-- tools -->
 		<div id="tools">
-			<div class="tool" id="bulldozer" theTitle="Μπουλντόζα" onclick="remove_svg_area(this);">ΜΠ</div>
-			<div class="tool" id="drill" theTitle="Κομπρεσέρ" onclick="remove_svg_area(this);">ΚΟ</div>
-			<div class="tool" id="pick" theTitle="Κασμάς" onclick="remove_svg_area(this);">ΚΑ</div>
+			<div class="tool" id="bulldozer" for="level_1" theTitle="Μπουλντόζα" onclick="remove_svg_area(this);">ΜΠ</div>
+			<div class="tool" id="drill" for="level_1" theTitle="Κομπρεσέρ" onclick="remove_svg_area(this);">ΚΟ</div>
+			<div class="tool" id="pick" for="level_1 level_2" theTitle="Κασμάς" onclick="remove_svg_area(this);">ΚΑ</div>
+			<div class="tool" id="weeder" for="level_2" theTitle="Σκαλιστήρι" onclick="remove_svg_area(this);">ΣΚ</div>
+			<div class="tool" id="duster" for="level_2" theTitle="Πινέλο" onclick="remove_svg_area(this);">ΠΙ</div>
 		</div>
+		
+		<!-- timer + efforts counter -->
+		<div id="timer"><!-- dynamic content --></div>
+		<div id="efforts"><!-- dynamic content --></div>
+		
+		<!-- popups -->
+		<div id="popup"><!-- dynamic content --></div>
+		<div id="help"><!-- dynamic content --></div>
+		
 	</div>
 	
 </body>
