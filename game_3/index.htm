@@ -39,8 +39,7 @@
 	
 	<!-- main game board container -->
 	<div id="container">
-		<div class="screen" id="init">1</div>
-		<div class="screen hidden" id="help">2</div>
+		<div class="screen" id="init">1</div>		
 		<div class="screen hidden" id="level_greece">
 			<img class="bg" src="assets/img/greece.jpg"/>
 			<div id="greece_theaters" class="theaters"><!-- dynamic content --></div>
@@ -49,8 +48,8 @@
 			<img class="bg" src="assets/img/mediterranean.jpg"/>
 			<div id="mediterranean_theaters" class="theaters"><!-- dynamic content --></div>
         </div>        
-		<div class="screen hidden" id="last">4</div>
 		
+		<!-- theaters popup -->
 		<div id="descriptions">
 			<div id="close_descriptions">&times;</div>
 			<div id="carousel_container">						
@@ -61,14 +60,18 @@
 			<div id="theater_button"><!-- dynamic content --></div>
 		</div>
 		
+		<!-- tour schedule -->
 		<div id="tour_schedule">
 			<h1>ΠΡΟΓΡΑΜΜΑ ΠΕΡΙΟΔΕΙΑΣ</h1>
 			<div id="tour_theaters"><!-- dynamic content --></div>
-			<div id="check_schedule" class="button">ΕΛΕΓΞΕ ΤΟ ΠΡΟΓΡΑΜΜΑ</div>
+			<div id="check_schedule" level="" class="button disabled">ΕΛΕΓΞΕ ΤΟ ΠΡΟΓΡΑΜΜΑ</div>
 		</div>
+				
+		<!-- popups -->
+		<div id="popup"><!-- dynamic content --></div>
+		<div id="help"><!-- dynamic content --></div>
 		
-		<div id="change_map">GRE</div>
-		
+		<!-- div id="change_map">GRE</div -->		
 	</div>
 	
 </body>
