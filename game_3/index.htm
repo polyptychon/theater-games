@@ -21,12 +21,12 @@
 	<!-- preload images -->
 	<script>
 		$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-			var theaters_gr = game_data.theaters.greece; var theaters_med = game_data.theaters.mediterranean; var theaters_all = theaters_gr.concat(theaters_med);
+			//var theaters_gr = game_data.theaters.greece; var theaters_med = game_data.theaters.mediterranean; var theaters_all = theaters_gr.concat(theaters_med);
 			var all_imgs = new Array(); var count = 0;
-			for (t = 0; t < theaters_all.length; t++) {
+			/* for (t = 0; t < theaters_all.length; t++) {
 				var num_of_imgs = theaters_all[t].num_of_imgs;
 				for (n = 1; n <= num_of_imgs; n++) { all_imgs[count] = new Image(400,300); all_imgs[count++].src = "assets/img/400x300/" + theaters_all[t].id + "_" + n + ".jpg"; }
-			}
+			} */
 			all_imgs[count] = new Image(1024,768); all_imgs[count++].src = "assets/img/greece.jpg";
 			all_imgs[count] = new Image(1024,768); all_imgs[count++].src = "assets/img/mediterranean.jpg";			
 		});
