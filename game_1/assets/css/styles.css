@@ -559,7 +559,7 @@ a.footer:hover {
 #container {
   width: 1024px;
   height: 768px;
-  background: #ffffff;
+  background: #222222;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);

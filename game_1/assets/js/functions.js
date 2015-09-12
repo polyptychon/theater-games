@@ -20,13 +20,17 @@ function init() {
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
 		console.log(game_data);
 		selected_area = "";
-		removed_areas = 0;
+		removed_areas = 0;		
 		goto_screen("level_1");
 	});
 }
 
 function goto_screen(which) {
-	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
+	if ($("#" + which).hasClass("hidden")) {
+		$("#" + which).removeClass("hidden");
+		$("#" + which + " svg, #" + which + " svg *").css("display","block");
+		$("#" + which + " svg *").removeAttr("class").removeAttr("style");
+	}
 	$(".tool").removeClass("open").filter("[for~=" + which + "]").addClass("open");
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
@@ -37,7 +41,6 @@ function select_svg_area(level,which_area) {
 		if (which_area.id != selected_area) { $("#" + selected_area).attr({ "class" : "" }); selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); }
 		else { selected_area = ""; $("#" + level + " polygon").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
-	console.log(selected_area);
 }
 
 function remove_svg_area(which_tool) {
@@ -60,10 +63,11 @@ function remove_svg_area(which_tool) {
 
 function end_game(level) {
 	if (level == 1) {
-		setTimeout(function() { $("#init_stage, #tools").fadeOut(3000); }, 2000);
-		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_2"); }, 6000);
+		setTimeout(function() { $("#init_stage, #tools").fadeOut(1000); }, 1000);
+		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_2"); }, 4000);
 	} else if (level == 2) {
-		setTimeout(function() { $("#medium_stage, #tools").fadeOut(3000); }, 2000);
+		setTimeout(function() { $("#medium_stage, #tools").fadeOut(1000); }, 1000);
+		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_1"); }, 4000);
 	}
 }
 /* */

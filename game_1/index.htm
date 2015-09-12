@@ -36,7 +36,7 @@
 		<div class="screen" id="init">1</div>		
 		<div class="screen hidden" id="level_1">
 		
-			<img id="medium_stage" src="assets/img/medium_stage.jpg"/>
+			<img id="medium_stage_bg" src="assets/img/medium_stage.jpg"/>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="init_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
 				<defs>
 					<image id="init_stage_jpg" overflow="visible" width="1024" height="768" xlink:href="assets/img/init_stage.jpg" transform="matrix(1 0 0 1 0 0)"></image>
@@ -83,10 +83,10 @@
         </div>
         <div class="screen hidden" id="level_2">
         	
-        	<img id="last_stage" src="assets/img/last_stage.jpg"/>
+        	<img id="last_stage_bg" src="assets/img/last_stage.jpg"/>
         	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="medium_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
 				<defs>
-					<image id="medium_stage_bg" overflow="visible" width="1024" height="768" xlink:href="assets/img/medium_stage_bw.jpg" transform="matrix(1 0 0 1 0 0)"></image>
+					<image id="medium_stage_jpg" overflow="visible" width="1024" height="768" xlink:href="assets/img/medium_stage_bw.jpg" transform="matrix(1 0 0 1 0 0)"></image>
 					<path id="level_2_area_1_path" d="M285.75,686.25L81.375,636.125L145.5,548H276l180.333,53.667L454.25,613L708,683v10.667 l-269.75-42l4.708-11.334l-129.995-24.458L285.75,686.25z"/>
 					<path id="level_2_area_2_path" d="M145.5,548L0,523v-39l100-109l39,14l54,109.333L220,498v10h24v40H145.5z"/>
 					<path id="level_2_area_3_path" d="M100,375c0,0,62.248-33.027,127.667-45.333C295,317,347.5,314,347.5,314l37,112.5 c0,0-41,2-86.258,28.045C263.357,474.62,244,508,244,508h-24v-10l-27,0.333L139,389L100,375z"/>
@@ -103,13 +103,13 @@
 					<clipPath id="level_2_area_rest_clip"><use xlink:href="#level_2_area_rest_path" overflow="visible"/></clipPath>
 				</defs>
 				
-				<g id="level_2_area_1_group" clip-path="url(#level_2_area_1_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_2_group" clip-path="url(#level_2_area_2_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_3_group" clip-path="url(#level_2_area_3_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_4_group" clip-path="url(#level_2_area_4_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_5_group" clip-path="url(#level_2_area_5_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_6_group" clip-path="url(#level_2_area_6_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
-				<g id="level_2_area_rest_group" clip-path="url(#level_2_area_rest_clip)"><use xlink:href="#medium_stage_bg" overflow="visible"/></g>
+				<g id="level_2_area_1_group" clip-path="url(#level_2_area_1_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_2_group" clip-path="url(#level_2_area_2_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_3_group" clip-path="url(#level_2_area_3_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_4_group" clip-path="url(#level_2_area_4_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_5_group" clip-path="url(#level_2_area_5_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_6_group" clip-path="url(#level_2_area_6_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
+				<g id="level_2_area_rest_group" clip-path="url(#level_2_area_rest_clip)"><use xlink:href="#medium_stage_jpg" overflow="visible"/></g>
 				
 				<path id="level_2_area_1" onclick="select_svg_area('level_2',this);" d="M285.75,686.25L81.375,636.125L145.5,548H276l180.333,53.667L454.25,613L708,683v10.667 l-269.75-42l4.708-11.334l-129.995-24.458L285.75,686.25z"/>
 				<path id="level_2_area_2" onclick="select_svg_area('level_2',this);" d="M145.5,548L0,523v-39l100-109l39,14l54,109.333L220,498v10h24v40H145.5z"/>
@@ -119,8 +119,7 @@
 				<path id="level_2_area_6" onclick="select_svg_area('level_2',this);" d="M623.274,577.49l175.059,43.01L708,683l-215.31-59.373L454.333,613l2-11.333L276,548h-32v-40 c0,0,19.357-33.38,54.242-53.455C343.5,428.5,384.5,426.5,384.5,426.5s51.167-7.833,90.5-3.166 c39.334,4.667,87.333,34.333,87.333,34.333s26,4,42.667,35.333s0,62,0,62v18L623.274,577.49z"/>					
 			</svg>
         
-        </div>
-		<div class="screen hidden" id="last">4</div>
+        </div>		
 		
 		<!-- tools -->
 		<div id="tools">
