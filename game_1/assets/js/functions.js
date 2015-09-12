@@ -52,8 +52,8 @@ function remove_svg_area(which_tool) {
 			$("#" + selected_area).unbind('mouseenter mouseleave').attr("style", "fill:#0c0;").fadeOut(100).fadeIn(500).fadeOut(100);
 			$("#" + selected_area + "_group").fadeOut(1000); selected_area = "";
 			removed_areas++;
-			if (level == 1) { if (removed_areas == 8) end_game(level); }
-			else if (level == 2) { if (removed_areas == 6) end_game(level); }
+			if (level == 1) { if (removed_areas == $("#init_stage g").length - 1) end_game(level); }
+			else if (level == 2) { if (removed_areas == $("#medium_stage g").length - 1) end_game(level); }
 		} else {
 			$("#" + selected_area).attr({ "class" : "wrong_tool" });
 			setTimeout(function() { $("#" + selected_area).attr({ "class" : "selected" }); }, 500);
