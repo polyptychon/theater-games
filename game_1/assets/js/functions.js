@@ -83,10 +83,10 @@ function hide_message() { $("#popup").hide(); }
 
 function end_game(level) {
 	if (level == 1) {
-		setTimeout(function() { $("#init_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
+		setTimeout(function() { $("#init_stage, #tools, #help, #efforts").fadeOut(1000); }, 1000);
 		setTimeout(function() { show_message({"message":game_data.texts.medium_stage, "buttons":[{"button":"Συνεχισε στο επομενο σταδιο", "action":'$("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_2");'}]}); }, 4000);
 	} else if (level == 2) {
-		setTimeout(function() { $("#medium_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
+		setTimeout(function() { $("#medium_stage, #tools, #help, #efforts").fadeOut(1000); }, 1000);
 		setTimeout(function() { show_message({ "message":game_data.texts.last_stage, "buttons":[{ "button":"Ξεκινησε απο την αρχη", "action":'goto_screen("init");' }]}); }, 4000);
 	}
 }
