@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Εκπαιδευτικά παιχνίδια για το αρχαίο θέατρο - Εφαρμογή 1"/>
+	<meta name="description" content="Εκπαιδευτικά παιχνίδια για το αρχαίο θέατρο - Εφαρμογή 1: Τι κρύβεται κάτω από την πόλη"/>
 	<link rel="icon" href="assets/img/icon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Τι κρύβεται κάτω από την πόλη</title>	
@@ -34,7 +34,13 @@
 	
 	<!-- main game board container -->
 	<div id="container">
-		<div class="screen" id="init">1</div>		
+	
+		<!-- screens -->
+		<div class="screen" id="init">
+			<h1 id="game_title"><!-- dynamic content --></h1>
+			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
+		</div>
 		<div class="screen hidden" id="level_1">
 		
 			<img id="medium_stage_bg" src="assets/img/medium_stage.jpg"/>
@@ -124,7 +130,7 @@
 				<path id="level_2_area_6" onclick="select_svg_area('level_2',this);" d="M623.274,577.49l175.059,43.01L708,683l-215.31-59.373L454.333,613l2-11.333L276,548h-32v-40 c0,0,19.357-33.38,54.242-53.455C343.5,428.5,384.5,426.5,384.5,426.5s51.167-7.833,90.5-3.166 c39.334,4.667,87.333,34.333,87.333,34.333s26,4,42.667,35.333s0,62,0,62v18L623.274,577.49z"/>					
 			</svg>
         
-        </div>		
+        </div>
 		
 		<!-- tools -->
 		<div id="tools">
@@ -135,15 +141,24 @@
 			<div class="tool" id="duster" for="level_2" theTitle="Πινέλο" onclick="remove_svg_area(this);">ΠΙ</div>
 		</div>
 		
-		<!-- timer + efforts counter -->
-		<div id="timer"><!-- dynamic content --></div>
-		<div id="efforts"><!-- dynamic content --></div>
+		<!-- timer + efforts counter -->		
+		<div id="efforts" class="invisible"><!-- dynamic content --></div>
+		
+		<!-- help icon + popup -->
+		<div id="help" class="hidden invisible">
+			<span id="help_icon">i</span>
+			<span id="help_text" class="invisible">Help full text</span>
+			<div id="close_help" class="close_button invisible">&times;</div>
+		</div>				
 		
 		<!-- popups -->
-		<div id="popup"><!-- dynamic content --></div>
-		<div id="help"><!-- dynamic content --></div>
-		
-	</div>
+		<div id="popup" class="invisible">
+			<div id="message_container">
+				<div id="message"><!-- dynamic content --></div>
+				<div id="buttons"><!-- dynamic content --></div>
+			</div>
+		</div>
+	</div>	
 	
 </body>
 </html>	

@@ -9,7 +9,13 @@ var removed_areas = 0;
 /* window/document states */
 $(window).load(function() {
 	init();
-	$("*[theTitle]").titlesBehaviour();
+	$("*[theTitle]").titlesBehaviour();	
+	$("#start_game, #restart").click(function() { $("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_1"); });
+	$("#help").click(function() { show_help(); });
+	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
+	$(document).keyup(function(e) {
+	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
+	});
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
 /* */
@@ -18,20 +24,20 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		console.log(game_data);
 		selected_area = "";
-		removed_areas = 0;		
-		goto_screen("level_1");
+		removed_areas = 0;
+		$("#game_title").html(game_data.texts.game_title);
+		$("#game_subtitle").html(game_data.texts.init_stage);
+		$("#final_text").html("<h2>" + game_data.texts.last_stage + "</h2><br/>" + game_data.texts.history);
+		goto_screen("init");
 	});
 }
 
-function goto_screen(which) {
-	if ($("#" + which).hasClass("hidden")) {
-		$("#" + which).removeClass("hidden");
-		$("#" + which + " svg, #" + which + " svg *").css("display","block");
-		$("#" + which + " svg *").removeAttr("class").removeAttr("style");
-	}
+function goto_screen(which) {	
+	if ($("#" + which).hasClass("hidden")) { $("#" + which).removeClass("hidden"); init_svg_obects(which); }
 	$(".tool").removeClass("open").filter("[for~=" + which + "]").addClass("open");
+	if (which.indexOf("level") != -1) { fill_lives(); $("#efforts, #help").removeClass("invisible"); }
+	else { $("#efforts, #help").addClass("invisible"); }
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
@@ -42,7 +48,6 @@ function select_svg_area(level,which_area) {
 		else { selected_area = ""; $("#" + level + " polygon").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
 }
-
 function remove_svg_area(which_tool) {
 	var level = selected_area.split("_")[1];
 	
@@ -57,17 +62,32 @@ function remove_svg_area(which_tool) {
 		} else {
 			$("#" + selected_area).attr({ "class" : "wrong_tool" });
 			setTimeout(function() { $("#" + selected_area).attr({ "class" : "selected" }); }, 500);
+			lose_life("level_" + level);
 		}
 	}
 }
+function init_svg_obects(level) { $("#" + level + " svg, #" + level + " svg *").css("display","block"); $("#" + level + " svg *").removeAttr("class").removeAttr("style"); }
+
+function fill_lives() { $("#efforts").html(""); for (l = 1; l <= 3; l++) $("#efforts").append("<div class='effort'>&#9829;</div>"); }
+function lose_life(level) { $("#efforts .effort:last-child").remove(); if ($(".effort").length == 0) { selected_area = ""; removed_areas = 0; init_svg_obects(level); if (level == "level_1") var message = "Έχασες και τις 3 προσπάθειες που είχες! Ξαναπροσπάθησε για να μπορέσεις να συνεχίσεις στο επόμενο στάδιο."; else message = "Δεν τα κατάφερες. Ξαναπροσπάθησε για να δεις την μορφή του θεάτρου σήμερα, μετά το τέλος της ανασκαφής και της συντήρησής του."; show_message({"message":message, "buttons":[{"button":"Ξαναπροσπαθησε", "action":"goto_screen(\"" + level + "\")"}]}); } }
+
+function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); });	}
+function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
+
+function show_message(params) {	
+	$("#message").html("").html(params.message + "<br/><br/>"); $("#buttons").html("");
+	for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
+	$("#popup").show();
+}
+function hide_message() { $("#popup").hide(); }
 
 function end_game(level) {
 	if (level == 1) {
-		setTimeout(function() { $("#init_stage, #tools").fadeOut(1000); }, 1000);
-		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_2"); }, 4000);
+		setTimeout(function() { $("#init_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
+		setTimeout(function() { show_message({"message":game_data.texts.medium_stage, "buttons":[{"button":"Συνεχισε στο επομενο σταδιο", "action":'$("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_2");'}]}); }, 4000);
 	} else if (level == 2) {
-		setTimeout(function() { $("#medium_stage, #tools").fadeOut(1000); }, 1000);
-		setTimeout(function() { $("#tools").show(); removed_areas = 0; goto_screen("level_1"); }, 4000);
+		setTimeout(function() { $("#medium_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
+		setTimeout(function() { show_message({ "message":game_data.texts.last_stage, "buttons":[{ "button":"Ξεκινησε απο την αρχη", "action":'goto_screen("init");' }]}); }, 4000);
 	}
 }
 /* */

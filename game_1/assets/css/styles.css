@@ -1,4 +1,3 @@
-/* css reset */
 /*@import "_assets/fonts/icons.css";*/
 /* css reset */
 html,
@@ -261,7 +260,7 @@ table {
   cursor: default!important;
 }
 .invisible {
-  display: none!important;
+  display: none;
 }
 .completelyHidden {
   display: none;
@@ -309,7 +308,7 @@ table {
   -webkit-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
-  filter: progid:dximagetransform.microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
 }
 .button.red {
   background: #ff0000;
@@ -330,7 +329,7 @@ table {
   -webkit-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
-  filter: progid:dximagetransform.microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
 }
 .button.disabled {
   cursor: default!important;
@@ -341,7 +340,7 @@ table {
   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
-  filter: progid:dximagetransform.microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
 }
 .button.leftSided {
   float: left;
@@ -467,13 +466,13 @@ h1 {
   font-style: normal;
   position: relative;
   line-height: 1;
-  padding: 25px 2.5%;
+  padding: 25px;
 }
 h2 {
-  font-size: 1.5em;
-  font-weight: 400;
+  font-size: 1.75em;
+  font-weight: 200;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 1;
   margin: 0 0 25px;
 }
 h3 {
@@ -494,6 +493,9 @@ hr {
 }
 hr.full {
   width: 100%;
+}
+p + p {
+  text-indent: 50px;
 }
 img.full {
   width: 100%;
@@ -563,15 +565,16 @@ a.footer:hover {
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:dximagetransform.microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  z-index: 50;
 }
 #container .screen {
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  background: #eeeeee;
   position: absolute;
   top: 0;
   left: 0;
@@ -604,6 +607,13 @@ a.footer:hover {
   position: absolute;
   top: 0;
   left: 0;
+}
+#container .screen .text {
+  padding: 25px;
+  font-size: 1em;
+}
+#container .screen #start_game {
+  margin: 0 0 0 25px;
 }
 #container .screen polygon,
 #container .screen path {
@@ -649,6 +659,10 @@ a.footer:hover {
   right: 25px;
   width: 160px;
   height: 50px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #container #tools .tool {
   cursor: pointer!important;
@@ -684,5 +698,113 @@ a.footer:hover {
   -khtml-opacity: 0;
   opacity: 0;
   filter: alpha(opacity=95);
+}
+#container #efforts {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+#container #efforts .effort {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  display: inline-block;
+  color: #ff0000;
+  font-size: 2.25em;
+  padding: 0 5px 0 0;
+}
+#container #efforts .effort.hidden {
+  display: none;
+}
+#container #help {
+  cursor: pointer!important;
+  background: #ffffff;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  padding: 25px;
+  width: 924px;
+  height: 668px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #help:hover {
+  background: #ffffff;
+}
+#container #help.hidden {
+  text-align: center;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  width: 50px;
+  height: 27px;
+  padding: 13px 0 10px;
+}
+#container #help.hidden:hover {
+  background: #00cc66;
+  color: #ffffff;
+}
+#container #popup {
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-image: url("../img/trans.png");
+}
+#container #popup #message_container {
+  width: 600px;
+  min-height: 125px;
+  max-height: 500px;
+  margin: 125px auto 0;
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  padding: 25px;
+}
+#container #popup #message_container #message {
+  max-height: 350px;
+  overflow-y: auto;
+  margin: 0 0 25px;
+}
+#container #popup #message_container #buttons {
+  text-align: center;
+}
+#container .close_button {
+  cursor: pointer!important;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container .close_button:hover {
+  background: #222222;
+  color: #ffffff;
 }
 /* */
