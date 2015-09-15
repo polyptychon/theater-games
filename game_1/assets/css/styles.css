@@ -752,40 +752,7 @@ a.footer:hover {
   background: #00cc66;
   color: #ffffff;
 }
-#container #popup {
-  width: 1024px;
-  height: 768px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-image: url("../img/trans.png");
-}
-#container #popup #message_container {
-  width: 600px;
-  min-height: 125px;
-  max-height: 500px;
-  margin: 125px auto 0;
-  position: relative;
-  background: #ffffff;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  padding: 25px;
-}
-#container #popup #message_container #message {
-  max-height: 350px;
-  overflow-y: auto;
-  margin: 0 0 25px;
-}
-#container #popup #message_container #buttons {
-  text-align: center;
-}
-#container .close_button {
+#container #help .close_button {
   cursor: pointer!important;
   position: absolute;
   top: -12px;
@@ -803,8 +770,41 @@ a.footer:hover {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-#container .close_button:hover {
+#container #help .close_button:hover {
   background: #222222;
   color: #ffffff;
+}
+#container #popup {
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-image: url("../img/trans.png");
+}
+#container #popup #message_container {
+  width: 700px;
+  min-height: 125px;
+  max-height: 600px;
+  margin: 125px auto 0;
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  padding: 25px;
+}
+#container #popup #message_container #message {
+  max-height: 450px;
+  overflow-y: auto;
+  margin: 0 0 25px;
+}
+#container #popup #message_container #buttons {
+  text-align: center;
 }
 /* */

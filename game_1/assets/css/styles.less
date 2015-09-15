@@ -202,14 +202,14 @@ a {
 		.active; background:@white; .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
 		&.hidden { .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; } }		
+		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 	}
 	#popup {
 		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
-		#message_container { width:600px; min-height:125px; max-height:500px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px;
-			#message { max-height:350px; overflow-y:auto; margin:0 0 25px; }
+		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px;
+			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; }
 			#buttons { .centeredText; }
 		}
-	}
-	.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+	}	
 }
 /* */
