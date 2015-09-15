@@ -12,6 +12,7 @@ $(window).load(function() {
 	init();	
 	$("#close_descriptions").click(function() { $("#descriptions").removeClass("open"); $(".theater").removeClass("selected"); });
 	$("#check_schedule").unbind("click");
+	$("#num_of_theaters").html(0);
 	$("#start_game").click(function() { goto_screen("level_greece"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
@@ -85,6 +86,7 @@ function activate_add_theater_button(where) {
 	if (!theater_already_added) {
 		$("#theater_button .button").html("Προσθηκη στο προγραμμα της περιοδειας").removeClass("red").addClass("green").unbind("click").click(function() {
 			theaters_added_to_schedule[where].push(theater_to_add_id);
+			$("#num_of_theaters").html(theaters_added_to_schedule[where].length);
 			if (theaters_added_to_schedule[where].length == correct_schedule[where].length) $("#check_schedule").removeClass("disabled").click(function() { check_schedule(); });
 			$(this).html("Αφαιρεση απο το προγραμμα της περιοδειας").removeClass("green").addClass("red");
 			$("#tour_theaters").append("<div class='tour_theater' theater_id='" + theater_to_add_id + "'>" + theater_to_add_name + "</div>");
@@ -95,6 +97,7 @@ function activate_add_theater_button(where) {
 	} else {
 		$("#theater_button .button").html("Αφαιρεση απο το προγραμμα της περιοδειας").removeClass("green").addClass("red").unbind("click").click(function() {
 			theaters_added_to_schedule[where].splice(theaters_added_to_schedule[where].indexOf(theater_to_add_id), 1);
+			$("#num_of_theaters").html(theaters_added_to_schedule[where].length);
 			if (theaters_added_to_schedule[where].length != correct_schedule[where].length) $("#check_schedule").addClass("disabled").unbind("click");
 			$(this).html("Προσθηκη στο προγραμμα της περιοδειας").removeClass("red").addClass("green");
 			$("#tour_theaters").find("[theater_id='" + theater_to_add_id + "']").remove();
@@ -105,7 +108,7 @@ function activate_add_theater_button(where) {
 }
 
 function activate_tour_theaters(where) {
-	$(".tour_theater").click(function() { $("#" + $(this).attr("theater_id")).removeClass("added"); if (theaters_added_to_schedule[where].indexOf($(this).attr("theater_id")) > -1) theaters_added_to_schedule[where].splice(theaters_added_to_schedule[where].indexOf($(this).attr("theater_id")), 1); $(this).remove(); if (theaters_added_to_schedule[where].length != correct_schedule[where].length) $("#check_schedule").addClass("disabled").unbind("click"); activate_add_theater_button(where); });
+	$(".tour_theater").click(function() { $("#" + $(this).attr("theater_id")).removeClass("added"); if (theaters_added_to_schedule[where].indexOf($(this).attr("theater_id")) > -1) theaters_added_to_schedule[where].splice(theaters_added_to_schedule[where].indexOf($(this).attr("theater_id")), 1); $("#num_of_theaters").html(theaters_added_to_schedule[where].length); $(this).remove(); if (theaters_added_to_schedule[where].length != correct_schedule[where].length) $("#check_schedule").addClass("disabled").unbind("click"); activate_add_theater_button(where); });
 }
 
 function activate_carousel() {
@@ -136,8 +139,8 @@ function end_game(level,result) {
 	$("#descriptions").removeClass("open");
 	var text_to_show = eval("game_data.texts.end_level_" + level + "_" + result);
 	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + theater.name + "</li>"; return; }); text_to_show += "<ul>" + active_theaters + "</ul></p>"; }
-	if (level == "greece") { var button = "Συνεχισε στο επομενο σταδιο"; var action = '$("#popup").addClass("invisible"); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
-	else if (level == "mediterranean") { var button = "Ξαναπαιξε απο την αρχη"; var action = '$("#popup").addClass("invisible"); $("#greece_theaters").html(""); goto_screen("init");'; }
+	if (level == "greece") { var button = "Συνεχισε στο επομενο σταδιο"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
+	else if (level == "mediterranean") { var button = "Ξαναπαιξε απο την αρχη"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#greece_theaters").html(""); goto_screen("init");'; }
 	show_message({"message":text_to_show, "buttons":[{"button": button, "action": action}]});	
 }
 /* */
