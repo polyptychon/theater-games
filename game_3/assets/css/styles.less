@@ -153,10 +153,10 @@ html, body { width:100%; min-height:100%; .text_font; }
 body { background:@sitebeize - #222; }
 div { color:@textGray; }
 b { .bold; } i { .italic; } em { .medium; } strong { .black; } del { color:@red; }
-h1 { .pt(20); .medium; .rel; .lh(1); padding:10px 0; }
-h2 { .pt(24); .normal; .lh(1.5); margin:0 0 25px;  }
-h3 { .pt(20); .medium; .lh(1.25); padding:25px 0; }
-hr { .clear; border:0; border-top:dotted 1px @midGray; margin:10px auto; width:100%; }
+h1 { .pt(32); .light; .rel; .lh(1); padding:25px; }
+h2 { .pt(24); .light; .lh(1); margin:0 0 25px;  }
+h3 { .pt(18); .medium; .lh(1); padding:15px 0 25px; }
+hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%; &.full { width:100%; } }
 p + p { text-indent:50px; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
@@ -172,7 +172,7 @@ a {
 #loader { width:100%; height:100%; .fixPos(0,0); .z(20000); background:@sitebeize - #222; overflow:hidden; }
 #dhtmltooltip { .abs; max-width:350px; background:@white!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
 #container { width:1024px; height:768px; background:@midGray; .shadowed(0,2px,5px); margin:0 auto; overflow:hidden; .rel;
-	.screen { width:100%; height:100%; background:@white; .absPos(0,0); .transparent(1,100); .transition(~"opacity .3s ease-in-out, -webkit-opacity .3s ease-in-out"); &.hidden { .absPos(-100%,0); .transparent(0,0); }
+	.screen { width:100%; height:100%; background:@lightGray; .absPos(0,0); .transparent(1,100); .transition(~"opacity .3s ease-in-out, -webkit-opacity .3s ease-in-out"); &.hidden { .absPos(-100%,0); .transparent(0,0); }
 		img.bg { .absPos(0,0); .z(0); }
 		.theaters { width:100%; height:100%; .absPos(0,0); .z(100);
 			.theater { .active; background:@blue; width:25px; height:25px; .transparent(.75,75); .rounded(50%); .abs; .transition(all .2s ease-in-out);
@@ -182,6 +182,8 @@ a {
 				span { .invisible; }
 			}
 		}
+		.text { padding:25px; .pt(16); }
+		#start_game { margin:0 0 0 25px; }
 	}
 	
 	#descriptions { .transparent(0,0); .absPos(-100%,-100%); .z(6000); width:400px; height:648px; padding:25px; background:@white; .shadowed(0,2px,5px); .rounded(8px); .transition(~"opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out");
@@ -194,9 +196,9 @@ a {
 				}
 			}
 		}
-		#theater_title { height:70px; .centeredText; }
+		#theater_title { height:60px; .centeredText; }
 		#theater_description { height:200px; overflow-y:auto; background:@lightGray; padding:10px; }
-		#theater_button { height:53px; .centeredText; margin:20px 0 0; }
+		#theater_button { height:53px; .centeredText; margin:25px 0 0; }
 	}
 	
 	#tour_schedule { .absPosRight(35px,40px); .z(200); .transparent(.95,95); width:220px; height:400px; background:@white; .shadowed(0,2px,5px); .rounded(8px);
@@ -207,7 +209,20 @@ a {
 		#check_schedule { .absPosBottom(-50px,0); padding:10px 5%; width:90%; .centeredText; }
 	}
 	
-	#change_map { .active; .absPosBottom(25px,25px); .z(300); width:50px; height:26px; .centeredText; background:@white; color:@blue; padding:12px 0; .transition(all .2s ease-in-out); &:hover { background:@blue; color:@white; } }
+	#help {
+		.active; background:@white; .z(1000); .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		&:hover { background:@white; }
+		&.hidden { .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; } }		
+		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+	}
+	
+	#popup {
+		width:1024px; height:768px; .absPos(0,0); .z(1500); background-image:url("../img/trans.png");
+		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px;
+			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; }
+			#buttons { .centeredText; }
+		}
+	}
 }
 /* */
 

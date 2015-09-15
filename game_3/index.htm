@@ -39,7 +39,11 @@
 	
 	<!-- main game board container -->
 	<div id="container">
-		<div class="screen" id="init">1</div>		
+		<div class="screen" id="init">
+			<h1 id="game_title"><!-- dynamic content --></h1>
+			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
+		</div>		
 		<div class="screen hidden" id="level_greece">
 			<img class="bg" src="assets/img/greece.jpg"/>
 			<div id="greece_theaters" class="theaters"><!-- dynamic content --></div>
@@ -61,17 +65,26 @@
 		</div>
 		
 		<!-- tour schedule -->
-		<div id="tour_schedule">
+		<div id="tour_schedule" class="invisible">
 			<h1>ΠΡΟΓΡΑΜΜΑ ΠΕΡΙΟΔΕΙΑΣ</h1>
 			<div id="tour_theaters"><!-- dynamic content --></div>
 			<div id="check_schedule" level="" class="button disabled">ΕΛΕΓΞΕ ΤΟ ΠΡΟΓΡΑΜΜΑ</div>
 		</div>
 				
-		<!-- popups -->
-		<div id="popup"><!-- dynamic content --></div>
-		<div id="help"><!-- dynamic content --></div>
+		<!-- help icon + popup -->
+		<div id="help" class="hidden invisible">
+			<span id="help_icon">i</span>
+			<span id="help_text" class="invisible">Help full text</span>
+			<div id="close_help" class="close_button invisible">&times;</div>
+		</div>				
 		
-		<!-- div id="change_map">GRE</div -->		
+		<!-- popups -->
+		<div id="popup" class="invisible">
+			<div id="message_container">
+				<div id="message"><!-- dynamic content --></div>
+				<div id="buttons"><!-- dynamic content --></div>
+			</div>
+		</div>		
 	</div>
 	
 </body>
