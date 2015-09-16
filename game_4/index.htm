@@ -3,25 +3,93 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Theater Games - Game 4"/>
-	<link rel="icon" href="_assets/img/icon.png"/>		
-	<link rel="apple-touch-icon-precomposed" href="_assets/img/icon_512.png"/>
+	<meta name="description" content="Εκπαιδευτικά παιχνίδια για το αρχαίο θέατρο - Εφαρμογή 4: Ο Διόνυσος και οι φίλοι του"/>
+	<link rel="icon" href="assets/img/icon.png"/>		
+	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Ο Διόνυσος και οι φίλοι του</title>	
-	<link rel="stylesheet" type="text/css" href="_assets/css/styles.css"/>	
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
 </head>
 <body>
 	
+	<!-- preload images -->
+	<script>
+		var img_1 = new Image(1024,768); img_1.src = "";
+	</script>
+	
+	<!-- tooltip -->
+	<div id="dhtmltooltip"></div>
+	
 	<!-- external libs -->
-	<script src="_assets/libs/jquery-1.11.1.min.js"></script>
-	<script src="_assets/libs/jquery-migrate.min.js"></script>
-	<script src="_assets/libs/jquery.easing.min.js"></script>
-	<script src="_assets/libs/snap.svg-min.js"></script>
-	
+	<script src="assets/libs/jquery-1.11.1.min.js"></script>
+	<script src="assets/libs/jquery-migrate.min.js"></script>
+	<script src="assets/libs/jquery.easing.min.js"></script>
 	<!-- custom js -->
-	<script src="_assets/js/functions.js"></script>
+	<script src="assets/js/functions.js"></script>
 	
-	<!-- fade in loader -->
+	<!-- init loader -->
 	<div id="loader"></div>
+	
+	<!-- main game board container -->
+	<div id="container">
+	
+		<!-- screens -->
+		<div class="screen" id="init">
+			<h1 id="game_title"><!-- dynamic content --></h1>
+			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
+		</div>
+		<div class="screen hidden centeredText" id="level_1">
+					
+			<br/><br/>1<br/><br/>
+			<div class="button" onclick="goto_screen('level_2');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+						
+        </div>
+        <div class="screen hidden centeredText" id="level_2">
+        	
+        	<br/><br/>2<br/><br/>
+        	<div class="button" onclick="goto_screen('level_3');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+        
+        </div>
+        <div class="screen hidden centeredText" id="level_3">
+        	
+        	<br/><br/>3<br/><br/>
+        	<div class="button" onclick="goto_screen('level_4');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+        
+        </div>
+        <div class="screen hidden centeredText" id="level_4">
+        	
+        	<br/><br/>4<br/><br/>
+        	<div class="button" onclick="goto_screen('level_5');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+        
+        </div>
+        <div class="screen hidden centeredText" id="level_5">
+        	
+        	<br/><br/>5<br/><br/>
+        	<div class="button" onclick="goto_screen('level_6');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+        
+        </div>
+        <div class="screen hidden centeredText" id="level_6">
+        	
+        	<br/><br/>Custom αγγείο<br/><br/>
+        	<div class="button" onclick="goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
+        
+        </div>
+		
+		<!-- help icon + popup -->
+		<div id="help" class="hidden invisible">
+			<span id="help_icon">i</span>
+			<span id="help_text" class="invisible">Help full text</span>
+			<div id="close_help" class="close_button invisible">&times;</div>
+		</div>				
+		
+		<!-- popups -->
+		<div id="popup" class="invisible">
+			<div id="message_container">
+				<div id="message"><!-- dynamic content --></div>
+				<div id="buttons"><!-- dynamic content --></div>
+			</div>
+		</div>
+	</div>	
 	
 </body>
 </html>	

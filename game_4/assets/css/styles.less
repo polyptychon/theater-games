@@ -1,4 +1,4 @@
-/* @import "_assets/fonts/icons.css"; */
+/*@import "_assets/fonts/icons.css";*/
 
 /* css reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
@@ -7,7 +7,7 @@ body{line-height:1.5}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
-* { -webkit-font-variant-ligatures: no-common-ligatures; }
+* { &:focus { outline:0; } }
 /* */
 
 /* start: general reusable rules */
@@ -35,8 +35,8 @@ table{border-collapse:collapse;border-spacing:0}
 	@sitered:			#f74d4d; /* bright magenta */	
 	/* */	
 	/* width/spacing/fonts */
-	@max_width:			1100px;
-	@spacing:			2.5; /* in % */
+	@max_width:			1024px;
+	@spacing:			0; /* in % */
 	@padding:			0; /* in % */
 	@text_main_size:	1em;
 	@text_font:			"Roboto";
@@ -107,7 +107,7 @@ table{border-collapse:collapse;border-spacing:0}
 	/* behaviour */
 	.active { cursor:pointer!important; }
 	.inactive { cursor:default!important; }
-	.invisible { display:none!important; }
+	.invisible { display:none; }
 	.completelyHidden { display:none; visibility:hidden; }
 	.visible(@type) { display:@type; }
 	.nonSelective { -moz-user-select:none; -webkit-user-select:none; -ms-user-select:none; user-select:none; }
@@ -152,10 +152,11 @@ html, body { width:100%; min-height:100%; .text_font; }
 body { background:@sitebeize - #222; }
 div { color:@textGray; }
 b { .bold; } i { .italic; } em { .medium; } strong { .black; } del { color:@red; }
-h1 { .pt(32); .light; .rel; .lh(1); padding:25px 2.5%; }
-h2 { .pt(24); .normal; .lh(1.5); margin:0 0 25px;  }
+h1 { .pt(32); .light; .rel; .lh(1); padding:25px; }
+h2 { .pt(28); .light; .lh(1); margin:0 0 25px;  }
 h3 { .pt(20); .medium; .lh(1.25); padding:25px 0; }
 hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%; &.full { width:100%; } }
+p + p { text-indent:50px; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
 	color:@sitered; .notUnderlined; .active; .transition(all .2s ease-in-out);	
@@ -167,6 +168,27 @@ a {
 /* */
 
 /* custom objects */
-#loader { width:100%; height:100%; .fixPos(0,0); .z(20000); background:@darkGray; overflow:hidden; }
-#container { }
+#loader { width:100%; height:100%; .fixPos(0,0); .z(20000); background:@sitebeize - #222; overflow:hidden; }
+#dhtmltooltip { .abs; max-width:350px; background:@lightYellow!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
+#container { width:1024px; height:768px; background:@textGray; .shadowed(0,2px,5px); margin:0 auto; overflow:hidden; .rel; .z(50);
+	.screen { width:100%; height:100%; background:@lightGray; .absPos(0,0); .transparent(1,100); .transition(~"opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out"); &.hidden { .absPos(100%,0); .transparent(0,0); }
+		&#level_1, &#level_2 { img, svg { .absPos(0,0); } }
+		.text { padding:25px; .pt(16); }
+		#start_game { margin:0 0 0 25px; }
+
+	}
+	#help {
+		.active; background:@white; .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		&:hover { background:@white; }
+		&.hidden { .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; } }		
+		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+	}
+	#popup {
+		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
+		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px;
+			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; }
+			#buttons { .centeredText; }
+		}
+	}	
+}
 /* */

@@ -7,7 +7,13 @@ var game_data = "";
 /* window/document states */
 $(window).load(function() {
 	init();
-	$("*[theTitle]").titlesBehaviour();
+	$("*[theTitle]").titlesBehaviour();	
+	$("#start_game").click(function() { goto_screen("level_1"); });
+	$("#help").click(function() { show_help(); });
+	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
+	$(document).keyup(function(e) {
+	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
+	});
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
 /* */
@@ -16,19 +22,35 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		console.log(game_data);
-		goto_screen("game");
+		$("#game_title").html(game_data.texts.game_title);
+		$("#game_subtitle").html(game_data.texts.intro);
+		goto_screen("init");
 	});
 }
 
-function goto_screen(which) {
+function goto_screen(which) {	
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
+	if (which.indexOf("level") != -1) { $("#help").removeClass("invisible"); }
+	else { $("#help").addClass("invisible"); }
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
+function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }
+function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
-function end_game() {
-	
+function show_message(params) {	
+	$("#message").html("").html(params.message + "<br/><br/>");
+	$("#buttons").html(	"");	for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
+	$("#popup").show();
+}
+function hide_message() { $("#popup").hide(); }
+
+function end_game(level) {
+	if (level == 1) {
+		show_message({"message":game_data.texts.game_title, "buttons":[{"button":"Συνεχισε στο επομενο σταδιο", "action":'$("#help").show(); goto_screen("level_2");'}]});
+	} else if (level == 2) {	
+		show_message({ "message":game_data.texts.game_title, "buttons":[{ "button":"Ξεκινησε απο την αρχη", "action":'goto_screen("init");' }]});
+	}
 }
 /* */
 
