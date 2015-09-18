@@ -920,14 +920,67 @@ a.footer:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
   padding: 25px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #container #popup #message_container #message {
   max-height: 450px;
   overflow-y: auto;
   margin: 0 0 25px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #container #popup #message_container #buttons {
   text-align: center;
+}
+#container #popup #message_container .close_button {
+  cursor: pointer!important;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #popup #message_container .close_button:hover {
+  background: #222222;
+  color: #ffffff;
+}
+#container #popup.down {
+  background-image: none;
+}
+#container #popup.down #message_container {
+  min-height: 0;
+  margin: 675px auto 0;
+  width: 225px;
+}
+#container #popup.down #message_container #message {
+  max-height: 0px;
+  margin: 0;
+}
+#container #popup.down #message_container .close_button {
+  background: #00cc66;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#container #popup.down #message_container .close_buttonhover {
+  background: #222222;
 }
 /* */
 /* animations */

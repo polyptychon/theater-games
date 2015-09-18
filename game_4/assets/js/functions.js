@@ -11,6 +11,7 @@ $(window).load(function() {
 	$("#start_game").click(function() { goto_screen("level_1"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
+	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 	});
@@ -41,9 +42,9 @@ function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").a
 function show_message(params) {	
 	$("#message").html("").html(params.message + "<br/><br/>");
 	$("#buttons").html(	"");	for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
-	$("#popup").show();
+	$("#popup").removeClass("down").removeClass("invisible");
 }
-function hide_message() { $("#popup").hide(); }
+function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
 function end_game(level) {
 	if (level == 1) {
