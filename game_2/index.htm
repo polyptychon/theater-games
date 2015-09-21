@@ -13,7 +13,7 @@
 	
 	<!-- preload images -->
 	<script>
-		var img_1 = new Image(1024,768); img_1.src = "";
+		var img_1 = new Image(1024,768); img_1.src = "assets/img/level_1_all.jpg";
 	</script>
 	
 	<!-- tooltip -->
@@ -38,10 +38,30 @@
 			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
 			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
 		</div>
-		<div class="screen hidden centeredText" id="level_1">
+		<div class="screen hidden" id="level_1">
 		
-			<br/><br/>1<br/><br/>
-			<div class="button" onclick="goto_screen('level_2');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="init_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+				<defs>
+					<image id="init_stage_jpg" overflow="visible" width="1024" height="768" xlink:href="assets/img/level_1_all.jpg" transform="matrix(1 0 0 1 0 0)"></image>
+					<path id="level_1_area_1_path" d="M841,619h-6l-5.5-16.75L804,526v-23l-5.25-14l163.125-8l50.062,77l-4.969,4l-1.484,27 l5.516,12v22l-163.25,7l-0.875-7.75L841,619z"/>
+					<path id="level_1_area_2_path" d="M703,539l-140-14h-9h-17v-9l-26-6v-29c0,0-14.5-40,0.5-89s69.25-56,151.25-49 s116.625,17,135.875,41s22.312,55.851,22.312,55.851L817,482h-35l3,21l-6,36H703z"/>
+					<path id="level_1_area_3_path" d="M540.75,549.75l4.5-18.5L598,539l-1.5,17.25l3.25,4L593,574.5V589l-7.25,16.5L515,593 l-0.518-21.861L511.938,568l11.281-20.25L540.75,549.75z"/>
+					<path id="level_1_area_rest_path" d="M0,0,1024,768z"/>
+					<clipPath id="level_1_area_1_clip"><use xlink:href="#level_1_area_1_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_2_clip"><use xlink:href="#level_1_area_2_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_area_3_clip"><use xlink:href="#level_1_area_3_path" overflow="visible"/></clipPath>
+					<clipPath id="level_1_rest_area_clip"><use xlink:href="#level_1_area_rest_path" overflow="visible"/></clipPath>
+				</defs>
+
+				<g id="level_1_area_1_group" clip-path="url(#level_1_area_1_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_2_group" clip-path="url(#level_1_area_2_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_3_group" clip-path="url(#level_1_area_3_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_rest_group" clip-path="url(#level_1_area_rest_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+
+				<path id="level_1_area_1" show="day_1" onclick="select_svg_area('level_1',this);" d="M841,619h-6l-5.5-16.75L804,526v-23l-5.25-14l163.125-8l50.062,77l-4.969,4l-1.484,27 l5.516,12v22l-163.25,7l-0.875-7.75L841,619z"/>
+				<path id="level_1_area_2" show="day_4" onclick="select_svg_area('level_1',this);" d="M703,539l-140-14h-9h-17v-9l-26-6v-29c0,0-14.5-40,0.5-89s69.25-56,151.25-49 s116.625,17,135.875,41s22.312,55.851,22.312,55.851L817,482h-35l3,21l-6,36H703z"/>
+				<path id="level_1_area_3" show="day_3" onclick="select_svg_area('level_1',this);" d="M540.75,549.75l4.5-18.5L598,539l-1.5,17.25l3.25,4L593,574.5V589l-7.25,16.5L515,593 l-0.518-21.861L511.938,568l11.281-20.25L540.75,549.75z"/>
+			</svg>
 						
         </div>
         <div class="screen hidden centeredText" id="level_2">
@@ -49,6 +69,12 @@
         	<br/><br/>2<br/><br/>
 			<div class="button" onclick="goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
         
+        </div>
+        
+        <div id="calendar">        	
+        	<div id="calendar_days"><!-- dynamic content --></div>
+        	<div id="calendar_content"><!-- dynamic content --></div>
+        	<div id="calendar_handle"><!-- dynamic content --></div>
         </div>
 		
 		<!-- help icon + popup -->

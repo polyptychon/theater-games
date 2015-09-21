@@ -175,10 +175,45 @@ a {
 		&#level_1, &#level_2 { img, svg { .absPos(0,0); } }
 		.text { padding:25px; .pt(16); }
 		#start_game { margin:0 0 0 25px; }
-
+		
+		/* svg styles */
+		polygon, path { cursor:pointer; .transparent(0,0); .transition(all .2s ease-in-out);
+			&#level_1_area_1 { fill:@blue; }
+			&#level_1_area_2 { fill:@red; }
+			&#level_1_area_3 { fill:@green; }
+			&:hover, &:focus { .transparent(.75,75); }
+			&.selected { fill:@yellow; .transparent(.5,50)!important; }
+			&.wrong_tool { fill:@red; .transparent(.5,50)!important; }
+		}
+		/* */
 	}
+	#calendar {
+		width:974px; height:680px; margin:0 auto; .relPos(-680px,0); .z(2000); .transition(all .2s ease-in-out);
+		#calendar_days { height:50px; background:@lightGray; margin:0; padding:0;
+			.calendar_day_tab { .active; .visible(inline-block); width:25%; .centeredText; padding:13px 0; color:@textGray; .transition(all .2s ease-in-out);
+				&.selected { .bold; }
+				&:hover, &.selected { background:@white; }
+			}
+		}
+		#calendar_content { background:@lightGray; width:924px; height:580px; padding:25px; overflow:hidden; .rel; .z(100)!important; .transition(all .2s ease-in-out); .shadowed(0,0,0);
+			.calendar_day { padding:2.5%; width:95%; height:87.5%; .absPos(0,0); background:@lightGray;
+				.day_text { height:92.5%; overflow-y:auto; }
+				&.hidden { .absPos(0,101%); }
+			}
+		}
+		#calendar_handle { .active; .nonSelective; background:@white; .pt(13); .roundedBottom(8px); .bold; .visible(inline-block); .centeredText; padding:15px 25px; .capitalized; .relPos(0,60px); .z(0); .transition(all .2s ease-in-out);
+			&:after { content:"\25BE"; background:@darkGray; color:@white; .centeredText; padding:4px 10px 6px; .relPos(-1px,0); .rounded(50%); margin:0 0 0 25px; .pt(18); .bold; color:@white; .transition(all .2s ease-in-out); }			
+			&:hover { background:@lightGray - #111; &:after { background:@green; } }
+		}
+		&:hover { .relPos(-670px,0); #calendar_content { .shadowed(0,2px,5px); } }
+		&.open { .relPos(0,0);
+			#calendar_content { .shadowed(0,2px,5px); }
+			#calendar_handle { &:after { content:"\00d7"; padding:5px 10px; } &:hover { &:after { background:@red; } } }
+			&:hover { .relPos(0,0); }
+		}				
+	}	
 	#help {
-		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); .z(5000); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
 		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; } }		
 		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }

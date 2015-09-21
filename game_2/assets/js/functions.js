@@ -1,6 +1,7 @@
 /* global vars */
 var isMobile = false; if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) isMobile = true;
 var game_data = "";
+var selected_area = "";
 /* */
 
 
@@ -12,8 +13,9 @@ $(window).load(function() {
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
+	$("#calendar_handle").click(function() { show_calendar(); });
 	$(document).keyup(function(e) {
-	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
+	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); show_calendar(); }
 	});
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
@@ -25,23 +27,63 @@ function init() {
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
 		$("#game_title").html(game_data.texts.game_title);
 		$("#game_subtitle").html(game_data.texts.intro);
+		render_calendar_content(game_data.texts.the_feast_calendar.days);
+		$("#calendar_handle").html(game_data.texts.the_feast_calendar.handle);
 		goto_screen("init");
 	});
 }
 
 function goto_screen(which) {	
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
-	if (which.indexOf("level") != -1) { $("#help").removeClass("invisible"); }
-	else { $("#help").addClass("invisible"); }
+	if (which.indexOf("level") != -1) { $("#help, #calendar").removeClass("invisible"); }
+	else { $("#help, #calendar").addClass("invisible"); }
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
-function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }
+function select_svg_area(level,which_area) {
+	if (selected_area == "") { selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); show_calendar(which_area.getAttribute("show")); }
+	else {
+		if (which_area.id != selected_area) { $("#" + selected_area).attr({ "class" : "" }); selected_area = which_area.id; $("#" + selected_area).unbind('mouseleave').attr({ "class" : "selected" }); show_calendar(which_area.getAttribute("show")); }
+		else { selected_area = ""; $("#" + level + " path").each(function() { $(this).attr({ "class" : "" }); }); }
+	}
+}
+function init_svg_objects(level) { $("#" + level + " svg *").removeAttr("class").removeAttr("style"); }
+
+
+function show_help() { hide_calendar(); $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
-function show_message(params) {	
+function render_calendar_content(texts) {
+	var content_html = ""; var days_titles_html = "";
+	for (day = 1; day <= 4; day++) {
+		var day_text = eval("texts.day_" + day);
+		var day_title = $(day_text).html().split(" ημέρα")[0] + " ημέρα";
+		days_titles_html += "<div for='day_" + day + "' class='calendar_day_tab' onclick='change_page(\"day_" + day + "\")'>" + day_title + "</div>";
+		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'>" + day_text + "</div>";		
+	}
+	$("#calendar_days").html(days_titles_html);
+	$("#calendar_content").html(content_html);
+	
+}
+function show_calendar(page) {
+	hide_help(); hide_message();
+	$(".calendar_day_tab").removeClass("selected");
+	if (page != null) { $(".calendar_day").addClass("hidden"); $("#" + page).removeClass("hidden"); $(".calendar_day_tab[for = '" + page + "']").addClass("selected"); }
+	else { $(".calendar_day").addClass("hidden"); $("#day_1").removeClass("hidden"); $(".calendar_day_tab[for = 'day_1']").addClass("selected"); }
+	if (!$("#calendar").hasClass("open")) $("#calendar").addClass("open"); else $("#calendar").removeClass("open");	
+}
+function hide_calendar() { $("#calendar").removeClass("open"); }
+function change_page(page) {
+	$(".calendar_day:not(.hidden)").addClass("hidden");
+	$("#" + page).removeClass("hidden");
+	$(".calendar_day_tab").removeClass("selected");
+	$(".calendar_day_tab[for = '" + page + "']").addClass("selected");
+}
+
+function show_message(params) {
+	hide_calendar();	
 	$("#message").html("").html(params.message + "<br/><br/>");
-	$("#buttons").html(	"");	for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
+	$("#buttons").html(""); for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
 	$("#popup").removeClass("down").removeClass("invisible");
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }

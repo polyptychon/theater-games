@@ -586,6 +586,10 @@ a.footer:hover {
   -moz-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
   -o-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
   transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
+  /* svg styles */
+
+  /* */
+
 }
 #container .screen.hidden {
   position: absolute;
@@ -611,6 +615,219 @@ a.footer:hover {
 #container .screen #start_game {
   margin: 0 0 0 25px;
 }
+#container .screen polygon,
+#container .screen path {
+  cursor: pointer;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container .screen polygon#level_1_area_1,
+#container .screen path#level_1_area_1 {
+  fill: #0099ff;
+}
+#container .screen polygon#level_1_area_2,
+#container .screen path#level_1_area_2 {
+  fill: #ff0000;
+}
+#container .screen polygon#level_1_area_3,
+#container .screen path#level_1_area_3 {
+  fill: #00cc66;
+}
+#container .screen polygon:hover,
+#container .screen path:hover,
+#container .screen polygon:focus,
+#container .screen path:focus {
+  -moz-opacity: 0.75;
+  -khtml-opacity: 0.75;
+  opacity: 0.75;
+  filter: alpha(opacity=95);
+}
+#container .screen polygon.selected,
+#container .screen path.selected {
+  fill: #ffff00;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  opacity: 0.5 !important;
+  filter: alpha(opacity=95) !important;
+}
+#container .screen polygon.wrong_tool,
+#container .screen path.wrong_tool {
+  fill: #ff0000;
+  -moz-opacity: 0.5 !important;
+  -khtml-opacity: 0.5 !important;
+  opacity: 0.5 !important;
+  filter: alpha(opacity=95) !important;
+}
+#container #calendar {
+  width: 974px;
+  height: 680px;
+  margin: 0 auto;
+  position: relative;
+  top: -680px;
+  left: 0;
+  z-index: 2000;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #calendar #calendar_days {
+  height: 50px;
+  background: #eeeeee;
+  margin: 0;
+  padding: 0;
+}
+#container #calendar #calendar_days .calendar_day_tab {
+  cursor: pointer!important;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  padding: 13px 0;
+  color: #222222;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #calendar #calendar_days .calendar_day_tab.selected {
+  font-weight: 700;
+  font-style: normal;
+}
+#container #calendar #calendar_days .calendar_day_tab:hover,
+#container #calendar #calendar_days .calendar_day_tab.selected {
+  background: #ffffff;
+}
+#container #calendar #calendar_content {
+  background: #eeeeee;
+  width: 924px;
+  height: 580px;
+  padding: 25px;
+  overflow: hidden;
+  position: relative;
+  z-index: 100 !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+}
+#container #calendar #calendar_content .calendar_day {
+  padding: 2.5%;
+  width: 95%;
+  height: 87.5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #eeeeee;
+}
+#container #calendar #calendar_content .calendar_day .day_text {
+  height: 92.5%;
+  overflow-y: auto;
+}
+#container #calendar #calendar_content .calendar_day.hidden {
+  position: absolute;
+  top: 0;
+  left: 101%;
+}
+#container #calendar #calendar_handle {
+  cursor: pointer!important;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #ffffff;
+  font-size: 0.8125em;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  font-weight: 700;
+  font-style: normal;
+  display: inline-block;
+  text-align: center;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  position: relative;
+  top: 0;
+  left: 60px;
+  z-index: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #calendar #calendar_handle:after {
+  content: "\25BE";
+  background: #444444;
+  text-align: center;
+  padding: 4px 10px 6px;
+  position: relative;
+  top: -1px;
+  left: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  margin: 0 0 0 25px;
+  font-size: 1.125em;
+  font-weight: 700;
+  font-style: normal;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #calendar #calendar_handle:hover {
+  background: #dddddd;
+}
+#container #calendar #calendar_handle:hover:after {
+  background: #00cc66;
+}
+#container #calendar:hover {
+  position: relative;
+  top: -670px;
+  left: 0;
+}
+#container #calendar:hover #calendar_content {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+}
+#container #calendar.open {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+#container #calendar.open #calendar_content {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+}
+#container #calendar.open #calendar_handle:after {
+  content: "\00d7";
+  padding: 5px 10px;
+}
+#container #calendar.open #calendar_handle:hover:after {
+  background: #ff0000;
+}
+#container #calendar.open:hover {
+  position: relative;
+  top: 0;
+  left: 0;
+}
 #container #help {
   cursor: pointer!important;
   background: #ffffff;
@@ -620,6 +837,7 @@ a.footer:hover {
   position: absolute;
   bottom: 25px;
   left: 25px;
+  z-index: 5000;
   padding: 25px;
   width: 924px;
   height: 668px;
