@@ -47,6 +47,7 @@ function select_svg_area(level,which_area) {
 		else { selected_area = ""; $("#" + level + " path").each(function() { $(this).attr({ "class" : "" }); }); }
 	}
 }
+function unselect_all() { selected_area = ""; $("path").each(function() { $(this).attr({ "class" : "" }); }); }
 function init_svg_objects(level) { $("#" + level + " svg *").removeAttr("class").removeAttr("style"); }
 
 
@@ -70,9 +71,9 @@ function show_calendar(page) {
 	$(".calendar_day_tab").removeClass("selected");
 	if (page != null) { $(".calendar_day").addClass("hidden"); $("#" + page).removeClass("hidden"); $(".calendar_day_tab[for = '" + page + "']").addClass("selected"); }
 	else { $(".calendar_day").addClass("hidden"); $("#day_1").removeClass("hidden"); $(".calendar_day_tab[for = 'day_1']").addClass("selected"); }
-	if (!$("#calendar").hasClass("open")) $("#calendar").addClass("open"); else $("#calendar").removeClass("open");	
+	if (!$("#calendar").hasClass("open")) $("#calendar").addClass("open"); else { $("#calendar").removeClass("open"); unselect_all(); }
 }
-function hide_calendar() { $("#calendar").removeClass("open"); }
+function hide_calendar() { $("#calendar").removeClass("open"); unselect_all(); }
 function change_page(page) {
 	$(".calendar_day:not(.hidden)").addClass("hidden");
 	$("#" + page).removeClass("hidden");
