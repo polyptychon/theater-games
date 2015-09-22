@@ -224,12 +224,12 @@ a {
 		&.open { .relPos(25px,0); }				
 	}
 	#game_button, #calendar_button {
-		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .z(1000); width:47px; height:27px; padding:11px 0 13px 3px; background:@siteblue; color:@sitered; .active; .bold; .transition(all .2s ease-in-out);
+		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; background:@siteblue; color:@sitered; .active; .bold; .transition(all .2s ease-in-out);
 		&:hover { background:@sitebeize; color:@siteblue; }	&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
 		&.disabled { .inactive; background:@midGray + #111; color:@midGray - #111; &:hover { .innerShadowed(0,0,0); } }
 		&.invisible { .visible(none)!important; }
 	}
-	#game_button { background:@green; color:@white;
+	#game_button { background:@green; color:@white; padding:25px 0 0 4px; height:25px;
 		&.pause { .transform(rotate(180deg)); background:@orange; &:hover { color:@white; background:@red; } }
 	}
 	#play_button_message { .absPosBottom(30px,205px); .pt(14); .z(1000); .visible(inline-block); .transparent(1,100); .transition(all .2s ease-in-out); .rounded(8px); padding:10px; background:@green; color:@white; .normal;
