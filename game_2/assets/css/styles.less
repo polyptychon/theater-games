@@ -178,6 +178,38 @@ a {
 		&#level_1.playing { .absPos(0,-100%); }
 		&#level_2.playing { .absPos(0,0); .transparent(1,100); }
 		
+		&#level_2 {
+			#game_board { width:100%; height:100%; .absPos(0,0); .z(0); }
+			#positions { .absPos(0,0); .z(50);
+				.position { .active; width:70px; height:120px; border:dotted 2px @white; .transition(all .2s ease-in-out);
+					&:hover { border:dotted 2px @red; }
+					.figure { .active; width:70px; height:120px; margin:0 0 10px; }
+					#f1 { background:url("../img/f1.jpg") -70px 0; }
+					#f2 { background:url("../img/f2.jpg") -70px 0; }
+					#f3 { background:url("../img/f3.jpg") -70px 0; }
+					#f4 { background:url("../img/f4.jpg") -70px 0; }
+					#f5 { background:url("../img/f5.jpg") -70px 0; }
+					#f6 { background:url("../img/f6.jpg") -70px 0; }
+				}
+				#pos6 { .absPos(130px,0); }
+				#pos5 { .absPos(200px,130px); }
+				#pos4 { .absPos(280px,260px); }
+				#pos2 { .absPos(390px,390px); }
+				#pos3 { .absPos(460px,520px); }
+				#pos1 { .absPos(550px,650px); }
+			}
+			#figures { .absPosRight(0,0); .z(50);
+				.figure { .active; width:70px; height:120px; margin:0 0 10px; }
+				#f1 { background:url("../img/f1.jpg") 0 0; }
+				#f2 { background:url("../img/f2.jpg") 0 0; }
+				#f3 { background:url("../img/f3.jpg") 0 0; }
+				#f4 { background:url("../img/f4.jpg") 0 0; }
+				#f5 { background:url("../img/f5.jpg") 0 0; }
+				#f6 { background:url("../img/f6.jpg") 0 0; }
+			}
+			#check_figures_positions_button { .absPos(25px,25px); }
+		}
+		
 		.text { padding:25px; .pt(16); }
 		#start_game { margin:0 0 0 25px; }
 		

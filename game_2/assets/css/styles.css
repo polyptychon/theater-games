@@ -643,6 +643,122 @@ a.footer:hover {
   opacity: 1;
   filter: alpha(opacity=95);
 }
+#container .screen#level_2 #game_board {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+#container .screen#level_2 #positions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+#container .screen#level_2 #positions .position {
+  cursor: pointer!important;
+  width: 70px;
+  height: 120px;
+  border: dotted 2px #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container .screen#level_2 #positions .position:hover {
+  border: dotted 2px #ff0000;
+}
+#container .screen#level_2 #positions .position .figure {
+  cursor: pointer!important;
+  width: 70px;
+  height: 120px;
+  margin: 0 0 10px;
+}
+#container .screen#level_2 #positions .position #f1 {
+  background: url("../img/f1.jpg") -70px 0;
+}
+#container .screen#level_2 #positions .position #f2 {
+  background: url("../img/f2.jpg") -70px 0;
+}
+#container .screen#level_2 #positions .position #f3 {
+  background: url("../img/f3.jpg") -70px 0;
+}
+#container .screen#level_2 #positions .position #f4 {
+  background: url("../img/f4.jpg") -70px 0;
+}
+#container .screen#level_2 #positions .position #f5 {
+  background: url("../img/f5.jpg") -70px 0;
+}
+#container .screen#level_2 #positions .position #f6 {
+  background: url("../img/f6.jpg") -70px 0;
+}
+#container .screen#level_2 #positions #pos6 {
+  position: absolute;
+  top: 130px;
+  left: 0;
+}
+#container .screen#level_2 #positions #pos5 {
+  position: absolute;
+  top: 200px;
+  left: 130px;
+}
+#container .screen#level_2 #positions #pos4 {
+  position: absolute;
+  top: 280px;
+  left: 260px;
+}
+#container .screen#level_2 #positions #pos2 {
+  position: absolute;
+  top: 390px;
+  left: 390px;
+}
+#container .screen#level_2 #positions #pos3 {
+  position: absolute;
+  top: 460px;
+  left: 520px;
+}
+#container .screen#level_2 #positions #pos1 {
+  position: absolute;
+  top: 550px;
+  left: 650px;
+}
+#container .screen#level_2 #figures {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+}
+#container .screen#level_2 #figures .figure {
+  cursor: pointer!important;
+  width: 70px;
+  height: 120px;
+  margin: 0 0 10px;
+}
+#container .screen#level_2 #figures #f1 {
+  background: url("../img/f1.jpg") 0 0;
+}
+#container .screen#level_2 #figures #f2 {
+  background: url("../img/f2.jpg") 0 0;
+}
+#container .screen#level_2 #figures #f3 {
+  background: url("../img/f3.jpg") 0 0;
+}
+#container .screen#level_2 #figures #f4 {
+  background: url("../img/f4.jpg") 0 0;
+}
+#container .screen#level_2 #figures #f5 {
+  background: url("../img/f5.jpg") 0 0;
+}
+#container .screen#level_2 #figures #f6 {
+  background: url("../img/f6.jpg") 0 0;
+}
+#container .screen#level_2 #check_figures_positions_button {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
 #container .screen .text {
   padding: 25px;
   font-size: 1em;

@@ -4,6 +4,8 @@ var game_data = "";
 var selected_area = "";
 var calendar_read = false;
 var calendar_pages_seen = new Array();
+var correct_figures_positions = new Array();
+var figures_positions = new Array();
 /* */
 
 
@@ -35,6 +37,8 @@ function init() {
 		$("#calendar_button").attr("theTitle",game_data.texts.the_feast_calendar.handle_tooltip);
 		$("#play_button_message").html(game_data.texts.game_button_message);
 		$("*[theTitle]").titlesBehaviour();
+		for (f = 0; f < game_data.figures.length; f++) correct_figures_positions.push(game_data.figures[f].id + "_" + game_data.figures[f].correct_position);
+		$("#check_figures_positions_button").html(game_data.texts.check_figures_positions_button);
 		goto_screen("init");
 	});
 }
@@ -103,7 +107,7 @@ function check_calendar_pages_seen() {
 }
 
 function show_game() {
-	hide_calendar(); hide_help(); hide_message();
+	hide_calendar(); hide_help(); hide_message(); $("#play_button_message").addClass("hidden");
 	$("#level_1, #level_2").addClass("playing");
 	$("#game_button").attr("theTitle","Επιστροφή στην κεντρική σκηνή").addClass("pause").unbind("click").click(function() { hide_game(); });
 }
@@ -111,6 +115,38 @@ function hide_game() {
 	hide_calendar(); hide_help(); hide_message();
 	$("#level_1, #level_2").removeClass("playing");
 	$("#game_button").attr("theTitle","Συνέχισε το παιχνίδι").removeClass("pause").unbind("click").click(function() { show_game(); });
+}
+
+function drag_figure(e) { e.dataTransfer.setData("figure_id", e.target.id); }
+function allowDrop_figure(e) { e.preventDefault(); }
+function drop_figure(e) {
+	e.preventDefault();	
+	var figure_id = e.dataTransfer.getData("figure_id");
+	var position_id = e.target.id;
+	if (!$("#" + position_id).find($("#" + figure_id)).length) {
+		e.target.appendChild(document.getElementById(figure_id));
+		figures_positions.push(figure_id + "_" + position_id);		
+	}
+	activate_check_positions_button();
+}
+function remove_figure(pos) {
+	var position_id = $(pos).attr("id");
+	var figure_id = $(pos).find(".figure").attr("id");
+	f_pos_array_value = figure_id + "_" + position_id;
+	$("#figures").append($("#" + figure_id));
+	figures_positions.splice(figures_positions.indexOf(f_pos_array_value), 1);
+	activate_check_positions_button();
+}
+function activate_check_positions_button() {
+	if (figures_positions.length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
+	else $("#check_figures_positions_button").addClass("disabled").unbind("click");
+}
+function check_positions() {
+	sorted_figures_positions = figures_positions.sort();
+	sorted_correct_positions = correct_figures_positions.sort();
+	console.log(sorted_figures_positions,sorted_correct_positions);
+	if (sorted_figures_positions.equals(sorted_correct_positions)) end_game("correct");
+	else end_game("wrong");
 }
 
 function show_message(params) {
@@ -121,12 +157,9 @@ function show_message(params) {
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
-function end_game(level) {
-	if (level == 1) {
-		show_message({"message":game_data.texts.game_title, "buttons":[{"button":"Συνεχισε στο επομενο σταδιο", "action":'$("#help").show(); goto_screen("level_2");'}]});
-	} else if (level == 2) {	
-		show_message({ "message":game_data.texts.game_title, "buttons":[{ "button":"Ξεκινησε απο την αρχη", "action":'goto_screen("init");' }]});
-	}
+function end_game(result) {
+	if (result == "correct") alert("Σωστά!");		
+	else alert("Λάθος!");
 }
 /* */
 
@@ -138,6 +171,12 @@ $.fn.extend({
 	},
 	disableSelection: function() { this.each(function() { this.onselectstart = function() { return false; }; this.unselectable = "on"; $(this).css('-moz-user-select', 'none'); $(this).css('-webkit-user-select', 'none'); }); return this; }
 });
+Array.prototype.equals = function (array) {
+    if (!array) return false;
+    if (this.length != array.length) return false;
+    for (var i = 0, l=this.length; i < l; i++) { if (this[i] instanceof Array && array[i] instanceof Array) { if (!this[i].equals(array[i])) return false; } else if (this[i] != array[i]) { return false; } }       
+    return true;
+} 
 /* Cool DHTML tooltip script - Dynamic Drive DHTML code library (www.dynamicdrive.com) - This notice MUST stay intact for legal use - Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code */
 var offsetxpoint = -60; var offsetypoint = 20; var ie = document.all; var ns6 = document.getElementById && !document.all; var enabletip = false;
 if (ie || ns6) var tipobj = document.all ? document.all["dhtmltooltip"] : document.getElementById ? document.getElementById("dhtmltooltip") : "";
