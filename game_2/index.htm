@@ -7,6 +7,7 @@
 	<link rel="icon" href="assets/img/icon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Η γιορτή των Μεγάλων Διονυσίων</title>	
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
 </head>
 <body>
@@ -36,7 +37,7 @@
 		<div class="screen" id="init">
 			<h1 id="game_title"><!-- dynamic content --></h1>
 			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
-			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
+			<div id="start_game" class="button">ΣΥΝΕΧΙΣΕ ΠΑΡΑΚΑΤΩ</div>
 		</div>
 		<div class="screen hidden" id="level_1">
 		
@@ -64,20 +65,25 @@
 			</svg>
 						
         </div>
-        <div class="screen hidden centeredText" id="level_2">
+        
+        <!-- game -->
+        <div class="screen hidden" id="level_2">
         	
-        	<br/><br/>2<br/><br/>
-			<div class="button" onclick="goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
+        	game
+        	        
+        </div>        
+        <div id="game_button" class="disabled invisible">&#9654;</div>
+        <div id="play_button_message" class="hidden"><!-- dynamic content --></div>
         
-        </div>
-        
+        <!-- calendar -->
         <div id="calendar">        	
         	<div id="calendar_container">
 				<div id="calendar_days"><!-- dynamic content --></div>
 				<div id="calendar_content"><!-- dynamic content --></div>
-        	</div>
-        	<div id="calendar_handle"><!-- dynamic content --></div>
+				<div id="close_calendar" class="close_button">&times;</div>
+        	</div>        	
         </div>
+        <div id="calendar_button"><!-- dynamic content --></div>
 		
 		<!-- help icon + popup -->
 		<div id="help" class="hidden invisible">

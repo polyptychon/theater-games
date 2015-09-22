@@ -285,15 +285,13 @@ table {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   background: #45495f;
-  font-size: 1em;
   color: #f74d4d;
   cursor: pointer!important;
   text-transform: uppercase;
   font-size: 0.6875em;
-  font-family: "Roboto", Arial;
   font-weight: 700;
   font-style: normal;
-  display: inline;
+  display: inline-block;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -333,8 +331,8 @@ table {
 }
 .button.disabled {
   cursor: default!important;
-  background: #444444;
-  color: #222222;
+  background: #999999;
+  color: #777777;
 }
 .button.disabled:hover {
   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
@@ -578,6 +576,7 @@ a.footer:hover {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 100;
   -moz-opacity: 1;
   -khtml-opacity: 1;
   opacity: 1;
@@ -593,12 +592,20 @@ a.footer:hover {
 }
 #container .screen.hidden {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   -moz-opacity: 0;
   -khtml-opacity: 0;
   opacity: 0;
   filter: alpha(opacity=95);
+  z-index: 0;
+}
+#container .screen#level_1,
+#container .screen#level_2 {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 #container .screen#level_1 img,
 #container .screen#level_2 img,
@@ -607,6 +614,34 @@ a.footer:hover {
   position: absolute;
   top: 0;
   left: 0;
+}
+#container .screenlevel_2 {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+#container .screenlevel_2.hidden {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
+}
+#container .screen#level_1.playing {
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+#container .screen#level_2.playing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
 }
 #container .screen .text {
   padding: 25px;
@@ -665,8 +700,8 @@ a.footer:hover {
   filter: alpha(opacity=95) !important;
 }
 #container #calendar {
-  width: 974px;
-  height: 680px;
+  width: 920px;
+  height: 650px;
   margin: 0 auto;
   position: relative;
   top: -680px;
@@ -679,14 +714,9 @@ a.footer:hover {
 }
 #container #calendar #calendar_container {
   position: relative;
+  top: 0;
+  left: 25px;
   z-index: 200;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  -webkit-border-bottom-right-radius: 8px;
-  -webkit-border-bottom-left-radius: 8px;
-  -moz-border-radius-bottomright: 8px;
-  -moz-border-radius-bottomleft: 8px;
-  overflow: hidden;
 }
 #container #calendar #calendar_container #calendar_days {
   height: 50px;
@@ -697,12 +727,15 @@ a.footer:hover {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  z-index: 1000;
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab {
   cursor: pointer!important;
-  display: inline-block;
   background: #eeeeee;
-  width: 25%;
+  width: 50px;
   text-align: center;
   padding: 13px 0;
   color: #222222;
@@ -712,15 +745,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab:nth-child(2n) {
-  background: #e5e5e5;
+  background: #dddddd;
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab.selected {
   font-weight: 700;
   font-style: normal;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab:hover,
 #container #calendar #calendar_container #calendar_days .calendar_day_tab.selected {
@@ -728,9 +757,8 @@ a.footer:hover {
 }
 #container #calendar #calendar_container #calendar_content {
   background: #ffffff;
-  width: 924px;
-  height: 580px;
-  padding: 2.5%;
+  width: 920px;
+  height: 650px;
   overflow: hidden;
   position: relative;
   z-index: 100 !important;
@@ -738,42 +766,94 @@ a.footer:hover {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
 }
 #container #calendar #calendar_container #calendar_content .calendar_day {
-  padding: 2.5%;
-  width: 95%;
-  height: 82%;
+  width: 100%;
+  height: 100%;
   background: #ffffff;
   position: absolute;
   top: 0;
   left: 0;
+}
+#container #calendar #calendar_container #calendar_content .calendar_day .left_page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 8px;
+  -webkit-border-top-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  width: 40%;
+  height: 100%;
+  display: inline-block;
+  overflow-y: auto;
+  padding: 0 5% 0;
+  line-height: 1.5;
+}
+#container #calendar #calendar_container #calendar_content .calendar_day .left_page h2 {
+  padding: 25px 0 0;
+  font-size: 1.25em;
+  line-height: 1.5;
+  font-weight: 500;
+  font-style: normal;
+  color: #ff6600;
+}
+#container #calendar #calendar_container #calendar_content .calendar_day .right_page {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-top-right-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  width: 40%;
+  height: 90%;
+  display: inline-block;
+  background: #eeeeee;
+  padding: 5%;
+}
+#container #calendar #calendar_container #calendar_content .calendar_day .right_page .day_bg {
+  width: 95%;
+  height: 92.5%;
+  margin: 2.5% auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container #calendar #calendar_container #calendar_content .calendar_day.hidden {
+  position: absolute;
+  top: -105%;
+  left: 0;
+}
+#container #calendar #calendar_container .close_button {
+  cursor: pointer!important;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  z-index: 1500;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  background: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-#container #calendar #calendar_container #calendar_content .calendar_day h2 {
-  padding: 25px 0;
-  font-size: 1.375em;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
-}
-#container #calendar #calendar_container #calendar_content .calendar_day .day_text {
-  height: 90%;
-  width: 90%;
-  overflow-y: auto;
-  padding: 0 5% 0;
-  line-height: 1.5;
-}
-#container #calendar #calendar_container #calendar_content .calendar_day.hidden {
-  position: absolute;
-  top: -101%;
-  left: 0;
+#container #calendar #calendar_container .close_button:hover {
+  background: #222222;
+  color: #ffffff;
 }
 #container #calendar #calendar_handle {
   cursor: pointer!important;
@@ -833,26 +913,117 @@ a.footer:hover {
 }
 #container #calendar.open {
   position: relative;
-  top: 0;
+  top: 25px;
   left: 0;
 }
-#container #calendar.open #calendar_container {
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+#container #game_button,
+#container #calendar_button {
+  position: absolute;
+  bottom: 24px;
+  left: 145px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  text-align: center;
+  font-size: 1.25em;
+  z-index: 1000;
+  width: 47px;
+  height: 27px;
+  padding: 11px 0 13px 3px;
+  background: #45495f;
+  color: #f74d4d;
+  cursor: pointer!important;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-#container #calendar.open #calendar_handle:after {
-  content: "\00d7";
-  padding: 5px 10px;
+#container #game_button:hover,
+#container #calendar_button:hover {
+  background: #dbd8d2;
+  color: #45495f;
 }
-#container #calendar.open #calendar_handle:hover:after {
+#container #game_button:active,
+#container #calendar_button:active {
+  background: #dbd8d2;
+  -webkit-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
+}
+#container #game_button.disabled,
+#container #calendar_button.disabled {
+  cursor: default!important;
+  background: #aaaaaa;
+  color: #888888;
+}
+#container #game_button.disabled:hover,
+#container #calendar_button.disabled:hover {
+  -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
+}
+#container #game_button.invisible,
+#container #calendar_button.invisible {
+  display: none !important;
+}
+#container #game_button {
+  background: #00cc66;
+  color: #ffffff;
+}
+#container #game_button.pause {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  background: #ff6600;
+}
+#container #game_button.pause:hover {
+  color: #ffffff;
   background: #ff0000;
 }
-#container #calendar.open:hover {
-  position: relative;
-  top: 0;
-  left: 0;
+#container #play_button_message {
+  position: absolute;
+  bottom: 30px;
+  left: 205px;
+  font-size: 0.875em;
+  z-index: 1000;
+  display: inline-block;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  padding: 10px;
+  background: #00cc66;
+  color: #ffffff;
+  font-weight: 400;
+  font-style: normal;
+}
+#container #play_button_message.hidden {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
+}
+#container #calendar_button {
+  position: absolute;
+  bottom: 24px;
+  left: 85px;
 }
 #container #help {
   cursor: pointer!important;
