@@ -126,14 +126,17 @@ function drop_figure(e) {
 	var position_id = e.target.id; if (position_id.indexOf("f") != -1) position_id = $("#" + position_id).parent().attr("id");
 		
 	if (parent_id != "figures") {	
-		if ($("#" + position_id).find($(".figure")).length == 0) {
+		if ($("#" + position_id).find($(".figure")).length == 0) {			
+			var existing_figure_id = $("#" + position_id).find($(".figure")).attr("id");
+			existing_f_pos_array_value = existing_figure_id + "_" + parent_id;
+			figures_positions.splice(figures_positions.indexOf(existing_f_pos_array_value), 1);
 			e.target.appendChild(document.getElementById(figure_id));
 			figures_positions.push(figure_id + "_" + position_id);
 		} else {
 			/* first move existing figure away */
 			var existing_figure_id = $("#" + position_id).find($(".figure")).attr("id");
 			$("#" + parent_id).append($("#" + existing_figure_id));
-			existing_f_pos_array_value = existing_figure_id + "_" + position_id;
+			existing_f_pos_array_value = existing_figure_id + "_" + parent_id;
 			figures_positions.splice(figures_positions.indexOf(existing_f_pos_array_value), 1);
 			figures_positions.push(existing_figure_id + "_" + parent_id);
 			/* then place new figure */
@@ -158,6 +161,7 @@ function remove_figure(pos) {
 	$("#figures").append($("#" + figure_id));
 	figures_positions.splice(figures_positions.indexOf(f_pos_array_value), 1);
 	activate_check_positions_button();
+	console.log(figures_positions);
 }
 function activate_check_positions_button() {
 	if (figures_positions.length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
