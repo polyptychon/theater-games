@@ -183,7 +183,7 @@ a {
 			#positions { .absPos(0,0); .z(50);
 				.position { .active; width:70px; height:120px; border:dotted 2px @white; .transition(all .2s ease-in-out);
 					&:hover { border:dotted 2px @red; }
-					.figure { .active; width:70px; height:120px; margin:0 0 10px; }
+					.figure { .active; width:70px; height:120px; margin:0; .shadowed(0,0,0); }
 					#f1 { background:url("../img/f1.jpg") -70px 0; }
 					#f2 { background:url("../img/f2.jpg") -70px 0; }
 					#f3 { background:url("../img/f3.jpg") -70px 0; }
@@ -198,8 +198,8 @@ a {
 				#pos3 { .absPos(460px,520px); }
 				#pos1 { .absPos(550px,650px); }
 			}
-			#figures { .absPosRight(0,0); .z(25);
-				.figure { .active; width:70px; height:120px; margin:0 0 10px; }
+			#figures { .absPosRight(25px,25px); .z(25); width:160px;
+				.figure { .active; width:70px; height:120px; .visible(inline-block); margin:0 10px 10px 0; .shadowed(0,2px,5px); }
 				#f1 { background:url("../img/f1.jpg") 0 0; }
 				#f2 { background:url("../img/f2.jpg") 0 0; }
 				#f3 { background:url("../img/f3.jpg") 0 0; }
@@ -256,13 +256,13 @@ a {
 		&.open { .relPos(25px,0); }				
 	}
 	#game_button, #calendar_button {
-		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; background:@siteblue; color:@sitered; .active; .bold; .transition(all .2s ease-in-out);
-		&:hover { background:@sitebeize; color:@siteblue; }	&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
-		&.disabled { .inactive; background:@midGray + #111; color:@midGray - #111; &:hover { .innerShadowed(0,0,0); } }
+		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; background:@siteblue; color:@sitered; .active; .bold; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		&:hover { background:@sitebeize; color:@siteblue; }	&:active { background:@sitebeize; }
+		&.disabled { .inactive; background:@midGray + #111; color:@midGray - #111; }
 		&.invisible { .visible(none)!important; }
 	}
 	#game_button { background:@green; color:@white; padding:25px 0 0 4px; height:25px;
-		&.pause { .transform(rotate(180deg)); background:@orange; &:hover { color:@white; background:@red; } }
+		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background:@orange; &:hover { color:@white; background:@red; } }
 	}
 	#play_button_message { .absPosBottom(30px,205px); .pt(14); .z(1000); .visible(inline-block); .transparent(1,100); .transition(all .2s ease-in-out); .rounded(8px); padding:10px; background:@green; color:@white; .normal;
 		&.hidden { .transparent(0,0); }

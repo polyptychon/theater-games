@@ -18,9 +18,10 @@ $(window).load(function() {
 	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
 	$("#close_calendar").click(function() { hide_calendar(); event.stopPropagation(); });
 	$("#calendar_button").click(function() { show_calendar(); });
+	randomize_figures();
 	$("*[theTitle]").titlesBehaviour();
 	$(document).keyup(function(e) {
-	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); show_calendar(); }
+	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
 	});
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
@@ -73,7 +74,7 @@ function render_calendar_content(texts) {
 	for (day = 1; day <= 4; day++) {
 		var day_text = eval("texts.day_" + day);
 		var day_bg = "assets/img/day_" + day + ".jpg";
-		var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>-<br/>");
+		var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>- - -<br/>");
 		days_titles_html += "<div for='day_" + day + "' class='calendar_day_tab' onclick='change_page(\"day_" + day + "\")'>" + day_title + "</div>";
 		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'><div class='left_page'>" + day_text + "<br/><br/></div><div class='right_page'><div class='day_bg' style='background-image:url(\"" + day_bg + "\")'></div></div></div>";
 	}
@@ -106,6 +107,9 @@ function check_calendar_pages_seen() {
 	if (!calendar_read) if (calendar_pages_seen.length == 4) { calendar_read = true; activate_game_button(); }
 }
 
+function randomize_figures() {
+	$("#figures").shuffleChildren();
+}
 function show_game() {
 	hide_calendar(); hide_help(); hide_message(); $("#play_button_message").addClass("hidden");
 	$("#level_1, #level_2").addClass("playing");
@@ -127,7 +131,7 @@ function drop_figure(e) {
 		
 	if (parent_id != "figures") {	
 		if ($("#" + position_id).find($(".figure")).length == 0) {			
-			var existing_figure_id = $("#" + position_id).find($(".figure")).attr("id");
+			var existing_figure_id = $("#" + parent_id).find($(".figure")).attr("id");
 			existing_f_pos_array_value = existing_figure_id + "_" + parent_id;
 			figures_positions.splice(figures_positions.indexOf(existing_f_pos_array_value), 1);
 			e.target.appendChild(document.getElementById(figure_id));
@@ -136,7 +140,7 @@ function drop_figure(e) {
 			/* first move existing figure away */
 			var existing_figure_id = $("#" + position_id).find($(".figure")).attr("id");
 			$("#" + parent_id).append($("#" + existing_figure_id));
-			existing_f_pos_array_value = existing_figure_id + "_" + parent_id;
+			existing_f_pos_array_value = existing_figure_id + "_" + position_id;
 			figures_positions.splice(figures_positions.indexOf(existing_f_pos_array_value), 1);
 			figures_positions.push(existing_figure_id + "_" + parent_id);
 			/* then place new figure */
@@ -161,7 +165,7 @@ function remove_figure(pos) {
 	$("#figures").append($("#" + figure_id));
 	figures_positions.splice(figures_positions.indexOf(f_pos_array_value), 1);
 	activate_check_positions_button();
-	console.log(figures_positions);
+	console.log("- " + figures_positions);
 }
 function activate_check_positions_button() {
 	if (figures_positions.length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
@@ -192,10 +196,9 @@ function end_game(result) {
 
 /* generic and external functions */
 $.fn.extend({ 
-	titlesBehaviour: function() {
-		$(this).each(function() { $(this).mouseover(function() { ddrivetip($(this).attr("theTitle")); }); $(this).mouseout(function() { hideddrivetip(); }); });
-	},
-	disableSelection: function() { this.each(function() { this.onselectstart = function() { return false; }; this.unselectable = "on"; $(this).css('-moz-user-select', 'none'); $(this).css('-webkit-user-select', 'none'); }); return this; }
+	titlesBehaviour: function() { $(this).each(function() { $(this).mouseover(function() { ddrivetip($(this).attr("theTitle")); }); $(this).mouseout(function() { hideddrivetip(); }); }); },
+	disableSelection: function() { this.each(function() { this.onselectstart = function() { return false; }; this.unselectable = "on"; $(this).css('-moz-user-select', 'none'); $(this).css('-webkit-user-select', 'none'); }); return this; },
+	shuffleChildren: function() { $.each(this.get(), function(index, el) { var $el = $(el); var $find = $el.children(); $find.sort(function() { return 0.5 - Math.random(); }); $el.empty(); $find.appendTo($el); }); }
 });
 Array.prototype.equals = function (array) {
     if (!array) return false;
