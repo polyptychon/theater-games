@@ -117,17 +117,39 @@ function hide_game() {
 	$("#game_button").attr("theTitle","Συνέχισε το παιχνίδι").removeClass("pause").unbind("click").click(function() { show_game(); });
 }
 
-function drag_figure(e) { e.dataTransfer.setData("figure_id", e.target.id); }
+function drag_figure(e) { e.dataTransfer.setData("figure_id", e.target.id); e.dataTransfer.setData("parent_id", $(e.target).parent().attr("id")); }
 function allowDrop_figure(e) { e.preventDefault(); }
 function drop_figure(e) {
 	e.preventDefault();	
 	var figure_id = e.dataTransfer.getData("figure_id");
-	var position_id = e.target.id;
-	if (!$("#" + position_id).find($("#" + figure_id)).length) {
-		e.target.appendChild(document.getElementById(figure_id));
-		figures_positions.push(figure_id + "_" + position_id);		
+	var parent_id = e.dataTransfer.getData("parent_id");
+	var position_id = e.target.id; if (position_id.indexOf("f") != -1) position_id = $("#" + position_id).parent().attr("id");
+		
+	if (parent_id != "figures") {	
+		if ($("#" + position_id).find($(".figure")).length == 0) {
+			e.target.appendChild(document.getElementById(figure_id));
+			figures_positions.push(figure_id + "_" + position_id);
+		} else {
+			/* first move existing figure away */
+			var existing_figure_id = $("#" + position_id).find($(".figure")).attr("id");
+			$("#" + parent_id).append($("#" + existing_figure_id));
+			existing_f_pos_array_value = existing_figure_id + "_" + position_id;
+			figures_positions.splice(figures_positions.indexOf(existing_f_pos_array_value), 1);
+			figures_positions.push(existing_figure_id + "_" + parent_id);
+			/* then place new figure */
+			previous_f_pos_array_value = figure_id + "_" + parent_id;
+			$("#" + position_id).append($("#" + figure_id));
+			figures_positions.splice(figures_positions.indexOf(previous_f_pos_array_value), 1);
+			figures_positions.push(figure_id + "_" + position_id);
+		}
+	} else {
+		if ($("#" + position_id).find($(".figure")).length == 0) {
+			e.target.appendChild(document.getElementById(figure_id));
+			figures_positions.push(figure_id + "_" + position_id);
+			activate_check_positions_button();
+		}		
 	}
-	activate_check_positions_button();
+	console.log(figure_id + " from " + parent_id + " to " + position_id + " - " + figures_positions);
 }
 function remove_figure(pos) {
 	var position_id = $(pos).attr("id");
