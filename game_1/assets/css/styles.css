@@ -657,8 +657,9 @@ a.footer:hover {
   position: absolute;
   top: 25px;
   right: 25px;
-  width: 160px;
-  height: 50px;
+  width: 240px;
+  height: 70px;
+  text-align: right;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -666,13 +667,20 @@ a.footer:hover {
 }
 #container #tools .tool {
   cursor: pointer!important;
-  background: #ffffff;
+  background: #fed;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
   display: none;
-  width: 50px;
-  height: 27px;
-  padding: 13px 0 10px;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  padding: 0;
   margin: 0;
-  text-align: center;
   -moz-opacity: 0;
   -khtml-opacity: 0;
   opacity: 0;
@@ -682,9 +690,36 @@ a.footer:hover {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+#container #tools .tool img {
+  width: 50px!important;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 #container #tools .tool:hover {
   background: #00cc66;
   color: #ffffff;
+}
+#container #tools .tool:hover#bulldozer {
+  background: #1baa95;
+}
+#container #tools .tool:hover#bulldozer img {
+  -webkit-animation: bulldozer_hover 0.5s ease-in-out 0s infinite alternate;
+  animation: bulldozer_hover 0.5s ease-in-out 0s infinite alternate;
+}
+#container #tools .tool:hover#drill {
+  background: #d8b163;
+}
+#container #tools .tool:hover#drill img {
+  -webkit-animation: drill_hover 0.3s ease-in-out 0s infinite;
+  animation: drill_hover 0.3s ease-in-out 0s infinite;
+}
+#container #tools .tool:hover#pick {
+  background: #f16c24;
+}
+#container #tools .tool:hover#pick img {
+  -webkit-animation: pick_hover 0.5s ease-in 0s infinite;
+  animation: pick_hover 0.5s ease-in 0s infinite;
 }
 #container #tools .tool.open {
   display: inline-block !important;
@@ -717,6 +752,9 @@ a.footer:hover {
 }
 #container #efforts .effort.hidden {
   display: none;
+}
+#container #efforts .effort img {
+  width: 25px!important;
 }
 #container #help {
   cursor: pointer!important;
@@ -865,5 +903,283 @@ a.footer:hover {
 }
 #container #popup.down #message_container .close_buttonhover {
   background: #222222;
+}
+/* */
+/* animations */
+@-webkit-keyframes bulldozer_hover {
+  0% {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+  100% {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+}
+@-moz-keyframes bulldozer_hover {
+  0% {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+  100% {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+}
+@keyframes bulldozer_hover {
+  0% {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  50% {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+  100% {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+}
+@-webkit-keyframes drill_hover {
+  0% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  25% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  50% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  75% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  100% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+}
+@-moz-keyframes drill_hover {
+  0% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  25% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  50% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  75% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  100% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+}
+@keyframes drill_hover {
+  0% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  25% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  50% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  75% {
+    position: absolute;
+    top: 3px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  100% {
+    position: absolute;
+    top: 9px;
+    left: 14px;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+}
+@-webkit-keyframes pick_hover {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg) translateX(5px);
+    -moz-transform: rotate(45deg) translateX(5px);
+    -o-transform: rotate(45deg) translateX(5px);
+    -ms-transform: rotate(45deg) translateX(5px);
+    transform: rotate(45deg) translateX(5px);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@-moz-keyframes pick_hover {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg) translateX(5px);
+    -moz-transform: rotate(45deg) translateX(5px);
+    -o-transform: rotate(45deg) translateX(5px);
+    -ms-transform: rotate(45deg) translateX(5px);
+    transform: rotate(45deg) translateX(5px);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes pick_hover {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg) translateX(5px);
+    -moz-transform: rotate(45deg) translateX(5px);
+    -o-transform: rotate(45deg) translateX(5px);
+    -ms-transform: rotate(45deg) translateX(5px);
+    transform: rotate(45deg) translateX(5px);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 }
 /* */
