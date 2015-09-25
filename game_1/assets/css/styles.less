@@ -186,7 +186,7 @@ a {
 	}
 	#tools { .absPosRight(25px,25px); width:240px; height:70px; .rightText; .nonSelective;
 		.tool { .active; background-color:#aaa; background-image:url("../img/noise.png"); display:none; .rel; width:70px; height:70px; .rounded(50%); padding:0; margin:0; .transparent(0,0); .transition(all .2s ease-in-out);
-			img { width:50px!important; .absPos(10px,10px); }
+			img { width:50px!important; .absPos(10px,10px); .transition(all .2s ease-in-out); }
 			&#brush { img { .absPos(12px,10px); } }
 			&:hover { background-image:url("../img/noise.png");
 				&#bulldozer { background-color:#1baa95; img { -webkit-animation: bulldozer_hover .5s ease-in-out 0s infinite alternate; animation: bulldozer_hover .5s ease-in-out 0s infinite alternate; } }
@@ -208,9 +208,9 @@ a {
 		}
 	}
 	#help {
-		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
-		&:hover { background:@white; }
-		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background:@green; color:@white; } }		
+		.active; background:@white; color:@textGray; .rounded(8px); .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		&:hover { background:@white; color:@textGray; }
+		&.hidden { .rounded(50%); background:@green; color:@white; .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background:@white; color:@textGray; .rounded(8px); } }		
 		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 	}
 	#popup {

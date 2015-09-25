@@ -69,7 +69,7 @@ function remove_svg_area(which_tool) {
 }
 function init_svg_objects(level) { $("#" + level + " svg, #" + level + " svg *").css("display","block"); $("#" + level + " svg *").removeAttr("class").removeAttr("style"); }
 
-function fill_lives() { $("#efforts").html(""); for (l = 1; l <= 4; l++) $("#efforts").append("<div class='effort'><img src='assets/svg/heart.svg'></div>"); }
+function fill_lives() { $("#efforts").html(""); for (l = 1; l <= 4; l++) $("#efforts").append("<div class='effort'><img src='assets/img/heart.png'></div>"); }
 function lose_life(level) { $("#efforts .effort:last-child").remove(); if ($(".effort").length == 0) { selected_area = ""; removed_areas = 0; init_svg_objects(level); if (level == "level_1") var message = "Δυστυχώς έχασες όλες σου τις προσπάθειες!<br/>Ξαναπροσπάθησε για να μπορέσεις να συνεχίσεις στο επόμενο στάδιο."; else message = "Δεν τα κατάφερες. Ξαναπροσπάθησε για να δεις την μορφή του θεάτρου σήμερα, μετά το τέλος της ανασκαφής και της συντήρησής του."; show_message({"message":message, "buttons":[{"button":"Ξαναπροσπαθησε", "action":"goto_screen(\"" + level + "\")"}]}); } }
 
 function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }

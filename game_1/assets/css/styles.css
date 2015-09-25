@@ -692,6 +692,10 @@ a.footer:hover {
   position: absolute;
   top: 10px;
   left: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #container #tools .tool#brush img {
   position: absolute;
@@ -774,6 +778,7 @@ a.footer:hover {
 #container #help {
   cursor: pointer!important;
   background: #ffffff;
+  color: #222222;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -794,11 +799,14 @@ a.footer:hover {
 }
 #container #help:hover {
   background: #ffffff;
+  color: #222222;
 }
 #container #help.hidden {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+  background: #00cc66;
+  color: #ffffff;
   text-align: center;
   position: absolute;
   bottom: 25px;
@@ -810,8 +818,11 @@ a.footer:hover {
   font-style: normal;
 }
 #container #help.hidden:hover {
-  background: #00cc66;
-  color: #ffffff;
+  background: #ffffff;
+  color: #222222;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
 }
 #container #help .close_button {
   cursor: pointer!important;
