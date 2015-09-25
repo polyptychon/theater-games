@@ -791,6 +791,8 @@ a.footer:hover {
   width: 50px;
   height: 27px;
   padding: 13px 0 10px;
+  font-weight: 700;
+  font-style: normal;
 }
 #container #help.hidden:hover {
   background: #00cc66;

@@ -12,8 +12,8 @@ $(window).load(function() {
 	$("*[theTitle]").titlesBehaviour();	
 	$("#start_game, #restart").click(function() { $("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_1"); });
 	$("#help").click(function() { show_help(); });
-	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
-	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
+	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
+	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 	});
