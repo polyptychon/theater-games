@@ -667,12 +667,8 @@ a.footer:hover {
 }
 #container #tools .tool {
   cursor: pointer!important;
-  background: #edc;
+  background-color: #aaa;
   background-image: url("../img/noise.png");
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
   display: none;
   position: relative;
   width: 70px;
@@ -702,45 +698,43 @@ a.footer:hover {
   top: 12px;
   left: 10px;
 }
-#container #tools .tool:hover#bulldozer {
-  background: #1baa95;
+#container #tools .tool:hover {
   background-image: url("../img/noise.png");
+}
+#container #tools .tool:hover#bulldozer {
+  background-color: #1baa95;
 }
 #container #tools .tool:hover#bulldozer img {
   -webkit-animation: bulldozer_hover 0.5s ease-in-out 0s infinite alternate;
   animation: bulldozer_hover 0.5s ease-in-out 0s infinite alternate;
 }
 #container #tools .tool:hover#drill {
-  background: #d8b163;
-  background-image: url("../img/noise.png");
+  background-color: #d8b163;
 }
 #container #tools .tool:hover#drill img {
   -webkit-animation: drill_hover 0.3s ease-in-out 0s infinite;
   animation: drill_hover 0.3s ease-in-out 0s infinite;
 }
 #container #tools .tool:hover#pick {
-  background: #f16c24;
-  background-image: url("../img/noise.png");
+  background-color: #f16c24;
 }
 #container #tools .tool:hover#pick img {
   -webkit-animation: pick_hover 0.5s ease-in 0s infinite;
   animation: pick_hover 0.5s ease-in 0s infinite;
 }
 #container #tools .tool:hover#shovel {
-  background: #1baa95;
-  background-image: url("../img/noise.png");
+  background-color: #1baa95;
 }
 #container #tools .tool:hover#shovel img {
   -webkit-animation: shovel_hover 0.7s ease-in 0s infinite;
   animation: shovel_hover 0.7s ease-in 0s infinite;
 }
 #container #tools .tool:hover#brush {
-  background: #d8b163;
-  background-image: url("../img/noise.png");
+  background-color: #d8b163;
 }
 #container #tools .tool:hover#brush img {
-  -webkit-animation: brush_hover 0.8s ease-in-out 0s infinite;
-  animation: brush_hover 0.8s ease-in-out 0s infinite;
+  -webkit-animation: brush_hover 0.5s ease-in-out 0s infinite;
+  animation: brush_hover 0.5s ease-in-out 0s infinite;
 }
 #container #tools .tool.open {
   display: inline-block !important;
