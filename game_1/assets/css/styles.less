@@ -20,6 +20,7 @@ table{border-collapse:collapse;border-spacing:0}
 	@green:				#0c6;
 	@yellow:			#ff0;
 	@orange:			#f60;
+	@teal:				#1baa95;
 	@red:				#f00;
 	@lightGray:			#eee;
 	@lightYellow:		#ffe;
@@ -115,8 +116,8 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; .rounded(4px); background:@siteblue; .pt(16); color:@sitered; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .2s ease-in-out);
-		&:hover { background:@sitebeize; color:@siteblue; }
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; .rounded(4px); background:@teal; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline-block)!important; .transition(all .2s ease-in-out);
+		&:hover { background:@sitebeize; color:@teal; }
 		&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
 		&.gray { background:@sitebeize; color:@textGray; &:hover { background:@sitered; color:@white; } &:active { background:@sitebeize; .innerShadowed(0,5px,7px); } }
@@ -172,10 +173,23 @@ a {
 #dhtmltooltip { .abs; max-width:350px; background:@lightYellow!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
 #container { width:1024px; height:768px; background:@textGray; .shadowed(0,2px,5px); margin:0 auto; overflow:hidden; .rel; .z(50);
 	.screen { width:100%; height:100%; background:@lightGray; .absPos(0,0); .transparent(1,100); .transition(~"opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out"); &.hidden { .absPos(100%,0); .transparent(0,0); }
+		&#init { background-image:url("../img/init_stage.jpg"); width:100%; height:100%; background-repeat:no-repeat; }
 		&#level_1, &#level_2 { img, svg { .absPos(0,0); } }
-		.text { padding:25px; .pt(16); }
-		#start_game { margin:0 0 0 25px; }
-
+		.text { padding:25px; .pt(16); }		
+				
+		#intro { width:910px; height:645px; .absPos(50px,57px); overflow:hidden; .transition(all .5s ease-in-out); background-image:url("../img/intro_bg.png"); background-repeat:no-repeat; background-size:cover;
+			.intro_page { width:90%; height:95%; margin:2.5% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
+				p { .leftText; }
+				&#intro_page_1 { img { margin:130px 0 100px; .relPos(0,-45px); } }
+				&#intro_page_2 {
+					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
+					i { color:@orange; }
+					#start_game { .centered; }
+				}
+			}
+			&.instructions { .intro_page { .relPos(-100%,0); } }
+		}
+		
 		/* svg styles */
 		polygon, path { cursor:pointer; fill:@blue; .transparent(0,0); .transition(all .2s ease-in-out);
 			&:hover, &:focus { .transparent(.5,50); }
@@ -185,7 +199,7 @@ a {
 		/* */
 	}
 	#tools { .absPosRight(25px,25px); width:240px; height:70px; .rightText; .nonSelective;
-		.tool { .active; background-color:#aaa; background-image:url("../img/noise.png"); display:none; .rel; width:70px; height:70px; .rounded(50%); padding:0; margin:0; .transparent(0,0); .transition(all .2s ease-in-out);
+		.tool { .active; background-color:#999; background-image:url("../img/noise.png"); display:none; .rel; width:70px; height:70px; .rounded(50%); padding:0; margin:0; .transparent(0,0); .transition(all .2s ease-in-out);
 			img { width:50px!important; .absPos(10px,10px); .transition(all .2s ease-in-out); }
 			&#brush { img { .absPos(12px,10px); } }
 			&:hover { background-image:url("../img/noise.png");
@@ -202,23 +216,28 @@ a {
 	#efforts {
 		.absPos(25px,25px);
 		.effort {
-			.nonSelective; cursor:default; .visible(inline-block); color:@red; .pt(36); padding:0 5px 0 0;
+			.nonSelective; cursor:default; .visible(inline-block); .transparent(1,100); color:@red; .pt(36); padding:0 5px 0 0; .transition(all 1s ease-in-out);
 			&.hidden { .invisible; }
 			img { width:25px!important; }
+			&.lost { .transform(scale(2)); .transparent(0,0); }
 		}
 	}
 	#help {
 		.active; background:@white; color:@textGray; .rounded(8px); .absPosBottom(25px,25px); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; color:@textGray; }
-		&.hidden { .rounded(50%); background:@green; color:@white; .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background:@white; color:@textGray; .rounded(8px); } }		
-		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+		&.hidden { .rounded(50%); background:@teal; color:@white; .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background:@white; color:@textGray; .rounded(8px); } }		
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 	}
 	#popup {
 		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
 		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px; .transition(all .2s ease-in-out);
-			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; .transition(all .2s ease-in-out); }
+			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; .centeredText; .transition(all .2s ease-in-out);
+				p { .leftText; }
+				img { margin:25px auto; }
+				i { color:@orange; }
+			}
 			#buttons { .centeredText; }
-			.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 		}
 		&.down { background-image:none; #message_container { min-height:0; margin:675px auto 0; width:225px; #message { max-height:0px; margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
 	}	
