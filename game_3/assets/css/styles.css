@@ -637,22 +637,32 @@ a.footer:hover {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  /* &[type="theater"] { background-image:url("../img/theater.png"); background-repeat:no-repeat; background-size:100%; }
-				&[type="auditorium"] { background-image:url("../img/auditorium.png"); background-repeat:no-repeat; background-size:100%; } */
-
 }
 #container .screen .theaters .theater:hover {
-  -webkit-transform: scale(1.15);
-  -moz-transform: scale(1.15);
-  -o-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
+  -webkit-transform: scale(1.75);
+  -moz-transform: scale(1.75);
+  -o-transform: scale(1.75);
+  -ms-transform: scale(1.75);
+  transform: scale(1.75);
+  background-size: 90%;
 }
 #container .screen .theaters .theater.selected {
   animation: theater_selected 0.5s ease-in-out 0s infinite alternate;
 }
 #container .screen .theaters .theater.added {
   background: #ff6600;
+}
+#container .screen .theaters .theater[type="theater"] {
+  background-image: url("../img/theater.svg");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center center;
+}
+#container .screen .theaters .theater[type="auditorium"] {
+  background-image: url("../img/auditorium.svg");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center center;
 }
 #container .screen .theaters .theater span {
   display: none!important;
@@ -986,12 +996,38 @@ a.footer:hover {
 }
 /* */
 /* animations */
-@keyframes theater_selected {
+@-webkit-keyframes theater_selected {
   0% {
-    background: #444444;
+    background-color: #444444;
   }
   100% {
-    background: #ff6600;
+    background-color: #ff6600;
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+}
+@-moz-keyframes theater_selected {
+  0% {
+    background-color: #444444;
+  }
+  100% {
+    background-color: #ff6600;
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+}
+@keyframes theater_selected {
+  0% {
+    background-color: #444444;
+  }
+  100% {
+    background-color: #ff6600;
     -webkit-transform: scale(1.25);
     -moz-transform: scale(1.25);
     -o-transform: scale(1.25);

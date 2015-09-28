@@ -176,11 +176,11 @@ a {
 		img.bg { .absPos(0,0); .z(0); }
 		.theaters { width:100%; height:100%; .absPos(0,0); .z(100);
 			.theater { .active; background:@darkGray; width:25px; height:25px; .centeredText; .transparent(.9,90); .rounded(50%); .abs; .transition(all .2s ease-in-out);
-				&:hover { .transform(~"scale(1.15)"); }
+				&:hover { .transform(scale(1.75)); background-size:90%; }
 				&.selected { animation: theater_selected .5s ease-in-out 0s infinite alternate; }
 				&.added { background:@orange; }
-				/* &[type="theater"] { background-image:url("../img/theater.png"); background-repeat:no-repeat; background-size:100%; }
-				&[type="auditorium"] { background-image:url("../img/auditorium.png"); background-repeat:no-repeat; background-size:100%; } */
+				&[type="theater"] { background-image:url("../img/theater.svg"); background-repeat:no-repeat; background-size:75%; background-position:center center; }
+				&[type="auditorium"] { background-image:url("../img/auditorium.svg"); background-repeat:no-repeat; background-size:70%; background-position:center center; }
 				span { .invisible; }				
 			}
 		}
@@ -231,8 +231,16 @@ a {
 /* */
 
 /* animations */
+@-webkit-keyframes theater_selected {    
+    0% { background-color:@darkGray; }
+    100% { background-color:@orange; .transform(scale(1.25)); }
+}
+@-moz-keyframes theater_selected {    
+    0% { background-color:@darkGray; }
+    100% { background-color:@orange; .transform(scale(1.25)); }
+}
 @keyframes theater_selected {    
-    0% { background:@darkGray; }
-    100% { background:@orange; .transform(~"scale(1.25)"); }
+    0% { background-color:@darkGray; }
+    100% { background-color:@orange; .transform(scale(1.25)); }
 }
 /* */
