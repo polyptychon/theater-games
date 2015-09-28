@@ -15,8 +15,8 @@ $(window).load(function() {
 	$("#num_of_theaters").html(0);
 	$("#start_game").click(function() { goto_screen("level_greece"); });
 	$("#help").click(function() { show_help(); });
-	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
-	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
+	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
+	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */) { $(".theater").removeClass("selected"); $("#descriptions").removeClass("open"); hide_help(); }
 	  else if (e.keyCode == 13 /* enter */) { $("#theater_button .button").click(); }
