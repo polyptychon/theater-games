@@ -115,7 +115,7 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; .rounded(4px); background:@orange; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .1s ease-in-out);
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .1s ease-in-out);
 		&:hover { background:@white; color:@orange; }
 		&:active { background:@lightGray; .innerShadowed(0,2px,5px); }
 		&.green { background:@green; color:@white; &:hover { background:@lightGray; color:@textGray; } }
@@ -157,7 +157,7 @@ h1 { .pt(32); .light; .rel; .lh(1); padding:25px; }
 h2 { .pt(24); .light; .lh(1); margin:0 0 25px;  }
 h3 { .pt(18); .medium; .lh(1); padding:15px 0 25px; }
 hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%; &.full { width:100%; } }
-p + p { text-indent:50px; }
+p + p { margin:15px 0 0; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
 	color:@sitered; .notUnderlined; .active; .transition(all .2s ease-in-out);	
@@ -176,11 +176,11 @@ a {
 		img.bg { .absPos(0,0); .z(0); }
 		.theaters { width:100%; height:100%; .absPos(0,0); .z(100);
 			.theater { .active; background:@darkGray; width:25px; height:25px; .centeredText; .transparent(.9,90); .rounded(50%); .abs; .transition(all .2s ease-in-out);
-				&:hover { .transform(scale(1.75)); background-size:90%; }
+				&:hover { .transform(scale(1.25)); }
 				&.selected { animation: theater_selected .5s ease-in-out 0s infinite alternate; }
 				&.added { background:@orange; }
-				&[type="theater"] { background-image:url("../img/theater.svg"); background-repeat:no-repeat; background-size:75%; background-position:center center; }
-				&[type="auditorium"] { background-image:url("../img/auditorium.svg"); background-repeat:no-repeat; background-size:70%; background-position:center center; }
+				/* &[type="theater"] { background-image:url("../img/theater.svg"); background-repeat:no-repeat; background-size:75%; background-position:center center; }
+				&[type="auditorium"] { background-image:url("../img/auditorium.svg"); background-repeat:no-repeat; background-size:70%; background-position:center center; } */
 				span { .invisible; }				
 			}
 		}
