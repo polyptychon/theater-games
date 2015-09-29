@@ -281,9 +281,6 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   background: #1baa95;
   font-size: 1em;
   color: #ffffff;
@@ -495,7 +492,7 @@ hr.full {
   width: 100%;
 }
 p + p {
-  text-indent: 50px;
+  margin: 15px 0 0;
 }
 img.full {
   width: 100%;

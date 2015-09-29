@@ -116,7 +116,7 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; .rounded(4px); background:@teal; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline-block)!important; .transition(all .2s ease-in-out);
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@teal; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline-block)!important; .transition(all .2s ease-in-out);
 		&:hover { background:@sitebeize; color:@teal; }
 		&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
@@ -157,7 +157,7 @@ h1 { .pt(32); .light; .rel; .lh(1); padding:25px; }
 h2 { .pt(28); .light; .lh(1); margin:0 0 25px;  }
 h3 { .pt(20); .medium; .lh(1.25); padding:25px 0; }
 hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%; &.full { width:100%; } }
-p + p { text-indent:50px; }
+p + p { margin:15px 0 0; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
 	color:@sitered; .notUnderlined; .active; .transition(all .2s ease-in-out);	
