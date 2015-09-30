@@ -30,6 +30,8 @@ function init() {
 		removed_areas = 0;
 		/* $("#game_title").html(game_data.texts.game_title); */
 		$("#game_subtitle").html(game_data.texts.init_stage);
+		$("#help_text_level_1 .help_content").html(game_data.texts.help_text_level_1);
+		$("#help_text_level_2 .help_content").html(game_data.texts.help_text_level_2);
 		$("#intro").removeClass("instructions");
 		$("#final_text").html("<h2>" + game_data.texts.last_stage + "</h2><br/>" + game_data.texts.history);
 		goto_screen("init");
@@ -74,7 +76,7 @@ function init_svg_objects(level) { $("#" + level + " svg, #" + level + " svg *")
 function fill_lives() { $("#efforts").html(""); for (l = 1; l <= 4; l++) $("#efforts").append("<div class='effort'><img src='assets/img/heart.png'></div>"); }
 function lose_life(level) { $("#efforts .effort:not(.lost):last").addClass("lost"); if ($(".effort:not(.lost)").length == 0) { selected_area = ""; removed_areas = 0; init_svg_objects(level); if (level == "level_1") var message = "Δυστυχώς έχασες όλες σου τις προσπάθειες!<br/>Ξαναπροσπάθησε για να μπορέσεις να συνεχίσεις στο επόμενο στάδιο."; else message = "Δεν τα κατάφερες. Ξαναπροσπάθησε για να δεις την μορφή του θεάτρου σήμερα, μετά το τέλος της ανασκαφής και της συντήρησής του."; show_message({"message":message, "buttons":[{"button":"Ξαναπροσπαθησε", "action":"goto_screen(\"" + level + "\")"}]}); } }
 
-function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }
+function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); if (!$("#level_1").hasClass("hidden")) { $("#help_text_level_1").removeClass("invisible"); $("#help_text_level_2").addClass("invisible"); } else { $("#help_text_level_2").removeClass("invisible"); $("#help_text_level_1").addClass("invisible"); } $(this).dequeue(); }); }
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
 function show_message(params) {	

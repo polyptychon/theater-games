@@ -855,6 +855,7 @@ a.footer:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+  text-align: center;
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -880,7 +881,6 @@ a.footer:hover {
   -moz-border-radius: 50%;
   background: #1baa95;
   color: #ffffff;
-  text-align: center;
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -896,6 +896,42 @@ a.footer:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+}
+#container #help table {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#container #help table td {
+  width: 50%;
+  padding: 0;
+  vertical-align: middle!important;
+}
+#container #help .help_content {
+  text-align: left;
+  font-size: 0.8125em;
+}
+#container #help .help_content ul {
+  margin: 25px 0;
+  padding: 0;
+  list-style-type: none;
+}
+#container #help .help_content ul li {
+  margin: 0 0 5px;
+  clear: both;
+  float: none;
+  display: block;
+}
+#container #help .help_content ul li img {
+  width: 35px;
+  background: #999;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  padding: 5px;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
 }
 #container #help .close_button {
   cursor: pointer!important;
