@@ -115,9 +115,9 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@siteblue; color:@sitered; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
-		&:hover { background:@sitebeize; color:@siteblue; }
-		&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@green; color:@white; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
+		&:hover { background:@white; color:@green; }
+		&:active { background:@lightGray; .innerShadowed(0,5px,7px); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
 		&.gray { background:@sitebeize; color:@textGray; &:hover { background:@sitered; color:@white; } &:active { background:@sitebeize; .innerShadowed(0,5px,7px); } }
 		&.disabled { .inactive; background:@midGray; color:@midGray - #222; &:hover { .innerShadowed(0,0,0); } }
@@ -218,7 +218,7 @@ a {
 			&#level_1_area_1 { fill:@blue; }
 			&#level_1_area_2 { fill:@red; }
 			&#level_1_area_3 { fill:@green; }
-			&:hover, &:focus { .transparent(.75,75); }
+			&:hover, &:focus { .transparent(.70,70); }
 			&.selected { fill:@yellow; .transparent(.5,50)!important; }
 			&.wrong_tool { fill:@red; .transparent(.5,50)!important; }
 		}
