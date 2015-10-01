@@ -116,6 +116,12 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 *:focus {
   outline: 0;
 }
@@ -281,12 +287,9 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  background: #45495f;
+  background: #0099ff;
   font-size: 1em;
-  color: #f74d4d;
+  color: #ffffff;
   cursor: pointer!important;
   text-transform: uppercase;
   font-size: 0.6875em;
@@ -300,11 +303,11 @@ table {
   transition: all 0.2s ease-in-out;
 }
 .button:hover {
-  background: #dbd8d2;
-  color: #45495f;
+  background: #ffffff;
+  color: #0099ff;
 }
 .button:active {
-  background: #dbd8d2;
+  background: #eeeeee;
   -webkit-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
@@ -333,8 +336,8 @@ table {
 }
 .button.disabled {
   cursor: default!important;
-  background: #444444;
-  color: #222222;
+  background: #aaaaaa;
+  color: #888888;
 }
 .button.disabled:hover {
   -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.5);
@@ -495,7 +498,7 @@ hr.full {
   width: 100%;
 }
 p + p {
-  text-indent: 50px;
+  margin: 15px 0 0;
 }
 img.full {
   width: 100%;
@@ -596,14 +599,6 @@ a.footer:hover {
   opacity: 0;
   filter: alpha(opacity=95);
 }
-#container .screen#level_1 img,
-#container .screen#level_2 img,
-#container .screen#level_1 svg,
-#container .screen#level_2 svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 #container .screen .text {
   padding: 25px;
   font-size: 1em;
@@ -611,9 +606,96 @@ a.footer:hover {
 #container .screen #start_game {
   margin: 0 0 0 25px;
 }
+#container .screen .vas {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #eeeeee;
+}
+#container .screen .vas .final_vas,
+#container .screen .vas .empty_vas {
+  z-index: 50;
+}
+#container .screen .vas .position {
+  position: relative;
+  z-index: 100;
+}
+#container .screen .vas .position .figure {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+#container .screen .vas.error {
+  background: #ff0000 !important;
+}
+#container .screen .figures {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #dddddd;
+}
+#container .screen .figures .vas_caption {
+  text-align: left;
+  position: absolute;
+  top: 75px;
+  left: 50px;
+  width: 75%;
+}
+#container .screen#level_1 #level_1_final_vas,
+#container .screen#level_1 #level_1_empty_vas {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  z-index: 50;
+}
+#container .screen#level_1 #level_1_pos_1 {
+  position: absolute;
+  top: 242px;
+  left: 47px;
+}
+#container .screen#level_1 #level_1_pos_2 {
+  position: absolute;
+  top: 247px;
+  left: 136px;
+}
+#container .screen#level_1 #level_1_pos_3 {
+  position: absolute;
+  top: 261px;
+  left: 317px;
+}
+#container .screen#level_1 #level_1_f_1 {
+  position: absolute;
+  top: 425px;
+  left: 325px;
+}
+#container .screen#level_1 #level_1_f_2 {
+  position: absolute;
+  top: 250px;
+  left: 125px;
+}
+#container .screen#level_1 #level_1_f_3 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+#container #clock {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: #eeeeee;
+  padding: 15px 20px;
+  font-size: 1.125em;
+  font-weight: 700;
+  font-style: normal;
+}
 #container #help {
   cursor: pointer!important;
   background: #ffffff;
+  z-index: 1000;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -639,6 +721,8 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+  background: #0099ff;
+  color: #ffffff;
   text-align: center;
   position: absolute;
   bottom: 25px;
@@ -648,16 +732,20 @@ a.footer:hover {
   padding: 13px 0 10px;
 }
 #container #help.hidden:hover {
-  background: #00cc66;
-  color: #ffffff;
+  background: #ffffff;
+  color: #222222;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
 }
 #container #help .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 25px;
-  height: 25px;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
   text-align: center;
   background: #ff0000;
   color: #ffffff;
@@ -717,10 +805,11 @@ a.footer:hover {
 #container #popup #message_container .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 25px;
-  height: 25px;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
   text-align: center;
   background: #ff0000;
   color: #ffffff;

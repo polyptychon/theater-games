@@ -7,6 +7,7 @@
 	<link rel="icon" href="assets/img/icon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title>Ο Διόνυσος και οι φίλοι του</title>	
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
 </head>
 <body>
@@ -39,9 +40,20 @@
 			<div id="start_game" class="button">ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ</div>
 		</div>
 		<div class="screen hidden centeredText" id="level_1">
-					
-			<br/><br/>1<br/><br/>
-			<div class="button" onclick="goto_screen('level_2');">ΠΗΓΑΙΝΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>
+						
+			<div class="vas">
+				<img class="final_vas" id="level_1_final_vas" src="assets/img/level_1/final_vas.png"/>
+				<img class="empty_vas" id="level_1_empty_vas" src="assets/img/level_1/empty_vas.png"/>
+				<div class="position" id="level_1_pos_1" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:174px; height:288px; background-image:url('assets/img/level_1/pos_1.png');"></div>
+				<div class="position" id="level_1_pos_2" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:198px; height:295px; background-image:url('assets/img/level_1/pos_2.png');"></div>
+				<div class="position" id="level_1_pos_3" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:118px; height:280px; background-image:url('assets/img/level_1/pos_3.png');"></div>				
+			</div>
+			<div class="figures">
+				<img class="figure" id="level_1_f_1" src="assets/img/level_1/f_1.png" draggable="true" ondragstart="drag_figure(event);"/>
+				<img class="figure" id="level_1_f_2" src="assets/img/level_1/f_2.png" draggable="true" ondragstart="drag_figure(event);"/>
+				<img class="figure" id="level_1_f_3" src="assets/img/level_1/f_3.png" draggable="true" ondragstart="drag_figure(event);"/>
+				<div class="vas_caption" id="level_1_vas_caption"><!-- dynamic content --></div>
+			</div>
 						
         </div>
         <div class="screen hidden centeredText" id="level_2">
@@ -74,6 +86,9 @@
         	<div class="button" onclick="goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
         
         </div>
+        
+        <!-- clock -->
+        <div id="clock">00:00</div>
 		
 		<!-- help icon + popup -->
 		<div id="help" class="hidden invisible">
