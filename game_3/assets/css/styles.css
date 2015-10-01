@@ -651,6 +651,12 @@ a.footer:hover {
 #container .screen .theaters .theater.added {
   background: #ff6600;
 }
+#container .screen .theaters .theater.correct {
+  background: #00cc66;
+}
+#container .screen .theaters .theater.wrong {
+  background: #ff0000;
+}
 #container .screen .theaters .theater span {
   display: none!important;
 }
@@ -813,9 +819,13 @@ a.footer:hover {
   padding: 5px 0;
   text-align: center;
 }
-#container #tour_schedule #tour_theaters .tour_theater:hover {
+#container #tour_schedule #tour_theaters .tour_theater:hover,
+#container #tour_schedule #tour_theaters .tour_theater.wrong {
   text-decoration: line-through;
   color: #ff0000;
+}
+#container #tour_schedule #tour_theaters .tour_theater.correct {
+  color: #00cc66;
 }
 #container #tour_schedule #check_schedule {
   position: absolute;

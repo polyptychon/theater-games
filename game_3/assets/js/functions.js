@@ -143,6 +143,12 @@ function end_game(level,result) {
 	var text_to_show = eval("game_data.texts.end_level_" + level + "_" + result);
 	correct_theaters_in_schedule = get_correct_theaters_in_schedule(level);
 	wrong_theaters_in_schedule = get_wrong_theaters_in_schedule(level);
+	$(".theater").removeClass("added").removeClass("selected");
+	$.each(game_data.theaters[level], function(index,theater) {
+		if (theater.in_use == "yes") { $(".theater[id='" + theater.id + "'], .tour_theater[theater_id='" + theater.id + "']").addClass("correct"); }
+		else { $(".tour_theater[theater_id='" + theater.id + "']").addClass("wrong"); }
+		return;
+	});
 	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + theater.name + "</li>"; return; }); text_to_show += "<ul>" + active_theaters + "</ul></p>"; var correct_theaters = []; for (t = 0; t < correct_theaters_in_schedule.length; t++) $.each(game_data.theaters[level], function(index,theater) { if (theater.id == correct_theaters_in_schedule[t]) correct_theaters += "<li>" + theater.name + "</li>"; return; }); text_to_show = text_to_show.replace("{*}","<b>" + correct_theaters_in_schedule.length + "</b>").replace("{**}","<ul>" + correct_theaters + "</ul>"); }
 	if (level == "greece") { var button = "Συνεχισε στο επομενο σταδιο"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
 	else if (level == "mediterranean") { var button = "Ξαναπαιξε απο την αρχη"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#greece_theaters").html(""); goto_screen("init");'; }
