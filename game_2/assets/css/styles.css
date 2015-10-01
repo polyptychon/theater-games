@@ -281,9 +281,6 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
   background: #45495f;
   color: #f74d4d;
   cursor: pointer!important;
@@ -493,7 +490,7 @@ hr.full {
   width: 100%;
 }
 p + p {
-  text-indent: 50px;
+  margin: 15px 0 0;
 }
 img.full {
   width: 100%;
@@ -766,8 +763,8 @@ a.footer:hover {
 }
 #container .screen#level_2 #check_figures_positions_button {
   position: absolute;
-  top: 25px;
-  left: 25px;
+  bottom: 35px;
+  right: 30px;
 }
 #container .screen .text {
   padding: 25px;
@@ -871,7 +868,7 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab:nth-child(2n) {
-  background: #dddddd;
+  background: #e7e7e7;
 }
 #container #calendar #calendar_container #calendar_days .calendar_day_tab.selected {
   font-weight: 700;
@@ -904,6 +901,7 @@ a.footer:hover {
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer!important;
 }
 #container #calendar #calendar_container #calendar_content .calendar_day .left_page {
   position: absolute;
@@ -961,11 +959,12 @@ a.footer:hover {
 #container #calendar #calendar_container .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
   z-index: 1500;
-  width: 25px;
-  height: 25px;
   text-align: center;
   background: #ff0000;
   color: #ffffff;
@@ -1198,10 +1197,11 @@ a.footer:hover {
 #container #help .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 25px;
-  height: 25px;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
   text-align: center;
   background: #ff0000;
   color: #ffffff;
@@ -1261,10 +1261,11 @@ a.footer:hover {
 #container #popup #message_container .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 25px;
-  height: 25px;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
   text-align: center;
   background: #ff0000;
   color: #ffffff;

@@ -18,7 +18,7 @@
 	},
 	"figures" : [
 		{ "id" : "f1", "profession" : "Ιερέας του Διονύσου", "correct_position" : "pos1", "text" : "" },
-		{ "id" : "f2", "profession" : "Βουλευτής", "correct_position" : "pos3", "text" : "" },
+		{ "id" : "f2", "profession" : "Χορηγός", "correct_position" : "pos3", "text" : "" },
 		{ "id" : "f3", "profession" : "Στρατηγός", "correct_position" : "pos2", "text" : "" },
 		{ "id" : "f4", "profession" : "Έμπορος", "correct_position" : "pos4", "text" : "" },
 		{ "id" : "f5", "profession" : "Γεωργός", "correct_position" : "pos5", "text" : "" },

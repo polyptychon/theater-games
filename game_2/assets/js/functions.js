@@ -14,9 +14,9 @@ $(window).load(function() {
 	init();	
 	$("#start_game").click(function() { goto_screen("level_1"); });
 	$("#help").click(function() { show_help(); });
-	$("#close_help").click(function() { hide_help(); event.stopPropagation(); });
-	$("#close_message").click(function() { hide_message("down"); event.stopPropagation(); });
-	$("#close_calendar").click(function() { hide_calendar(); event.stopPropagation(); });
+	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
+	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
+	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
 	$("#calendar_button").click(function() { show_calendar(); });
 	randomize_figures();
 	$("*[theTitle]").titlesBehaviour();
@@ -76,7 +76,7 @@ function render_calendar_content(texts) {
 		var day_bg = "assets/img/day_" + day + ".jpg";
 		var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>- - -<br/>");
 		days_titles_html += "<div for='day_" + day + "' class='calendar_day_tab' onclick='change_page(\"day_" + day + "\")'>" + day_title + "</div>";
-		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'><div class='left_page'>" + day_text + "<br/><br/></div><div class='right_page'><div class='day_bg' style='background-image:url(\"" + day_bg + "\")'></div></div></div>";
+		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'><div class='left_page' onclick='get_previous_page(\"day_" + day + "\")'>" + day_text + "<br/><br/></div><div class='right_page' onclick='get_next_page(\"day_" + day + "\")'><div class='day_bg' style='background-image:url(\"" + day_bg + "\")'></div></div></div>";
 	}
 	$("#calendar_days").html(days_titles_html);
 	$("#calendar_content").html(content_html);
@@ -96,12 +96,20 @@ function show_calendar(page) {
 function hide_calendar() { $("#calendar").removeClass("open"); unselect_all(); }
 function change_page(page) {
 	$(".calendar_day:not(.hidden)").addClass("hidden");
-	 $("#" + page).find(".day_text").scrollTop(0);
+	$("#" + page).find(".day_text").scrollTop(0);
 	$("#" + page).removeClass("hidden");
 	$(".calendar_day_tab").removeClass("selected");
 	$(".calendar_day_tab[for = '" + page + "']").addClass("selected");
 	if (calendar_pages_seen.indexOf(page) == -1) calendar_pages_seen.push(page);
 	check_calendar_pages_seen();
+}
+function get_next_page(page) {
+	var current_page = page.split("_")[1]; var next_page = Math.round(current_page) + 1; if (next_page > 4) next_page = 1;
+	change_page("day_" + next_page);
+}
+function get_previous_page(page) {
+	var current_page = page.split("_")[1]; var previous_page = Math.round(current_page) - 1; if (previous_page < 1) previous_page = 4;
+	change_page("day_" + previous_page);
 }
 function check_calendar_pages_seen() {
 	if (!calendar_read) if (calendar_pages_seen.length == 4) { calendar_read = true; activate_game_button(); }
@@ -168,7 +176,7 @@ function remove_figure(pos) {
 	console.log("- " + figures_positions);
 }
 function activate_check_positions_button() {
-	if (figures_positions.length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
+	if ($(".position .figure").length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
 	else $("#check_figures_positions_button").addClass("disabled").unbind("click");
 }
 function check_positions() {
@@ -198,7 +206,7 @@ function end_game(result) {
 $.fn.extend({ 
 	titlesBehaviour: function() { $(this).each(function() { $(this).mouseover(function() { ddrivetip($(this).attr("theTitle")); }); $(this).mouseout(function() { hideddrivetip(); }); }); },
 	disableSelection: function() { this.each(function() { this.onselectstart = function() { return false; }; this.unselectable = "on"; $(this).css('-moz-user-select', 'none'); $(this).css('-webkit-user-select', 'none'); }); return this; },
-	shuffleChildren: function() { $.each(this.get(), function(index, el) { var $el = $(el); var $find = $el.children(); $find.sort(function() { return 0.5 - Math.random(); }); $el.empty(); $find.appendTo($el); }); }
+	shuffleChildren: function() { $.each(this.get(), function(index, el) { var $el = $(el); var $find = $el.children(); $find.sort(function() { return 0.5 - Math.random(); }); $el.empty(); $find.appendTo($el); }); } /* taken from https://css-tricks.com/snippets/jquery/shuffle-children/ */
 });
 Array.prototype.equals = function (array) {
     if (!array) return false;

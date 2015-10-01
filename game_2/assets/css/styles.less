@@ -115,7 +115,7 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; .rounded(4px); background:@siteblue; color:@sitered; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@siteblue; color:@sitered; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
 		&:hover { background:@sitebeize; color:@siteblue; }
 		&:active { background:@sitebeize; .innerShadowed(0,5px,7px); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
@@ -156,7 +156,7 @@ h1 { .pt(32); .light; .rel; .lh(1); padding:25px; }
 h2 { .pt(28); .light; .lh(1); margin:0 0 25px;  }
 h3 { .pt(20); .medium; .lh(1.25); padding:25px 0; }
 hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%; &.full { width:100%; } }
-p + p { text-indent:50px; }
+p + p { margin:15px 0 0; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
 	color:@sitered; .notUnderlined; .active; .transition(all .2s ease-in-out);	
@@ -207,7 +207,7 @@ a {
 				#f5 { background:url("../img/f5.jpg") 0 0; }
 				#f6 { background:url("../img/f6.jpg") 0 0; }
 			}
-			#check_figures_positions_button { .absPos(25px,25px); }
+			#check_figures_positions_button { .absPosBottomRight(35px,30px); }
 		}
 		
 		.text { padding:25px; .pt(16); }
@@ -229,13 +229,13 @@ a {
 		#calendar_container { .relPos(0,25px); .z(200);
 			#calendar_days { height:50px; background:@lightGray; margin:0; padding:0; .nonSelective; .absPos(25px,-50px); .z(1000);
 				.calendar_day_tab { .active; background:@lightGray; width:50px; .centeredText; padding:13px 0; color:@textGray; .transition(all .2s ease-in-out);
-					&:nth-child(2n) { background:@lightGray - #111; }
+					&:nth-child(2n) { background:@lightGray - #070707; }
 					&.selected { .bold; }
 					&:hover, &.selected { background:@white; }
 				}
 			}
 			#calendar_content { background:@white; width:920px; height:650px; overflow:hidden; .rel; .z(100)!important; .transition(all .2s ease-in-out); .shadowed(0,2px,5px);
-				.calendar_day { width:100%; height:100%; background:@white; .absPos(0,0);
+				.calendar_day { width:100%; height:100%; background:@white; .absPos(0,0); .active;
 					.left_page {
 						.absPos(0,0); .roundedLeft(8px); width:40%; height:100%; .visible(inline-block); overflow-y:auto; padding:0 5% 0; .lh(1.5);
 						h2 { padding:25px 0 0; .pt(20); .lh(1.5); .medium; color:@orange; }
@@ -247,7 +247,7 @@ a {
 					&.hidden { .absPos(-105%,0); }
 				}
 			}
-			.close_button { .active; .absPosRight(-12px,-12px); .z(1500); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .z(1500); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 		}
 		#calendar_handle { .active; .nonSelective; background:@lightGray; .pt(13); .roundedBottom(8px); .bold; .visible(inline-block); .centeredText; padding:15px 25px; .capitalized; .relPos(0,60px); .z(0); .transition(all .2s ease-in-out);
 			&:after { content:"\25BE"; background:@darkGray; color:@white; .centeredText; padding:4px 10px 6px; .relPos(-1px,0); .rounded(50%); margin:0 0 0 25px; .pt(18); .bold; color:@white; .transition(all .2s ease-in-out); }			
@@ -272,14 +272,14 @@ a {
 		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); .z(5000); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
 		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; .rounded(8px); } }		
-		.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 	}
 	#popup {
 		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
 		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px; .transition(all .2s ease-in-out);
 			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; .transition(all .2s ease-in-out); }
 			#buttons { .centeredText; }
-			.close_button { .active; .absPosRight(-12px,-12px); width:25px; height:25px; .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 		}
 		&.down { background-image:none; #message_container { min-height:0; margin:675px auto 0; width:225px; #message { max-height:0px; margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
 	}	
