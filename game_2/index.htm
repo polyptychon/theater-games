@@ -41,6 +41,7 @@
 	<script src="assets/libs/jquery-1.11.1.min.js"></script>
 	<script src="assets/libs/jquery-migrate.min.js"></script>
 	<script src="assets/libs/jquery.easing.min.js"></script>
+	<script src="assets/libs/jquery-ui.min.js"></script>
 	<!-- custom js -->
 	<script src="assets/js/functions.js"></script>
 	
@@ -84,20 +85,20 @@
         	
         	<img id="game_board" src="assets/img/theater.jpg" />
         	<div id="positions">
-        		<div id="pos1" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
-        		<div id="pos2" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
-        		<div id="pos3" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
-        		<div id="pos4" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
-        		<div id="pos5" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
-        		<div id="pos6" class="position" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event);" onclick="remove_figure(this);"></div>
+        		<div id="pos1" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos2" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos3" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos4" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos5" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos6" class="position" onclick="remove_figure(this);"></div>
         	</div>
         	<div id="figures">
-        		<div id="f1" class="figure" draggable="true" ondragstart="drag_figure(event);">1</div>
-        		<div id="f2" class="figure" draggable="true" ondragstart="drag_figure(event);">2</div>
-        		<div id="f3" class="figure" draggable="true" ondragstart="drag_figure(event);">3</div>
-        		<div id="f4" class="figure" draggable="true" ondragstart="drag_figure(event);">4</div>
-        		<div id="f5" class="figure" draggable="true" ondragstart="drag_figure(event);">5</div>
-        		<div id="f6" class="figure" draggable="true" ondragstart="drag_figure(event);">6</div>
+        		<div id="f1" class="figure">1</div>
+        		<div id="f2" class="figure">2</div>
+        		<div id="f3" class="figure">3</div>
+        		<div id="f4" class="figure">4</div>
+        		<div id="f5" class="figure">5</div>
+        		<div id="f6" class="figure">6</div>
         	</div>
         	<div id="check_figures_positions_button" class="button disabled"><!-- dynamic content --></div>
         	        

@@ -19,6 +19,8 @@ $(window).load(function() {
 	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
 	$("#calendar_button").click(function() { show_calendar(); });
 	randomize_figures();
+	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }});
+	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$("*[theTitle]").titlesBehaviour();
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
@@ -129,13 +131,10 @@ function hide_game() {
 	$("#game_button").attr("theTitle","Συνέχισε το παιχνίδι").removeClass("pause").unbind("click").click(function() { show_game(); });
 }
 
-function drag_figure(e) { e.dataTransfer.setData("figure_id", e.target.id); e.dataTransfer.setData("parent_id", $(e.target).parent().attr("id")); }
-function allowDrop_figure(e) { e.preventDefault(); }
-function drop_figure(e) {
-	e.preventDefault();	
-	var figure_id = e.dataTransfer.getData("figure_id");
-	var parent_id = e.dataTransfer.getData("parent_id");
-	var position_id = e.target.id; if (position_id.indexOf("f") != -1) position_id = $("#" + position_id).parent().attr("id");
+function drop_figure(e,figure_id,position_id) {
+	e.preventDefault();
+	var parent_id = $("#" + figure_id).data("info").parent_id;	
+	if (position_id.indexOf("f") != -1) position_id = $("#" + position_id).parent().attr("id");
 		
 	if (parent_id != "figures") {	
 		if ($("#" + position_id).find($(".figure")).length == 0) {			
@@ -162,7 +161,9 @@ function drop_figure(e) {
 			e.target.appendChild(document.getElementById(figure_id));
 			figures_positions.push(figure_id + "_" + position_id);
 			activate_check_positions_button();
-		}		
+		} else {
+			$("#" + figure_id).animate($("#" + figure_id).data("info").init_position,"fast");
+		}
 	}
 	console.log(figure_id + " from " + parent_id + " to " + position_id + " - " + figures_positions);
 }
