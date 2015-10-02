@@ -15,6 +15,8 @@ $(window).load(function() {
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
+	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("origPosition",$(this).position()); }});
+	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(this).attr("id").split("_")[1],$(ui.draggable).attr("id"),position_id); } });
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 	});
@@ -55,15 +57,13 @@ function pause_timer() { clearInterval(timer_interval); }
 function stop_timer() { clearInterval(timer_interval); timer_interval = null; total_seconds = 0; }
 function reset_timer() { $("#clock").html("00:00"); }
 
-function drag_figure(e) { e.dataTransfer.setData("id", e.target.id); }
-function allowDrop_figure(e) { e.preventDefault(); }
-function drop_figure(e,level) {
-	e.preventDefault();
-	var figure_id = e.dataTransfer.getData("id");
-	var position_id = e.target.id;
+function drop_figure(e,level,figure_id,position_id) {
+	e.preventDefault();	
+	console.log(figure_id,position_id);
 	if (($("#" + position_id).find($(".figure")).length == 0) && (position_id.split("_")[3] == figure_id.split("_")[3])) {
 		$("#" + position_id).append($("#" + figure_id));
 	} else {
+		$("#" + figure_id).animate($("#" + figure_id).data().origPosition,"fast");
 		$(".vas").addClass("error").delay(150).queue(function() { $(this).removeClass("error").dequeue(); });
 	}
 	check_positions(level);

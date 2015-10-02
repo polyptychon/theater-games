@@ -24,6 +24,7 @@
 	<script src="assets/libs/jquery-1.11.1.min.js"></script>
 	<script src="assets/libs/jquery-migrate.min.js"></script>
 	<script src="assets/libs/jquery.easing.min.js"></script>
+	<script src="assets/libs/jquery-ui.min.js"></script>
 	<!-- custom js -->
 	<script src="assets/js/functions.js"></script>
 	
@@ -44,14 +45,14 @@
 			<div class="vas">
 				<img class="final_vas" id="level_1_final_vas" src="assets/img/level_1/final_vas.png"/>
 				<img class="empty_vas" id="level_1_empty_vas" src="assets/img/level_1/empty_vas.png"/>
-				<div class="position" id="level_1_pos_1" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:174px; height:288px; background-image:url('assets/img/level_1/pos_1.png');"></div>
-				<div class="position" id="level_1_pos_2" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:198px; height:295px; background-image:url('assets/img/level_1/pos_2.png');"></div>
-				<div class="position" id="level_1_pos_3" ondragover="allowDrop_figure(event);" ondrop="drop_figure(event,1);" style="width:118px; height:280px; background-image:url('assets/img/level_1/pos_3.png');"></div>				
+				<div class="position" id="level_1_pos_1" style="width:174px; height:288px; background-image:url('assets/img/level_1/pos_1.png');"></div>
+				<div class="position" id="level_1_pos_2" style="width:198px; height:295px; background-image:url('assets/img/level_1/pos_2.png');"></div>
+				<div class="position" id="level_1_pos_3" style="width:118px; height:280px; background-image:url('assets/img/level_1/pos_3.png');"></div>
 			</div>
 			<div class="figures">
-				<img class="figure" id="level_1_f_1" src="assets/img/level_1/f_1.png" draggable="true" ondragstart="drag_figure(event);"/>
-				<img class="figure" id="level_1_f_2" src="assets/img/level_1/f_2.png" draggable="true" ondragstart="drag_figure(event);"/>
-				<img class="figure" id="level_1_f_3" src="assets/img/level_1/f_3.png" draggable="true" ondragstart="drag_figure(event);"/>
+				<img class="figure" src="assets/img/level_1/f_1.png" id="level_1_f_1"/>
+				<img class="figure" src="assets/img/level_1/f_2.png" id="level_1_f_2"/>
+				<img class="figure" src="assets/img/level_1/f_3.png" id="level_1_f_3"/>
 				<div class="vas_caption" id="level_1_vas_caption"><!-- dynamic content --></div>
 			</div>
 						

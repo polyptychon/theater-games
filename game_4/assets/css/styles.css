@@ -638,6 +638,10 @@ a.footer:hover {
   left: 50%;
   background: #dddddd;
 }
+#container .screen .figures .figure {
+  cursor: pointer!important;
+  z-index: 200;
+}
 #container .screen .figures .vas_caption {
   text-align: left;
   position: absolute;
