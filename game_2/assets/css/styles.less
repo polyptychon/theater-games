@@ -216,10 +216,10 @@ a {
 		
 		/* svg styles */
 		polygon, path { cursor:pointer; .transparent(0,0); .transition(all .2s ease-in-out);
-			&#level_1_area_1 { fill:@blue; }
-			&#level_1_area_2 { fill:@red; }
-			&#level_1_area_3 { fill:@green; }
-			&:hover, &:focus { .transparent(.70,70); }
+			&#level_1_area_1 { fill:@blue; &.hint { .transparent(.7,70); } }
+			&#level_1_area_2 { fill:@red; &.hint { .transparent(.7,70); } }
+			&#level_1_area_3 { fill:@green; &.hint { .transparent(.7,70); } }
+			&:hover, &:focus { .transparent(.7,70); }
 			&.selected { fill:@yellow; .transparent(.5,50)!important; }
 			&.wrong_tool { fill:@red; .transparent(.5,50)!important; }
 		}

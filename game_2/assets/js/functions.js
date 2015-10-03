@@ -1,5 +1,6 @@
 /* global vars */
 var isMobile = false; if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) isMobile = true;
+var lang = ((getUrlParam("lang") == "gr" || !getUrlParam("lang")) ? "gr" : "en");
 var game_data = "";
 var selected_area = "";
 var calendar_read = false;
@@ -33,15 +34,16 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		$("#game_title").html(game_data.texts.game_title);
-		$("#game_subtitle").html(game_data.texts.intro);
-		render_calendar_content(game_data.texts.the_feast_calendar.days);
+		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
+		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.days"));
 		activate_game_button();
-		$("#calendar_button").attr("theTitle",game_data.texts.the_feast_calendar.handle_tooltip);
-		$("#play_button_message").html(game_data.texts.game_button_message);
+		$("#calendar_button").attr("theTitle",eval("game_data.texts." + lang + ".the_feast_calendar.handle_tooltip"));
+		$("#play_button_message").html(eval("game_data.texts." + lang + ".game_button_message"));
 		$("*[theTitle]").titlesBehaviour();
 		for (f = 0; f < game_data.figures.length; f++) correct_figures_positions.push(game_data.figures[f].id + "_" + game_data.figures[f].correct_position);
-		$("#check_figures_positions_button").html(game_data.texts.check_figures_positions_button);
+		$("#check_figures_positions_button").html(eval("game_data.texts." + lang + ".check_figures_positions_button"));
 		goto_screen("init");
 	});
 }
@@ -50,6 +52,17 @@ function goto_screen(which) {
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
 	if (which.indexOf("level") != -1) { $("#help, #calendar, #game, #calendar_button, #game_button").removeClass("invisible"); }
 	else { $("#help, #calendar, #game, #calendar_button, #game_button").addClass("invisible"); }
+	if (which == "level_1") {
+		$("#level_1_area_1").attr("class","hint").delay(500).queue(function() {
+			$(this).attr("class","").dequeue();
+			$("#level_1_area_2").attr("class","hint").delay(500).queue(function() {
+				$(this).attr("class","").dequeue();
+				$("#level_1_area_3").attr("class","hint").delay(500).queue(function() {
+					$(this).attr("class","").dequeue();
+				});
+			});
+		});
+	}
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
@@ -67,8 +80,8 @@ function show_help() { hide_calendar(); $("#help_icon").addClass("invisible").de
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
 function activate_game_button(){
-	if (calendar_read) { $("#play_button_message").removeClass("hidden").delay(4000).queue(function() { $(this).addClass("hidden"); $(this).dequeue(); }); $("#game_button").removeClass("disabled").attr("theTitle",game_data.texts.game_button_tooltip.active).click(function() { show_game(); }); $("*[theTitle]").titlesBehaviour(); }
-	else { $("#game_button").addClass("disabled").attr("theTitle",game_data.texts.game_button_tooltip.inactive).unbind("click"); $("*[theTitle]").titlesBehaviour(); }
+	if (calendar_read) { $("#play_button_message").removeClass("hidden").delay(4000).queue(function() { $(this).addClass("hidden"); $(this).dequeue(); }); $("#game_button").removeClass("disabled").attr("theTitle",eval("game_data.texts." + lang + ".game_button_tooltip.active")).click(function() { show_game(); }); $("*[theTitle]").titlesBehaviour(); }
+	else { $("#game_button").addClass("disabled").attr("theTitle",eval("game_data.texts." + lang + ".game_button_tooltip.inactive")).unbind("click"); $("*[theTitle]").titlesBehaviour(); }
 }
 
 function render_calendar_content(texts) {
@@ -76,7 +89,8 @@ function render_calendar_content(texts) {
 	for (day = 1; day <= 4; day++) {
 		var day_text = eval("texts.day_" + day);
 		var day_bg = "assets/img/day_" + day + ".jpg";
-		var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>- - -<br/>");
+		if (lang == "gr") var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>- - -<br/>");
+		else var day_title = $(day_text).html().split(" day")[0].replace("to","<br/>- - -<br/>");
 		days_titles_html += "<div for='day_" + day + "' class='calendar_day_tab' onclick='change_page(\"day_" + day + "\")'>" + day_title + "</div>";
 		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'><div class='left_page' onclick='get_previous_page(\"day_" + day + "\")'>" + day_text + "<br/><br/></div><div class='right_page' onclick='get_next_page(\"day_" + day + "\")'><div class='day_bg' style='background-image:url(\"" + day_bg + "\")'></div></div></div>";
 	}
@@ -123,12 +137,12 @@ function randomize_figures() {
 function show_game() {
 	hide_calendar(); hide_help(); hide_message(); $("#play_button_message").addClass("hidden");
 	$("#level_1, #level_2").addClass("playing");
-	$("#game_button").attr("theTitle","Επιστροφή στην κεντρική σκηνή").addClass("pause").unbind("click").click(function() { hide_game(); });
+	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".back_to_stage_button")).addClass("pause").unbind("click").click(function() { hide_game(); });
 }
 function hide_game() {
 	hide_calendar(); hide_help(); hide_message();
 	$("#level_1, #level_2").removeClass("playing");
-	$("#game_button").attr("theTitle","Συνέχισε το παιχνίδι").removeClass("pause").unbind("click").click(function() { show_game(); });
+	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".continue_game_button")).removeClass("pause").unbind("click").click(function() { show_game(); });
 }
 
 function drop_figure(e,figure_id,position_id) {
@@ -171,7 +185,7 @@ function remove_figure(pos) {
 	var position_id = $(pos).attr("id");
 	var figure_id = $(pos).find(".figure").attr("id");
 	f_pos_array_value = figure_id + "_" + position_id;
-	$("#figures").append($("#" + figure_id));
+	$("#figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position" : "relative", "top" : 0, "left" : 0 }); $(this).dequeue(); });
 	figures_positions.splice(figures_positions.indexOf(f_pos_array_value), 1);
 	activate_check_positions_button();
 	console.log("- " + figures_positions);
@@ -214,7 +228,8 @@ Array.prototype.equals = function (array) {
     if (this.length != array.length) return false;
     for (var i = 0, l=this.length; i < l; i++) { if (this[i] instanceof Array && array[i] instanceof Array) { if (!this[i].equals(array[i])) return false; } else if (this[i] != array[i]) { return false; } }       
     return true;
-} 
+}
+function getUrlParam(name) { name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search); return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); } /* taken from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript */
 /* Cool DHTML tooltip script - Dynamic Drive DHTML code library (www.dynamicdrive.com) - This notice MUST stay intact for legal use - Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code */
 var offsetxpoint = -60; var offsetypoint = 20; var ie = document.all; var ns6 = document.getElementById && !document.all; var enabletip = false;
 if (ie || ns6) var tipobj = document.all ? document.all["dhtmltooltip"] : document.getElementById ? document.getElementById("dhtmltooltip") : "";
