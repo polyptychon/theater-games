@@ -305,6 +305,9 @@ table {
   box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=-1, Color=#999999, Positive='true');
 }
+.button.big {
+  font-size: 0.875em;
+}
 .button.red {
   background: #ff0000;
 }
