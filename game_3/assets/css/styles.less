@@ -115,9 +115,10 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; .pt(16); color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .1s ease-in-out);
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .1s ease-in-out);
 		&:hover { background:@white; color:@orange; }
 		&:active { background:@lightGray; .innerShadowed(0,2px,5px); }
+		&.big { .pt(14); }
 		&.green { background:@green; color:@white; &:hover { background:@lightGray; color:@textGray; } }
 		&.red { background:@red; color:@white; &:hover { background:@lightGray; color:@textGray; } }
 		&.gray { background:@sitebeize; color:@textGray; &:hover { background:@sitered; color:@white; } &:active { background:@sitebeize; .innerShadowed(0,5px,7px); } }
@@ -181,9 +182,7 @@ a {
 				&.added { background:@orange; }
 				&.correct { background:@green; }
 				&.wrong { background:@red; }
-				/* &[type="theater"] { background-image:url("../img/theater.svg"); background-repeat:no-repeat; background-size:75%; background-position:center center; }
-				&[type="auditorium"] { background-image:url("../img/auditorium.svg"); background-repeat:no-repeat; background-size:70%; background-position:center center; } */
-				span { .invisible; }				
+				span { .invisible; }
 			}
 		}
 		.text { padding:25px; .pt(16); }
@@ -207,7 +206,7 @@ a {
 	
 	#tour_schedule { .absPosRight(35px,40px); .z(200); .transparent(.95,95); width:220px; height:375px; background:@white; .shadowed(0,2px,5px); .rounded(8px);
 		h1 { .bold; .pt(14); color:@orange; padding:25px 10px; .centeredText; border-bottom:dotted 1px @orange; }
-		#tour_theaters { padding:5px 0 0; height:350px; overflow-y:auto;
+		#tour_theaters { padding:0; height:300px; overflow-y:auto;
 			.tour_theater { .active; .pt(11); border-bottom:dotted 1px @midGray; padding:5px 0; .centeredText;
 				&:hover, &.wrong { text-decoration:line-through; color:@red; }
 				&.correct { color:@green; }

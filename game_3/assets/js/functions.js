@@ -1,9 +1,11 @@
 /* global vars */
 var isMobile = false; if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) isMobile = true;
+var lang = ((getUrlParam("lang") == "gr" || !getUrlParam("lang")) ? "gr" : "en");
 var game_data = "";
 var carousel_interval = "";
 var theaters_added_to_schedule = new Array();
 var correct_schedule = new Array();
+var current_date = "";
 /* */
 
 
@@ -29,8 +31,11 @@ $(window).load(function() {
 /* game functions */
 function init() {
 	$.getJSON("data.json", function(data) { game_data = ""; game_data = data; }).complete(function() {
-		$("#game_title").html(game_data.texts.game_title);
-		$("#game_subtitle").html(game_data.texts.intro);		
+		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
+		$("#check_schedule").html(eval("game_data.texts." + lang + ".check_schedule_button"));
+		$("#tour_schedule_title").html(eval("game_data.texts." + lang + ".tour_schedule"));
 		$("*[theTitle]").titlesBehaviour();
 		goto_screen("init");		
 	});
@@ -47,6 +52,7 @@ function goto_screen(which) {
 		activate_add_theater_button(level);
 		if ($("#descriptions").hasClass("open")) $("#descriptions").removeClass("open");
 		$("#tour_schedule, #help").removeClass("invisible");
+		current_date = "";
 	} else { $("#tour_schedule, #help").addClass("invisible"); }	
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
@@ -57,7 +63,7 @@ function add_theaters(where) {
 	correct_schedule[where] = new Array();
 	theaters_added_to_schedule[where] = new Array();
 	for (t = 0; t < theaters.length; t++) {
-		$("#" + where + "_theaters").append("<div id='" + theaters[t].id + "' level='" + where + "' numOfImgs='" + theaters[t].num_of_imgs + "' class='theater' theTitle='" + theaters[t].name + "' type='" + theaters[t].type + "' inUse='" + theaters[t].in_use + "' style='left:" + theaters[t].left + "px; top:" + theaters[t].top + "px;'><span>" + theaters[t].description + "</span></div>");
+		$("#" + where + "_theaters").append("<div id='" + theaters[t].id + "' level='" + where + "' numOfImgs='" + theaters[t].num_of_imgs + "' class='theater' theTitle='" + eval("theaters[t].name." + lang) + "' type='" + theaters[t].type + "' inUse='" + theaters[t].in_use + "' style='left:" + theaters[t].left + "px; top:" + theaters[t].top + "px;'><span>" + eval("theaters[t].description." + lang) + "</span></div>");
 		if (theaters[t].in_use == "yes") correct_schedule[where].push(theaters[t].id);
 	}
 	$("*[theTitle]").titlesBehaviour();
@@ -85,22 +91,22 @@ function activate_add_theater_button(where) {
 	var theater_already_added = ( theaters_added_to_schedule[where].indexOf(theater_to_add_id) > -1 ? true : false );
 	
 	if (!theater_already_added) {
-		$("#theater_button .button").html("Προσθηκη στο προγραμμα της περιοδειας").removeClass("red").addClass("green").unbind("click").click(function() {
+		$("#theater_button .button").html(eval("game_data.texts." + lang + ".add_to_schedule_button")).removeClass("red").addClass("green").unbind("click").click(function() {
 			theaters_added_to_schedule[where].push(theater_to_add_id);
 			$("#num_of_theaters").html(theaters_added_to_schedule[where].length);
 			if (theaters_added_to_schedule[where].length == correct_schedule[where].length) $("#check_schedule").removeClass("disabled").click(function() { check_schedule(); });
-			$(this).html("Αφαιρεση απο το προγραμμα της περιοδειας").removeClass("green").addClass("red");
-			$("#tour_theaters").append("<div class='tour_theater' theater_id='" + theater_to_add_id + "'>" + theater_to_add_name + "</div>");
+			$(this).html(eval("game_data.texts." + lang + ".remove_from_schedule_button")).removeClass("green").addClass("red");
+			$("#tour_theaters").append("<div class='tour_theater' theater_id='" + theater_to_add_id + "'>" + randomDate() + "<br/>" + theater_to_add_name + "</div>");
 			activate_tour_theaters(where);
 			activate_add_theater_button(where);
 			$("#" + theater_to_add_id).addClass("added");			
 		})
 	} else {
-		$("#theater_button .button").html("Αφαιρεση απο το προγραμμα της περιοδειας").removeClass("green").addClass("red").unbind("click").click(function() {
+		$("#theater_button .button").html(eval("game_data.texts." + lang + ".remove_from_schedule_button")).removeClass("green").addClass("red").unbind("click").click(function() {
 			theaters_added_to_schedule[where].splice(theaters_added_to_schedule[where].indexOf(theater_to_add_id), 1);
 			$("#num_of_theaters").html(theaters_added_to_schedule[where].length);
 			if (theaters_added_to_schedule[where].length != correct_schedule[where].length) $("#check_schedule").addClass("disabled").unbind("click");
-			$(this).html("Προσθηκη στο προγραμμα της περιοδειας").removeClass("red").addClass("green");
+			$(this).html(eval("game_data.texts." + lang + ".add_to_schedule_button")).removeClass("red").addClass("green");
 			$("#tour_theaters").find("[theater_id='" + theater_to_add_id + "']").remove();
 			activate_add_theater_button(where);
 			$("#" + theater_to_add_id).removeClass("added");			
@@ -140,7 +146,7 @@ function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass(
 
 function end_game(level,result) {
 	$("#descriptions").removeClass("open");
-	var text_to_show = eval("game_data.texts.end_level_" + level + "_" + result);
+	var text_to_show = eval("game_data.texts." + lang + ".end_level_" + level + "_" + result);
 	correct_theaters_in_schedule = get_correct_theaters_in_schedule(level);
 	wrong_theaters_in_schedule = get_wrong_theaters_in_schedule(level);
 	$(".theater").removeClass("added").removeClass("selected");
@@ -149,9 +155,9 @@ function end_game(level,result) {
 		else { $(".tour_theater[theater_id='" + theater.id + "']").addClass("wrong"); }
 		return;
 	});
-	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + theater.name + "</li>"; return; }); text_to_show += "<ul>" + active_theaters + "</ul></p>"; var correct_theaters = []; for (t = 0; t < correct_theaters_in_schedule.length; t++) $.each(game_data.theaters[level], function(index,theater) { if (theater.id == correct_theaters_in_schedule[t]) correct_theaters += "<li>" + theater.name + "</li>"; return; }); text_to_show = text_to_show.replace("{*}","<b>" + correct_theaters_in_schedule.length + "</b>").replace("{**}","<ul>" + correct_theaters + "</ul>"); }
-	if (level == "greece") { var button = "Συνεχισε στο επομενο σταδιο"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
-	else if (level == "mediterranean") { var button = "Ξαναπαιξε απο την αρχη"; var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#greece_theaters").html(""); goto_screen("init");'; }
+	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show += "<ul>" + active_theaters + "</ul></p>"; var correct_theaters = []; for (t = 0; t < correct_theaters_in_schedule.length; t++) $.each(game_data.theaters[level], function(index,theater) { if (theater.id == correct_theaters_in_schedule[t]) correct_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show = text_to_show.replace("{*}","<b>" + correct_theaters_in_schedule.length + "</b>").replace("{**}","<ul>" + correct_theaters + "</ul>"); }
+	if (level == "greece") { var button = eval("game_data.texts." + lang + ".next_level_button"); var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
+	else if (level == "mediterranean") { var button = eval("game_data.texts." + lang + ".restart_button"); var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); current_date = ""; $("#greece_theaters").html(""); goto_screen("init");'; }
 	show_message({"message":text_to_show, "buttons":[{"button": button, "action": action}]});	
 }
 /* */
@@ -169,7 +175,9 @@ Array.prototype.equals = function (array) {
     if (this.length != array.length) return false;
     for (var i = 0, l=this.length; i < l; i++) { if (this[i] instanceof Array && array[i] instanceof Array) { if (!this[i].equals(array[i])) return false; } else if (this[i] != array[i]) { return false; } }       
     return true;
-}   
+}
+function getUrlParam(name) { name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search); return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")); } /* taken from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript */
+function randomDate() { var d = new Date(); var year = d.getFullYear(); if (current_date == "") { var start = new Date(year + "-06-01"); var end = new Date(year + "-07-30"); } else { var start = new Date(current_date); start.setDate(start.getDate() + 1); var end = new Date(current_date); end.setDate(end.getDate() + 15); }  var date = new Date(+start + Math.random() * (end - start)); current_date = date; return date.getDate() + "." + Math.round(date.getMonth() + 1) + "." + date.getFullYear(); }
 /* Cool DHTML tooltip script - Dynamic Drive DHTML code library (www.dynamicdrive.com) - This notice MUST stay intact for legal use - Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code */
 var offsetxpoint = -60; var offsetypoint = 20; var ie = document.all; var ns6 = document.getElementById && !document.all; var enabletip = false;
 if (ie || ns6) var tipobj = document.all ? document.all["dhtmltooltip"] : document.getElementById ? document.getElementById("dhtmltooltip") : "";
