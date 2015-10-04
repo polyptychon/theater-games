@@ -625,12 +625,10 @@ a.footer:hover {
   z-index: 100;
 }
 #container .screen .vas .position .figure {
+  cursor: pointer!important;
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-}
-#container .screen .vas.error {
-  background: #ff0000 !important;
 }
 #container .screen .figures {
   width: 50%;
@@ -650,6 +648,34 @@ a.footer:hover {
   top: 75px;
   left: 50px;
   width: 75%;
+}
+#container .screen .figures .vas_check_button {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+#container .screen .figures .vas_check_button.invisible {
+  display: none;
+}
+#container .screen .figures .vas_hint {
+  cursor: pointer!important;
+  position: absolute;
+  top: 25px;
+  right: 110px;
+  font-size: 1.125em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: normal;
+  padding: 15px 20px;
+  background: #ffffff;
+  color: #222222;
+}
+#container .screen .figures .vas_hint:hover {
+  color: #00cc66;
+}
+#container .screen .figures .vas_hint:active {
+  background: #00cc66;
+  color: #ffffff;
 }
 #container .screen#level_1 #level_1_final_vas,
 #container .screen#level_1 #level_1_empty_vas {
@@ -672,21 +698,6 @@ a.footer:hover {
   position: absolute;
   top: 261px;
   left: 317px;
-}
-#container .screen#level_1 #level_1_f_1 {
-  position: absolute;
-  top: 425px;
-  left: 325px;
-}
-#container .screen#level_1 #level_1_f_2 {
-  position: absolute;
-  top: 250px;
-  left: 125px;
-}
-#container .screen#level_1 #level_1_f_3 {
-  position: absolute;
-  top: 50px;
-  left: 50px;
 }
 #container #clock {
   position: absolute;

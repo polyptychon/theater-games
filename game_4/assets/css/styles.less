@@ -178,12 +178,13 @@ a {
 		
 		.vas { width:50%; height:100%; .absPos(0,0); background:@lightGray;
 			.final_vas,.empty_vas { .z(50); }
-			.position { .rel; .z(100); .figure { .absPos(0,0)!important; } }
-			&.error { background:@red!important; }
+			.position { .rel; .z(100); .figure { .active; .absPos(0,0)!important; } }
 		}
 		.figures { width:50%; height:100%; .absPos(0,50%); background:@lightGray - #111;
 			.figure { .active; .z(200); }
 			.vas_caption { .leftText; .absPos(75px, 50px); width:75%; }
+			.vas_check_button { .absPosBottomRight(25px,25px); &.invisible { .visible(none); } }
+			.vas_hint { .active; .absPosRight(25px,110px); .pt(18); .capitalized; .bold; padding:15px 20px; background:@white; color:@textGray; &:hover { color:@green; } &:active { background:@green; color:@white; } }
 		}
 		
 		&#level_1 {
@@ -191,9 +192,6 @@ a {
 			#level_1_pos_1 { .absPos(242px,47px); }
 			#level_1_pos_2 { .absPos(247px,136px); }
 			#level_1_pos_3 { .absPos(261px,317px); }			
-			#level_1_f_1 { .absPos(425px,325px); }
-			#level_1_f_2 { .absPos(250px,125px); }
-			#level_1_f_3 { .absPos(50px,50px); }
 		}
 		
 	}
