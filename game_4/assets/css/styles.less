@@ -181,8 +181,8 @@ a {
 			.position { .rel; .z(100); .figure { .active; .absPos(0,0)!important; .z(200); .speech { .transparent(0,0); } } }
 		}
 		.figures { width:50%; height:100%; .absPos(0,50%); background:@lightGray - #111;
-			.figure { .active; .z(200);
-				.speech { .transparent(0,0); .pt(14); width:250px; background:@lightYellow; padding:15px; .rounded(8px); }
+			.figure { .active; .z(200); .transform(scale(.75));
+				.speech { .transparent(0,0); .pt(16); width:250px; background:@lightYellow; padding:15px; .rounded(8px); }
 				&:hover { .speech { .transparent(.9,90); } }
 				&:active { .speech { .transparent(0,0); } }
 			}
@@ -193,12 +193,12 @@ a {
 		
 		&#level_1 {
 			#level_1_final_vas, #level_1_empty_vas { .absPos(50px,25px); .z(50); }
-			#level_1_f_1 { width:174px; height:288px; background-image:url('../img/level_1/f_1.png'); background-repeat:no-repeat; .speech { .absPos(150px,-100px); } }
-			#level_1_f_2 { width:198px; height:295px; background-image:url('../img/level_1/f_2.png'); background-repeat:no-repeat; .speech { .absPos(100px,0); } }
-			#level_1_f_3 { width:118px; height:280px; background-image:url('../img/level_1/f_3.png'); background-repeat:no-repeat; .speech { .absPos(100px,-50px); } }
-			#level_1_pos_1 { .absPos(242px,47px); width:174px; height:288px; background-image:url('../img/level_1/pos_1.png'); }
-			#level_1_pos_2 { .absPos(247px,136px); width:198px; height:295px; background-image:url('../img/level_1/pos_2.png'); }
-			#level_1_pos_3 { .absPos(261px,317px); width:118px; height:280px; background-image:url('../img/level_1/pos_3.png'); }			
+			#level_1_f_1 { width:174px; height:288px; background-image:url('../img/level_1/f_1.png'); background-repeat:no-repeat; .speech { .absPos(150px,-300px); } }
+			#level_1_f_2 { width:198px; height:295px; background-image:url('../img/level_1/f_2.png'); background-repeat:no-repeat; .speech { .absPos(-75px,175px); } }
+			#level_1_f_3 { width:118px; height:280px; background-image:url('../img/level_1/f_3.png'); background-repeat:no-repeat; .speech { .absPos(25px,120px); } }
+			#level_1_pos_1 { .absPos(242px,47px); width:174px; height:288px; }
+			#level_1_pos_2 { .absPos(247px,136px); width:198px; height:295px; }
+			#level_1_pos_3 { .absPos(261px,317px); width:118px; height:280px; }			
 		}		
 		&#level_2 {
 			#level_2_final_vas, #level_2_empty_vas { .z(50); }
