@@ -13,7 +13,7 @@ var game_is_running = false;
 $(window).load(function() {
 	init();
 	$("*[theTitle]").titlesBehaviour();	
-	$("#start_game").click(function() { goto_screen("level_5"); });
+	$("#start_game").click(function() { goto_screen("level_1"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
