@@ -699,6 +699,22 @@ a.footer:hover {
   top: 261px;
   left: 317px;
 }
+#container .screen#level_2 #level_2_final_vas,
+#container .screen#level_2 #level_2_empty_vas {
+  z-index: 50;
+}
+#container .screen#level_3 #level_3_final_vas,
+#container .screen#level_3 #level_3_empty_vas {
+  z-index: 50;
+}
+#container .screen#level_4 #level_4_final_vas,
+#container .screen#level_4 #level_4_empty_vas {
+  z-index: 50;
+}
+#container .screen#level_5 #level_5_final_vas,
+#container .screen#level_5 #level_5_empty_vas {
+  z-index: 50;
+}
 #container #clock {
   position: absolute;
   top: 25px;

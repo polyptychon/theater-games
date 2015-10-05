@@ -17,7 +17,7 @@ $(window).load(function() {
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
-	$(".figure").draggable({revert:"invalid"}).click(function() { remove_figure($(this).attr("id")); });
+	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("parent_id",$(this).parent().attr("id")); } }).click(function() { remove_figure($(this).attr("id")); });
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$(".vas_check_button").each(function() { $(this).click(function() { check_positions(); }); });
 	$(".vas_hint").each(function() { $(this).mousedown(function() { show_hint(); }).mouseup(function() { hide_hint(); }); });
@@ -48,6 +48,7 @@ function goto_screen(which) {
 		$("#" + which + "_vas_caption").html("");
 		current_level = which.split("_")[1];
 		position_figures();
+		hide_help();
 		reset_timer(); start_timer();
 	}
 	else { $("#help, #clock").addClass("invisible"); current_level = 0; }	
@@ -78,16 +79,21 @@ function position_figures() {
 	$("#level_" + current_level + " .figure").each(function() {
 		$(this).removeClass("invisible");
 		var f_id = $(this).attr("id").split("_")[2] + "_" + $(this).attr("id").split("_")[3]; var init_top = ""; var init_left = "";
-		$.each(game_data.vases, function(i,v) { if (v.level == current_level) { $.each(v.texts, function(i,w) { if (w.id == f_id) { init_top = w.top; init_left = w.left; } }); } });
+		$.each(game_data.vases, function(i,v) { if (v.level == current_level) { $.each(v.figures, function(i,w) { if (w.id == f_id) { init_top = w.top; init_left = w.left; } }); } });
 		$(this).attr("top",init_top).attr("left",init_left);
 		$(this).css({ "position" : "absolute", "top" : init_top, "left" : init_left });
 	});	
 }
 function drop_figure(e,figure_id,position_id) {
-	e.preventDefault();	
-	if (($("#" + position_id).find($(".figure")).length == 0) /* && (position_id.split("_")[3] == figure_id.split("_")[3]) */) {
+	e.preventDefault();
+	if ($("#" + figure_id).data().parent_id == "level_" + current_level + "_figures") {
+		if ($("#" + position_id).find($(".figure")).length == 0) {
+			$("#" + position_id).append($("#" + figure_id));
+		} else remove_figure(figure_id);
+	} else {
+		$("#" + $("#" + figure_id).data().parent_id).append($("#" + position_id + " .figure"));
 		$("#" + position_id).append($("#" + figure_id));
-	} else remove_figure(figure_id);
+	}
 	toggle_check_button();
 }
 function toggle_check_button() {
