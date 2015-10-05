@@ -45,10 +45,11 @@ function goto_screen(which) {
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
 	if (which.indexOf("level") != -1) {
 		$("#help, #clock").removeClass("invisible");
-		$("#" + which + "_vas_caption").html("");
+		$("#" + which + "_vas_caption").html("");		
 		current_level = which.split("_")[1];
 		position_figures();
 		add_figure_text();
+		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint").removeClass("invisible");
 		hide_help();
 		reset_timer(); start_timer();
 	}
@@ -72,7 +73,7 @@ function pause_timer() { clearInterval(timer_interval); }
 function stop_timer() { clearInterval(timer_interval); timer_interval = null; total_seconds = 0; }
 function reset_timer() { total_seconds = 60; $("#clock").html("01:00"); }
 
-function show_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position").addClass("invisible"); }
+function show_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position").addClass("invisible"); total_seconds -= 5; }
 function hide_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position").removeClass("invisible"); }
 
 function position_figures() {
@@ -128,11 +129,12 @@ function end_game(level,correct) {
 	if (level < 6) { /* all levels except level 6 */
 		if (correct) {
 			pause_timer(); game_is_running = false;
-			$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint").addClass("invisible");
-			$("#level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
+			$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint, #level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
 			var level_vas = game_data.vases.filter(function(val, index, array) { return val.level == level; });
 			$("#level_" + level + "_vas_caption").html("<h3>Μπράβο τα κατάφερες!</h3><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>ΠΡΟΧΩΡΗΣΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>");
-			var next_level = Math.round(level) + 1; $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
+			var next_level = Math.round(level) + 1; if (next_level == 6) next_level = "custom";
+			if (next_level != "custom") $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
+			else $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('" + next_level + "');");
 		} else {
 			stop_timer(); game_is_running = false;
 			$("#level_" + level + " .figures .figure").addClass("invisible");

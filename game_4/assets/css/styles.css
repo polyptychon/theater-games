@@ -649,11 +649,6 @@ a.footer:hover {
 #container .screen .figures .figure {
   cursor: pointer!important;
   z-index: 200;
-  -webkit-transform: scale(0.85);
-  -moz-transform: scale(0.85);
-  -o-transform: scale(0.85);
-  -ms-transform: scale(0.85);
-  transform: scale(0.85);
 }
 #container .screen .figures .figure .speech {
   -moz-opacity: 0;
@@ -677,6 +672,13 @@ a.footer:hover {
   -khtml-opacity: 0.9;
   opacity: 0.9;
   filter: alpha(opacity=95);
+}
+#container .screen .figures .figure:active {
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #container .screen .figures .figure:active .speech {
   -moz-opacity: 0;
@@ -1007,8 +1009,8 @@ a.footer:hover {
 }
 #container .screen#level_5 #level_5_f_2 .speech {
   position: absolute;
-  top: -75px;
-  left: 175px;
+  top: 0px;
+  left: -300px;
 }
 #container .screen#level_5 #level_5_f_3 {
   width: 147px;

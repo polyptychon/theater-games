@@ -181,10 +181,10 @@ a {
 			.position { .rel; .z(100); .figure { .active; .absPos(0,0)!important; .z(200); .speech { .transparent(0,0); .visible(none); } } }
 		}
 		.figures { width:50%; height:100%; .absPos(0,50%); background:@lightGray - #111;
-			.figure { .active; .z(200); .transform(scale(.85));
+			.figure { .active; .z(200);
 				.speech { .transparent(0,0); .pt(16); width:250px; background:@lightYellow; padding:15px; .rounded(8px); .transition(all .2s ease-in-out); }
 				&:hover { .speech { .transparent(.9,90); } }
-				&:active { .speech { .transparent(0,0); } }
+				&:active { .transform(scale(.9)); .speech { .transparent(0,0); } }
 			}
 			.vas_caption { .leftText; .absPos(75px, 50px); width:75%; }
 			.vas_check_button { .absPosBottomRight(25px,25px); &.invisible { .visible(none); } }
@@ -232,7 +232,7 @@ a {
 		&#level_5 {
 			#level_5_final_vas, #level_5_empty_vas { .absPos(175px,15px); .z(50); }
 			#level_5_f_1 { width:140px; height:199px; background-image:url('../img/level_5/f_1.png'); background-repeat:no-repeat; .speech { .absPos(0px,-300px); } }
-			#level_5_f_2 { width:166px; height:203px; background-image:url('../img/level_5/f_2.png'); background-repeat:no-repeat; .speech { .absPos(-75px,175px); } }
+			#level_5_f_2 { width:166px; height:203px; background-image:url('../img/level_5/f_2.png'); background-repeat:no-repeat; .speech { .absPos(0px,-300px); } }
 			#level_5_f_3 { width:147px; height:190px; background-image:url('../img/level_5/f_3.png'); background-repeat:no-repeat; .speech { .absPos(25px,120px); } }
 			#level_5_pos_1 { .absPos(348px,70px); width:140px; height:199px; }
 			#level_5_pos_2 { .absPos(356px,152px); width:166px; height:203px; }
