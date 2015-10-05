@@ -13,7 +13,7 @@ var game_is_running = false;
 $(window).load(function() {
 	init();
 	$("*[theTitle]").titlesBehaviour();	
-	$("#start_game").click(function() { goto_screen("level_1"); });
+	$("#start_game").click(function() { goto_screen("level_5"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
@@ -131,8 +131,8 @@ function end_game(level,correct) {
 			$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint").addClass("invisible");
 			$("#level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
 			var level_vas = game_data.vases.filter(function(val, index, array) { return val.level == level; });
-			$("#level_" + level + "_vas_caption").html("<h3>Μπράβο τα κατάφερες!</h3><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button' onclick='goto_screen(\"level_2\")'>ΠΡΟΧΩΡΗΣΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>");
-			var next_level = Math.round(level + 1); $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
+			$("#level_" + level + "_vas_caption").html("<h3>Μπράβο τα κατάφερες!</h3><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>ΠΡΟΧΩΡΗΣΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>");
+			var next_level = Math.round(level) + 1; $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
 		} else {
 			stop_timer(); game_is_running = false;
 			$("#level_" + level + " .figures .figure").addClass("invisible");

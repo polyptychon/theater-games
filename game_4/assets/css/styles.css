@@ -636,6 +636,7 @@ a.footer:hover {
   -khtml-opacity: 0;
   opacity: 0;
   filter: alpha(opacity=95);
+  display: none;
 }
 #container .screen .figures {
   width: 50%;
@@ -648,11 +649,11 @@ a.footer:hover {
 #container .screen .figures .figure {
   cursor: pointer!important;
   z-index: 200;
-  -webkit-transform: scale(0.75);
-  -moz-transform: scale(0.75);
-  -o-transform: scale(0.75);
-  -ms-transform: scale(0.75);
-  transform: scale(0.75);
+  -webkit-transform: scale(0.85);
+  -moz-transform: scale(0.85);
+  -o-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  transform: scale(0.85);
 }
 #container .screen .figures .figure .speech {
   -moz-opacity: 0;
@@ -666,6 +667,10 @@ a.footer:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #container .screen .figures .figure:hover .speech {
   -moz-opacity: 0.9;
@@ -740,8 +745,8 @@ a.footer:hover {
 }
 #container .screen#level_1 #level_1_f_2 .speech {
   position: absolute;
-  top: -75px;
-  left: 175px;
+  top: 75px;
+  left: -300px;
 }
 #container .screen#level_1 #level_1_f_3 {
   width: 118px;
@@ -751,7 +756,7 @@ a.footer:hover {
 }
 #container .screen#level_1 #level_1_f_3 .speech {
   position: absolute;
-  top: 25px;
+  top: 50px;
   left: 120px;
 }
 #container .screen#level_1 #level_1_pos_1 {
@@ -777,19 +782,265 @@ a.footer:hover {
 }
 #container .screen#level_2 #level_2_final_vas,
 #container .screen#level_2 #level_2_empty_vas {
+  position: absolute;
+  top: 50px;
+  left: 40px;
   z-index: 50;
+}
+#container .screen#level_2 #level_2_f_1 {
+  width: 158px;
+  height: 300px;
+  background-image: url('../img/level_2/f_1.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_2 #level_2_f_1 .speech {
+  position: absolute;
+  top: 100px;
+  left: -300px;
+}
+#container .screen#level_2 #level_2_f_2 {
+  width: 203px;
+  height: 299px;
+  background-image: url('../img/level_2/f_2.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_2 #level_2_f_2 .speech {
+  position: absolute;
+  top: 75px;
+  left: -300px;
+}
+#container .screen#level_2 #level_2_pos_1 {
+  position: absolute;
+  top: 258px;
+  left: 72px;
+  width: 158px;
+  height: 300px;
+}
+#container .screen#level_2 #level_2_pos_2 {
+  position: absolute;
+  top: 264px;
+  left: 220px;
+  width: 203px;
+  height: 299px;
 }
 #container .screen#level_3 #level_3_final_vas,
 #container .screen#level_3 #level_3_empty_vas {
+  position: absolute;
+  top: 50px;
+  left: 14px;
   z-index: 50;
+}
+#container .screen#level_3 #level_3_f_1 {
+  width: 70px;
+  height: 244px;
+  background-image: url('../img/level_3/f_1.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_3 #level_3_f_1 .speech {
+  position: absolute;
+  top: 100px;
+  left: -300px;
+}
+#container .screen#level_3 #level_3_f_2 {
+  width: 112px;
+  height: 181px;
+  background-image: url('../img/level_3/f_2.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_3 #level_3_f_2 .speech {
+  position: absolute;
+  top: 25px;
+  left: -275px;
+}
+#container .screen#level_3 #level_3_f_3 {
+  width: 148px;
+  height: 261px;
+  background-image: url('../img/level_3/f_3.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_3 #level_3_f_3 .speech {
+  position: absolute;
+  top: 25px;
+  left: -300px;
+}
+#container .screen#level_3 #level_3_f_4 {
+  width: 89px;
+  height: 214px;
+  background-image: url('../img/level_3/f_4.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_3 #level_3_f_4 .speech {
+  position: absolute;
+  top: 50px;
+  left: -290px;
+}
+#container .screen#level_3 #level_3_pos_1 {
+  position: absolute;
+  top: 298px;
+  left: 83px;
+  width: 70px;
+  height: 244px;
+}
+#container .screen#level_3 #level_3_pos_2 {
+  position: absolute;
+  top: 363px;
+  left: 127px;
+  width: 112px;
+  height: 181px;
+}
+#container .screen#level_3 #level_3_pos_3 {
+  position: absolute;
+  top: 286px;
+  left: 177px;
+  width: 148px;
+  height: 261px;
+}
+#container .screen#level_3 #level_3_pos_4 {
+  position: absolute;
+  top: 326px;
+  left: 370px;
+  width: 89px;
+  height: 214px;
 }
 #container .screen#level_4 #level_4_final_vas,
 #container .screen#level_4 #level_4_empty_vas {
+  position: absolute;
+  top: 175px;
+  left: 15px;
   z-index: 50;
+}
+#container .screen#level_4 #level_4_f_1 {
+  width: 96px;
+  height: 208px;
+  background-image: url('../img/level_4/f_1.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_4 #level_4_f_1 .speech {
+  position: absolute;
+  top: 100px;
+  left: -300px;
+}
+#container .screen#level_4 #level_4_f_2 {
+  width: 152px;
+  height: 204px;
+  background-image: url('../img/level_4/f_2.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_4 #level_4_f_2 .speech {
+  position: absolute;
+  top: 25px;
+  left: 125px;
+}
+#container .screen#level_4 #level_4_f_3 {
+  width: 133px;
+  height: 164px;
+  background-image: url('../img/level_4/f_3.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_4 #level_4_f_3 .speech {
+  position: absolute;
+  top: 25px;
+  left: 150px;
+}
+#container .screen#level_4 #level_4_f_4 {
+  width: 146px;
+  height: 229px;
+  background-image: url('../img/level_4/f_4.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_4 #level_4_f_4 .speech {
+  position: absolute;
+  top: 30px;
+  left: -285px;
+}
+#container .screen#level_4 #level_4_pos_1 {
+  position: absolute;
+  top: 339px;
+  left: 86px;
+  width: 96px;
+  height: 208px;
+}
+#container .screen#level_4 #level_4_pos_2 {
+  position: absolute;
+  top: 346px;
+  left: 148px;
+  width: 152px;
+  height: 204px;
+}
+#container .screen#level_4 #level_4_pos_3 {
+  position: absolute;
+  top: 392px;
+  left: 283px;
+  width: 133px;
+  height: 164px;
+}
+#container .screen#level_4 #level_4_pos_4 {
+  position: absolute;
+  top: 324px;
+  left: 328px;
+  width: 146px;
+  height: 229px;
 }
 #container .screen#level_5 #level_5_final_vas,
 #container .screen#level_5 #level_5_empty_vas {
+  position: absolute;
+  top: 175px;
+  left: 15px;
   z-index: 50;
+}
+#container .screen#level_5 #level_5_f_1 {
+  width: 140px;
+  height: 199px;
+  background-image: url('../img/level_5/f_1.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_5 #level_5_f_1 .speech {
+  position: absolute;
+  top: 0px;
+  left: -300px;
+}
+#container .screen#level_5 #level_5_f_2 {
+  width: 166px;
+  height: 203px;
+  background-image: url('../img/level_5/f_2.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_5 #level_5_f_2 .speech {
+  position: absolute;
+  top: -75px;
+  left: 175px;
+}
+#container .screen#level_5 #level_5_f_3 {
+  width: 147px;
+  height: 190px;
+  background-image: url('../img/level_5/f_3.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_5 #level_5_f_3 .speech {
+  position: absolute;
+  top: 25px;
+  left: 120px;
+}
+#container .screen#level_5 #level_5_pos_1 {
+  position: absolute;
+  top: 348px;
+  left: 70px;
+  width: 140px;
+  height: 199px;
+}
+#container .screen#level_5 #level_5_pos_2 {
+  position: absolute;
+  top: 356px;
+  left: 152px;
+  width: 166px;
+  height: 203px;
+}
+#container .screen#level_5 #level_5_pos_3 {
+  position: absolute;
+  top: 369px;
+  left: 259px;
+  width: 147px;
+  height: 190px;
 }
 #container #clock {
   position: absolute;
