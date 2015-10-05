@@ -629,6 +629,13 @@ a.footer:hover {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
+  z-index: 200;
+}
+#container .screen .vas .position .figure .speech {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
 }
 #container .screen .figures {
   width: 50%;
@@ -641,6 +648,31 @@ a.footer:hover {
 #container .screen .figures .figure {
   cursor: pointer!important;
   z-index: 200;
+}
+#container .screen .figures .figure .speech {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
+  font-size: 0.875em;
+  width: 250px;
+  background: #ffffee;
+  padding: 15px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+#container .screen .figures .figure:hover .speech {
+  -moz-opacity: 0.9;
+  -khtml-opacity: 0.9;
+  opacity: 0.9;
+  filter: alpha(opacity=95);
+}
+#container .screen .figures .figure:active .speech {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
 }
 #container .screen .figures .vas_caption {
   text-align: left;
@@ -684,20 +716,62 @@ a.footer:hover {
   left: 25px;
   z-index: 50;
 }
+#container .screen#level_1 #level_1_f_1 {
+  width: 174px;
+  height: 288px;
+  background-image: url('../img/level_1/f_1.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_1 #level_1_f_1 .speech {
+  position: absolute;
+  top: 150px;
+  left: -100px;
+}
+#container .screen#level_1 #level_1_f_2 {
+  width: 198px;
+  height: 295px;
+  background-image: url('../img/level_1/f_2.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_1 #level_1_f_2 .speech {
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+#container .screen#level_1 #level_1_f_3 {
+  width: 118px;
+  height: 280px;
+  background-image: url('../img/level_1/f_3.png');
+  background-repeat: no-repeat;
+}
+#container .screen#level_1 #level_1_f_3 .speech {
+  position: absolute;
+  top: 100px;
+  left: -50px;
+}
 #container .screen#level_1 #level_1_pos_1 {
   position: absolute;
   top: 242px;
   left: 47px;
+  width: 174px;
+  height: 288px;
+  background-image: url('../img/level_1/pos_1.png');
 }
 #container .screen#level_1 #level_1_pos_2 {
   position: absolute;
   top: 247px;
   left: 136px;
+  width: 198px;
+  height: 295px;
+  background-image: url('../img/level_1/pos_2.png');
 }
 #container .screen#level_1 #level_1_pos_3 {
   position: absolute;
   top: 261px;
   left: 317px;
+  width: 118px;
+  height: 280px;
+  background-image: url('../img/level_1/pos_3.png');
 }
 #container .screen#level_2 #level_2_final_vas,
 #container .screen#level_2 #level_2_empty_vas {

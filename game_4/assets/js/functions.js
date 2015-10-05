@@ -48,6 +48,7 @@ function goto_screen(which) {
 		$("#" + which + "_vas_caption").html("");
 		current_level = which.split("_")[1];
 		position_figures();
+		add_figure_text();
 		hide_help();
 		reset_timer(); start_timer();
 	}
@@ -84,15 +85,24 @@ function position_figures() {
 		$(this).css({ "position" : "absolute", "top" : init_top, "left" : init_left });
 	});	
 }
+function add_figure_text(){
+	$("#level_" + current_level + " .figure").each(function() {
+		var f_id = $(this).attr("id").split("_")[2] + "_" + $(this).attr("id").split("_")[3]; var f_speech = "";
+		$.each(game_data.vases, function(i,v) { if (v.level == current_level) { $.each(v.figures, function(i,w) { if (w.id == f_id) { if (eval("w.text." + lang) != "-") f_speech = eval("w.text." + lang); } }); } });
+		if (f_speech != "") $(this).append("<div class='speech'>" + f_speech + "</div>");
+	});
+}
 function drop_figure(e,figure_id,position_id) {
 	e.preventDefault();
 	if ($("#" + figure_id).data().parent_id == "level_" + current_level + "_figures") {
 		if ($("#" + position_id).find($(".figure")).length == 0) {
 			$("#" + position_id).append($("#" + figure_id));
+			$("#" + figure_id + " .speech").addClass("opened").delay(3000).queue(function() { $(this).removeClass("opened").dequeue(); });
 		} else remove_figure(figure_id);
 	} else {
 		$("#" + $("#" + figure_id).data().parent_id).append($("#" + position_id + " .figure"));
 		$("#" + position_id).append($("#" + figure_id));
+		$("#" + figure_id + " .speech").addClass("opened").delay(3000).queue(function() { $(this).removeClass("opened").dequeue(); });
 	}
 	toggle_check_button();
 }
