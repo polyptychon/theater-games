@@ -76,7 +76,7 @@ function activate_theaters(where) {
 		$("#carousel_images").html(""); for (i = 1; i <= $(this).attr("numOfImgs"); i++) $("#carousel_images").append("<div class='carousel_image " + (i == 1 ? "visible" : "") + "' style='background-image:url(\"assets/img/400x300/" + $(this).attr("id") + "_" + i + ".jpg\");'></div>");
 		activate_carousel();
 		$("#theater_title").html("").html("<h3>" + $(this).attr("theTitle") + "</h3>");
-		$("#theater_description").html("").html($(this).find("span").html());
+		$("#theater_description").html("").scrollTop(0).html($(this).find("span").html());
 		$("#theater_button").html("").html("<div class='button' for_theater='" + $(this).attr("id") + "'></div>");
 		activate_add_theater_button(where);
 		if (!$("#descriptions").hasClass("open")) $("#descriptions").addClass("open");
