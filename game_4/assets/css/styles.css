@@ -648,6 +648,7 @@ a.footer:hover {
 }
 #container .screen .figures .figure {
   cursor: pointer!important;
+  position: relative;
   z-index: 200;
 }
 #container .screen .figures .figure .speech {

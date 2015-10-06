@@ -17,7 +17,7 @@ $(window).load(function() {
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
-	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("parent_id",$(this).parent().attr("id")); } }).click(function() { remove_figure($(this).attr("id")); });
+	$(".figure").draggable({revert:function(event,ui) { $(this).data().originalPosition = { top:$(this).attr("top"), left:$(this).attr("left") }; return !event; }, start: function() { $(this).css({"z-index":4000}); $(this).data("parent_id",$(this).parent().attr("id")); }, stop: function() { $(this).css({"z-index":200}); if ($(this).parent().attr("id").indexOf("_figures") != -1) remove_figure($(this).attr("id")); } }).click(function() { remove_figure($(this).attr("id")); });
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$(".vas_check_button").each(function() { $(this).click(function() { check_positions(); }); });
 	$(".vas_hint").each(function() { $(this).mousedown(function() { show_hint(); }).mouseup(function() { hide_hint(); }); });
@@ -111,7 +111,7 @@ function toggle_check_button() {
 	if ($("#level_" + current_level + " .position .figure").length == $("#level_" + current_level + " .position").length) $("#level_" + current_level + "_vas_check_button").removeClass("invisible");
 	else $("#level_" + current_level + "_vas_check_button").addClass("invisible");
 }
-function remove_figure(figure_id) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).removeAttr("style").css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible"); toggle_check_button(current_level); $(this).dequeue(); }); }
+function remove_figure(figure_id) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible"); toggle_check_button(current_level); $(this).dequeue(); }); }
 function check_positions() {
 	// if ($("#level_" + level + " .figures .figure").length == 0) end_game(level);
 	var correct_positions = 0;

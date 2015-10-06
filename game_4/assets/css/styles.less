@@ -181,7 +181,7 @@ a {
 			.position { .rel; .z(100); .figure { .active; .absPos(0,0)!important; .z(200); .speech { .transparent(0,0); .visible(none); } } }
 		}
 		.figures { width:50%; height:100%; .absPos(0,50%); background:@lightGray - #111;
-			.figure { .active; .z(200);
+			.figure { .active; .rel; .z(200);
 				.speech { .transparent(0,0); .pt(16); width:250px; background:@lightYellow; padding:15px; .rounded(8px); .transition(all .2s ease-in-out); }
 				&:hover { .speech { .transparent(.9,90); } }
 				&:active { .transform(scale(.9)); .speech { .transparent(0,0); } }
