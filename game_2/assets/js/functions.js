@@ -37,7 +37,7 @@ function init() {
 		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
 		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
-		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.days"));
+		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.pages"));
 		activate_game_button();
 		$("#calendar_button").attr("theTitle",eval("game_data.texts." + lang + ".the_feast_calendar.handle_tooltip"));
 		$("#play_button_message").html(eval("game_data.texts." + lang + ".game_button_message"));
@@ -53,15 +53,17 @@ function goto_screen(which) {
 	if (which.indexOf("level") != -1) { $("#help, #calendar, #game, #calendar_button, #game_button").removeClass("invisible"); }
 	else { $("#help, #calendar, #game, #calendar_button, #game_button").addClass("invisible"); }
 	if (which == "level_1") {
-		$("#level_1_area_1").attr("class","hint").delay(500).queue(function() {
-			$(this).attr("class","").dequeue();
-			$("#level_1_area_2").attr("class","hint").delay(500).queue(function() {
+		setTimeout(function() {
+			$("#level_1_area_1").attr("class","hint").delay(500).queue(function() {
 				$(this).attr("class","").dequeue();
-				$("#level_1_area_3").attr("class","hint").delay(500).queue(function() {
+				$("#level_1_area_2").attr("class","hint").delay(500).queue(function() {
 					$(this).attr("class","").dequeue();
+					$("#level_1_area_3").attr("class","hint").delay(500).queue(function() {
+						$(this).attr("class","").dequeue();
+					});
 				});
 			});
-		});
+		}, 500);
 	}
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
@@ -86,47 +88,33 @@ function activate_game_button(){
 
 function render_calendar_content(texts) {
 	var content_html = ""; var days_titles_html = "";
-	for (day = 1; day <= 4; day++) {
-		var day_text = eval("texts.day_" + day);
-		var day_bg = "assets/img/day_" + day + ".jpg";
-		if (lang == "gr") var day_title = $(day_text).html().split(" ημέρα")[0].replace("εώς","<br/>- - -<br/>");
-		else var day_title = $(day_text).html().split(" day")[0].replace("to","<br/>- - -<br/>");
-		days_titles_html += "<div for='day_" + day + "' class='calendar_day_tab' onclick='change_page(\"day_" + day + "\")'>" + day_title + "</div>";
-		content_html += "<div id='day_" + day + "' class='calendar_day "; if (day != 1) content_html += "hidden"; content_html += "'><div class='left_page' onclick='get_previous_page(\"day_" + day + "\")'>" + day_text + "<br/><br/></div><div class='right_page' onclick='get_next_page(\"day_" + day + "\")'><div class='day_bg' style='background-image:url(\"" + day_bg + "\")'></div></div></div>";
+	for (page = 1; page <= Object.keys(texts).length; page++) {
+		var page_text = eval("texts.page_" + page);
+		var page_bg = "assets/img/day_" + page + ".jpg";
+		content_html += "<div id='page_" + page + "' class='calendar_day " + ( page == 1 || page == Object.keys(texts).length ? "hard" : "") + "'>" + page_text + "</div>";
 	}
-	$("#calendar_days").html(days_titles_html);
-	$("#calendar_content").html(content_html);
+	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
+	$("#calendar_flipbook").bind("turned", function(event,page,view) {
+		if (page % 2 == 0 && page < 10) {
+			if (calendar_pages_seen.indexOf("page_" + page) == -1) calendar_pages_seen.push("page_" + page);
+			check_calendar_pages_seen();
+		}
+	});
 	
 }
 function show_calendar(page) {
 	hide_help(); hide_message();	
-	$(".calendar_day_tab").removeClass("selected");
-	if (page == null) page = "day_1";
-	$(".calendar_day").addClass("hidden"); $("#" + page).find(".day_text").scrollTop(0); $("#" + page).removeClass("hidden"); $(".calendar_day_tab[for = '" + page + "']").addClass("selected");
+	if (page == null) page = "page_1";
+	$("#calendar_flipbook").turn("page", page.split("_")[1]);	
 	if (!$("#calendar").hasClass("open")) {
-		if (calendar_pages_seen.indexOf(page) == -1) calendar_pages_seen.push(page);
-		check_calendar_pages_seen();
+		if (page != "page_1") {
+			if (calendar_pages_seen.indexOf(page) == -1) calendar_pages_seen.push(page);
+			check_calendar_pages_seen();
+		}
 		$("#calendar").addClass("open");
 	} else { if (page == null) $("#calendar").removeClass("open"); unselect_all(); }
 }
 function hide_calendar() { $("#calendar").removeClass("open"); unselect_all(); }
-function change_page(page) {
-	$(".calendar_day:not(.hidden)").addClass("hidden");
-	$("#" + page).find(".day_text").scrollTop(0);
-	$("#" + page).removeClass("hidden");
-	$(".calendar_day_tab").removeClass("selected");
-	$(".calendar_day_tab[for = '" + page + "']").addClass("selected");
-	if (calendar_pages_seen.indexOf(page) == -1) calendar_pages_seen.push(page);
-	check_calendar_pages_seen();
-}
-function get_next_page(page) {
-	var current_page = page.split("_")[1]; var next_page = Math.round(current_page) + 1; if (next_page > 4) next_page = 1;
-	change_page("day_" + next_page);
-}
-function get_previous_page(page) {
-	var current_page = page.split("_")[1]; var previous_page = Math.round(current_page) - 1; if (previous_page < 1) previous_page = 4;
-	change_page("day_" + previous_page);
-}
 function check_calendar_pages_seen() {
 	if (!calendar_read) if (calendar_pages_seen.length == 4) { calendar_read = true; activate_game_button(); }
 }

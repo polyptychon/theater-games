@@ -850,7 +850,7 @@ a.footer:hover {
   filter: alpha(opacity=95) !important;
 }
 #container #calendar {
-  width: 920px;
+  width: 970px;
   height: 650px;
   margin: 0 auto;
   position: relative;
@@ -865,49 +865,12 @@ a.footer:hover {
 #container #calendar #calendar_container {
   position: relative;
   top: 0;
-  left: 25px;
+  left: 0px;
   z-index: 200;
 }
-#container #calendar #calendar_container #calendar_days {
-  height: 50px;
-  background: #eeeeee;
-  margin: 0;
-  padding: 0;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  position: absolute;
-  top: 25px;
-  left: -50px;
-  z-index: 1000;
-}
-#container #calendar #calendar_container #calendar_days .calendar_day_tab {
-  cursor: pointer!important;
-  background: #eeeeee;
-  width: 50px;
-  text-align: center;
-  padding: 13px 0;
-  color: #222222;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-#container #calendar #calendar_container #calendar_days .calendar_day_tab:nth-child(2n) {
-  background: #e7e7e7;
-}
-#container #calendar #calendar_container #calendar_days .calendar_day_tab.selected {
-  font-weight: 700;
-  font-style: normal;
-}
-#container #calendar #calendar_container #calendar_days .calendar_day_tab:hover,
-#container #calendar #calendar_container #calendar_days .calendar_day_tab.selected {
-  background: #ffffff;
-}
 #container #calendar #calendar_container #calendar_content {
-  background: #ffffff;
-  width: 920px;
+  background: transparent;
+  width: 970px;
   height: 650px;
   overflow: hidden;
   position: relative;
@@ -916,72 +879,39 @@ a.footer:hover {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+#container #calendar #calendar_container #calendar_content #calendar_flipbook {
+  background: transparent;
+}
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day {
+  background: #ffffff;
+  cursor: pointer!important;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
 }
-#container #calendar #calendar_container #calendar_content .calendar_day {
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer!important;
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day.hard {
+  background: #999999;
 }
-#container #calendar #calendar_container #calendar_content .calendar_day .left_page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top-left-radius: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
-  border-bottom-left-radius: 8px;
-  -webkit-border-bottom-left-radius: 8px;
-  -moz-border-radius-bottomleft: 8px;
-  width: 40%;
-  height: 100%;
-  display: inline-block;
-  overflow-y: auto;
-  padding: 0 5% 0;
-  line-height: 1.5;
-}
-#container #calendar #calendar_container #calendar_content .calendar_day .left_page h2 {
-  padding: 25px 0 0;
-  font-size: 1.25em;
-  line-height: 1.5;
-  font-weight: 500;
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day#page_1 h1 {
+  font-weight: 700;
   font-style: normal;
-  color: #ff6600;
+  font-size: 2em;
+  color: #ffffff;
 }
-#container #calendar #calendar_container #calendar_content .calendar_day .right_page {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  border-top-right-radius: 8px;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  border-bottom-right-radius: 8px;
-  -webkit-border-bottom-right-radius: 8px;
-  -moz-border-radius-bottomright: 8px;
-  width: 40%;
-  height: 90%;
-  display: inline-block;
-  background: #eeeeee;
-  padding: 5%;
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content {
+  padding: 30px 50px;
 }
-#container #calendar #calendar_container #calendar_content .calendar_day .right_page .day_bg {
-  width: 95%;
-  height: 92.5%;
-  margin: 2.5% auto;
-  background-repeat: no-repeat;
-  background-size: cover;
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.img {
+  padding: 0;
 }
-#container #calendar #calendar_container #calendar_content .calendar_day.hidden {
-  position: absolute;
-  top: -105%;
-  left: 0;
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.img img {
+  width: 100%;
+}
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content h2 {
+  font-weight: 400;
+  font-style: normal;
 }
 #container #calendar #calendar_container .close_button {
   cursor: pointer!important;
