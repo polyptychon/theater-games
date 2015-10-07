@@ -260,6 +260,17 @@ a {
 		&.hidden { .transparent(0,0); }
 	}
 	#calendar_button { .absPosBottom(24px,85px); }
+	#figures_popup {
+		width:650px; height:650px; .absPosRight(-800px,210px); background:@white; .rounded(8px); .z(4000); .transition(all .2s ease-in-out);
+		#figures_popup_content { padding:50px;
+			#figure_img { .left; width:50%; img { width:90%!important; } }
+			#figure_info { .left; width:50%;
+				#position_select { .pt(16); width:98%; border:0; outline:0; padding:1%; border:dotted 1px @midGray; overflow:hidden; option { padding:5px; background:@white; &:not([disabled]):hover { background:@lightGray; } } }
+			}
+		}
+		&.opened { .absPosRight(25px,210px); }
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+	}
 	#help {
 		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); .z(5000); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }

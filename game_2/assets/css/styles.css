@@ -1107,6 +1107,80 @@ a.footer:hover {
   bottom: 24px;
   left: 85px;
 }
+#container #figures_popup {
+  width: 650px;
+  height: 650px;
+  position: absolute;
+  top: -800px;
+  right: 210px;
+  background: #ffffff;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  z-index: 4000;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #figures_popup #figures_popup_content {
+  padding: 50px;
+}
+#container #figures_popup #figures_popup_content #figure_img {
+  float: left;
+  width: 50%;
+}
+#container #figures_popup #figures_popup_content #figure_img img {
+  width: 90%!important;
+}
+#container #figures_popup #figures_popup_content #figure_info {
+  float: left;
+  width: 50%;
+}
+#container #figures_popup #figures_popup_content #figure_info #position_select {
+  font-size: 1em;
+  width: 98%;
+  border: 0;
+  outline: 0;
+  padding: 1%;
+  border: dotted 1px #999999;
+  overflow: hidden;
+}
+#container #figures_popup #figures_popup_content #figure_info #position_select option {
+  padding: 5px;
+  background: #ffffff;
+}
+#container #figures_popup #figures_popup_content #figure_info #position_select option:not([disabled]):hover {
+  background: #eeeeee;
+}
+#container #figures_popup.opened {
+  position: absolute;
+  top: 25px;
+  right: 210px;
+}
+#container #figures_popup .close_button {
+  cursor: pointer!important;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  font-size: 1.4375em;
+  text-align: center;
+  background: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container #figures_popup .close_button:hover {
+  background: #222222;
+  color: #ffffff;
+}
 #container #help {
   cursor: pointer!important;
   background: #ffffff;

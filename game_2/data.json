@@ -9,6 +9,8 @@
 			"game_button_tooltip" : { "inactive" : "Πρέπει να διαβάσεις ολόκληρο το ημερολόγιο πριν ξεκινήσεις το παιχνίδι", "active" : "Ξεκίνησε το παιχνίδι", "continue" : "Συνέχισε το παιχνίδι" },
 			"game_button_message" : "Ολοκλήρωσες την ανάγνωση του ημερολογίου. Μπορείς τώρα να ξεκινήσεις το παιχνίδι.",
 			"check_figures_positions_button" : "Ελεγξε τις θεσεις",
+			"position_select" : "Διάλεξε την θέση του: ",
+			"place_figure_button" : "Τοποθετησε τον",
 			"the_feast_calendar" : {
 				"title" : "<h1>Σαν να ήμασταν εκεί... Το ημερολόγιο της γιορτής</h1>",
 				"handle_tooltip" : "Δες το ημερολόγιο της γιορτής",
@@ -36,6 +38,8 @@
 			"game_button_tooltip" : { "inactive" : "You must read the calendar of the feast before you start the game.", "active" : "Start the game", "continue" : "Continue the game" },
 			"game_button_message" : "You finished reading the calendar. You can now start the game.",
 			"check_figures_positions_button" : "Check the figures seats",
+			"position_select" : "Choose his seat: ",
+			"place_figure_button" : "Place him",
 			"the_feast_calendar" : {
 				"title" : "<h1>As if we were there ... The calendar of the feast</h1>",
 				"handle_tooltip" : "See the calendar of the feast",
@@ -56,11 +60,11 @@
 		}
 	},
 	"figures" : [
-		{ "id" : "f1", "profession" : { "gr" : "Ιερέας του Διονύσου", "en" : "" }, "correct_position" : "pos1", "text" : { "gr" : "", "en" : "" } },
-		{ "id" : "f2", "profession" : { "gr" : "Χορηγός", "en" : "" }, "correct_position" : "pos3", "text" : { "gr" : "", "en" : "" } },
-		{ "id" : "f3", "profession" : { "gr" : "Στρατηγός", "en" : "" }, "correct_position" : "pos2", "text" : { "gr" : "", "en" : "" } },
-		{ "id" : "f4", "profession" : { "gr" : "Έμπορος", "en" : "" }, "correct_position" : "pos4", "text" : { "gr" : "", "en" : "" } },
-		{ "id" : "f5", "profession" : { "gr" : "Γεωργός", "en" : "" }, "correct_position" : "pos5", "text" : { "gr" : "", "en" : "" } },
-		{ "id" : "f6", "profession" : { "gr" : "Μεταλλουργός", "en" : "" }, "correct_position" : "pos6", "text" : { "gr" : "", "en" : "" } }
+		{ "id" : "f1", "correct_position" : "pos1", "text" : { "gr" : "<h2>Ιερέας του Διονύσου</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f2", "correct_position" : "pos3", "text" : { "gr" : "<h2>Χορηγός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f3", "correct_position" : "pos2", "text" : { "gr" : "<h2>Στρατηγός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f4", "correct_position" : "pos4", "text" : { "gr" : "<h2>Έμπορος</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f5", "correct_position" : "pos5", "text" : { "gr" : "<h2>Γεωργός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f6", "correct_position" : "pos6", "text" : { "gr" : "<h2>Μεταλλουργός</h2><p>-</p>", "en" : "-" } }
 	]
 }

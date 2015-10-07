@@ -18,11 +18,12 @@ $(window).load(function() {
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
+	$("#close_figures_popup").click(function(event) { hide_figures_popup(); event.stopPropagation(); });
 	$("#calendar_button").click(function() { show_calendar(); });
 	randomize_figures();
-	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }});
+	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); });
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
-	$("*[theTitle]").titlesBehaviour();
+	$("*[theTitle]").titlesBehaviour();	
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
 	});
@@ -94,7 +95,8 @@ function render_calendar_content(texts) {
 		content_html += "<div id='page_" + page + "' class='calendar_day " + ( page == 1 || page == Object.keys(texts).length ? "hard" : "") + "'>" + page_text + "</div>";
 	}
 	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
-	$("#calendar_flipbook").bind("turned", function(event,page,view) {
+	$("#calendar_flipbook").bind("turned", function(event,page) {
+		console.log("turned to page " + page);
 		if (page % 2 == 0 && page < 10) {
 			if (calendar_pages_seen.indexOf("page_" + page) == -1) calendar_pages_seen.push("page_" + page);
 			check_calendar_pages_seen();
@@ -133,6 +135,26 @@ function hide_game() {
 	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".continue_game_button")).removeClass("pause").unbind("click").click(function() { show_game(); });
 }
 
+function show_figure_info(figure_id) {
+	var f_speech = "";
+	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { f_speech = eval("v.text." + lang); } });	
+	var position_select = "<b>" + eval("game_data.texts." + lang + ".position_select") + "</b><br/><select id='position_select' size='6'>" + get_available_seats_options() + "</select><br/><br/><div id='place_figure' class='button' onclick='place_figure(\"" + figure_id + "\",$(\"#position_select\").val())'>" + eval("game_data.texts." + lang + ".place_figure_button") + "</div>";
+	$("#figure_img").html("").html("<img src='assets/img/" + figure_id + "_big.jpg'/>");
+	$("#figure_info").html("").html(f_speech + "<br/>" + position_select);
+	$("#figures_popup").addClass("opened");
+}
+function hide_figures_popup() { $("#figures_popup").removeClass("opened"); }
+function place_figure(figure_id,position_id) {
+	hide_figures_popup();
+	$("#" + position_id).append($("#" + figure_id));
+	figures_positions.push(figure_id + "_" + position_id);
+	activate_check_positions_button();
+}
+function get_available_seats_options() {
+	var options_html = "";
+	$(".position").each(function() { options_html += "<option value='" + $(this).attr("id") + "' " + ( ($(this).find($(".figure")).length != 0) ? "disabled" : "") + ">" + $(this).attr("id") + "</option>"; });
+	return options_html;
+}
 function drop_figure(e,figure_id,position_id) {
 	e.preventDefault();
 	var parent_id = $("#" + figure_id).data("info").parent_id;	
