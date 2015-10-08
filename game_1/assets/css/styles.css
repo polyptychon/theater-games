@@ -635,7 +635,7 @@ a.footer:hover {
 #container .screen #intro .intro_page {
   width: 90%;
   height: 95%;
-  margin: 2% auto 2.5%;
+  margin: 2.5% auto 2.5%;
   position: relative;
   top: 0;
   left: 0;
@@ -650,7 +650,7 @@ a.footer:hover {
 }
 #container .screen #intro .intro_page#intro_page_1 img {
   margin: 130px auto 100px;
-  height: 250px;
+  height: 200px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;

@@ -181,7 +181,7 @@ table {
   text-decoration: none;
 }
 .centeredText {
-  text-align: center;
+  text-align: center!important;
 }
 .rightText {
   text-align: right;
@@ -624,7 +624,7 @@ a.footer:hover {
 #container .screen #intro .intro_page {
   width: 90%;
   height: 95%;
-  margin: 2% auto 2.5%;
+  margin: 2.5% auto 2.5%;
   position: relative;
   top: 0;
   left: 0;
@@ -632,14 +632,14 @@ a.footer:hover {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  text-align: center;
+  text-align: center!important;
 }
 #container .screen #intro .intro_page p {
   text-align: left;
 }
 #container .screen #intro .intro_page#intro_page_1 img {
   margin: 130px auto 100px;
-  height: 250px;
+  height: 200px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;
@@ -980,7 +980,7 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   z-index: 1500;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -1012,7 +1012,7 @@ a.footer:hover {
   font-weight: 700;
   font-style: normal;
   display: inline-block;
-  text-align: center;
+  text-align: center!important;
   padding: 15px 25px;
   text-transform: uppercase;
   position: relative;
@@ -1027,7 +1027,7 @@ a.footer:hover {
 #container #calendar #calendar_handle:after {
   content: "\25BE";
   background: #444444;
-  text-align: center;
+  text-align: center!important;
   padding: 4px 10px 6px;
   position: relative;
   top: -1px;
@@ -1068,7 +1068,7 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  text-align: center;
+  text-align: center!important;
   font-size: 1.25em;
   line-height: 0;
   z-index: 1000;
@@ -1224,7 +1224,7 @@ a.footer:hover {
   width: 35px;
   height: 35px;
   font-size: 1.4375em;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -1268,7 +1268,7 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  text-align: center;
+  text-align: center!important;
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -1291,7 +1291,7 @@ a.footer:hover {
   width: 35px;
   height: 35px;
   font-size: 1.4375em;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -1333,7 +1333,7 @@ a.footer:hover {
   max-height: 400px;
   overflow-y: auto;
   margin: 0 auto 25px;
-  text-align: center;
+  text-align: center!important;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -1349,7 +1349,7 @@ a.footer:hover {
   color: #ff6600;
 }
 #container #popup #message_container #buttons {
-  text-align: center;
+  text-align: center!important;
 }
 #container #popup #message_container .close_button {
   cursor: pointer!important;
@@ -1359,7 +1359,7 @@ a.footer:hover {
   width: 35px;
   height: 35px;
   font-size: 1.4375em;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;

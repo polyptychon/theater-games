@@ -77,7 +77,7 @@ table{border-collapse:collapse;border-spacing:0}
 	.pt(@size) { font-size:@text_main_size * (@size/16); }
 	.lh(@param) { line-height:@param; }
 	.ls(@param) { letter-spacing:@param; }
-	.centeredText { text-align:center; } .rightText { text-align:right; } .leftText { text-align:left; }
+	.centeredText { text-align:center!important; } .rightText { text-align:right; } .leftText { text-align:left; }
 	.capitalized { text-transform:uppercase; }
 	.capitalizedSingle { text-transform:capitalize; }
 	.regCapitalized { text-transform:none; }
@@ -177,9 +177,9 @@ a {
 		
 		&#init { background-image:url("../img/greece.jpg"); width:100%; height:100%; background-repeat:no-repeat; }
 		#intro { width:910px; height:645px; .absPos(50px,57px); overflow:hidden; .transition(all .5s ease-in-out); background-image:url("../img/intro_bg.png"); background-repeat:no-repeat; background-size:cover;
-			.intro_page { width:90%; height:95%; margin:2% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
+			.intro_page { width:90%; height:95%; margin:2.5% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
 				p { .leftText; }
-				&#intro_page_1 { img { margin:130px auto 100px; height:250px; } }
+				&#intro_page_1 { img { margin:130px auto 100px; height:200px; } }
 				&#intro_page_2 {
 					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
 					i { color:@orange; }
