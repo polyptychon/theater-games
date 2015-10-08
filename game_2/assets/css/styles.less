@@ -197,15 +197,15 @@ a {
 		&#level_2 {
 			#game_board { width:100%; height:100%; .absPos(0,0); .z(0); }
 			#positions { .absPos(0,0); .z(50);
-				.position { .active; width:70px; height:120px; border:dotted 2px @white; .transition(all .2s ease-in-out);
+				.position { .active; width:90px; height:154px; border:dotted 2px @white; .transition(all .2s ease-in-out);
 					&:hover { border:dotted 2px @red; }
-					.figure { .active; width:70px; height:120px; margin:0; .shadowed(0,0,0); .absPos(0,0)!important; }
-					#f1 { background:url("../img/f1.jpg") -70px 0; }
-					#f2 { background:url("../img/f2.jpg") -70px 0; }
-					#f3 { background:url("../img/f3.jpg") -70px 0; }
-					#f4 { background:url("../img/f4.jpg") -70px 0; }
-					#f5 { background:url("../img/f5.jpg") -70px 0; }
-					#f6 { background:url("../img/f6.jpg") -70px 0; }
+					.figure { .active; width:90px; height:154px; margin:0; .shadowed(0,0,0); .absPos(0,0)!important; }
+					#f1 { background:#fdd4ab url("../img/f1.png") 0px 0; }
+					#f2 { background:#fdd4ab url("../img/f2.png") 0px 0; }
+					#f3 { background:#fdd4ab url("../img/f3.png") 0px 0; }
+					#f4 { background:#fdd4ab url("../img/f4.jpg") -90px 0; }
+					#f5 { background:#fdd4ab url("../img/f5.jpg") -90px 0; }
+					#f6 { background:#fdd4ab url("../img/f6.jpg") -90px 0; }
 				}
 				#pos6 { .absPos(130px,0); }
 				#pos5 { .absPos(200px,130px); }
@@ -214,16 +214,16 @@ a {
 				#pos3 { .absPos(460px,520px); }
 				#pos1 { .absPos(550px,650px); }
 			}
-			#figures { .absPosRight(25px,25px); .z(25); width:160px;
-				.figure { .active; width:70px; height:120px; .visible(inline-block); margin:0 10px 10px 0; .shadowed(0,2px,5px); }
-				#f1 { background:url("../img/f1.jpg") 0 0; }
-				#f2 { background:url("../img/f2.jpg") 0 0; }
-				#f3 { background:url("../img/f3.jpg") 0 0; }
-				#f4 { background:url("../img/f4.jpg") 0 0; }
-				#f5 { background:url("../img/f5.jpg") 0 0; }
-				#f6 { background:url("../img/f6.jpg") 0 0; }
+			#figures { .absPosRight(25px,25px); .z(25); width:200px;
+				.figure { .active; width:90px; height:154px; .visible(inline-block); margin:0 10px 10px 0; .shadowed(0,2px,5px); background-size:cover; }
+				#f1 { background:#fdd4ab url("../img/f1.png") 0 0; }
+				#f2 { background:#fdd4ab url("../img/f2.png") 0 0; }
+				#f3 { background:#fdd4ab url("../img/f3.png") 0 0; }
+				#f4 { background:#fdd4ab url("../img/f4.jpg") 0 0; }
+				#f5 { background:#fdd4ab url("../img/f5.jpg") 0 0; }
+				#f6 { background:#fdd4ab url("../img/f6.jpg") 0 0; }
 			}
-			#check_figures_positions_button { .absPosBottomRight(35px,30px); }
+			#check_figures_positions_button { .absPosBottomRight(35px,30px); width:140px; .centeredText; }
 		}
 		
 		.text { padding:25px; .pt(16); }
@@ -276,14 +276,14 @@ a {
 	}
 	#calendar_button { .absPosBottom(24px,85px); }
 	#figures_popup {
-		width:650px; height:650px; .absPosRight(-800px,210px); background:@white; .rounded(8px); .z(4000); .transition(all .2s ease-in-out);
+		width:750px; height:650px; .absPosRight(-800px,250px); background:@white; .rounded(8px); .z(4000); .transition(all .2s ease-in-out);
 		#figures_popup_content { padding:50px;
 			#figure_img { .left; width:50%; img { width:90%!important; } }
 			#figure_info { .left; width:50%;
 				#position_select { .pt(16); width:98%; border:0; outline:0; padding:1%; border:dotted 1px @midGray; overflow:hidden; option { padding:5px; background:@white; &:not([disabled]):hover { background:@lightGray; } } }
 			}
 		}
-		&.opened { .absPosRight(25px,210px); }
+		&.opened { .absPosRight(25px,250px); }
 		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 	}
 	#help {

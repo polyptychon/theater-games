@@ -717,8 +717,8 @@ a.footer:hover {
 }
 #container .screen#level_2 #positions .position {
   cursor: pointer!important;
-  width: 70px;
-  height: 120px;
+  width: 90px;
+  height: 154px;
   border: dotted 2px #ffffff;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -730,8 +730,8 @@ a.footer:hover {
 }
 #container .screen#level_2 #positions .position .figure {
   cursor: pointer!important;
-  width: 70px;
-  height: 120px;
+  width: 90px;
+  height: 154px;
   margin: 0;
   -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
@@ -742,22 +742,22 @@ a.footer:hover {
   left: 0 !important;
 }
 #container .screen#level_2 #positions .position #f1 {
-  background: url("../img/f1.jpg") -70px 0;
+  background: #fdd4ab url("../img/f1.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f2 {
-  background: url("../img/f2.jpg") -70px 0;
+  background: #fdd4ab url("../img/f2.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f3 {
-  background: url("../img/f3.jpg") -70px 0;
+  background: #fdd4ab url("../img/f3.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f4 {
-  background: url("../img/f4.jpg") -70px 0;
+  background: #fdd4ab url("../img/f4.jpg") -90px 0;
 }
 #container .screen#level_2 #positions .position #f5 {
-  background: url("../img/f5.jpg") -70px 0;
+  background: #fdd4ab url("../img/f5.jpg") -90px 0;
 }
 #container .screen#level_2 #positions .position #f6 {
-  background: url("../img/f6.jpg") -70px 0;
+  background: #fdd4ab url("../img/f6.jpg") -90px 0;
 }
 #container .screen#level_2 #positions #pos6 {
   position: absolute;
@@ -794,41 +794,44 @@ a.footer:hover {
   top: 25px;
   right: 25px;
   z-index: 25;
-  width: 160px;
+  width: 200px;
 }
 #container .screen#level_2 #figures .figure {
   cursor: pointer!important;
-  width: 70px;
-  height: 120px;
+  width: 90px;
+  height: 154px;
   display: inline-block;
   margin: 0 10px 10px 0;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  background-size: cover;
 }
 #container .screen#level_2 #figures #f1 {
-  background: url("../img/f1.jpg") 0 0;
+  background: #fdd4ab url("../img/f1.png") 0 0;
 }
 #container .screen#level_2 #figures #f2 {
-  background: url("../img/f2.jpg") 0 0;
+  background: #fdd4ab url("../img/f2.png") 0 0;
 }
 #container .screen#level_2 #figures #f3 {
-  background: url("../img/f3.jpg") 0 0;
+  background: #fdd4ab url("../img/f3.png") 0 0;
 }
 #container .screen#level_2 #figures #f4 {
-  background: url("../img/f4.jpg") 0 0;
+  background: #fdd4ab url("../img/f4.jpg") 0 0;
 }
 #container .screen#level_2 #figures #f5 {
-  background: url("../img/f5.jpg") 0 0;
+  background: #fdd4ab url("../img/f5.jpg") 0 0;
 }
 #container .screen#level_2 #figures #f6 {
-  background: url("../img/f6.jpg") 0 0;
+  background: #fdd4ab url("../img/f6.jpg") 0 0;
 }
 #container .screen#level_2 #check_figures_positions_button {
   position: absolute;
   bottom: 35px;
   right: 30px;
+  width: 140px;
+  text-align: center!important;
 }
 #container .screen .text {
   padding: 25px;
@@ -1166,11 +1169,11 @@ a.footer:hover {
   left: 85px;
 }
 #container #figures_popup {
-  width: 650px;
+  width: 750px;
   height: 650px;
   position: absolute;
   top: -800px;
-  right: 210px;
+  right: 250px;
   background: #ffffff;
   border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -1214,7 +1217,7 @@ a.footer:hover {
 #container #figures_popup.opened {
   position: absolute;
   top: 25px;
-  right: 210px;
+  right: 250px;
 }
 #container #figures_popup .close_button {
   cursor: pointer!important;
