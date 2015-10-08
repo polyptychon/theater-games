@@ -22,6 +22,7 @@
 	<script src="assets/libs/jquery-migrate.min.js"></script>
 	<script src="assets/libs/jquery.easing.min.js"></script>
 	<script src="assets/libs/jquery-ui.min.js"></script>
+	<script src="assets/libs/jquery.ui.touch-punch.min.js"></script>	
 	<!-- custom js -->
 	<script src="assets/js/functions.js"></script>
 	
@@ -144,7 +145,7 @@
         <div class="screen hidden centeredText" id="custom">
         	
         	<br/><br/>Custom αγγείο<br/><br/>
-        	<div class="button" onclick="goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
+        	<div class="button" onclick="$('#intro').removeClass('instructions'); goto_screen('init');">ΞΕΚΙΝΗΣΕ ΑΠΟ ΤΗΝ ΑΡΧΗ</div>
         
         </div>
         
