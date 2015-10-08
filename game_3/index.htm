@@ -3,8 +3,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" href="assets/img/icon.png"/>		
-	<link rel="apple-touch-icon-precomposed" href="assets/img/icon_512.png"/>
 	<title></title>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
@@ -40,9 +38,16 @@
 	<!-- main game board container -->
 	<div id="container">
 		<div class="screen" id="init">
-			<h1 id="game_title"><!-- dynamic content --></h1>
-			<div id="game_subtitle" class="text"><!-- dynamic content --></div>
-			<div id="start_game" class="button big"><!-- dynamic content --></div>
+			<div id="intro">
+				<div id="intro_page_1" class="intro_page">
+					<img id="game_title" src=""/><br/>
+					<div id="enter_game" class="button big"><!-- dynamic content --></div>
+				</div>
+				<div id="intro_page_2" class="intro_page">
+					<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+					<div id="start_game" class="button big"><!-- dynamic content --></div>
+				</div>
+			</div>
 		</div>		
 		<div class="screen hidden" id="level_greece">
 			<img class="bg" src="assets/img/greece.jpg"/>

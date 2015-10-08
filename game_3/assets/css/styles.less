@@ -116,7 +116,7 @@ table{border-collapse:collapse;border-spacing:0}
 	/* buttons */
 	.button {
 		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline); .transition(all .1s ease-in-out);
-		&:hover { background:@white; color:@orange; }
+		&:hover { background:@lightGray; color:@orange; }
 		&:active { background:@lightGray; .innerShadowed(0,2px,5px); }
 		&.big { .pt(14); }
 		&.green { background:@green; color:@white; &:hover { background:@lightGray; color:@textGray; } }
@@ -174,6 +174,21 @@ a {
 #dhtmltooltip { .abs; max-width:350px; background:@white!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
 #container { width:1024px; height:768px; background:@midGray; .shadowed(0,2px,5px); margin:0 auto; overflow:hidden; .rel;
 	.screen { width:100%; height:100%; background:@lightGray; .absPos(0,0); .transparent(1,100); .transition(~"opacity .3s ease-in-out, -webkit-opacity .3s ease-in-out"); &.hidden { .absPos(-100%,0); .transparent(0,0); }
+		
+		&#init { background-image:url("../img/greece.jpg"); width:100%; height:100%; background-repeat:no-repeat; }
+		#intro { width:910px; height:645px; .absPos(50px,57px); overflow:hidden; .transition(all .5s ease-in-out); background-image:url("../img/intro_bg.png"); background-repeat:no-repeat; background-size:cover;
+			.intro_page { width:90%; height:95%; margin:2% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
+				p { .leftText; }
+				&#intro_page_1 { img { margin:130px auto 100px; height:250px; } }
+				&#intro_page_2 {
+					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
+					i { color:@orange; }
+					#start_game { .centered; }
+				}
+			}
+			&.instructions { .intro_page { .relPos(-100%,0); } }
+		}
+		
 		img.bg { .absPos(0,0); .z(0); }
 		.theaters { width:100%; height:100%; .absPos(0,0); .z(100);
 			.theater { .active; background:@darkGray; width:25px; height:25px; .centeredText; .transparent(.9,90); .rounded(50%); .abs; .transition(all .2s ease-in-out);
@@ -223,13 +238,17 @@ a {
 	}
 	
 	#popup {
-		width:1024px; height:768px; .absPos(0,0); .z(1500); background-image:url("../img/trans.png");
-		#message_container { width:700px; min-height:125px; max-height:600px; margin:125px auto 0; .rel; background:@white; .rounded(8px); .shadowed(0,2px,5px); padding:25px; .transition(all .2s ease-in-out);
-			#message { max-height:450px; overflow-y:auto; margin:0 0 25px; .transition(all .2s ease-in-out); }
+		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
+		#message_container { width:740px; height:500px; background-image:url("../img/popup_bg.png"); background-repeat:no-repeat; margin:120px auto 0; .rel; padding:50px 25px 25px; .transition(all .2s ease-in-out);
+			#message { width:90%; max-height:400px; overflow-y:auto; margin:0 auto 25px; .centeredText; .transition(all .2s ease-in-out);
+				p { .leftText; }
+				img { margin:10px auto; }
+				i { color:@orange; }
+			}
 			#buttons { .centeredText; }
-			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
-		}		
-		&.down { background-image:none; #message_container { min-height:0; margin:675px auto 0; width:225px; #message { max-height:0px; margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
+			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+		}
+		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:600px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
 	}
 }
 /* */

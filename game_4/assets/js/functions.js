@@ -14,16 +14,17 @@ $(window).load(function() {
 	init();
 	$("*[theTitle]").titlesBehaviour();	
 	$("#start_game").click(function() { goto_screen("level_1"); });
+	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
-	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
-	$(".figure").draggable({revert:function(event,ui) { $(this).data().originalPosition = { top:$(this).attr("top"), left:$(this).attr("left") }; return !event; }, start: function() { $(this).css({"z-index":4000}); $(this).data("parent_id",$(this).parent().attr("id")); }, stop: function() { $(this).css({"z-index":200}); if ($(this).parent().attr("id").indexOf("_figures") != -1) remove_figure($(this).attr("id")); } }).click(function() { remove_figure($(this).attr("id")); });
+	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });	
+	$(".figure").draggable({revert: true, start: function() { $(this).css({"z-index":4000}); $(this).data("parent_id",$(this).parent().attr("id")); }, stop: function() { $(this).css({"z-index":200}); if ($(this).parent().attr("id").indexOf("_figures") != -1) remove_figure($(this).attr("id")); } }).click(function() { remove_figure($(this).attr("id")); });
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$(".vas_check_button").each(function() { $(this).click(function() { check_positions(); }); });
 	$(".vas_hint").each(function() { $(this).mousedown(function() { show_hint(); }).mouseup(function() { hide_hint(); }); });
 	$(document).keyup(function(e) {
 	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
-	});
+	});	
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
 /* */
@@ -32,9 +33,12 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("#game_title").attr("src","assets/img/game_4_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
-		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
+		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#intro").removeClass("instructions");
 		$(".vas_check_button").html(eval("game_data.texts." + lang + ".check_button"));
 		$(".vas_hint").html(eval("game_data.texts." + lang + ".hint_button"));
 		goto_screen("init");
@@ -82,8 +86,7 @@ function position_figures() {
 		$(this).removeClass("invisible");
 		var f_id = $(this).attr("id").split("_")[2] + "_" + $(this).attr("id").split("_")[3]; var init_top = ""; var init_left = "";
 		$.each(game_data.vases, function(i,v) { if (v.level == current_level) { $.each(v.figures, function(i,w) { if (w.id == f_id) { init_top = w.top; init_left = w.left; } }); } });
-		$(this).attr("top",init_top).attr("left",init_left);
-		$(this).css({ "position" : "absolute", "top" : init_top, "left" : init_left });
+		$(this).attr("top",init_top).attr("left",init_left).css({ "position" : "absolute", "top" : init_top, "left" : init_left });
 	});	
 }
 function add_figure_text(){
@@ -142,7 +145,7 @@ function end_game(level,correct) {
 			$("#level_" + level + "_vas_check_button").addClass("invisible");
 		}
 	} else if (level == 6) {	
-		show_message({ "message":eval("game_data.texts." + lang + ".game_title"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'goto_screen("init");' }]});
+		show_message({ "message":eval("game_data.texts." + lang + ".game_title"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); goto_screen("init");' }]});
 	}
 }
 /* */

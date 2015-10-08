@@ -13,7 +13,8 @@ var figures_positions = new Array();
 /* window/document states */
 $(window).load(function() {
 	init();	
-	$("#start_game").click(function() { goto_screen("level_1"); });
+	$("#start_game, #restart").click(function() { goto_screen("level_1"); });
+	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
@@ -35,9 +36,12 @@ $(window).load(function() {
 /* game functions */
 function init() {	
 	$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("#game_title").attr("src","assets/img/game_2_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
-		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
+		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#intro").removeClass("instructions");
 		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.pages"));
 		activate_game_button();
 		$("#calendar_button").attr("theTitle",eval("game_data.texts." + lang + ".the_feast_calendar.handle_tooltip"));
@@ -145,10 +149,12 @@ function show_figure_info(figure_id) {
 }
 function hide_figures_popup() { $("#figures_popup").removeClass("opened"); }
 function place_figure(figure_id,position_id) {
-	hide_figures_popup();
-	$("#" + position_id).append($("#" + figure_id));
-	figures_positions.push(figure_id + "_" + position_id);
-	activate_check_positions_button();
+	if (position_id) {
+		hide_figures_popup();
+		$("#" + position_id).append($("#" + figure_id));
+		figures_positions.push(figure_id + "_" + position_id);
+		activate_check_positions_button();
+	}
 }
 function get_available_seats_options() {
 	var options_html = "";

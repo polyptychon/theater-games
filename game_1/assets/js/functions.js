@@ -30,7 +30,7 @@ function init() {
 		selected_area = "";
 		removed_areas = 0;
 		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
-		$("#game_title").attr("src","assets/img/game_title_" + lang + ".png");
+		$("#game_title").attr("src","assets/img/game_1_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".init_stage"));
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
 		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
@@ -84,7 +84,7 @@ function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(fu
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
 function show_message(params) {	
-	$("#message").html("").html(params.message + "<br/><br/>");
+	$("#message").html("").html(params.message);
 	$("#buttons").html(""); for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
 	$("#popup").removeClass("down").removeClass("invisible");
 }

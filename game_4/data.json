@@ -1,20 +1,22 @@
 {
 	"texts": {
 		"gr" : {
+			"enter_game_button" : "ΕΙΣΟΔΟΣ",
 			"start_game_button" : "ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ",
 			"restart_button" : "Ξεκινησε απο την αρχη",
 			"check_button" : "Ελεγξε τις θεσεις",
 			"hint_button" : "Βοηθεια",
 			"game_title" : "Ο Διόνυσος και οι φίλοι του",
-			"intro" : "<p>Τα αγγεία ήταν απαραίτητα τόσο στην καθημερινή ζωή, ως χρηστικά σκεύη, όσο και σε τελετές ως αναθήματα ή δώρα ή ακόμα και ως πολυτελή σκεύη επίδειξης οικονομι­κής ευμάρειας. Αν και το σχήμα κάθε αγγείου ήταν στενά συνδεδεμένο με τη χρήση του, η διακόσμηση έπαιζε πάντα σημαντικό ρόλο.</p><p><i>Προσπάθησε να τοποθετήσεις τις φιγούρες στην σωστή τους θέση. Κάν' το όσο πιο γρήγορα μπορείς. Ο χρόνος μετράει.</i></p><br/><br/>"
+			"intro" : "<br/><br/><p>Τα αγγεία ήταν απαραίτητα τόσο στην καθημερινή ζωή, ως χρηστικά σκεύη, όσο και σε τελετές ως αναθήματα ή δώρα ή ακόμα και ως πολυτελή σκεύη επίδειξης οικονομι­κής ευμάρειας. Αν και το σχήμα κάθε αγγείου ήταν στενά συνδεδεμένο με τη χρήση του, η διακόσμηση έπαιζε πάντα σημαντικό ρόλο.</p><p><i>Προσπάθησε να τοποθετήσεις τις φιγούρες στην σωστή τους θέση. Κάν' το όσο πιο γρήγορα μπορείς. Ο χρόνος μετράει.</i></p><br/><br/>"
 		},
 		"en" : {
+			"enter_game_button" : "ENTER",
 			"start_game_button" : "Start the game",
 			"restart_button" : "Restart game",
 			"check_button" : "Check positions",
 			"hint_button" : "Hint",
 			"game_title" : "Dionysus and his friends",
-			"intro" : "<p>The vases were necessary both in everyday life as utensils, and ceremonies as offerings or gifts or even as luxury tableware demonstration economic prosperity. Although the shape of each vessel was closely associated with its use, the decor always played an important role.</p><p><i>Try to place the figures in the right place. Do it as fast as you can. The time counts.</i></p><br/><br/>"
+			"intro" : "<br/><br/><p>The vases were necessary both in everyday life as utensils, and ceremonies as offerings or gifts or even as luxury tableware demonstration economic prosperity. Although the shape of each vessel was closely associated with its use, the decor always played an important role.</p><p><i>Try to place the figures in the right place. Do it as fast as you can. The time counts.</i></p><br/><br/>"
 		}
 	},
 	"vases" : [		

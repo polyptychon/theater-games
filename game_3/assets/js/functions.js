@@ -16,6 +16,7 @@ $(window).load(function() {
 	$("#check_schedule").unbind("click");
 	$("#num_of_theaters").html(0);
 	$("#start_game").click(function() { goto_screen("level_greece"); });
+	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
@@ -31,9 +32,12 @@ $(window).load(function() {
 /* game functions */
 function init() {
 	$.getJSON("data.json", function(data) { game_data = ""; game_data = data; }).complete(function() {
-		$("head title, #game_title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
+		$("#game_title").attr("src","assets/img/game_3_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
-		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
+		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#intro").removeClass("instructions");
 		$("#check_schedule").html(eval("game_data.texts." + lang + ".check_schedule_button"));
 		$("#tour_schedule_title").html(eval("game_data.texts." + lang + ".tour_schedule"));
 		$("*[theTitle]").titlesBehaviour();
@@ -155,9 +159,9 @@ function end_game(level,result) {
 		else { $(".tour_theater[theater_id='" + theater.id + "']").addClass("wrong"); }
 		return;
 	});
-	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show += "<ul>" + active_theaters + "</ul></p>"; var correct_theaters = []; for (t = 0; t < correct_theaters_in_schedule.length; t++) $.each(game_data.theaters[level], function(index,theater) { if (theater.id == correct_theaters_in_schedule[t]) correct_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show = text_to_show.replace("{*}","<b>" + correct_theaters_in_schedule.length + "</b>").replace("{**}","<ul>" + correct_theaters + "</ul>"); }
+	if (result == "wrong") { var active_theaters = ""; $.each(game_data.theaters[level], function(index,theater) { if (theater.in_use == "yes") active_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show += "<ul style='text-align:left!important;'>" + active_theaters + "</ul></p>"; var correct_theaters = []; for (t = 0; t < correct_theaters_in_schedule.length; t++) $.each(game_data.theaters[level], function(index,theater) { if (theater.id == correct_theaters_in_schedule[t]) correct_theaters += "<li>" + eval("theater.name." + lang) + "</li>"; return; }); text_to_show = text_to_show.replace("{*}","<b>" + correct_theaters_in_schedule.length + "</b>").replace("{**}","<ul style='text-align:left!important;'>" + correct_theaters + "</ul>"); }
 	if (level == "greece") { var button = eval("game_data.texts." + lang + ".next_level_button"); var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); $("#mediterranean_theaters").html(""); goto_screen("level_mediterranean");'; }
-	else if (level == "mediterranean") { var button = eval("game_data.texts." + lang + ".restart_button"); var action = '$("#popup").addClass("invisible"); $("#num_of_theaters").html(0); current_date = ""; $("#greece_theaters").html(""); goto_screen("init");'; }
+	else if (level == "mediterranean") { var button = eval("game_data.texts." + lang + ".restart_button"); var action = '$("#intro").removeClass("instructions"); $("#popup").addClass("invisible"); $("#num_of_theaters").html(0); current_date = ""; $("#greece_theaters").html(""); goto_screen("init");'; }
 	show_message({"message":text_to_show, "buttons":[{"button": button, "action": action}]});	
 }
 /* */

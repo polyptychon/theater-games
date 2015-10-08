@@ -181,7 +181,7 @@ table {
   text-decoration: none;
 }
 .centeredText {
-  text-align: center;
+  text-align: center!important;
 }
 .rightText {
   text-align: right;
@@ -296,11 +296,11 @@ table {
   transition: all 0.2s ease-in-out;
 }
 .button:hover {
-  background: #dbd8d2;
+  background: #eeeeee;
   color: #1baa95;
 }
 .button:active {
-  background: #dbd8d2;
+  background: #eeeeee;
   -webkit-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 5px 7px rgba(0, 0, 0, 0.5);
@@ -635,7 +635,7 @@ a.footer:hover {
 #container .screen #intro .intro_page {
   width: 90%;
   height: 95%;
-  margin: 2.5% auto 2.5%;
+  margin: 2% auto 2.5%;
   position: relative;
   top: 0;
   left: 0;
@@ -643,16 +643,14 @@ a.footer:hover {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  text-align: center;
+  text-align: center!important;
 }
 #container .screen #intro .intro_page p {
   text-align: left;
 }
 #container .screen #intro .intro_page#intro_page_1 img {
-  margin: 130px 0 100px;
-  position: relative;
-  top: 0;
-  left: -45px;
+  margin: 130px auto 100px;
+  height: 250px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;
@@ -724,7 +722,6 @@ a.footer:hover {
 #container #tools .tool {
   cursor: pointer!important;
   background-color: #999;
-  background-image: url("../img/noise.png");
   display: none;
   position: relative;
   width: 70px;
@@ -757,9 +754,6 @@ a.footer:hover {
   position: absolute;
   top: 12px;
   left: 10px;
-}
-#container #tools .tool:hover {
-  background-image: url("../img/noise.png");
 }
 #container #tools .tool:hover#bulldozer {
   background-color: #1baa95;
@@ -857,7 +851,7 @@ a.footer:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  text-align: center;
+  text-align: center!important;
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -943,7 +937,7 @@ a.footer:hover {
   width: 35px;
   height: 35px;
   font-size: 1.4375em;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -968,30 +962,24 @@ a.footer:hover {
   background-image: url("../img/trans.png");
 }
 #container #popup #message_container {
-  width: 700px;
-  min-height: 125px;
-  max-height: 600px;
-  margin: 125px auto 0;
+  width: 740px;
+  height: 500px;
+  background-image: url("../img/popup_bg.png");
+  background-repeat: no-repeat;
+  margin: 120px auto 0;
   position: relative;
-  background: #ffffff;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  padding: 25px;
+  padding: 50px 25px 25px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 #container #popup #message_container #message {
-  max-height: 450px;
+  width: 90%;
+  max-height: 400px;
   overflow-y: auto;
-  margin: 0 0 25px;
-  text-align: center;
+  margin: 0 auto 25px;
+  text-align: center!important;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -1001,23 +989,23 @@ a.footer:hover {
   text-align: left;
 }
 #container #popup #message_container #message img {
-  margin: 25px auto;
+  margin: 10px auto;
 }
 #container #popup #message_container #message i {
   color: #ff6600;
 }
 #container #popup #message_container #buttons {
-  text-align: center;
+  text-align: center!important;
 }
 #container #popup #message_container .close_button {
   cursor: pointer!important;
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -10px;
+  right: -10px;
   width: 35px;
   height: 35px;
   font-size: 1.4375em;
-  text-align: center;
+  text-align: center!important;
   background: #ff0000;
   color: #ffffff;
   border-radius: 50%;
@@ -1036,12 +1024,16 @@ a.footer:hover {
   background-image: none;
 }
 #container #popup.down #message_container {
-  min-height: 0;
-  margin: 675px auto 0;
+  background-size: 100% 100%;
+  height: 50px;
+  margin: 600px auto 0;
   width: 225px;
 }
 #container #popup.down #message_container #message {
   max-height: 0px;
+  margin: 0;
+}
+#container #popup.down #message_container #buttons {
   margin: 0;
 }
 #container #popup.down #message_container .close_button {
