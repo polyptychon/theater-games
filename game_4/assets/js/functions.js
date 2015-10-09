@@ -53,7 +53,7 @@ function goto_screen(which) {
 		$("#" + which + "_vas_caption").html("");		
 		current_level = which.split("_")[1];
 		position_figures();
-		add_figure_text();
+		add_figure_text();		
 		$("*[theTitle]").titlesBehaviour();
 		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint").removeClass("invisible");
 		hide_help();
@@ -83,9 +83,9 @@ function show_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_"
 function hide_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position").removeClass("invisible"); }
 
 function position_figures() {
-	if ($("#level_" + current_level + " .position .figure").length != 0) $("#level_" + current_level + " .position .figure").each(function() { remove_figure($(this).attr("id")); });
+	if ($("#level_" + current_level + " .position .figure").length != 0) $("#level_" + current_level + " .position .figure").each(function() { remove_figure($(this).attr("id"),true); });
 	$("#level_" + current_level + " .figure").each(function() {
-		$(this).removeClass("invisible");
+		$(this).removeClass("invisible").draggable("enable");	
 		var f_id = $(this).attr("id").split("_")[2] + "_" + $(this).attr("id").split("_")[3]; var init_top = ""; var init_left = "";
 		$.each(game_data.vases, function(i,v) { if (v.level == current_level) { $.each(v.figures, function(i,w) { if (w.id == f_id) { init_top = w.top; init_left = w.left; } }); } });
 		$(this).attr("top",init_top).attr("left",init_left).css({ "position" : "absolute", "top" : init_top, "left" : init_left });
@@ -120,7 +120,7 @@ function toggle_check_button() {
 	if ($("#level_" + current_level + " .position .figure").length == $("#level_" + current_level + " .position").length) $("#level_" + current_level + "_vas_check_button").removeClass("invisible");
 	else $("#level_" + current_level + "_vas_check_button").addClass("invisible");
 }
-function remove_figure(figure_id) { if (game_is_running) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible").mouseover(function() { if (typeof $(this).attr("theTitle") !== typeof undefined && $(this).attr("theTitle") !== false) ddrivetip($(this).attr("theTitle")); }); toggle_check_button(current_level); $(this).dequeue(); }); } }
+function remove_figure(figure_id, hard) { if (game_is_running || hard) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible").mouseover(function() { if (typeof $(this).attr("theTitle") !== typeof undefined && $(this).attr("theTitle") !== false) ddrivetip($(this).attr("theTitle")); }); toggle_check_button(current_level); $(this).dequeue(); }); } }
 function check_positions() {
 	// if ($("#level_" + level + " .figures .figure").length == 0) end_game(level);
 	var correct_positions = 0;
