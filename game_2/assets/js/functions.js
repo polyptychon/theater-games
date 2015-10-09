@@ -20,7 +20,7 @@ $(window).load(function() {
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
 	$("#close_figures_popup").click(function(event) { hide_figures_popup(); event.stopPropagation(); });
-	$("#calendar_button").click(function() { show_calendar(); });
+	$("#calendar_button").click(function() { if (!$("#calendar").hasClass("open")) show_calendar(); else hide_calendar(); });
 	randomize_figures();
 	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); });
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });

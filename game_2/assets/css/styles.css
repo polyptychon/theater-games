@@ -965,7 +965,8 @@ a.footer:hover {
   padding: 30px 50px;
 }
 #container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.img {
-  padding: 0;
+  padding: 50px;
+  background: #eeeeee;
 }
 #container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.img img {
   width: 100%;
