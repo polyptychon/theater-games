@@ -287,7 +287,7 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  background: #0099ff;
+  background: #ff6600;
   color: #ffffff;
   cursor: pointer!important;
   text-transform: uppercase;
@@ -303,7 +303,7 @@ table {
 }
 .button:hover {
   background: #eeeeee;
-  color: #0099ff;
+  color: #ff6600;
 }
 .button:active {
   background: #eeeeee;
@@ -690,13 +690,6 @@ a.footer:hover {
   left: 0 !important;
   z-index: 200;
 }
-#container .screen .vas .position .figure .speech {
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  opacity: 0;
-  filter: alpha(opacity=95);
-  display: none;
-}
 #container .screen .figures {
   width: 50%;
   height: 100%;
@@ -711,46 +704,7 @@ a.footer:hover {
   z-index: 200;
 }
 #container .screen .figures .figure .speech {
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  opacity: 0;
-  filter: alpha(opacity=95);
-  font-size: 1em;
-  width: 250px;
-  background: #ffffee;
-  padding: 15px;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-#container .screen .figures .figure .speech:hover {
-  -moz-opacity: 0 !important;
-  -khtml-opacity: 0 !important;
-  opacity: 0 !important;
-  filter: alpha(opacity=95) !important;
-}
-#container .screen .figures .figure:hover .speech {
-  -moz-opacity: 0.9;
-  -khtml-opacity: 0.9;
-  opacity: 0.9;
-  filter: alpha(opacity=95);
-}
-#container .screen .figures .figure:active {
-  -webkit-transform: scale(0.9);
-  -moz-transform: scale(0.9);
-  -o-transform: scale(0.9);
-  -ms-transform: scale(0.9);
-  transform: scale(0.9);
-}
-#container .screen .figures .figure:active .speech {
-  -moz-opacity: 0;
-  -khtml-opacity: 0;
-  opacity: 0;
-  filter: alpha(opacity=95);
+  display: none;
 }
 #container .screen .figures .vas_caption {
   text-align: left;
@@ -781,10 +735,10 @@ a.footer:hover {
   color: #222222;
 }
 #container .screen .figures .vas_hint:hover {
-  color: #00cc66;
+  color: #ff6600;
 }
 #container .screen .figures .vas_hint:active {
-  background: #00cc66;
+  background: #ff6600;
   color: #ffffff;
 }
 #container .screen#level_1 #level_1_final_vas,
@@ -1120,6 +1074,9 @@ a.footer:hover {
   font-weight: 700;
   font-style: normal;
 }
+#container #clock.last_ten {
+  color: #ff0000;
+}
 #container #help {
   cursor: pointer!important;
   background: #ffffff;
@@ -1149,7 +1106,7 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  background: #0099ff;
+  background: #ff6600;
   color: #ffffff;
   text-align: center!important;
   position: absolute;
