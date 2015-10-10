@@ -21,8 +21,8 @@ $(window).load(function() {
 	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
 	$("#close_figures_popup").click(function(event) { hide_figures_popup(); event.stopPropagation(); });
 	$("#calendar_button").click(function() { if (!$("#calendar").hasClass("open")) show_calendar(); else hide_calendar(); });
-	randomize_figures();
-	$(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); });
+	randomize_figures();	
+	activate_figures();
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$("*[theTitle]").titlesBehaviour();	
 	$(document).keyup(function(e) {
@@ -99,11 +99,21 @@ function render_calendar_content(texts) {
 		content_html += "<div id='page_" + page + "' class='calendar_day " + ( page == 1 || page == Object.keys(texts).length ? "hard" : "") + "'>" + page_text + "</div>";
 	}
 	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
-	$("#calendar_flipbook").bind("turned", function(event,page) {
-		console.log("turned to page " + page);
-		if (page % 2 == 0 && page < 10) {
-			if (calendar_pages_seen.indexOf("page_" + page) == -1) calendar_pages_seen.push("page_" + page);
-			check_calendar_pages_seen();
+	$("#calendar_flipbook").bind("turning", function(event,page) {		
+		if (page > 1 && page < 10) {
+			if (page % 2 == 0) {
+				if (calendar_pages_seen.indexOf("page_" + page + "_page_" + (Math.round(page) + 1)) == -1) {
+					calendar_pages_seen.push("page_" + page + "_page_" + (Math.round(page) + 1));
+					console.log("added page_" + page + "_page_" + (Math.round(page) + 1));
+				}
+				check_calendar_pages_seen();
+			} else {
+				if (calendar_pages_seen.indexOf("page_" + (Math.round(page) - 1) + "_page_" + page) == -1) {
+					calendar_pages_seen.push("page_" + (Math.round(page) - 1) + "_page_" + page);
+					console.log("added page_" + (Math.round(page) -1) + "_page_" + page);
+				}
+				check_calendar_pages_seen();
+			}
 		}
 	});
 	
@@ -112,22 +122,15 @@ function show_calendar(page) {
 	hide_help(); hide_message();	
 	if (page == null) page = "page_1";
 	$("#calendar_flipbook").turn("page", page.split("_")[1]);	
-	if (!$("#calendar").hasClass("open")) {
-		if (page != "page_1") {
-			if (calendar_pages_seen.indexOf(page) == -1) calendar_pages_seen.push(page);
-			check_calendar_pages_seen();
-		}
-		$("#calendar").addClass("open");
-	} else { if (page == null) $("#calendar").removeClass("open"); unselect_all(); }
+	if (!$("#calendar").hasClass("open")) { $("#calendar").addClass("open"); } else { if (page == null) $("#calendar").removeClass("open"); unselect_all(); }
 }
 function hide_calendar() { $("#calendar").removeClass("open"); unselect_all(); }
 function check_calendar_pages_seen() {
+	console.log(calendar_pages_seen);
 	if (!calendar_read) if (calendar_pages_seen.length == 4) { calendar_read = true; activate_game_button(); }
 }
-
-function randomize_figures() {
-	$("#figures").shuffleChildren();
-}
+function activate_figures() { $(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); }); }
+function randomize_figures() { $("#figures").shuffleChildren(); }
 function show_game() {
 	hide_calendar(); hide_help(); hide_message(); $("#play_button_message").addClass("hidden");
 	$("#level_1, #level_2").addClass("playing");
@@ -137,6 +140,20 @@ function hide_game() {
 	hide_calendar(); hide_help(); hide_message();
 	$("#level_1, #level_2").removeClass("playing");
 	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".continue_game_button")).removeClass("pause").unbind("click").click(function() { show_game(); });
+}
+function reset_game(everything) {
+	$(".position").each(function() { $("#figures").append($(this).find(".figure")).queue(function() { $("#figures .figure").css({ "position" : "relative", "top" : 0, "left" : 0 }); $(this).dequeue(); }); });
+	randomize_figures();
+	activate_figures();
+	figures_positions = new Array();
+	activate_check_positions_button();
+	if (everything == "everything") {
+		calendar_read = false;
+		calendar_pages_seen = new Array();
+		activate_game_button();
+		hide_game();
+		$("#calendar_flipbook").turn("page", 1);
+	}
 }
 
 function show_figure_info(figure_id) {
@@ -204,7 +221,6 @@ function remove_figure(pos) {
 	$("#figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position" : "relative", "top" : 0, "left" : 0 }); $(this).dequeue(); });
 	figures_positions.splice(figures_positions.indexOf(f_pos_array_value), 1);
 	activate_check_positions_button();
-	console.log("- " + figures_positions);
 }
 function activate_check_positions_button() {
 	if ($(".position .figure").length == 6) $("#check_figures_positions_button").removeClass("disabled").click(function() { check_positions(); });
@@ -227,8 +243,8 @@ function show_message(params) {
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
 function end_game(result) {
-	if (result == "correct") alert("Σωστά!");		
-	else alert("Λάθος!");
+	if (result == "correct") show_message({ "message":eval("game_data.texts." + lang + ".correct_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); reset_game("everything"); goto_screen("init");' }]});		
+	else show_message({ "message":eval("game_data.texts." + lang + ".wrong_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".play_again_button"), "action":'reset_game();' }]});
 }
 /* */
 

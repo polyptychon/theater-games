@@ -3,6 +3,8 @@
 		"gr" : {
 			"enter_game_button":"ΕΙΣΟΔΟΣ",
 			"start_game_button" : "ΣΥΝΕΧΙΣΕ ΠΑΡΑΚΑΤΩ",
+			"restart_button" : "Ξεκινησε απο την αρχη",
+			"play_again_button" : "Ξαναπροσπαθησε",
 			"back_to_stage_button" : "Επιστροφή στην κεντρική σκηνή",
 			"continue_game_button" : "Συνεχισε το παιχνιδι",
 			"game_title" : "Η γιορτή των Μεγάλων Διονυσίων",
@@ -12,6 +14,8 @@
 			"check_figures_positions_button" : "Ελεγξε τις θεσεις",
 			"position_select" : "Διάλεξε την θέση του: ",
 			"place_figure_button" : "Τοποθετησε τον",
+			"correct_end" : "<img src='assets/img/correct_gr.svg'/><br/><br/>Κατάφερες να τοποθετήσεις όλους τους χαρακτήρες στην σωστή θέση. Αν θέλεις ξεκίνησε το παιχνίδι από την αρχή.",
+			"wrong_end" : "<img src='assets/img/wrong_gr.svg'/><br/><br/>Κάποιοι χαρακτήρες δεν είναι στην σωστή θέση. Προσπάθησε ξανά από την αρχή.",
 			"the_feast_calendar" : {
 				"title" : "<h1>Σαν να ήμασταν εκεί... Το ημερολόγιο της γιορτής</h1>",
 				"handle_tooltip" : "Δες το ημερολόγιο της γιορτής",
@@ -33,6 +37,8 @@
 		"en" : {
 			"enter_game_button":"ENTER",
 			"start_game_button" : "CONTINUE TO MAIN STAGE",
+			"restart_button" : "Restart game",
+			"play_again_button" : "Retry",
 			"back_to_stage_button" : "Go back to main stage",
 			"continue_game_button" : "Continue the game",
 			"game_title" : "The celebration of the Great Dionysia",
@@ -42,6 +48,8 @@
 			"check_figures_positions_button" : "Check the figures seats",
 			"position_select" : "Choose his seat: ",
 			"place_figure_button" : "Place him",
+			"correct_end" : "<img src='assets/img/correct_en.svg'/><br/><br/>Κατάφερες να τοποθετήσεις όλους τους χαρακτήρες στην σωστή θέση. Αν θέλεις ξεκίνησε το παιχνίδι από την αρχή.",
+			"wrong_end" : "<img src='assets/img/wrong_en.svg'/><br/><br/>Κάποιοι χαρακτήρες δεν είναι στην σωστή θέση. Προσπάθησε ξανά από την αρχή.",
 			"the_feast_calendar" : {
 				"title" : "<h1>As if we were there ... The calendar of the feast</h1>",
 				"handle_tooltip" : "See the calendar of the feast",
