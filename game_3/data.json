@@ -30,7 +30,8 @@
 	"texts" : {
 		"gr" : {
 			"enter_game_button":"ΕΙΣΟΔΟΣ",
-			"start_game_button" : "Ξεκίνησε το παιχνίδι",
+			"start_greece_game_button" : "Ξεκίνησε με τον χάρτη της Ελλάδας",
+			"start_mediterranean_game_button" : "Ξεκίνησε με τον χάρτη της Μεσογείου",
 			"check_schedule_button" : "ΕΛΕΓΞΕ ΤΟ ΠΡΟΓΡΑΜΜΑ",
 			"add_to_schedule_button" : "Προσθηκη στο προγραμμα της περιοδειας",
 			"remove_from_schedule_button" : "Αφαιρεση απο το προγραμμα της περιοδειας",
@@ -46,7 +47,8 @@
 		},
 		"en" : {
 			"enter_game_button":"ENTER",
-			"start_game_button" : "Start the game",
+			"start_greece_game_button" : "Start from Greece",
+			"start_mediterranean_game_button" : "Start from the Mediterranean",
 			"check_schedule_button" : "Check the schedule",
 			"add_to_schedule_button" : "Add to tour schedule",
 			"remove_from_schedule_button" : "Remove from tour schedule",

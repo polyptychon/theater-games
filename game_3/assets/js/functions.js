@@ -37,8 +37,9 @@ function init() {
 		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
 		$("#game_title").attr("src","assets/img/game_3_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
-		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));		
-		$("#start_greece,#start_mediterranean").attr("theTitle",eval("game_data.texts." + lang + ".start_game_button"));
+		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
+		$("#start_greece").attr("theTitle",eval("game_data.texts." + lang + ".start_greece_game_button"));
+		$("#start_mediterranean").attr("theTitle",eval("game_data.texts." + lang + ".start_mediterranean_game_button"));
 		$("#intro").removeClass("instructions");
 		$("#check_schedule").html(eval("game_data.texts." + lang + ".check_schedule_button"));
 		$("#tour_schedule_title").html(eval("game_data.texts." + lang + ".tour_schedule"));
@@ -55,7 +56,7 @@ function goto_screen(which) {
 		$("#tour_theaters").html("").removeClass("invisible");
 		$(".all_correct_theaters").removeClass("opened");
 		$("#check_schedule").addClass("disabled").attr("level",level).unbind("click");
-		$("#" + which + "_theaters").html("");
+		$("#" + which + "_theaters").html("");		
 		add_theaters(level);
 		activate_add_theater_button(level);
 		if ($("#descriptions").hasClass("open")) $("#descriptions").removeClass("open");
