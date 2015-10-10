@@ -115,8 +115,8 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@green; color:@white; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
-		&:hover { background:@lightGray; color:@green; }
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; color:@white; .active; .capitalized; .pt(11); .bold; .visible(inline-block); .transition(all .2s ease-in-out);
+		&:hover { background:@lightGray; color:@orange; }
 		&:active { background:@lightGray; .innerShadowed(0,5px,7px); }
 		&.big { .pt(14); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
@@ -199,13 +199,14 @@ a {
 			#positions { .absPos(0,0); .z(50);
 				.position { .active; width:90px; height:154px; border:dotted 2px @white; .transition(all .2s ease-in-out);
 					&:hover { border:dotted 2px @red; }
+					&.no_border { border:0px; }
 					.figure { .active; width:90px; height:154px; margin:0; .shadowed(0,0,0); .absPos(0,0)!important; }
-					#f1 { background:#fdd4ab url("../img/f1.png") 0px 0; }
-					#f2 { background:#fdd4ab url("../img/f2.png") 0px 0; }
-					#f3 { background:#fdd4ab url("../img/f3.png") 0px 0; }
-					#f4 { background:#fdd4ab url("../img/f4.jpg") -90px 0; }
-					#f5 { background:#fdd4ab url("../img/f5.jpg") -90px 0; }
-					#f6 { background:#fdd4ab url("../img/f6.jpg") -90px 0; }
+					#f1 { background:transparent url("../img/f1.png") 0px 0; }
+					#f2 { background:transparent url("../img/f2.png") 0px 0; }
+					#f3 { background:transparent url("../img/f3.png") 0px 0; }
+					#f4 { background:transparent url("../img/f4.jpg") -90px 0; }
+					#f5 { background:transparent url("../img/f5.jpg") -90px 0; }
+					#f6 { background:transparent url("../img/f6.jpg") -90px 0; }
 				}
 				#pos6 { .absPos(130px,0); }
 				#pos5 { .absPos(200px,130px); }
@@ -254,7 +255,7 @@ a {
 					}
 				}
 			}
-			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .z(1500); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .z(1500); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
 		}
 		#calendar_handle { .active; .nonSelective; background:@lightGray; .pt(13); .roundedBottom(8px); .bold; .visible(inline-block); .centeredText; padding:15px 25px; .capitalized; .relPos(0,60px); .z(0); .transition(all .2s ease-in-out);
 			&:after { content:"\25BE"; background:@darkGray; color:@white; .centeredText; padding:4px 10px 6px; .relPos(-1px,0); .rounded(50%); margin:0 0 0 25px; .pt(18); .bold; color:@white; .transition(all .2s ease-in-out); }			
@@ -263,13 +264,16 @@ a {
 		&.open { .relPos(25px,0); }				
 	}
 	#game_button, #calendar_button {
-		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; background:@siteblue; color:@sitered; .active; .bold; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
-		&:hover { background:@sitebeize; color:@siteblue; }	&:active { background:@sitebeize; }
-		&.disabled { .inactive; background:@midGray + #111; color:@midGray - #111; }
+		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; color:@sitered; .active; .bold; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
+		&:hover { background-color:@textGray; color:@siteblue; } &:active { background-color:@textGray; }
+		&.disabled { .inactive; background-color:@midGray + #111; color:@midGray - #111; }
 		&.invisible { .visible(none)!important; }
 	}
-	#game_button { background:@green; color:@white; padding:25px 0 0 4px; height:25px;
-		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background:@orange; &:hover { color:@white; background:@red; } }
+	#game_button { background-color:@green; background-image:url("../img/play.svg"); background-repeat:no-repeat; background-size:100%; color:@white; padding:25px 0 0 4px; height:25px;
+		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+	}
+	#calendar_button { .rounded(0); .shadowed(0,0,0); background-color:transparent; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
+		&:hover { .transform(scale(1.15)); background-color:transparent; }
 	}
 	#play_button_message { .absPosBottom(30px,205px); .pt(14); .z(1000); .visible(inline-block); .transparent(1,100); .transition(all .2s ease-in-out); .rounded(8px); padding:10px; background:@green; color:@white; .normal;
 		&.hidden { .transparent(0,0); }
@@ -284,13 +288,13 @@ a {
 			}
 		}
 		&.opened { .absPosRight(25px,250px); }
-		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
 	}
 	#help {
 		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); .z(5000); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
-		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; &:hover { background:@green; color:@white; .rounded(8px); } }		
-		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); background-color:@orange; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; width:50px; height:27px; padding:13px 0 10px; &:hover { background-color:@textGray; polygon,path,circle { fill:@white; } .rounded(8px); } }		
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
 	}
 	#popup {
 		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
@@ -301,9 +305,9 @@ a {
 				i { color:@orange; }
 			}
 			#buttons { .centeredText; }
-			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
+			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
 		}
-		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:600px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
+		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:620px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background-color:@green; .transform(~"rotate(45deg)"); &:hover { background-color:@textGray; } } } }
 	}	
 }
 /* */

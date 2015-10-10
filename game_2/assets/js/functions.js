@@ -26,7 +26,10 @@ $(window).load(function() {
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$("*[theTitle]").titlesBehaviour();	
 	$(document).keyup(function(e) {
-	  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
+		if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
+	}).keydown(function(e) {
+		if(!(e.keyCode == 13 && e.metaKey)) return;
+		goto_screen("level_1"); show_game();
 	});
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
 });
@@ -142,7 +145,7 @@ function hide_game() {
 	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".continue_game_button")).removeClass("pause").unbind("click").click(function() { show_game(); });
 }
 function reset_game(everything) {
-	$(".position").each(function() { $("#figures").append($(this).find(".figure")).queue(function() { $("#figures .figure").css({ "position" : "relative", "top" : 0, "left" : 0 }); $(this).dequeue(); }); });
+	$(".position").each(function() { $(this).removeClass("no_border"); $("#figures").append($(this).find(".figure")).queue(function() { $("#figures .figure").css({ "position" : "relative", "top" : 0, "left" : 0 }); $(this).dequeue(); }); });
 	randomize_figures();
 	activate_figures();
 	figures_positions = new Array();
@@ -242,7 +245,8 @@ function show_message(params) {
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
-function end_game(result) {
+function end_game(result) {	
+	$(".position").addClass("no_border");
 	if (result == "correct") show_message({ "message":eval("game_data.texts." + lang + ".correct_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); reset_game("everything"); goto_screen("init");' }]});		
 	else show_message({ "message":eval("game_data.texts." + lang + ".wrong_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".play_again_button"), "action":'reset_game();' }]});
 }

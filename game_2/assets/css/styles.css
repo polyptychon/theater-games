@@ -281,7 +281,7 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  background: #00cc66;
+  background: #ff6600;
   color: #ffffff;
   cursor: pointer!important;
   text-transform: uppercase;
@@ -296,7 +296,7 @@ table {
 }
 .button:hover {
   background: #eeeeee;
-  color: #00cc66;
+  color: #ff6600;
 }
 .button:active {
   background: #eeeeee;
@@ -728,6 +728,9 @@ a.footer:hover {
 #container .screen#level_2 #positions .position:hover {
   border: dotted 2px #ff0000;
 }
+#container .screen#level_2 #positions .position.no_border {
+  border: 0px;
+}
 #container .screen#level_2 #positions .position .figure {
   cursor: pointer!important;
   width: 90px;
@@ -742,22 +745,22 @@ a.footer:hover {
   left: 0 !important;
 }
 #container .screen#level_2 #positions .position #f1 {
-  background: #fdd4ab url("../img/f1.png") 0px 0;
+  background: transparent url("../img/f1.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f2 {
-  background: #fdd4ab url("../img/f2.png") 0px 0;
+  background: transparent url("../img/f2.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f3 {
-  background: #fdd4ab url("../img/f3.png") 0px 0;
+  background: transparent url("../img/f3.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f4 {
-  background: #fdd4ab url("../img/f4.jpg") -90px 0;
+  background: transparent url("../img/f4.jpg") -90px 0;
 }
 #container .screen#level_2 #positions .position #f5 {
-  background: #fdd4ab url("../img/f5.jpg") -90px 0;
+  background: transparent url("../img/f5.jpg") -90px 0;
 }
 #container .screen#level_2 #positions .position #f6 {
-  background: #fdd4ab url("../img/f6.jpg") -90px 0;
+  background: transparent url("../img/f6.jpg") -90px 0;
 }
 #container .screen#level_2 #positions #pos6 {
   position: absolute;
@@ -985,7 +988,10 @@ a.footer:hover {
   font-size: 1.4375em;
   z-index: 1500;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -996,8 +1002,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #calendar #calendar_container .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #calendar #calendar_container .close_button:hover polygon,
+#container #calendar #calendar_container .close_button:hover path {
+  fill: #ffffff;
 }
 #container #calendar #calendar_handle {
   cursor: pointer!important;
@@ -1079,7 +1088,6 @@ a.footer:hover {
   width: 46px;
   height: 27px;
   padding: 23px 2px 0;
-  background: #45495f;
   color: #f74d4d;
   cursor: pointer!important;
   font-weight: 700;
@@ -1095,17 +1103,17 @@ a.footer:hover {
 }
 #container #game_button:hover,
 #container #calendar_button:hover {
-  background: #dbd8d2;
+  background-color: #222222;
   color: #45495f;
 }
 #container #game_button:active,
 #container #calendar_button:active {
-  background: #dbd8d2;
+  background-color: #222222;
 }
 #container #game_button.disabled,
 #container #calendar_button.disabled {
   cursor: default!important;
-  background: #aaaaaa;
+  background-color: #aaaaaa;
   color: #888888;
 }
 #container #game_button.invisible,
@@ -1113,7 +1121,10 @@ a.footer:hover {
   display: none !important;
 }
 #container #game_button {
-  background: #00cc66;
+  background-color: #00cc66;
+  background-image: url("../img/play.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   padding: 25px 0 0 4px;
   height: 25px;
@@ -1128,11 +1139,35 @@ a.footer:hover {
   -moz-box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  background: #ff6600;
+  background-color: #ff0000;
 }
 #container #game_button.pause:hover {
-  color: #ffffff;
-  background: #ff0000;
+  background-color: #222222;
+}
+#container #game_button.pause:hover polygon,
+#container #game_button.pause:hover path {
+  fill: #ffffff;
+}
+#container #calendar_button {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
+  background-color: transparent;
+  background-image: url("../img/calendar.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#container #calendar_button:hover {
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  transform: scale(1.15);
+  background-color: transparent;
 }
 #container #play_button_message {
   position: absolute;
@@ -1229,7 +1264,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1240,8 +1278,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #figures_popup .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #figures_popup .close_button:hover polygon,
+#container #figures_popup .close_button:hover path {
+  fill: #ffffff;
 }
 #container #help {
   cursor: pointer!important;
@@ -1276,16 +1317,24 @@ a.footer:hover {
   position: absolute;
   bottom: 25px;
   left: 25px;
+  background-color: #ff6600;
+  background-image: url("../img/info.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 50px;
   height: 27px;
   padding: 13px 0 10px;
 }
 #container #help.hidden:hover {
-  background: #00cc66;
-  color: #ffffff;
+  background-color: #222222;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
+}
+#container #help.hidden:hover polygon,
+#container #help.hidden:hover path,
+#container #help.hidden:hover circle {
+  fill: #ffffff;
 }
 #container #help .close_button {
   cursor: pointer!important;
@@ -1296,7 +1345,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1307,8 +1359,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #help .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #help .close_button:hover polygon,
+#container #help .close_button:hover path {
+  fill: #ffffff;
 }
 #container #popup {
   width: 1024px;
@@ -1364,7 +1419,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1375,8 +1433,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #popup #message_container .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #popup #message_container .close_button:hover polygon,
+#container #popup #message_container .close_button:hover path {
+  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;
@@ -1384,7 +1445,7 @@ a.footer:hover {
 #container #popup.down #message_container {
   background-size: 100% 100%;
   height: 50px;
-  margin: 600px auto 0;
+  margin: 620px auto 0;
   width: 225px;
 }
 #container #popup.down #message_container #message {
@@ -1395,14 +1456,14 @@ a.footer:hover {
   margin: 0;
 }
 #container #popup.down #message_container .close_button {
-  background: #00cc66;
+  background-color: #00cc66;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-#container #popup.down #message_container .close_buttonhover {
-  background: #222222;
+#container #popup.down #message_container .close_button:hover {
+  background-color: #222222;
 }
 /* */

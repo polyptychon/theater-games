@@ -813,7 +813,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -824,8 +827,12 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #descriptions #close_descriptions:hover {
-  background: #222222;
+  background-color: #222222;
   color: #ffffff;
+}
+#container #descriptions #close_descriptions:hover polygon,
+#container #descriptions #close_descriptions:hover path {
+  fill: #ffffff;
 }
 #container #descriptions #carousel_container {
   width: 400px;
@@ -912,7 +919,7 @@ a.footer:hover {
 }
 #container #tour_schedule #tour_theaters {
   padding: 10px;
-  height: 300px;
+  height: 280px;
   overflow-y: auto;
 }
 #container #tour_schedule #tour_theaters .tour_theater {
@@ -967,7 +974,10 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  background: #ff6600;
+  background-color: #ff6600;
+  background-image: url("../img/info.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   text-align: center!important;
   position: absolute;
@@ -978,11 +988,10 @@ a.footer:hover {
   padding: 13px 0 10px;
 }
 #container #help.hidden:hover {
+  background-color: #222222;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  background: #ffffff;
-  color: #ff6600;
 }
 #container #help .close_button {
   cursor: pointer!important;
@@ -993,7 +1002,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1004,8 +1016,12 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #help .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #help .close_button:hover polygon,
+#container #help .close_button:hover path,
+#container #help .close_button:hover circle {
+  fill: #ffffff;
 }
 #container #popup {
   width: 1024px;
@@ -1061,7 +1077,10 @@ a.footer:hover {
   height: 35px;
   font-size: 1.4375em;
   text-align: center!important;
-  background: #ff0000;
+  background-color: #ff0000;
+  background-image: url("../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color: #ffffff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1072,8 +1091,11 @@ a.footer:hover {
   transition: all 0.2s ease-in-out;
 }
 #container #popup #message_container .close_button:hover {
-  background: #222222;
-  color: #ffffff;
+  background-color: #222222;
+}
+#container #popup #message_container .close_button:hover polygon,
+#container #popup #message_container .close_button:hover path {
+  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;
@@ -1092,15 +1114,15 @@ a.footer:hover {
   margin: 0;
 }
 #container #popup.down #message_container .close_button {
-  background: #00cc66;
+  background-color: #00cc66;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-#container #popup.down #message_container .close_buttonhover {
-  background: #222222;
+#container #popup.down #message_container .close_button:hover {
+  background-color: #222222;
 }
 /* */
 /* animations */

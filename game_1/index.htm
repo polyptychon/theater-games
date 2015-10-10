@@ -11,6 +11,8 @@
 	
 	<!-- preload images -->
 	<script>
+		var img_intro_bg = new Image(932,662); img_intro_bg.src = "assets/img/intro_bg.png";
+		var img_popup_bg = new Image(765,539); img_popup_bg.src = "assets/img/popup_bg.png";
 		var img_1 = new Image(1024,768); img_1.src = "assets/img/init_stage.jpg";
 		var img_2 = new Image(1024,768); img_2.src = "assets/img/medium_stage.jpg";
 		var img_3 = new Image(1024,768); img_3.src = "assets/img/medium_stage_bw.jpg";
@@ -136,7 +138,7 @@
 		
 		<!-- help icon + popup -->
 		<div id="help" class="hidden invisible">
-			<span id="help_icon">i</span>
+			<span id="help_icon"></span>
 			<span id="help_text" class="invisible">
 				<table id="help_text_level_1" class="invisible"><tr>
 					<td><img src="assets/img/help_level_1.gif"/></td>
@@ -147,7 +149,7 @@
 					<td class="help_content"><!-- dynamic content --></td>
 				</tr></table>
 			</span>
-			<div id="close_help" class="close_button invisible">&times;</div>
+			<div id="close_help" class="close_button invisible"></div>
 		</div>				
 		
 		<!-- popups -->
@@ -155,7 +157,7 @@
 			<div id="message_container">
 				<div id="message"><!-- dynamic content --></div>
 				<div id="buttons"><!-- dynamic content --></div>
-				<div id="close_message" class="close_button">&times;</div>
+				<div id="close_message" class="close_button"></div>
 			</div>
 		</div>
 	</div>	
