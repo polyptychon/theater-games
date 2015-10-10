@@ -182,8 +182,7 @@ a {
 				&#intro_page_1 { img { margin:130px auto 100px; height:200px; } }
 				&#intro_page_2 {
 					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
-					i { color:@orange; }
-					#start_game { .centered; }
+					i { color:@orange; }					
 				}
 			}
 			&.instructions { .intro_page { .relPos(-100%,0); } }
@@ -201,7 +200,14 @@ a {
 			}
 		}
 		.text { padding:25px; .pt(16); }
-		#start_game { margin:0 0 0 25px; }
+		#start_buttons { width:240px; margin:0 auto;
+			.start_button { .active; .left; margin:0 10px 0; width:100px; height:100px; img { width:100%; .transition(all .2s ease-in-out); } &:hover { img { width:95%; } } }
+		}
+		
+		.all_correct_theaters { .nonSelective; .absPos(0,0); width:1024px; height:768px; .transparent(0,0);
+			.correct_theater_name { background:@lightYellow; padding:10px; .pt(11); }
+			&.opened { .transparent(1,100); }
+		}
 	}
 	
 	#descriptions { .transparent(0,0); .absPos(-100%,-100%); .z(6000); width:400px; height:648px; padding:25px; background:@white; .shadowed(0,2px,5px); .rounded(8px); .transition(~"opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out");
@@ -248,7 +254,7 @@ a {
 			#buttons { .centeredText; }
 			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background:@red; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background:@textGray; color:@white; } }
 		}
-		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:600px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
+		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:625px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background:@green; .transform(~"rotate(45deg)"); &hover { background:@textGray; } } } }
 	}
 }
 /* */

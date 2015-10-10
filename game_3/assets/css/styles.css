@@ -654,9 +654,6 @@ a.footer:hover {
 #container .screen #intro .intro_page#intro_page_2 i {
   color: #ff6600;
 }
-#container .screen #intro .intro_page#intro_page_2 #start_game {
-  margin: 0 auto;
-}
 #container .screen #intro.instructions .intro_page {
   position: relative;
   top: -100%;
@@ -726,8 +723,52 @@ a.footer:hover {
   padding: 25px;
   font-size: 1em;
 }
-#container .screen #start_game {
-  margin: 0 0 0 25px;
+#container .screen #start_buttons {
+  width: 240px;
+  margin: 0 auto;
+}
+#container .screen #start_buttons .start_button {
+  cursor: pointer!important;
+  float: left;
+  margin: 0 10px 0;
+  width: 100px;
+  height: 100px;
+}
+#container .screen #start_buttons .start_button img {
+  width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container .screen #start_buttons .start_button:hover img {
+  width: 95%;
+}
+#container .screen .all_correct_theaters {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1024px;
+  height: 768px;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=95);
+}
+#container .screen .all_correct_theaters .correct_theater_name {
+  background: #ffffee;
+  padding: 10px;
+  font-size: 0.6875em;
+}
+#container .screen .all_correct_theaters.opened {
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=95);
 }
 #container #descriptions {
   -moz-opacity: 0;
@@ -1040,7 +1081,7 @@ a.footer:hover {
 #container #popup.down #message_container {
   background-size: 100% 100%;
   height: 50px;
-  margin: 600px auto 0;
+  margin: 625px auto 0;
   width: 225px;
 }
 #container #popup.down #message_container #message {

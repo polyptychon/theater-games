@@ -15,20 +15,18 @@
 	<!-- external libs -->
 	<script src="assets/libs/jquery-1.11.1.min.js"></script>
 	<script src="assets/libs/jquery-migrate.min.js"></script>
-	<script src="assets/libs/jquery.easing.min.js"></script>	
+	<script src="assets/libs/jquery.easing.min.js"></script>
+	
 	<!-- preload images -->
 	<script>
-		$.getJSON("data.json", function(data) { game_data = data; }).complete(function() {
-			//var theaters_gr = game_data.theaters.greece; var theaters_med = game_data.theaters.mediterranean; var theaters_all = theaters_gr.concat(theaters_med);
-			var all_imgs = new Array(); var count = 0;
-			/* for (t = 0; t < theaters_all.length; t++) {
-				var num_of_imgs = theaters_all[t].num_of_imgs;
-				for (n = 1; n <= num_of_imgs; n++) { all_imgs[count] = new Image(400,300); all_imgs[count++].src = "assets/img/400x300/" + theaters_all[t].id + "_" + n + ".jpg"; }
-			} */
-			all_imgs[count] = new Image(1024,768); all_imgs[count++].src = "assets/img/greece.jpg";
-			all_imgs[count] = new Image(1024,768); all_imgs[count++].src = "assets/img/mediterranean.jpg";			
-		});
+		var img_intro_bg = new Image(932,662); img_intro_bg.src = "assets/img/intro_bg.png";
+		var img_popup_bg = new Image(765,539); img_popup_bg.src = "assets/img/popup_bg.png";
+		var img_1 = new Image(1024,768); img_1.src = "assets/img/greece.jpg";
+		var img_2 = new Image(1024,768); img_2.src = "assets/img/mediterranean.jpg";
+		var img_3 = new Image(100,100); img_3.src = "assets/img/greece_thumb.png";
+		var img_4 = new Image(100,100); img_4.src = "assets/img/mediterranean_thumb.png";
 	</script>
+	
 	<!-- custom js -->
 	<script src="assets/js/functions.js"></script>
 	
@@ -44,18 +42,23 @@
 					<div id="enter_game" class="button big"><!-- dynamic content --></div>
 				</div>
 				<div id="intro_page_2" class="intro_page">
-					<div id="game_subtitle" class="text"><!-- dynamic content --></div>
-					<div id="start_game" class="button big"><!-- dynamic content --></div>
+					<div id="game_subtitle" class="text"><!-- dynamic content --></div>					
+					<div id="start_buttons">
+						<div id="start_greece" class="start_button"><img src="assets/img/greece_thumb.png"/></div>
+						<div id="start_mediterranean" class="start_button"><img src="assets/img/mediterranean_thumb.png"/></div>
+					</div>
 				</div>
 			</div>
 		</div>		
 		<div class="screen hidden" id="level_greece">
 			<img class="bg" src="assets/img/greece.jpg"/>
 			<div id="greece_theaters" class="theaters"><!-- dynamic content --></div>
+			<div id="final_correct_greece_theaters" class="all_correct_theaters"><!-- dynamic content --></div>			
         </div>
-        <div class="screen hidden" id="level_mediterranean">
+        <div class="screen hidden" id="level_mediterranean">        	
 			<img class="bg" src="assets/img/mediterranean.jpg"/>
 			<div id="mediterranean_theaters" class="theaters"><!-- dynamic content --></div>
+			<div id="final_correct_mediterranean_theaters" class="all_correct_theaters"><!-- dynamic content --></div>
         </div>        
 		
 		<!-- theaters popup -->
