@@ -17,7 +17,7 @@ $(window).load(function() {
 	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
-	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });	
+	$("#close_message").click(function(event) { hide_message(); event.stopPropagation(); });	
 	$(".figure").draggable({revert: false, start: function() { $(this).css({"z-index":4000}); $(this).data("parent_id",$(this).parent().attr("id")); }, stop: function() { $(this).css({"z-index":200}); } }).click(function() { remove_figure($(this).attr("id")); });/*.mouseover(function() { $(this).attr("theTitle",$(this).find(".speech").html()); $("*[theTitle]").titlesBehaviour(); }); $("#speech").html("").html($(this).find(".speech").html()).addClass("opened").css({top:e.clientX, left:e.clientY}); }).mouseout(function() { $("#speech").html("").removeClass("opened"); }); */
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 	$(".vas, .figures").droppable({drop: function(event,ui) { if ($(this).hasClass("figures")) remove_figure($(ui.draggable).attr("id")); }});
@@ -53,9 +53,9 @@ function goto_screen(which) {
 		$("#" + which + "_vas_caption").html("");		
 		current_level = which.split("_")[1];
 		position_figures();
-		add_figure_text();		
+		add_figure_text();
 		$("*[theTitle]").titlesBehaviour();
-		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint").removeClass("invisible");
+		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint, #level_" + current_level + "_vas_check_button").removeClass("invisible");
 		hide_help();
 		reset_timer(); start_timer();
 	}
@@ -66,12 +66,17 @@ function goto_screen(which) {
 function show_help() { pause_timer(); $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); $(this).dequeue(); }); }
 function hide_help() { if (total_seconds != 0 && game_is_running) start_timer(); $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
-function show_message(params) {	
+function show_message(params) {
+	pause_timer();
 	$("#message").html("").html(params.message + "<br/><br/>");
 	$("#buttons").html(""); for (b = 0; b < params.buttons.length; b++) { $("#buttons").append("<div class='button' onclick='hide_message(); " + params.buttons[b].action.toString() + "'>" + params.buttons[b].button + "</div>"); }	
 	$("#popup").removeClass("down").removeClass("invisible");
 }
-function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
+function hide_message(where) {
+	if (total_seconds != 0 && game_is_running) start_timer();
+	if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); }
+	else $("#popup").addClass("invisible");
+}
 
 function start_timer() { timer_interval = setInterval(clock_timer,1000); game_is_running = true; $(".figure").draggable("enable"); }
 function clock_timer() { total_seconds--; var minutes = parseInt(total_seconds/60)%60; var seconds = total_seconds%60; $("#clock").html((minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds)); if (total_seconds < 11) $("#clock").addClass("last_ten"); else $("#clock").removeClass("last_ten"); if (total_seconds == 0) { stop_timer(); check_positions(current_level); } }
@@ -113,14 +118,14 @@ function drop_figure(e,figure_id,position_id) {
 			$("#" + position_id).append($("#" + figure_id));
 			/* $("#" + figure_id + " .speech").addClass("opened").delay(3000).queue(function() { $(this).removeClass("opened").dequeue(); }); */
 		}
-		toggle_check_button();
+		/* toggle_check_button(); */
 	}
 }
-function toggle_check_button() {
+/*function toggle_check_button() {
 	if ($("#level_" + current_level + " .position .figure").length == $("#level_" + current_level + " .position").length) $("#level_" + current_level + "_vas_check_button").removeClass("invisible");
 	else $("#level_" + current_level + "_vas_check_button").addClass("invisible");
-}
-function remove_figure(figure_id, hard) { if (game_is_running || hard) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible").mouseover(function() { if (typeof $(this).attr("theTitle") !== typeof undefined && $(this).attr("theTitle") !== false) ddrivetip($(this).attr("theTitle")); }); toggle_check_button(current_level); $(this).dequeue(); }); } }
+}*/
+function remove_figure(figure_id, hard) { if (game_is_running || hard) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible").mouseover(function() { if (typeof $(this).attr("theTitle") !== typeof undefined && $(this).attr("theTitle") !== false) ddrivetip($(this).attr("theTitle")); }); /* toggle_check_button(current_level); */ $(this).dequeue(); }); } }
 function check_positions() {
 	// if ($("#level_" + level + " .figures .figure").length == 0) end_game(level);
 	var correct_positions = 0;
@@ -129,7 +134,7 @@ function check_positions() {
 	else {
 		if (total_seconds == 0) end_game(current_level,0);
 		else {
-			$("#level_" + current_level + "_vas_caption").html("Έχεις ακόμη χρόνο.<br/>Ξαναπροσπάθησε.");
+			show_message({ "message":eval("game_data.texts." + lang + ".try_again"), "buttons":[] });
 		}
 	}
 }
