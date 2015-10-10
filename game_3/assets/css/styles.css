@@ -555,7 +555,7 @@ a.footer:hover {
 #dhtmltooltip {
   position: absolute;
   max-width: 350px;
-  background: #ffffff !important;
+  background: #ffffee !important;
   color: #222222;
   padding: 10px;
   visibility: hidden;
@@ -911,7 +911,7 @@ a.footer:hover {
   border-bottom: dotted 1px #ff6600;
 }
 #container #tour_schedule #tour_theaters {
-  padding: 0;
+  padding: 10px;
   height: 300px;
   overflow-y: auto;
 }

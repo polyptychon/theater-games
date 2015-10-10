@@ -30,7 +30,7 @@
 	"texts" : {
 		"gr" : {
 			"enter_game_button":"ΕΙΣΟΔΟΣ",
-			"start_game_button" : "ΞΕΚΙΝΗΣΕ ΝΑ ΠΑΙΖΕΙΣ",
+			"start_game_button" : "Ξεκίνησε το παιχνίδι",
 			"check_schedule_button" : "ΕΛΕΓΞΕ ΤΟ ΠΡΟΓΡΑΜΜΑ",
 			"add_to_schedule_button" : "Προσθηκη στο προγραμμα της περιοδειας",
 			"remove_from_schedule_button" : "Αφαιρεση απο το προγραμμα της περιοδειας",
