@@ -735,14 +735,14 @@ a.footer:hover {
   height: 100px;
 }
 #container .screen #start_buttons .start_button img {
-  width: 100%;
+  width: 90%;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 #container .screen #start_buttons .start_button:hover img {
-  width: 95%;
+  width: 100%;
 }
 #container .screen .all_correct_theaters {
   -moz-user-select: none;
