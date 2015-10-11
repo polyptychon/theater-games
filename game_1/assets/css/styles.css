@@ -541,6 +541,10 @@ a.footer:hover {
   z-index: 20000;
   background: #b9b6b0;
   overflow: hidden;
+  text-align: center!important;
+}
+#loader img {
+  margin: 25% auto 0;
 }
 #dhtmltooltip {
   position: absolute;

@@ -551,6 +551,10 @@ a.footer:hover {
   z-index: 20000;
   background: #b9b6b0;
   overflow: hidden;
+  text-align: center!important;
+}
+#loader img {
+  margin: 25% auto 0;
 }
 #dhtmltooltip {
   position: absolute;
@@ -782,14 +786,10 @@ a.footer:hover {
   width: 400px;
   height: 648px;
   padding: 25px;
-  background: #ffffff;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
+  background-image: url("../img/theater_info_popup_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background:@white; .shadowed(0,2px,5px); .rounded(8px); */
   -webkit-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
   -o-transition: opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out;
@@ -873,10 +873,14 @@ a.footer:hover {
   height: 60px;
   text-align: center!important;
 }
+#container #descriptions #theater_title h3 {
+  font-weight: 900;
+  font-style: normal;
+}
 #container #descriptions #theater_description {
   height: 200px;
   overflow-y: auto;
-  background: #eeeeee;
+  background: transparent;
   padding: 10px;
 }
 #container #descriptions #theater_button {
@@ -895,14 +899,9 @@ a.footer:hover {
   filter: alpha(opacity=95);
   width: 220px;
   height: 375px;
-  background: #ffffff;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
+  background-image: url("../img/schedule_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 #container #tour_schedule h1 {
   font-weight: 700;
@@ -915,7 +914,7 @@ a.footer:hover {
 }
 #container #tour_schedule #tour_theaters {
   padding: 10px;
-  height: 280px;
+  height: 260px;
   overflow-y: auto;
 }
 #container #tour_schedule #tour_theaters .tour_theater {
