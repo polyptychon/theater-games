@@ -1150,10 +1150,6 @@ a.footer:hover {
 #container #help .close_button:hover {
   background-color: #222222;
 }
-#container #help .close_button:hover polygon,
-#container #help .close_button:hover path {
-  fill: #ffffff;
-}
 #container #popup {
   width: 1024px;
   height: 768px;
@@ -1223,10 +1219,6 @@ a.footer:hover {
 }
 #container #popup #message_container .close_button:hover {
   background-color: #222222;
-}
-#container #popup #message_container .close_button:hover polygon,
-#container #popup #message_container .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;

@@ -255,7 +255,7 @@ a {
 					}
 				}
 			}
-			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .z(1500); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+			.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .z(1500); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; } }
 		}
 		#calendar_handle { .active; .nonSelective; background:@lightGray; .pt(13); .roundedBottom(8px); .bold; .visible(inline-block); .centeredText; padding:15px 25px; .capitalized; .relPos(0,60px); .z(0); .transition(all .2s ease-in-out);
 			&:after { content:"\25BE"; background:@darkGray; color:@white; .centeredText; padding:4px 10px 6px; .relPos(-1px,0); .rounded(50%); margin:0 0 0 25px; .pt(18); .bold; color:@white; .transition(all .2s ease-in-out); }			
@@ -270,7 +270,7 @@ a {
 		&.invisible { .visible(none)!important; }
 	}
 	#game_button { background-color:@green; background-image:url("../img/play.svg"); background-repeat:no-repeat; background-size:100%; color:@white; padding:25px 0 0 4px; height:25px;
-		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; } }
 	}
 	#calendar_button { .rounded(0); .shadowed(0,0,0); background-color:transparent; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
 		&:hover { .transform(scale(1.15)); background-color:transparent; }
@@ -288,13 +288,13 @@ a {
 			}
 		}
 		&.opened { .absPosRight(25px,250px); }
-		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; } }
 	}
 	#help {
 		.active; background:@white; .rounded(8px); .absPosBottom(25px,25px); .z(5000); padding:25px; width:924px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
-		&.hidden { .rounded(50%); .centeredText; .absPosBottom(25px,25px); background-color:@orange; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; width:50px; height:27px; padding:13px 0 10px; &:hover { background-color:@textGray; polygon,path,circle { fill:@white; } .rounded(8px); } }		
-		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+		&.hidden { .rounded(50%); .centeredText; .z(500); .absPosBottom(25px,25px); background-color:@orange; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; width:50px; height:27px; padding:13px 0 10px; &:hover { background-color:@textGray; .rounded(8px); } }		
+		.close_button { .active; .absPosRight(-15px,-15px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; } }
 	}
 	#popup {
 		width:1024px; height:768px; .absPos(0,0); .z(1000); background-image:url("../img/trans.png");
@@ -305,7 +305,7 @@ a {
 				i { color:@orange; }
 			}
 			#buttons { .centeredText; }
-			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; polygon,path { fill:@white; } } }
+			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; } }
 		}
 		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:620px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background-color:@green; .transform(~"rotate(45deg)"); &:hover { background-color:@textGray; } } } }
 	}	

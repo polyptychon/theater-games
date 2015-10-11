@@ -830,10 +830,6 @@ a.footer:hover {
   background-color: #222222;
   color: #ffffff;
 }
-#container #descriptions #close_descriptions:hover polygon,
-#container #descriptions #close_descriptions:hover path {
-  fill: #ffffff;
-}
 #container #descriptions #carousel_container {
   width: 400px;
   height: 310px;
@@ -1092,10 +1088,6 @@ a.footer:hover {
 }
 #container #popup #message_container .close_button:hover {
   background-color: #222222;
-}
-#container #popup #message_container .close_button:hover polygon,
-#container #popup #message_container .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;

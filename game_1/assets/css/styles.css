@@ -895,11 +895,6 @@ a.footer:hover {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
 }
-#container #help.hidden:hover polygon,
-#container #help.hidden:hover path,
-#container #help.hidden:hover circle {
-  fill: #ffffff;
-}
 #container #help table {
   width: 100%;
   height: 100%;
@@ -960,10 +955,6 @@ a.footer:hover {
 }
 #container #help .close_button:hover {
   background-color: #222222;
-}
-#container #help .close_button:hover polygon,
-#container #help .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup {
   width: 1024px;
@@ -1034,10 +1025,6 @@ a.footer:hover {
 }
 #container #popup #message_container .close_button:hover {
   background-color: #222222;
-}
-#container #popup #message_container .close_button:hover polygon,
-#container #popup #message_container .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;

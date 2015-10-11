@@ -1004,10 +1004,6 @@ a.footer:hover {
 #container #calendar #calendar_container .close_button:hover {
   background-color: #222222;
 }
-#container #calendar #calendar_container .close_button:hover polygon,
-#container #calendar #calendar_container .close_button:hover path {
-  fill: #ffffff;
-}
 #container #calendar #calendar_handle {
   cursor: pointer!important;
   -moz-user-select: none;
@@ -1144,10 +1140,6 @@ a.footer:hover {
 #container #game_button.pause:hover {
   background-color: #222222;
 }
-#container #game_button.pause:hover polygon,
-#container #game_button.pause:hover path {
-  fill: #ffffff;
-}
 #container #calendar_button {
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -1280,10 +1272,6 @@ a.footer:hover {
 #container #figures_popup .close_button:hover {
   background-color: #222222;
 }
-#container #figures_popup .close_button:hover polygon,
-#container #figures_popup .close_button:hover path {
-  fill: #ffffff;
-}
 #container #help {
   cursor: pointer!important;
   background: #ffffff;
@@ -1314,6 +1302,7 @@ a.footer:hover {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   text-align: center!important;
+  z-index: 500;
   position: absolute;
   bottom: 25px;
   left: 25px;
@@ -1330,11 +1319,6 @@ a.footer:hover {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-}
-#container #help.hidden:hover polygon,
-#container #help.hidden:hover path,
-#container #help.hidden:hover circle {
-  fill: #ffffff;
 }
 #container #help .close_button {
   cursor: pointer!important;
@@ -1360,10 +1344,6 @@ a.footer:hover {
 }
 #container #help .close_button:hover {
   background-color: #222222;
-}
-#container #help .close_button:hover polygon,
-#container #help .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup {
   width: 1024px;
@@ -1434,10 +1414,6 @@ a.footer:hover {
 }
 #container #popup #message_container .close_button:hover {
   background-color: #222222;
-}
-#container #popup #message_container .close_button:hover polygon,
-#container #popup #message_container .close_button:hover path {
-  fill: #ffffff;
 }
 #container #popup.down {
   background-image: none;
