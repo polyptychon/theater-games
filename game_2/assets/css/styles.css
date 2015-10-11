@@ -1141,25 +1141,13 @@ a.footer:hover {
   background-color: #222222;
 }
 #container #calendar_button {
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
-  background-color: transparent;
+  background-color: #45495f;
   background-image: url("../img/calendar.svg");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 #container #calendar_button:hover {
-  -webkit-transform: scale(1.15);
-  -moz-transform: scale(1.15);
-  -o-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
-  background-color: transparent;
+  background-color: #222222;
 }
 #container #play_button_message {
   position: absolute;

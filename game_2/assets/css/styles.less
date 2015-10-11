@@ -272,8 +272,8 @@ a {
 	#game_button { background-color:@green; background-image:url("../img/play.svg"); background-repeat:no-repeat; background-size:100%; color:@white; padding:25px 0 0 4px; height:25px;
 		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; } }
 	}
-	#calendar_button { .rounded(0); .shadowed(0,0,0); background-color:transparent; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
-		&:hover { .transform(scale(1.15)); background-color:transparent; }
+	#calendar_button { background-color:@siteblue; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
+		&:hover { background-color:@textGray; }
 	}
 	#play_button_message { .absPosBottom(30px,205px); .pt(14); .z(1000); .visible(inline-block); .transparent(1,100); .transition(all .2s ease-in-out); .rounded(8px); padding:10px; background:@green; color:@white; .normal;
 		&.hidden { .transparent(0,0); }

@@ -1,31 +1,5 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="47px" viewBox="0 0 50 47" style="enable-background:new 0 0 50 47;" xml:space="preserve">
-<g id="calendar">
-	<g>
-		<rect y="4" style="fill:#8C6239;" width="50" height="43"/>
-		<rect x="5" y="8" style="fill:#F2F2F2;" width="20" height="35"/>
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="25" y1="25.5" x2="45" y2="25.5">
-			<stop  offset="0" style="stop-color:#999999"/>
-			<stop  offset="1" style="stop-color:#CCCCCC"/>
-		</linearGradient>
-		<rect x="25" y="8" style="fill:url(#SVGID_1_);" width="20" height="35"/>
-		<polygon style="fill:#C1272D;" points="11.079,0.134 7.374,4 13.817,4 		"/>
-		<path style="fill:#FFFFFF;" d="M40.968,39.188c-0.003,0.023-0.776,0.047-0.78,0.072C38.775,39.469,25,42.232,25,43.301V8.134
-			l16.07-4.511C41.07,9.73,41.81,33.633,40.968,39.188z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,14H8.197c-0.566,0-1.024-0.435-1.024-1c0-0.566,0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.434,1.025,1C21.517,13.565,21.058,14,20.492,14z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,19H8.197c-0.566,0-1.024-0.434-1.024-1c0-0.565,0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.435,1.025,1C21.517,18.566,21.058,19,20.492,19z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,24H8.197c-0.566,0-1.024-0.434-1.024-1c0-0.565,0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.435,1.025,1C21.517,23.566,21.058,24,20.492,24z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,29H8.197c-0.566,0-1.024-0.434-1.024-1c0-0.565,0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.435,1.025,1C21.517,28.566,21.058,29,20.492,29z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,34H8.197c-0.566,0-1.024-0.434-1.024-1s0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.434,1.025,1S21.058,34,20.492,34z"/>
-		<path style="fill:#CCCCCC;" d="M20.492,39H8.197c-0.566,0-1.024-0.434-1.024-1s0.458-1,1.024-1h12.295
-			c0.566,0,1.025,0.434,1.025,1S21.058,39,20.492,39z"/>
-		<polygon style="fill:#FF0000;" points="21,24.955 15.886,27.423 11,24.955 11,0 21,0 		"/>
-	</g>
-</g>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+	<path fill="#FFFFFF" d="M36,20.449H14v2.657h22V20.449z M36,14H14v2.655h22V14z M14,36h14.553v-2.652H14V36z M36,26.896H14v2.655h22 V26.896z"/>
 </svg>
