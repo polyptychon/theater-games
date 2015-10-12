@@ -36,8 +36,8 @@ function init() {
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".init_stage"));
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
 		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
-		$("#help_text_level_1 .help_content").html(eval("game_data.texts." + lang + ".help_text_level_1"));
-		$("#help_text_level_2 .help_content").html(eval("game_data.texts." + lang + ".help_text_level_2"));
+		$("#help_text_level_1").html(eval("game_data.texts." + lang + ".help_text_level_1"));
+		$("#help_text_level_2").html(eval("game_data.texts." + lang + ".help_text_level_2"));
 		$("#intro").removeClass("instructions");
 		$("#final_text").html("<h2>" + eval("game_data.texts." + lang + ".last_stage") + "</h2><br/>" + eval("game_data.texts." + lang + ".history"));
 		goto_screen("init");
