@@ -30,7 +30,7 @@ $(window).load(function() {
 		if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
 	}).keydown(function(e) {
 		if(!(e.keyCode == 13 && e.metaKey)) return;
-		goto_screen("level_1"); show_game();
+		goto_screen("level_1"); show_game(); /* game_solution(); */
 	});
 	disableHover();
 	setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);			
@@ -164,6 +164,9 @@ function reset_game(everything) {
 	}
 }
 
+function game_solution() {
+	$(".figure").each(function() { var id = $(this).attr("id").replace("f",""); $("#pos" + id).append($(this)); });
+}
 function get_figure_name(figure_id) {
 	var f_tooltip = "";
 	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { var f_tooltip = $(eval("v.text." + lang)).eq(0).text(); $("#" + figure_id).attr("theTitle", f_tooltip).mousedown(function() { hideddrivetip(); }); } });	
