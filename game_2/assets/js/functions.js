@@ -50,8 +50,9 @@ function init() {
 		$("#intro").removeClass("instructions");
 		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.pages"));
 		activate_game_button();
+		$(".figure").each(function() { get_figure_name($(this).attr("id")); });				
 		$("#calendar_button").attr("theTitle",eval("game_data.texts." + lang + ".the_feast_calendar.handle_tooltip"));
-		$("#play_button_message").html(eval("game_data.texts." + lang + ".game_button_message"));
+		$("#play_button_message").html(eval("game_data.texts." + lang + ".game_button_message"));		
 		$("*[theTitle]").titlesBehaviour();
 		for (f = 0; f < game_data.figures.length; f++) correct_figures_positions.push(game_data.figures[f].id + "_" + game_data.figures[f].correct_position);
 		$("#check_figures_positions_button").html(eval("game_data.texts." + lang + ".check_figures_positions_button"));
@@ -163,6 +164,10 @@ function reset_game(everything) {
 	}
 }
 
+function get_figure_name(figure_id) {
+	var f_tooltip = "";
+	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { var f_tooltip = $(eval("v.text." + lang)).eq(0).text(); $("#" + figure_id).attr("theTitle", f_tooltip).mousedown(function() { hideddrivetip(); }); } });	
+}
 function show_figure_info(figure_id) {
 	var f_speech = "";
 	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { f_speech = eval("v.text." + lang); } });	
