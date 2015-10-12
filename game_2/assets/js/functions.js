@@ -14,7 +14,7 @@ var figures_positions = new Array();
 /* window/document states */
 $(window).load(function() {
 	init();	
-	$("#start_game, #restart").click(function() { goto_screen("level_1"); });
+	$("#start_game, #restart").click(function() { goto_screen("level_1"); show_game(); });
 	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
@@ -152,6 +152,7 @@ function reset_game(everything) {
 	activate_figures();
 	figures_positions = new Array();
 	activate_check_positions_button();
+	$("#check_figures_positions_button").removeClass("hidden");
 	if (everything == "everything") {
 		calendar_read = false;
 		calendar_pages_seen = new Array();
@@ -248,7 +249,7 @@ function show_message(params) {
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
 function end_game(result) {	
-	$(".position").addClass("no_border");
+	$(".position").addClass("no_border"); $("#check_figures_positions_button").addClass("hidden");
 	if (result == "correct") show_message({ "message":eval("game_data.texts." + lang + ".correct_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); reset_game("everything"); goto_screen("init");' }]});		
 	else show_message({ "message":eval("game_data.texts." + lang + ".wrong_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".play_again_button"), "action":'reset_game();' }]});
 }

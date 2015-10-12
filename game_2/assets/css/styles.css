@@ -1,4 +1,10 @@
-/*@import "_assets/fonts/icons.css";*/
+@font-face {
+  font-family: 'Viktoras';
+  src: url('../fonts/Viktoras.eot');
+  src: url('../fonts/Viktoras.eot?#iefix') format('embedded-opentype'), url('../fonts/Viktoras.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
 /* css reset */
 html,
 body,
@@ -758,43 +764,43 @@ a.footer:hover {
   background: transparent url("../img/f3.png") 0px 0;
 }
 #container .screen#level_2 #positions .position #f4 {
-  background: transparent url("../img/f4.jpg") -90px 0;
+  background: transparent url("../img/f4.png") -90px 0;
 }
 #container .screen#level_2 #positions .position #f5 {
-  background: transparent url("../img/f5.jpg") -90px 0;
+  background: transparent url("../img/f5.png") -90px 0;
 }
 #container .screen#level_2 #positions .position #f6 {
-  background: transparent url("../img/f6.jpg") -90px 0;
+  background: transparent url("../img/f6.png") -90px 0;
 }
 #container .screen#level_2 #positions #pos6 {
   position: absolute;
-  top: 130px;
+  top: 230px;
   left: 0;
 }
 #container .screen#level_2 #positions #pos5 {
   position: absolute;
-  top: 200px;
-  left: 130px;
+  top: 290px;
+  left: 100px;
 }
 #container .screen#level_2 #positions #pos4 {
   position: absolute;
-  top: 280px;
-  left: 260px;
+  top: 380px;
+  left: 220px;
 }
 #container .screen#level_2 #positions #pos2 {
   position: absolute;
-  top: 390px;
-  left: 390px;
+  top: 450px;
+  left: 330px;
 }
 #container .screen#level_2 #positions #pos3 {
   position: absolute;
-  top: 460px;
-  left: 520px;
+  top: 520px;
+  left: 450px;
 }
 #container .screen#level_2 #positions #pos1 {
   position: absolute;
   top: 550px;
-  left: 650px;
+  left: 550px;
 }
 #container .screen#level_2 #figures {
   position: absolute;
@@ -816,29 +822,32 @@ a.footer:hover {
   background-size: cover;
 }
 #container .screen#level_2 #figures #f1 {
-  background: #fdd4ab url("../img/f1.png") 0 0;
+  background: #e0dcc8 url("../img/f1.png") 0 0;
 }
 #container .screen#level_2 #figures #f2 {
-  background: #fdd4ab url("../img/f2.png") 0 0;
+  background: #e0dcc8 url("../img/f2.png") 0 0;
 }
 #container .screen#level_2 #figures #f3 {
-  background: #fdd4ab url("../img/f3.png") 0 0;
+  background: #e0dcc8 url("../img/f3.png") 0 0;
 }
 #container .screen#level_2 #figures #f4 {
-  background: #fdd4ab url("../img/f4.jpg") 0 0;
+  background: #e0dcc8 url("../img/f4.png") 0 0;
 }
 #container .screen#level_2 #figures #f5 {
-  background: #fdd4ab url("../img/f5.jpg") 0 0;
+  background: #e0dcc8 url("../img/f5.png") 0 0;
 }
 #container .screen#level_2 #figures #f6 {
-  background: #fdd4ab url("../img/f6.jpg") 0 0;
+  background: #e0dcc8 url("../img/f6.png") 0 0;
 }
 #container .screen#level_2 #check_figures_positions_button {
   position: absolute;
-  bottom: 35px;
+  bottom: 150px;
   right: 30px;
-  width: 140px;
+  width: 150px;
   text-align: center!important;
+}
+#container .screen#level_2 #check_figures_positions_button.hidden {
+  display: none;
 }
 #container .screen .text {
   padding: 25px;
@@ -1103,8 +1112,7 @@ a.footer:hover {
 }
 #container #game_button:hover,
 #container #calendar_button:hover {
-  background-color: #222222;
-  color: #45495f;
+  background-color: #eeeeee;
 }
 #container #game_button:active,
 #container #calendar_button:active {
@@ -1119,6 +1127,18 @@ a.footer:hover {
 #container #game_button.invisible,
 #container #calendar_button.invisible {
   display: none !important;
+}
+#container #calendar_button {
+  position: absolute;
+  bottom: 24px;
+  left: 85px;
+  background-color: #0099ff;
+  background-image: url("../img/calendar.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#container #calendar_button:hover {
+  background-color: #222222;
 }
 #container #game_button {
   background-color: #00cc66;
@@ -1142,15 +1162,6 @@ a.footer:hover {
   background-color: #ff0000;
 }
 #container #game_button.pause:hover {
-  background-color: #222222;
-}
-#container #calendar_button {
-  background-color: #45495f;
-  background-image: url("../img/calendar.svg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-#container #calendar_button:hover {
   background-color: #222222;
 }
 #container #play_button_message {
@@ -1183,21 +1194,15 @@ a.footer:hover {
   opacity: 0;
   filter: alpha(opacity=95);
 }
-#container #calendar_button {
-  position: absolute;
-  bottom: 24px;
-  left: 85px;
-}
 #container #figures_popup {
   width: 750px;
   height: 650px;
   position: absolute;
   top: -800px;
   right: 250px;
-  background: #ffffff;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
+  background-image: url("../img/figures_popup_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
   z-index: 4000;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -1209,14 +1214,22 @@ a.footer:hover {
 }
 #container #figures_popup #figures_popup_content #figure_img {
   float: left;
-  width: 50%;
+  width: 60%;
+  height: 100%;
+  background: #e0dcc8;
 }
 #container #figures_popup #figures_popup_content #figure_img img {
   width: 90%!important;
+  height: 100%;
 }
 #container #figures_popup #figures_popup_content #figure_info {
   float: left;
-  width: 50%;
+  width: 35%;
+  padding: 0 0 0 5%;
+}
+#container #figures_popup #figures_popup_content #figure_info h2 {
+  font-family: "Viktoras";
+  letter-spacing: 1px;
 }
 #container #figures_popup #figures_popup_content #figure_info #position_select {
   font-size: 1em;
@@ -1224,12 +1237,15 @@ a.footer:hover {
   border: 0;
   outline: 0;
   padding: 1%;
-  border: dotted 1px #999999;
+  background: transparent;
   overflow: hidden;
 }
 #container #figures_popup #figures_popup_content #figure_info #position_select option {
-  padding: 5px;
-  background: #ffffff;
+  padding: 10px 5px;
+  background: transparent;
+}
+#container #figures_popup #figures_popup_content #figure_info #position_select option:not(:first-child) {
+  border-top: dotted 1px #999999;
 }
 #container #figures_popup #figures_popup_content #figure_info #position_select option:not([disabled]):hover {
   background: #eeeeee;
@@ -1412,13 +1428,17 @@ a.footer:hover {
 }
 #container #popup.down #message_container {
   background-size: 100% 100%;
-  height: 50px;
-  margin: 620px auto 0;
+  height: 35px;
+  padding: 10px;
+  margin: 690px auto 0;
   width: 225px;
 }
 #container #popup.down #message_container #message {
-  max-height: 0px;
-  margin: 0;
+  max-height: 0px!important;
+  margin: 0!important;
+}
+#container #popup.down #message_container #message * {
+  margin: 0!important;
 }
 #container #popup.down #message_container #buttons {
   margin: 0;

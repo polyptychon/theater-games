@@ -1,4 +1,4 @@
-/*@import "_assets/fonts/icons.css";*/
+@font-face { font-family:'Viktoras'; src: url('../fonts/Viktoras.eot'); src: url('../fonts/Viktoras.eot?#iefix') format('embedded-opentype'), url('../fonts/Viktoras.woff') format('woff'); font-style:normal; font-weight:400; }
 
 /* css reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
@@ -41,6 +41,7 @@ table{border-collapse:collapse;border-spacing:0}
 	@text_main_size:	1em;
 	@text_font:			"Roboto";
 	@display_font:		"Roboto";
+	@custom_font:		"Viktoras";
 	@icons_font:		"icons";
 	/* */	
 	/* */
@@ -204,27 +205,27 @@ a {
 					#f1 { background:transparent url("../img/f1.png") 0px 0; }
 					#f2 { background:transparent url("../img/f2.png") 0px 0; }
 					#f3 { background:transparent url("../img/f3.png") 0px 0; }
-					#f4 { background:transparent url("../img/f4.jpg") -90px 0; }
-					#f5 { background:transparent url("../img/f5.jpg") -90px 0; }
-					#f6 { background:transparent url("../img/f6.jpg") -90px 0; }
+					#f4 { background:transparent url("../img/f4.png") -90px 0; }
+					#f5 { background:transparent url("../img/f5.png") -90px 0; }
+					#f6 { background:transparent url("../img/f6.png") -90px 0; }
 				}
-				#pos6 { .absPos(130px,0); }
-				#pos5 { .absPos(200px,130px); }
-				#pos4 { .absPos(280px,260px); }
-				#pos2 { .absPos(390px,390px); }
-				#pos3 { .absPos(460px,520px); }
-				#pos1 { .absPos(550px,650px); }
+				#pos6 { .absPos(230px,0); }
+				#pos5 { .absPos(290px,100px); }
+				#pos4 { .absPos(380px,220px); }
+				#pos2 { .absPos(450px,330px); }
+				#pos3 { .absPos(520px,450px); }
+				#pos1 { .absPos(550px,550px); }
 			}
 			#figures { .absPosRight(25px,25px); .z(25); width:200px;
 				.figure { .active; width:90px; height:154px; .visible(inline-block); margin:0 10px 10px 0; .shadowed(0,2px,5px); background-size:cover; }
-				#f1 { background:#fdd4ab url("../img/f1.png") 0 0; }
-				#f2 { background:#fdd4ab url("../img/f2.png") 0 0; }
-				#f3 { background:#fdd4ab url("../img/f3.png") 0 0; }
-				#f4 { background:#fdd4ab url("../img/f4.jpg") 0 0; }
-				#f5 { background:#fdd4ab url("../img/f5.jpg") 0 0; }
-				#f6 { background:#fdd4ab url("../img/f6.jpg") 0 0; }
+				#f1 { background:#e0dcc8 url("../img/f1.png") 0 0; }
+				#f2 { background:#e0dcc8 url("../img/f2.png") 0 0; }
+				#f3 { background:#e0dcc8 url("../img/f3.png") 0 0; }
+				#f4 { background:#e0dcc8 url("../img/f4.png") 0 0; }
+				#f5 { background:#e0dcc8 url("../img/f5.png") 0 0; }
+				#f6 { background:#e0dcc8 url("../img/f6.png") 0 0; }
 			}
-			#check_figures_positions_button { .absPosBottomRight(35px,30px); width:140px; .centeredText; }
+			#check_figures_positions_button { .absPosBottomRight(150px,30px); width:150px; .centeredText; &.hidden { .invisible!important; } }
 		}
 		
 		.text { padding:25px; .pt(16); }
@@ -265,26 +266,26 @@ a {
 	}
 	#game_button, #calendar_button {
 		.absPosBottom(24px,145px); .nonSelective; .rounded(50%); .centeredText; .pt(20); .lh(0); .z(1000); width:46px; height:27px; padding:23px 2px 0; color:@sitered; .active; .bold; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
-		&:hover { background-color:@textGray; color:@siteblue; } &:active { background-color:@textGray; }
+		&:hover { background-color:@lightGray; } &:active { background-color:@textGray; }
 		&.disabled { .inactive; background-color:@midGray + #111; color:@midGray - #111; }
 		&.invisible { .visible(none)!important; }
 	}
-	#game_button { background-color:@green; background-image:url("../img/play.svg"); background-repeat:no-repeat; background-size:100%; color:@white; padding:25px 0 0 4px; height:25px;
-		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; } }
-	}
-	#calendar_button { background-color:@siteblue; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
+	#calendar_button { .absPosBottom(24px,85px); background-color:@blue; background-image:url("../img/calendar.svg"); background-repeat:no-repeat; background-size:100%;
 		&:hover { background-color:@textGray; }
 	}
+	#game_button { background-color:@green; background-image:url("../img/play.svg"); background-repeat:no-repeat; background-size:100%; color:@white; padding:25px 0 0 4px; height:25px;
+		&.pause { .transform(rotate(180deg)); .shadowed(0,-2px,5px); background-color:@red; &:hover { background-color:@textGray; } }
+	}	
 	#play_button_message { .absPosBottom(30px,205px); .pt(14); .z(1000); .visible(inline-block); .transparent(1,100); .transition(all .2s ease-in-out); .rounded(8px); padding:10px; background:@green; color:@white; .normal;
 		&.hidden { .transparent(0,0); }
 	}
-	#calendar_button { .absPosBottom(24px,85px); }
 	#figures_popup {
-		width:750px; height:650px; .absPosRight(-800px,250px); background:@white; .rounded(8px); .z(4000); .transition(all .2s ease-in-out);
+		width:750px; height:650px; .absPosRight(-800px,250px); background-image:url("../img/figures_popup_bg.png"); background-repeat:no-repeat; background-size:100%; .z(4000); .transition(all .2s ease-in-out);
 		#figures_popup_content { padding:50px;
-			#figure_img { .left; width:50%; img { width:90%!important; } }
-			#figure_info { .left; width:50%;
-				#position_select { .pt(16); width:98%; border:0; outline:0; padding:1%; border:dotted 1px @midGray; overflow:hidden; option { padding:5px; background:@white; &:not([disabled]):hover { background:@lightGray; } } }
+			#figure_img { .left; width:60%; height:100%; background:#e0dcc8; img { width:90%!important; height:100%; } }
+			#figure_info { .left; width:35%; padding:0 0 0 5%;
+				h2 { font-family:@custom_font; .ls(1px); }
+				#position_select { .pt(16); width:98%; border:0; outline:0; padding:1%; background:transparent; overflow:hidden; option { padding:10px 5px; background:transparent; &:not(:first-child) { border-top:dotted 1px @midGray; } &:not([disabled]):hover { background:@lightGray; } } }
 			}
 		}
 		&.opened { .absPosRight(25px,250px); }
@@ -307,7 +308,7 @@ a {
 			#buttons { .centeredText; }
 			.close_button { .active; .absPosRight(-10px,-10px); width:35px; height:35px; .pt(23); .centeredText; background-color:@red; background-image:url("../img/close.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .rounded(50%); .transition(all .2s ease-in-out); &:hover { background-color:@textGray; } }
 		}
-		&.down { background-image:none; #message_container { background-size:100% 100%; height:50px; margin:620px auto 0; width:225px; #message { max-height:0px; margin:0; } #buttons { margin:0; } .close_button { background-color:@green; .transform(~"rotate(45deg)"); &:hover { background-color:@textGray; } } } }
+		&.down { background-image:none; #message_container { background-size:100% 100%; height:35px; padding:10px; margin:690px auto 0; width:225px; #message { max-height:0px!important; margin:0!important; * { margin:0!important; } } #buttons { margin:0; } .close_button { background-color:@green; .transform(~"rotate(45deg)"); &:hover { background-color:@textGray; } } } }
 	}	
 }
 /* */
