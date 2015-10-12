@@ -14,7 +14,7 @@ var figures_positions = new Array();
 /* window/document states */
 $(window).load(function() {
 	init();	
-	$("#start_game, #restart").click(function() { goto_screen("level_1"); show_game(); });
+	$("#start_game, #restart").click(function() { goto_screen("level_1"); });
 	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 	$("#help").click(function() { show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
@@ -46,6 +46,7 @@ function init() {
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
 		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#help_text").html(eval("game_data.texts." + lang + ".help_text"));
 		$("#intro").removeClass("instructions");
 		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.pages"));
 		activate_game_button();

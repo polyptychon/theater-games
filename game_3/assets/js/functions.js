@@ -42,6 +42,7 @@ function init() {
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
 		$("#start_greece").attr("theTitle",eval("game_data.texts." + lang + ".start_greece_game_button"));
 		$("#start_mediterranean").attr("theTitle",eval("game_data.texts." + lang + ".start_mediterranean_game_button"));
+		$("#help_text").html(eval("game_data.texts." + lang + ".help_text"));
 		$("#intro").removeClass("instructions");
 		$("#check_schedule").html(eval("game_data.texts." + lang + ".check_schedule_button"));
 		$("#tour_schedule_title").html(eval("game_data.texts." + lang + ".tour_schedule"));

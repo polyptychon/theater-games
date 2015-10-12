@@ -8,7 +8,8 @@
 			"hint_button" : "Βοηθεια",
 			"try_again" : "<img src='assets/img/keep_trying_gr.svg'/><br/><br/>Κάποιες φιγούρες δεν έχουν τοποθετηθεί σωστά. Έχεις ακόμη χρόνο. Συνέχισε την προσπάθεια. Θυμήσου ότι μπορείς να πατήσεις το κουμπί της βοήθειας ανά πάσα στιγμή (χάνοντας όμως 5 δευτερόλεπτα κάθε φορά που το πατάς).",
 			"game_title" : "Ο Διόνυσος και οι φίλοι του",
-			"intro" : "<br/><hr/><p>Τα αγγεία ήταν απαραίτητα τόσο στην καθημερινή ζωή, ως χρηστικά σκεύη, όσο και σε τελετές ως αναθήματα ή δώρα ή ακόμα και ως πολυτελή σκεύη επίδειξης οικονομι­κής ευμάρειας. Αν και το σχήμα κάθε αγγείου ήταν στενά συνδεδεμένο με τη χρήση του, η διακόσμηση έπαιζε πάντα σημαντικό ρόλο.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_gr.svg' style='height:20px;'/></p><br/><p><i>Προσπάθησε να τοποθετήσεις τις φιγούρες στην σωστή τους θέση. Κάν' το όσο πιο γρήγορα μπορείς. Ο χρόνος μετράει.</i></p><br/><br/>"
+			"intro" : "<br/><hr/><p>Τα αγγεία ήταν απαραίτητα τόσο στην καθημερινή ζωή, ως χρηστικά σκεύη, όσο και σε τελετές ως αναθήματα ή δώρα ή ακόμα και ως πολυτελή σκεύη επίδειξης οικονομι­κής ευμάρειας. Αν και το σχήμα κάθε αγγείου ήταν στενά συνδεδεμένο με τη χρήση του, η διακόσμηση έπαιζε πάντα σημαντικό ρόλο.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_gr.svg' style='height:20px;'/></p><br/><p><i>Προσπάθησε να τοποθετήσεις τις φιγούρες στην σωστή τους θέση. Κάν' το όσο πιο γρήγορα μπορείς. Ο χρόνος μετράει.</i></p><br/><br/>",
+			"help_text" : "<p>Τοποθέτησε τις φιγούρες πάνω στο αγγείο για να ολοκληρώσεις το επίπεδο.</p>"
 		},
 		"en" : {
 			"enter_game_button" : "ENTER",
@@ -18,7 +19,8 @@
 			"hint_button" : "Hint",
 			"try_again" : "<img src='assets/img/keep_trying_en.svg'/><br/><br/>Κάποιες φιγούρες δεν έχουν τοποθετηθεί σωστά. Έχεις ακόμη χρόνο. Συνέχισε την προσπάθεια. Θυμήσου ότι μπορείς να πατήσεις το κουμπί της βοήθειας ανά πάσα στιγμή (χάνοντας όμως 5 δευτερόλεπτα κάθε φορά που το πατάς).",
 			"game_title" : "Dionysus and his friends",
-			"intro" : "<br/><hr/><p>The vases were necessary both in everyday life as utensils, and ceremonies as offerings or gifts or even as luxury tableware demonstration economic prosperity. Although the shape of each vessel was closely associated with its use, the decor always played an important role.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_en.svg' style='height:20px;'/></p><br/><p><i>Try to place the figures in the right place. Do it as fast as you can. The time counts.</i></p><br/><br/>"
+			"intro" : "<br/><hr/><p>The vases were necessary both in everyday life as utensils, and ceremonies as offerings or gifts or even as luxury tableware demonstration economic prosperity. Although the shape of each vessel was closely associated with its use, the decor always played an important role.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_en.svg' style='height:20px;'/></p><br/><p><i>Try to place the figures in the right place. Do it as fast as you can. The time counts.</i></p><br/><br/>",
+			"help_text" : "<p>Τοποθέτησε τις φιγούρες πάνω στο αγγείο για να ολοκληρώσεις το επίπεδο.</p>"
 		}
 	},
 	"vases" : [		

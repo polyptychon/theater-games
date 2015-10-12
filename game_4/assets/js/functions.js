@@ -41,6 +41,7 @@ function init() {
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
 		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#help_text").html(eval("game_data.texts." + lang + ".help_text"));
 		$("#intro").removeClass("instructions");
 		$(".vas_check_button").html(eval("game_data.texts." + lang + ".check_button"));
 		$(".vas_hint").html(eval("game_data.texts." + lang + ".hint_button"));

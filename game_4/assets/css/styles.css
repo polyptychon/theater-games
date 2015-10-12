@@ -1229,13 +1229,17 @@ a.footer:hover {
 }
 #container #popup.down #message_container {
   background-size: 100% 100%;
-  height: 50px;
-  margin: 600px auto 0;
+  height: 35px;
+  padding: 10px;
+  margin: 690px auto 0;
   width: 225px;
 }
 #container #popup.down #message_container #message {
-  max-height: 0px;
-  margin: 0;
+  max-height: 0px!important;
+  margin: 0!important;
+}
+#container #popup.down #message_container #message * {
+  margin: 0!important;
 }
 #container #popup.down #message_container #buttons {
   margin: 0;
