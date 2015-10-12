@@ -94,7 +94,7 @@ function activate_theaters(where) {
 		$("#theater_button").html("").html("<div class='button' for_theater='" + $(this).attr("id") + "'></div>");
 		activate_add_theater_button(where);
 		if (!$("#descriptions").hasClass("open")) $("#descriptions").addClass("open");
-	});
+	}).removeClass("correct");
 }
 
 function activate_add_theater_button(where) {
@@ -110,7 +110,7 @@ function activate_add_theater_button(where) {
 			$("#num_of_theaters").html(theaters_added_to_schedule[where].length);
 			if (theaters_added_to_schedule[where].length == correct_schedule[where].length) $("#check_schedule").removeClass("disabled").click(function() { check_schedule(); });
 			$(this).html(eval("game_data.texts." + lang + ".remove_from_schedule_button")).removeClass("green").addClass("red");
-			$("#tour_theaters").append("<div class='tour_theater' theater_id='" + theater_to_add_id + "'>" + randomDate() + "<br/>" + theater_to_add_name + "</div>");
+			$("#tour_theaters").append("<div class='tour_theater' theater_id='" + theater_to_add_id + "'>" + randomDate() + "<br/>" + theater_to_add_name + "</div>").scrollTop($('#tour_theaters')[0].scrollHeight);
 			activate_tour_theaters(where);
 			activate_add_theater_button(where);
 			$("#" + theater_to_add_id).addClass("added");			
