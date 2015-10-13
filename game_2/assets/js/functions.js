@@ -103,7 +103,7 @@ function render_calendar_content(texts) {
 	for (page = 1; page <= Object.keys(texts).length; page++) {
 		var page_text = eval("texts.page_" + page);
 		var page_bg = "assets/img/day_" + page + ".jpg";
-		content_html += "<div id='page_" + page + "' class='calendar_day " + ( page == 1 || page == Object.keys(texts).length ? "hard" : "") + "'>" + page_text + "</div>";
+		content_html += "<div id='page_" + page + "' class='calendar_day " + (page == 1 || page == Object.keys(texts).length? "hard" : "") + "'>" + page_text + "</div>";
 	}
 	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
 	$("#calendar_flipbook").bind("turning", function(event,page) {		

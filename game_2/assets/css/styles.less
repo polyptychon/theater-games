@@ -247,11 +247,13 @@ a {
 		#calendar_container { .relPos(0,0px); .z(200);
 			#calendar_content { background:transparent; width:970px; height:650px; overflow:hidden; .rel; .z(100)!important; .transition(all .2s ease-in-out);
 				#calendar_flipbook { background:transparent;
-					.calendar_day { background:@white; .active; .shadowed(0,2px,5px); &.hard { background:@midGray; }
+					.calendar_day { background:@white; .active; .shadowed(0,2px,5px); &.hard { background-color:transparent; }
 						&#page_1 { h1 { .bold; .pt(32); color:@white; } }
 						.page_content { padding:30px 50px;
 							&.img { padding:50px; background:@lightGray; img { width:100%; } }
 							h2 { .normal; }
+							&.front_cover { background-color:transparent!important; height:100%; background-image:url("../img/diary_front.png"); background-repeat:no-repeat; background-size:cover; background-position:center center; }
+							&.back_cover { background-color:transparent!important; height:100%; background-image:url("../img/diary_back.png"); background-repeat:no-repeat; background-size:cover; }
 						}
 					}
 				}

@@ -969,7 +969,7 @@ a.footer:hover {
   filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#999999, Positive='true');
 }
 #container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day.hard {
-  background: #999999;
+  background-color: transparent;
 }
 #container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day#page_1 h1 {
   font-weight: 700;
@@ -990,6 +990,21 @@ a.footer:hover {
 #container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content h2 {
   font-weight: 400;
   font-style: normal;
+}
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.front_cover {
+  background-color: transparent!important;
+  height: 100%;
+  background-image: url("../img/diary_front.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+#container #calendar #calendar_container #calendar_content #calendar_flipbook .calendar_day .page_content.back_cover {
+  background-color: transparent!important;
+  height: 100%;
+  background-image: url("../img/diary_back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #container #calendar #calendar_container .close_button {
   cursor: pointer!important;
