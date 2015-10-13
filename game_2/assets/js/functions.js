@@ -16,12 +16,12 @@ $(window).load(function() {
 	init();	
 	$("#start_game, #restart").click(function() { goto_screen("level_1"); });
 	$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
-	$("#help").click(function() { show_help(); });
+	$("#help").click(function() { if (!$(this).hasClass("disabled")) show_help(); });
 	$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 	$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 	$("#close_calendar").click(function(event) { hide_calendar(); event.stopPropagation(); });
 	$("#close_figures_popup").click(function(event) { hide_figures_popup(); event.stopPropagation(); });
-	$("#calendar_button").click(function() { if (!$("#calendar").hasClass("open")) show_calendar(); else hide_calendar(); });
+	$("#calendar_button").click(function() { if (!$(this).hasClass("disabled")) { if (!$("#calendar").hasClass("open")) show_calendar(); else hide_calendar(); } });
 	randomize_figures();	
 	activate_figures();
 	$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
@@ -94,7 +94,7 @@ function show_help() { hide_calendar(); $("#help_icon").addClass("invisible").de
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
 
 function activate_game_button(){
-	if (calendar_read) { $("#play_button_message").removeClass("hidden").delay(4000).queue(function() { $(this).addClass("hidden"); $(this).dequeue(); }); $("#game_button").removeClass("disabled").attr("theTitle",eval("game_data.texts." + lang + ".game_button_tooltip.active")).click(function() { show_game(); }); $("*[theTitle]").titlesBehaviour(); }
+	if (calendar_read) { $("#play_button_message").removeClass("hidden").delay(4000).queue(function() { $(this).addClass("hidden"); $(this).dequeue(); }); $("#game_button").removeClass("disabled").attr("theTitle",eval("game_data.texts." + lang + ".game_button_tooltip.active")).click(function() { if (!$(this).hasClass("disabled")) show_game(); }); $("*[theTitle]").titlesBehaviour(); }
 	else { $("#game_button").addClass("disabled").attr("theTitle",eval("game_data.texts." + lang + ".game_button_tooltip.inactive")).unbind("click"); $("*[theTitle]").titlesBehaviour(); }
 }
 
@@ -141,7 +141,7 @@ function randomize_figures() { $("#figures").shuffleChildren(); }
 function show_game() {
 	hide_calendar(); hide_help(); hide_message(); $("#play_button_message").addClass("hidden");
 	$("#level_1, #level_2").addClass("playing");
-	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".back_to_stage_button")).addClass("pause").unbind("click").click(function() { hide_game(); });
+	$("#game_button").attr("theTitle",eval("game_data.texts." + lang + ".back_to_stage_button")).addClass("pause").unbind("click").click(function() { if (!$(this).hasClass("disabled")) hide_game(); });
 }
 function hide_game() {
 	hide_calendar(); hide_help(); hide_message();
@@ -172,6 +172,7 @@ function get_figure_name(figure_id) {
 	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { var f_tooltip = $(eval("v.text." + lang)).eq(0).text(); $("#" + figure_id).attr("theTitle", f_tooltip).mousedown(function() { hideddrivetip(); }); } });	
 }
 function show_figure_info(figure_id) {
+	$("#help, #calendar_button, #game_button").addClass("disabled");
 	var f_speech = "";
 	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { f_speech = eval("v.text." + lang); } });	
 	var position_select = "<b>" + eval("game_data.texts." + lang + ".position_select") + "</b><br/><select id='position_select' size='6'>" + get_available_seats_options() + "</select><br/><br/><div id='place_figure' class='button' onclick='place_figure(\"" + figure_id + "\",$(\"#position_select\").val())'>" + eval("game_data.texts." + lang + ".place_figure_button") + "</div>";
@@ -179,7 +180,7 @@ function show_figure_info(figure_id) {
 	$("#figure_info").html("").html(f_speech + "<br/>" + position_select);
 	$("#figures_popup").addClass("opened");
 }
-function hide_figures_popup() { $("#figures_popup").removeClass("opened"); }
+function hide_figures_popup() { $("#figures_popup").removeClass("opened"); $("#help, #calendar_button, #game_button").removeClass("disabled"); }
 function place_figure(figure_id,position_id) {
 	if (position_id) {
 		hide_figures_popup();
