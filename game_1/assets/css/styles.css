@@ -661,12 +661,12 @@ a.footer:hover {
 }
 #container .screen #intro .intro_page#intro_page_1 #intro_icon_1 {
   position: absolute;
-  top: 75px;
-  left: 175px;
+  top: 275px;
+  left: 195px;
 }
 #container .screen #intro .intro_page#intro_page_1 #intro_icon_2 {
   position: absolute;
-  top: 265px;
+  top: 65px;
   left: 550px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
