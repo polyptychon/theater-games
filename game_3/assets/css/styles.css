@@ -645,9 +645,27 @@ a.footer:hover {
 #container .screen #intro .intro_page p {
   text-align: left;
 }
-#container .screen #intro .intro_page#intro_page_1 img {
+#container .screen #intro .intro_page#intro_page_1 {
+  position: relative;
+}
+#container .screen #intro .intro_page#intro_page_1 img:not(.icon) {
   margin: 130px auto 100px;
   height: 200px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_1 {
+  position: absolute;
+  top: 55px;
+  left: 175px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_2 {
+  position: absolute;
+  top: 315px;
+  left: 590px;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;

@@ -116,8 +116,8 @@ table{border-collapse:collapse;border-spacing:0}
 	
 	/* buttons */
 	.button {
-		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@teal; color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline-block)!important; .transition(all .2s ease-in-out);
-		&:hover { background:@lightGray; color:@teal; }
+		.nonSelective; padding:10px 20px; margin:0 5px 0 0; background:@orange; color:@white; .active; .capitalized; .pt(11); .display_font; .bold; .visible(inline-block)!important; .transition(all .2s ease-in-out);
+		&:hover { background:@lightGray; color:@orange; }
 		&:active { background:@lightGray; .innerShadowed(0,5px,7px); }
 		&.big { .pt(14); }
 		&.red { background:@red; &:hover { background:@siteblue; } }
@@ -181,7 +181,11 @@ a {
 		#intro { width:910px; height:645px; .absPos(50px,57px); overflow:hidden; .transition(all .5s ease-in-out); background-image:url("../img/intro_bg.png"); background-repeat:no-repeat; background-size:cover;
 			.intro_page { width:90%; height:95%; margin:2.5% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
 				p { .leftText; }
-				&#intro_page_1 { img { margin:130px auto 100px; height:200px; } }
+				&#intro_page_1 { .rel;
+					img:not(.icon) { margin:130px auto 100px; height:200px; }
+					#intro_icon_1 { .absPos(75px,175px); }
+					#intro_icon_2 { .absPos(265px,550px); }
+				}
 				&#intro_page_2 {
 					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
 					i { color:@orange; }
@@ -226,7 +230,7 @@ a {
 	#help {
 		.active; background:@white; color:@textGray; .rounded(8px); .centeredText; .absPosBottom(25px,25px); padding:25px; width:400px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; color:@textGray; }
-		&.hidden { .rounded(50%); background-color:@teal; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background-color:@textGray; .rounded(8px); } }		
+		&.hidden { .rounded(50%); background-color:@orange; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background-color:@textGray; .rounded(8px); } }		
 		.help_content { .leftText; .pt(13);
 			img { margin:0 0 25px; }
 			ul { margin:25px 0; padding:0; list-style-type:none; li { margin:0 0 5px; .clear; img { width:35px; background:#999; .rounded(50%); padding:5px; vertical-align:middle; margin:0 10px 0 0; } } }

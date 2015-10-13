@@ -650,9 +650,24 @@ a.footer:hover {
 #container .screen #intro .intro_page p {
   text-align: left;
 }
+#container .screen #intro .intro_page#intro_page_1 {
+  position: relative;
+}
 #container .screen #intro .intro_page#intro_page_1 img {
   margin: 130px auto 100px;
   height: 200px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_2 {
+  position: absolute;
+  top: 55px;
+  left: 145px;
+  height: 150px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_1 {
+  position: absolute;
+  top: 55px;
+  left: 565px;
+  height: 150px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;

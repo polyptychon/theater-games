@@ -281,7 +281,7 @@ table {
   user-select: none;
   padding: 10px 20px;
   margin: 0 5px 0 0;
-  background: #1baa95;
+  background: #ff6600;
   color: #ffffff;
   cursor: pointer!important;
   text-transform: uppercase;
@@ -297,7 +297,7 @@ table {
 }
 .button:hover {
   background: #eeeeee;
-  color: #1baa95;
+  color: #ff6600;
 }
 .button:active {
   background: #eeeeee;
@@ -652,9 +652,22 @@ a.footer:hover {
 #container .screen #intro .intro_page p {
   text-align: left;
 }
-#container .screen #intro .intro_page#intro_page_1 img {
+#container .screen #intro .intro_page#intro_page_1 {
+  position: relative;
+}
+#container .screen #intro .intro_page#intro_page_1 img:not(.icon) {
   margin: 130px auto 100px;
   height: 200px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_1 {
+  position: absolute;
+  top: 75px;
+  left: 175px;
+}
+#container .screen #intro .intro_page#intro_page_1 #intro_icon_2 {
+  position: absolute;
+  top: 265px;
+  left: 550px;
 }
 #container .screen #intro .intro_page#intro_page_2 hr {
   border: 0px;
@@ -879,7 +892,7 @@ a.footer:hover {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  background-color: #1baa95;
+  background-color: #ff6600;
   background-image: url("../img/info.svg");
   background-repeat: no-repeat;
   background-size: 100%;
