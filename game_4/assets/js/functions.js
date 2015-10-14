@@ -149,18 +149,16 @@ function end_game(level,correct) {
 			pause_timer(); game_is_running = false;
 			$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint, #level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
 			var level_vas = game_data.vases.filter(function(val, index, array) { return val.level == level; });
-			$("#level_" + level + "_vas_caption").html("<h3>Μπράβο τα κατάφερες!</h3><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>ΠΡΟΧΩΡΗΣΕ ΣΤΟ ΕΠΟΜΕΝΟ ΣΤΑΔΙΟ</div>");
-			var next_level = Math.round(level) + 1; if (next_level == 6) next_level = "custom";
-			if (next_level != "custom") $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
-			else $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('" + next_level + "');");
+			var next_level = Math.round(level) + 1; if (next_level == 6) next_level = "init";
+			$("#level_" + level + "_vas_caption").html("<img src='assets/img/correct_" + lang + ".svg'/><br/><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>" + ((next_level != "init") ? eval("game_data.texts." + lang + ".next_level_button") : eval("game_data.texts." + lang + ".restart_button") ) + "</div>");			
+			if (next_level != "init") $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
+			else $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "$('#intro').removeClass('instructions'); goto_screen('init');");
 		} else {
 			stop_timer(); game_is_running = false;
 			$("#level_" + level + " .figures .figure").addClass("invisible");
-			$("#level_" + level + "_vas_caption").html("<h3>Δεν τα κατάφερες.</h3><div class='button' onclick='goto_screen(\"level_" + current_level + "\");'>Ξαναπροσπαθησε</div>");
+			$("#level_" + level + "_vas_caption").html("<img src='assets/img/wrong_" + lang + ".svg'/><div class='button' onclick='goto_screen(\"level_" + current_level + "\");'>" + eval("game_data.texts." + lang + ".retry_button") + "</div>");
 			$("#level_" + level + "_vas_check_button").addClass("invisible");
 		}
-	} else if (level == 6) {	
-		show_message({ "message":eval("game_data.texts." + lang + ".game_title"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); goto_screen("init");' }]});
 	}
 }
 /* */
