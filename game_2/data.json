@@ -78,5 +78,13 @@
 		{ "id" : "f4", "correct_position" : "pos4", "text" : { "gr" : "<h2>Έμπορος</h2><p>-</p>", "en" : "-" } },
 		{ "id" : "f5", "correct_position" : "pos5", "text" : { "gr" : "<h2>Γεωργός</h2><p>-</p>", "en" : "-" } },
 		{ "id" : "f6", "correct_position" : "pos6", "text" : { "gr" : "<h2>Μεταλλουργός</h2><p>-</p>", "en" : "-" } }
+	],
+	"positions" : [
+		{ "id" : "pos1", "text" : { "gr" : "Σειρά 1", "en" : "1st row" } },
+		{ "id" : "pos2", "text" : { "gr" : "Σειρά 2", "en" : "2nd row" } },
+		{ "id" : "pos3", "text" : { "gr" : "Σειρά 3", "en" : "3rd row" } },
+		{ "id" : "pos4", "text" : { "gr" : "Σειρά 4", "en" : "4th row" } },
+		{ "id" : "pos5", "text" : { "gr" : "Σειρά 5", "en" : "5th row" } },
+		{ "id" : "pos6", "text" : { "gr" : "Σειρά 6", "en" : "6th row" } }
 	]
 }
