@@ -164,18 +164,9 @@ function reset_game(everything) {
 	}
 }
 
-function game_solution() {
-	$(".figure").each(function() { var id = $(this).attr("id").replace("f",""); $("#pos" + id).append($(this)); });
-}
-function get_figure_name(figure_id) {
-	var f_tooltip = "";
-	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { var f_tooltip = $(eval("v.text." + lang)).eq(0).text(); $("#" + figure_id).attr("theTitle", f_tooltip).mousedown(function() { hideddrivetip(); }); } });	
-}
-function get_position_name(position_id) {
-	var position_name = "";
-	$.each(game_data.positions, function(i,v) { if (v.id == position_id) { position_name = eval("v.text." + lang); } });	
-	return position_name;
-}
+function game_solution() { $(".figure").each(function() { var id = $(this).attr("id").replace("f",""); $("#pos" + id).append($(this)); }); }
+function get_figure_name(figure_id) { var f_tooltip = ""; $.each(game_data.figures, function(i,v) { if (v.id == figure_id) { var f_tooltip = $(eval("v.text." + lang)).eq(0).text(); $("#" + figure_id).attr("theTitle", f_tooltip).mousedown(function() { hideddrivetip(); }); } }); }
+function get_position_name(position_id) { var position_name = ""; $.each(game_data.positions, function(i,v) { if (v.id == position_id) { position_name = eval("v.text." + lang); } }); return position_name; }
 function show_figure_info(figure_id) {
 	$("#help, #calendar_button, #game_button").addClass("disabled");
 	var f_speech = "";
@@ -194,11 +185,7 @@ function place_figure(figure_id,position_id) {
 		activate_check_positions_button();
 	}
 }
-function get_available_seats_options() {
-	var options_html = "";
-	$(".position").each(function() { options_html += "<option value='" + $(this).attr("id") + "' " + ( ($(this).find($(".figure")).length != 0) ? "disabled" : "") + ">" + get_position_name($(this).attr("id")) + "</option>"; });
-	return options_html;
-}
+function get_available_seats_options() { var options_html = ""; $(".position").each(function() { options_html += "<option value='" + $(this).attr("id") + "' " + ( ($(this).find($(".figure")).length != 0) ? "disabled" : "") + ">" + get_position_name($(this).attr("id")) + "</option>"; });	return options_html; }
 function drop_figure(e,figure_id,position_id) {
 	e.preventDefault();
 	var parent_id = $("#" + figure_id).data("info").parent_id;	
