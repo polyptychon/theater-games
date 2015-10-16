@@ -1,4 +1,20 @@
 {
+	"figures" : [
+		{ "id" : "f1", "correct_position" : "pos1", "text" : { "gr" : "<h2>Ιερέας του Διονύσου</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f2", "correct_position" : "pos2", "text" : { "gr" : "<h2>Χορηγός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f3", "correct_position" : "pos3", "text" : { "gr" : "<h2>Στρατηγός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f4", "correct_position" : "pos4", "text" : { "gr" : "<h2>Έμπορος</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f5", "correct_position" : "pos5", "text" : { "gr" : "<h2>Γεωργός</h2><p>-</p>", "en" : "-" } },
+		{ "id" : "f6", "correct_position" : "pos6", "text" : { "gr" : "<h2>Μεταλλουργός</h2><p>-</p>", "en" : "-" } }
+	],
+	"positions" : [
+		{ "id" : "pos1", "text" : { "gr" : "Σειρά 1", "en" : "1st row" } },
+		{ "id" : "pos2", "text" : { "gr" : "Σειρά 2", "en" : "2nd row" } },
+		{ "id" : "pos3", "text" : { "gr" : "Σειρά 3", "en" : "3rd row" } },
+		{ "id" : "pos4", "text" : { "gr" : "Σειρά 4", "en" : "4th row" } },
+		{ "id" : "pos5", "text" : { "gr" : "Σειρά 5", "en" : "5th row" } },
+		{ "id" : "pos6", "text" : { "gr" : "Σειρά 6", "en" : "6th row" } }
+	],
 	"texts" : {
 		"gr" : {
 			"enter_game_button":"ΕΙΣΟΔΟΣ",
@@ -70,21 +86,5 @@
 				}
 			}
 		}
-	},
-	"figures" : [
-		{ "id" : "f1", "correct_position" : "pos1", "text" : { "gr" : "<h2>Ιερέας του Διονύσου</h2><p>-</p>", "en" : "-" } },
-		{ "id" : "f2", "correct_position" : "pos2", "text" : { "gr" : "<h2>Χορηγός</h2><p>-</p>", "en" : "-" } },
-		{ "id" : "f3", "correct_position" : "pos3", "text" : { "gr" : "<h2>Στρατηγός</h2><p>-</p>", "en" : "-" } },
-		{ "id" : "f4", "correct_position" : "pos4", "text" : { "gr" : "<h2>Έμπορος</h2><p>-</p>", "en" : "-" } },
-		{ "id" : "f5", "correct_position" : "pos5", "text" : { "gr" : "<h2>Γεωργός</h2><p>-</p>", "en" : "-" } },
-		{ "id" : "f6", "correct_position" : "pos6", "text" : { "gr" : "<h2>Μεταλλουργός</h2><p>-</p>", "en" : "-" } }
-	],
-	"positions" : [
-		{ "id" : "pos1", "text" : { "gr" : "Σειρά 1", "en" : "1st row" } },
-		{ "id" : "pos2", "text" : { "gr" : "Σειρά 2", "en" : "2nd row" } },
-		{ "id" : "pos3", "text" : { "gr" : "Σειρά 3", "en" : "3rd row" } },
-		{ "id" : "pos4", "text" : { "gr" : "Σειρά 4", "en" : "4th row" } },
-		{ "id" : "pos5", "text" : { "gr" : "Σειρά 5", "en" : "5th row" } },
-		{ "id" : "pos6", "text" : { "gr" : "Σειρά 6", "en" : "6th row" } }
-	]
+	}	
 }
