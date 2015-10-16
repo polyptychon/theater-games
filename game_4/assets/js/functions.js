@@ -59,6 +59,7 @@ function goto_screen(which) {
 		add_figure_text();
 		$("*[theTitle]").titlesBehaviour();
 		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint, #level_" + current_level + "_vas_check_button").removeClass("invisible");
+		$(".vas_hint").each(function() { $(this).bind("mousedown touchstart", function() { show_hint(); }).bind("mouseup touchend", function() { hide_hint(); }); });
 		hide_help();
 		reset_timer(); start_timer();
 	}
@@ -87,7 +88,7 @@ function pause_timer() { clearInterval(timer_interval); }
 function stop_timer() { clearInterval(timer_interval); timer_interval = null; total_seconds = 0; $(".figure").draggable("disable"); }
 function reset_timer() { total_seconds = 120; $("#clock").html("02:00").removeClass("last_ten"); }
 
-function show_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").addClass("invisible"); total_seconds -= 5; }
+function show_hint() { if (total_seconds > 5) { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").addClass("invisible"); total_seconds -= 5; } }
 function hide_hint() { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").removeClass("invisible"); }
 
 function position_figures() {
@@ -113,25 +114,15 @@ function drop_figure(e,figure_id,position_id) {
 	if (position_id == "level_" + current_level + "_figures") remove_figure(figure_id);
 	else {
 		if ($("#" + figure_id).data().parent_id == "level_" + current_level + "_figures") {
-			if ($("#" + position_id).find($(".figure")).length == 0 && position_id.split("_")[3] == figure_id.split("_")[3]) {
-				$("#" + position_id).append($("#" + figure_id));
-				/* $("#" + figure_id + " .speech").addClass("opened").delay(3000).queue(function() { $(this).removeClass("opened").dequeue(); }); */
-			} /* else remove_figure(figure_id); */
+			if ($("#" + position_id).find($(".figure")).length == 0 && position_id.split("_")[3] == figure_id.split("_")[3]) $("#" + position_id).append($("#" + figure_id));
 		} else {
 			$("#" + $("#" + figure_id).data().parent_id).append($("#" + position_id + " .figure"));
 			$("#" + position_id).append($("#" + figure_id));
-			/* $("#" + figure_id + " .speech").addClass("opened").delay(3000).queue(function() { $(this).removeClass("opened").dequeue(); }); */
-		}
-		/* toggle_check_button(); */
+		}		
 	}
 }
-/*function toggle_check_button() {
-	if ($("#level_" + current_level + " .position .figure").length == $("#level_" + current_level + " .position").length) $("#level_" + current_level + "_vas_check_button").removeClass("invisible");
-	else $("#level_" + current_level + "_vas_check_button").addClass("invisible");
-}*/
 function remove_figure(figure_id, hard) { if (game_is_running || hard) { $("#level_" + current_level + " .figures").append($("#" + figure_id)).queue(function() { $("#" + figure_id).css({ "position":"absolute", "top":$("#" + figure_id).attr("top"), "left":$("#" + figure_id).attr("left") }).removeClass("invisible").mouseover(function() { if (typeof $(this).attr("theTitle") !== typeof undefined && $(this).attr("theTitle") !== false) ddrivetip($(this).attr("theTitle")); }); /* toggle_check_button(current_level); */ $(this).dequeue(); }); } }
 function check_positions() {
-	// if ($("#level_" + level + " .figures .figure").length == 0) end_game(level);
 	var correct_positions = 0;
 	$("#level_" + current_level + " .position").each(function() { if ($(this).find(".figure").length != 0) { if ($(this).find(".figure").attr("id").split("_")[3] == $(this).attr("id").split("_")[3]) correct_positions++; } });
 	if (correct_positions == $("#level_" + current_level + " .position").length) end_game(current_level,1);
@@ -143,23 +134,22 @@ function check_positions() {
 	}
 }
 
-function end_game(level,correct) {
-	if (level < 6) { /* all levels except level 6 */
-		if (correct) {
-			pause_timer(); game_is_running = false;
-			$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint, #level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
-			var level_vas = game_data.vases.filter(function(val, index, array) { return val.level == level; });
-			var next_level = Math.round(level) + 1; if (next_level == 6) next_level = "init";
-			$("#level_" + level + "_vas_caption").html("<img src='assets/img/correct_" + lang + ".svg'/><br/><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>" + ((next_level != "init") ? eval("game_data.texts." + lang + ".next_level_button") : eval("game_data.texts." + lang + ".restart_button") ) + "</div>");			
-			if (next_level != "init") $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
-			else $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "$('#intro').removeClass('instructions'); goto_screen('init');");
-		} else {
-			stop_timer(); game_is_running = false;
-			$("#level_" + level + " .figures .figure").addClass("invisible");
-			$("#level_" + level + "_vas_caption").html("<img src='assets/img/wrong_" + lang + ".svg'/><div class='button' onclick='goto_screen(\"level_" + current_level + "\");'>" + eval("game_data.texts." + lang + ".retry_button") + "</div>");
-			$("#level_" + level + "_vas_check_button").addClass("invisible");
-		}
-	}
+function end_game(level,correct) {	
+	$(".vas_hint").each(function() { $(this).unbind("click"); });
+	if (correct) {
+		pause_timer(); game_is_running = false;
+		$("#level_" + level + "_vas_check_button, #clock, #level_" + level + "_vas_hint, #level_" + level + " .vas .empty_vas, #level_" + level + " .vas .position, #level_" + level + " .figure").addClass("invisible");
+		var level_vas = game_data.vases.filter(function(val, index, array) { return val.level == level; });
+		var next_level = Math.round(level) + 1; if (next_level == 6) next_level = "init";
+		$("#level_" + level + "_vas_caption").html("<br/><br/><img src='assets/img/correct_" + lang + ".svg'/><br/><br/><p>" + eval("level_vas[0].caption." + lang) + "</p><br/><br/><div class='button next_level'>" + ((next_level != "init") ? eval("game_data.texts." + lang + ".next_level_button") : eval("game_data.texts." + lang + ".restart_button") ) + "</div>");			
+		if (next_level != "init") $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "goto_screen('level_" + next_level + "');");
+		else $("#level_" + level + " .next_level").removeClass("disabled").attr("onclick", "$('#intro').removeClass('instructions'); goto_screen('init');");
+	} else {
+		stop_timer(); game_is_running = false;
+		$("#level_" + level + " .figures .figure").addClass("invisible");
+		$("#level_" + level + "_vas_caption").html("<br/><br/><img src='assets/img/wrong_" + lang + ".svg'/><br/><br/><div class='button' onclick='goto_screen(\"level_" + current_level + "\");'>" + eval("game_data.texts." + lang + ".retry_button") + "</div>");
+		$("#level_" + level + "_vas_check_button").addClass("invisible");
+	}	
 }
 /* */
 
