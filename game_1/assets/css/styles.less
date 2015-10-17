@@ -159,7 +159,7 @@ hr { .clear; border:0; border-top:dotted 1px @midGray; margin:0 auto; width:95%;
 p + p { margin:15px 0 0; }
 img { &.full { width:100%; margin:0 0 -10px; } }
 a {
-	color:@sitered; .notUnderlined; .active; .transition(all .2s ease-in-out);	
+	color:@white; .notUnderlined; .active; .transition(all .2s ease-in-out);	
 	&:hover, &.selected { color:@siteblue; .notUnderlined; }
 	&.footer:not(:last-child):after { color:@white; content:"/"; margin:0 0 0 5px; }
 	&.footer:hover { color:@white; }
@@ -181,13 +181,24 @@ a {
 				p { .leftText; }
 				&#intro_page_1 { .rel;
 					img:not(.icon) { margin:130px auto 100px; height:200px; }
-					#intro_icon_1 { .absPos(275px,195px); }
-					#intro_icon_2 { .absPos(65px,550px); }
+					#intro_icon_1 { .absPos(280px,205px); width:75px; }
+					#intro_icon_2 { .absPos(85px,550px); width:75px; }
 				}
 				&#intro_page_2 {
 					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
 					i { color:@orange; }
 					#start_game { .centered; }
+					#sound_settings {						
+						width:100px; height:30px; .absPosBottom(25px,20px); overflow:hidden; .transition(all .2s ease-in-out);
+						#sound_settings_container { width:100%; height:100%; .active;
+							#sound_settings_button { .abs; .z(10); width:50%; height:100%; background-color:@lightGray; background-image:url("../img/sound_off.svg"); background-repeat:no-repeat; background-position:center center; background-size:50%; }
+							#sound_settings_bg { .clear; .abs; .z(0); width:100%; height:100%; background-color:@midGray; div { .centeredText; .pt(14); .bold; color:@darkGray; .left; padding:5px 0 0; width:50%!important; } }
+						}
+						&.open {
+							#sound_settings_bg { background-color:@white!important; }
+							#sound_settings_button { .absPos(0,50px); background-image:url("../img/sound_on.svg")!important; }
+						}
+					}
 				}
 			}
 			&.instructions { .intro_page { .relPos(-100%,0); } }
@@ -228,7 +239,7 @@ a {
 	#help {
 		.active; background:@white; color:@textGray; .rounded(8px); .centeredText; .absPosBottom(25px,25px); padding:25px; width:400px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; color:@textGray; }
-		&.hidden { .rounded(50%); background-color:@orange; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; color:@white; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background-color:@textGray; .rounded(8px); } }		
+		&.hidden { .rounded(50%); background-color:@orange; #help_icon { .absPos(0,0); width:100%; height:100%; background-image:url("../img/info.svg"); background-repeat:no-repeat; background-size:100%; } color:@white; .absPosBottom(25px,25px); width:50px; height:27px; padding:13px 0 10px; .bold; &:hover { background-color:@textGray; .rounded(8px); } }		
 		.help_content { .leftText; .pt(13);
 			img { margin:0 0 25px; }
 			ul { margin:25px 0; padding:0; list-style-type:none; li { margin:0 0 5px; .clear; img { width:35px; background:#999; .rounded(50%); padding:5px; vertical-align:middle; margin:0 10px 0 0; } } }

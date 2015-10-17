@@ -3,6 +3,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<title></title>	
 	<link rel="icon" href="assets/img/favicon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/favicon.png"/>
@@ -20,8 +22,23 @@
 		var img_3 = new Image(1024,768); img_3.src = "assets/img/medium_stage_bw.jpg";
 		var img_4 = new Image(1024,768); img_4.src = "assets/img/last_stage.jpg";
 		var img_5 = new Image(1024,768); img_5.src = "assets/img/help_level_1.gif";
-		var img_6 = new Image(1024,768); img_6.src = "assets/img/help_level_2.gif";
+		var img_6 = new Image(1024,768); img_6.src = "assets/img/help_level_2.gif";		
+		var svg_1 = new Image(); svg_1.src = "assets/img/brush.svg";
+		var svg_2 = new Image(); svg_1.src = "assets/img/close.svg";
+		var svg_3 = new Image(); svg_1.src = "assets/img/correct_en.svg";
+		var svg_4 = new Image(); svg_1.src = "assets/img/correct_gr.svg";
+		var svg_5 = new Image(); svg_1.src = "assets/img/game_1_title_en.svg";
+		var svg_6 = new Image(); svg_1.src = "assets/img/game_1_title_gr.svg";
+		var svg_7 = new Image(); svg_1.src = "assets/img/info.svg";
+		var svg_8 = new Image(); svg_1.src = "assets/img/instructions_en.svg";
+		var svg_9 = new Image(); svg_1.src = "assets/img/instructions_gr.svg";
+		var svg_10 = new Image(); svg_1.src = "assets/img/pick.svg";
+		var svg_11 = new Image(); svg_1.src = "assets/img/wrong_en.svg";
+		var svg_12 = new Image(); svg_1.src = "assets/img/wrong_gr.svg";
 	</script>
+	
+	<!-- audio -->
+	<audio id="lose_life_sound" src="assets/sound/lose_2.mp3" preload="auto"></audio>
 	
 	<!-- tooltip -->
 	<div id="dhtmltooltip"></div>
@@ -31,7 +48,7 @@
 	<script src="assets/libs/jquery-migrate.min.js"></script>
 	<script src="assets/libs/jquery.easing.min.js"></script>
 	<!-- custom js -->
-	<script src="assets/js/functions.min.js"></script>
+	<script src="assets/js/functions.js"></script>
 	
 	<!-- init loader -->
 	<div id="loader"><img src="assets/img/loading.gif"/></div>
@@ -51,6 +68,12 @@
 				<div id="intro_page_2" class="intro_page">
 					<div id="game_subtitle" class="text"><!-- dynamic content --></div>
 					<div id="start_game" class="button big"><!-- dynamic content --></div>
+					<div id="sound_settings">
+						<div id="sound_settings_container">
+							<div id="sound_settings_button"></div>
+							<div id="sound_settings_bg"><div id="sound_on">ON</div><div id="sound_off">OFF</div></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -133,7 +156,6 @@
 			<div class="tool" id="bulldozer" for="level_1" onclick="remove_svg_area(this);"><img src="assets/img/bulldozer.png"/></div>
 			<div class="tool" id="drill" for="level_1" onclick="remove_svg_area(this);"><img src="assets/img/drill.png"/></div>
 			<div class="tool" id="pick" for="level_1 level_2" onclick="remove_svg_area(this);"><img src="assets/img/pick.png"/></div>
-			<!--div class="tool" id="shovel" for="level_2" onclick="remove_svg_area(this);"><img src="assets/img/shovel.png"/></div-->
 			<div class="tool" id="brush" for="level_2" onclick="remove_svg_area(this);"><img src="assets/img/brush.png"/></div>
 		</div>
 		
@@ -142,7 +164,7 @@
 		
 		<!-- help icon + popup -->
 		<div id="help" class="hidden invisible">
-			<span id="help_icon"></span>
+			<div id="help_icon"></div>
 			<span id="help_text" class="invisible">
 				<div id="help_text_level_1" class="help_content invisible"><!-- dynamic content --></div>
 				<div id="help_text_level_2" class="help_content invisible"><!-- dynamic content --></div>
