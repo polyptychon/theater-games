@@ -3,6 +3,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<title></title>	
 	<link rel="icon" href="assets/img/favicon.png"/>		
 	<link rel="apple-touch-icon-precomposed" href="assets/img/favicon.png"/>
@@ -15,6 +17,18 @@
 	<script>
 		var img_intro_bg = new Image(932,662); img_intro_bg.src = "assets/img/intro_bg.png";
 		var img_popup_bg = new Image(765,539); img_popup_bg.src = "assets/img/popup_bg.png";
+		var svg_1 = new Image(); svg_1.src = "assets/img/keep_trying_en.svg";
+		var svg_2 = new Image(); svg_1.src = "assets/img/close.svg";
+		var svg_3 = new Image(); svg_1.src = "assets/img/correct_en.svg";
+		var svg_4 = new Image(); svg_1.src = "assets/img/correct_gr.svg";
+		var svg_5 = new Image(); svg_1.src = "assets/img/game_4_title_en.svg";
+		var svg_6 = new Image(); svg_1.src = "assets/img/game_4_title_gr.svg";
+		var svg_7 = new Image(); svg_1.src = "assets/img/info.svg";
+		var svg_8 = new Image(); svg_1.src = "assets/img/instructions_en.svg";
+		var svg_9 = new Image(); svg_1.src = "assets/img/instructions_gr.svg";
+		var svg_10 = new Image(); svg_1.src = "assets/img/keep_trying_gr.svg";
+		var svg_11 = new Image(); svg_1.src = "assets/img/wrong_en.svg";
+		var svg_12 = new Image(); svg_1.src = "assets/img/wrong_gr.svg";
 	</script>
 	
 	<!-- tooltip -->
@@ -27,7 +41,7 @@
 	<script src="assets/libs/jquery-ui.min.js"></script>
 	<script src="assets/libs/jquery.ui.touch-punch.min.js"></script>	
 	<!-- custom js -->
-	<script src="assets/js/functions.min.js"></script>
+	<script src="assets/js/functions.js"></script>
 	
 	<!-- init loader -->
 	<div id="loader"><img src="assets/img/loading.gif"/></div>
@@ -153,7 +167,7 @@
 		
 		<!-- help icon + popup -->
 		<div id="help" class="hidden invisible">
-			<span id="help_icon"></span>
+			<div id="help_icon"></div>
 			<span id="help_text" class="help_content invisible"><!-- dynamic content --></span>
 			<div id="close_help" class="close_button invisible"></div>
 		</div>				
