@@ -17,7 +17,7 @@ $(window).load(function() {
 	} else {
 		init();
 		$("*[theTitle]").titlesBehaviour();	
-		$("#start_game, #restart").click(function() { $("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_1"); });
+		$("#start_game, #restart").click(function() { $("#tools, #help, #efforts, #sound_settings").show(); selected_area = ""; removed_areas = 0; goto_screen("level_1"); });
 		$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 		$("#help").click(function() { show_help(); });
 		$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
@@ -54,8 +54,8 @@ function init() {
 function goto_screen(which) {	
 	if ($("#" + which).hasClass("hidden")) { $("#" + which).removeClass("hidden"); init_svg_objects(which); }
 	$(".tool").removeClass("open").filter("[for~=" + which + "]").addClass("open");
-	if (which.indexOf("level") != -1) { fill_lives(); $("#efforts, #help").removeClass("invisible"); }
-	else { $("#efforts, #help").addClass("invisible"); }
+	if (which.indexOf("level") != -1) { fill_lives(); $("#efforts, #help, #sound_settings").removeClass("invisible"); }
+	else { $("#efforts, #help, #sound_settings").addClass("invisible"); }
 	$(".screen").each(function() { if ($(this).attr("id") != which) $(this).addClass("hidden"); });
 }
 
@@ -89,7 +89,7 @@ function remove_svg_area(which_tool) {
 function init_svg_objects(level) { $("#" + level + " svg, #" + level + " svg *").css("display","block"); $("#" + level + " svg *").removeAttr("class").removeAttr("style"); }
 
 function fill_lives() { $("#efforts").html(""); for (l = 1; l <= 4; l++) $("#efforts").append("<div class='effort'><img src='assets/img/heart.png'></div>"); }
-function lose_life(level) { $("#efforts .effort:not(.lost):last").addClass("lost"); if (sound) $("#lose_life_sound")[0].play(); if ($(".effort:not(.lost)").length == 0) { selected_area = ""; removed_areas = 0; init_svg_objects(level); if (level == "level_1") var message = eval("game_data.texts." + lang + ".level_1_error"); else message = eval("game_data.texts." + lang + ".level_2_error"); show_message({"message":message, "buttons":[{"button":eval("game_data.texts." + lang + ".retry_button"), "action":"goto_screen(\"" + level + "\")"}]}); } }
+function lose_life(level) { $("#efforts .effort:not(.lost):last").addClass("lost"); if (sound) { play_sound("lose_life_sound"); } if ($(".effort:not(.lost)").length == 0) { selected_area = ""; removed_areas = 0; init_svg_objects(level); if (level == "level_1") var message = eval("game_data.texts." + lang + ".level_1_error"); else message = eval("game_data.texts." + lang + ".level_2_error"); show_message({"message":message, "buttons":[{"button":eval("game_data.texts." + lang + ".retry_button"), "action":"goto_screen(\"" + level + "\")"}]}); } }
 
 function show_help() { $("#help_icon").addClass("invisible").delay(100).queue(function() { $("#help").removeClass("hidden"); $(this).dequeue(); }).delay(100).queue(function() { $("#help_text").removeClass("invisible"); $("#close_help").removeClass("invisible"); if (!$("#level_1").hasClass("hidden")) { $("#help_text_level_1").removeClass("invisible"); $("#help_text_level_2").addClass("invisible"); } else { $("#help_text_level_2").removeClass("invisible"); $("#help_text_level_1").addClass("invisible"); } $(this).dequeue(); }); }
 function hide_help() { $("#help_text").addClass("invisible"); $("#close_help").addClass("invisible"); $("#help_icon").removeClass("invisible"); $("#help").addClass("hidden"); }
@@ -101,6 +101,7 @@ function show_message(params) {
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
+function play_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); the_sound.currentTime = 0; the_sound.play(); }
 function toggle_sound() {
 	if (!$("#sound_settings").hasClass("open")) { $("#sound_settings").addClass("open"); sound = true; }
 	else { $("#sound_settings").removeClass("open"); sound = false; }
@@ -108,10 +109,10 @@ function toggle_sound() {
 
 function end_game(level) {
 	if (level == 1) {
-		setTimeout(function() { $("#init_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
-		setTimeout(function() { show_message({"message":eval("game_data.texts." + lang + ".medium_stage"), "buttons":[{"button":eval("game_data.texts." + lang + ".next_level_button"), "action":'$("#tools, #help, #efforts").show(); selected_area = ""; removed_areas = 0; goto_screen("level_2");'}]}); }, 4000);
+		setTimeout(function() { $("#init_stage, #tools, #help, #efforts, #sound_settings").fadeOut(1000); }, 500);
+		setTimeout(function() { show_message({"message":eval("game_data.texts." + lang + ".medium_stage"), "buttons":[{"button":eval("game_data.texts." + lang + ".next_level_button"), "action":'$("#tools, #help, #efforts, #sound_settings").show(); selected_area = ""; removed_areas = 0; goto_screen("level_2");'}]}); }, 4000);
 	} else if (level == 2) {
-		setTimeout(function() { $("#medium_stage, #tools, #help, #efforts").fadeOut(1000); }, 500);
+		setTimeout(function() { $("#medium_stage, #tools, #help, #efforts, #sound_settings").fadeOut(1000); }, 500);
 		setTimeout(function() { show_message({ "message":eval("game_data.texts." + lang + ".last_stage"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); goto_screen("init");' }]}); }, 4000);
 	}
 }
