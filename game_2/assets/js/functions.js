@@ -9,6 +9,7 @@ var calendar_read = false;
 var calendar_pages_seen = new Array();
 var correct_figures_positions = new Array();
 var figures_positions = new Array();
+var sound = false;
 /* */
 
 
@@ -30,6 +31,7 @@ $(window).load(function() {
 		activate_figures();
 		$(".position").droppable({hoverClass:"hovered", drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 		$("*[theTitle]").titlesBehaviour();	
+		$("#sound_settings").click(function() { toggle_sound(); });
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); hide_calendar(); }
 		}).keydown(function(e) {
@@ -70,6 +72,7 @@ function goto_screen(which) {
 	if (which.indexOf("level") != -1) { $("#help, #calendar, #game, #calendar_button, #game_button").removeClass("invisible"); }
 	else { $("#help, #calendar, #game, #calendar_button, #game_button").addClass("invisible"); }
 	if (which == "level_1") {
+		if (sound) play_sound("acropolis_sound");
 		setTimeout(function() {
 			$("#level_1_area_1").attr("class","hint").delay(500).queue(function() {
 				$(this).attr("class","").dequeue();
@@ -112,7 +115,7 @@ function render_calendar_content(texts) {
 	}
 	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
 	$("#calendar_flipbook").bind("turning", function(event,page) {		
-		if (page > 1 && page < 10) {
+		if (page > 1 && page < 12) {
 			if (page % 2 == 0) {
 				if (calendar_pages_seen.indexOf("page_" + page + "_page_" + (Math.round(page) + 1)) == -1) {
 					calendar_pages_seen.push("page_" + page + "_page_" + (Math.round(page) + 1));
@@ -139,7 +142,7 @@ function show_calendar(page) {
 function hide_calendar() { $("#calendar").removeClass("open"); unselect_all(); }
 function check_calendar_pages_seen() {
 	console.log(calendar_pages_seen);
-	if (!calendar_read) if (calendar_pages_seen.length == 4) { calendar_read = true; activate_game_button(); }
+	if (!calendar_read) if (calendar_pages_seen.length == 5) { calendar_read = true; activate_game_button(); }
 }
 function change_page(current_page) {
 	var page_num = $(current_page).attr("id").split("_")[1];
@@ -259,6 +262,14 @@ function show_message(params) {
 	$("#popup").removeClass("down").removeClass("invisible");
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
+
+function play_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); the_sound.currentTime = 0; the_sound.play(); the_sound.volume = 0.25; }
+function pause_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); }
+function stop_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); the_sound.currentTime = 0; }
+function toggle_sound() {
+	if (!$("#sound_settings").hasClass("open")) { $("#sound_settings").addClass("open"); sound = true; play_sound("acropolis_sound"); }
+	else { $("#sound_settings").removeClass("open"); sound = false; stop_sound("acropolis_sound"); }
+}
 
 function end_game(result) {	
 	$(".position").addClass("no_border"); $("#check_figures_positions_button").addClass("hidden");
