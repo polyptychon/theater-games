@@ -69,8 +69,8 @@ function init() {
 
 function goto_screen(which) {	
 	if ($("#" + which).hasClass("hidden")) $("#" + which).removeClass("hidden");
-	if (which.indexOf("level") != -1) { $("#help, #calendar, #game, #calendar_button, #game_button").removeClass("invisible"); }
-	else { $("#help, #calendar, #game, #calendar_button, #game_button").addClass("invisible"); }
+	if (which.indexOf("level") != -1) { $("#help, #calendar, #game, #calendar_button, #game_button, #sound_settings").removeClass("invisible"); }
+	else { $("#help, #calendar, #game, #calendar_button, #game_button, #sound_settings").addClass("invisible"); }
 	if (which == "level_1") {
 		if (sound) play_sound("acropolis_sound");
 		setTimeout(function() {
