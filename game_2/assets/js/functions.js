@@ -147,7 +147,7 @@ function check_calendar_pages_seen() {
 function change_page(current_page) {
 	var page_num = $(current_page).attr("id").split("_")[1];
 	if (page_num % 2 == 0) { if (page_num > 0) $("#calendar_flipbook").turn("page", parseInt(page_num) - 1); }
-	else { if (page_num < 11) { $("#calendar_flipbook").turn("page", parseInt(page_num) + 1); } }
+	else { if (page_num < 12) { $("#calendar_flipbook").turn("page", parseInt(page_num) + 1); } }
 }
 function activate_figures() { $(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); }); }
 function randomize_figures() { $("#figures").shuffleChildren(); }
