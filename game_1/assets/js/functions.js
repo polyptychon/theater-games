@@ -23,6 +23,7 @@ $(window).load(function() {
 		$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 		$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 		$("#sound_settings").click(function() { toggle_sound(); });
+		if (!isMobile) $("#help, .tool").addClass("no_touch");
 		$(document).keyup(function(e) {
 		  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 		});
