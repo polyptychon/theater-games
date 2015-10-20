@@ -23,7 +23,9 @@ $(window).load(function() {
 		$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 		$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
 		$("#sound_settings").click(function() { toggle_sound(); });
-		if (!isMobile) $("#help, .tool").addClass("no_touch");
+		/* if (!isMobile) $("#help, .tool").addClass("no_touch"); */
+		if (!isMobile) $("#help, .tool").bind("mouseover", function() { $(this).addClass("hover"); }).bind("mouseout", function() { $(this).removeClass("hover"); });
+		else $("#help, .tool").bind("touchstart", function() { $(this).addClass("hover"); }).bind("touchend", function() { $(this).removeClass("hover"); });
 		$(document).keyup(function(e) {
 		  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 		});
