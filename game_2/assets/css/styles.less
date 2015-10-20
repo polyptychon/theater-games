@@ -219,9 +219,9 @@ a {
 		&#level_2 {
 			#game_board { width:100%; height:100%; .absPos(0,0); .z(0); }
 			#positions { .absPos(0,0); .z(50);
-				.position { .active; width:90px; height:154px; border:dotted 2px transparent; .transition(all .2s ease-in-out);
+				.position { .active; width:90px; height:154px; border:dotted 2px @white; .transition(all .2s ease-in-out);
 					&:hover { border:dotted 2px @red; }
-					&.hovered { border:dotted 2px @white; }
+					&.hovered { border:dotted 2px @green; }
 					&.no_border { border:dotted 2px transparent; }
 					.figure { .active; width:90px; height:154px; margin:0; .shadowed(0,0,0); .absPos(0,0)!important; }
 					#f1 { background:transparent url("../img/f1.png") -90px 0; }
@@ -309,6 +309,7 @@ a {
 			#figure_img { .left; width:60%; height:100%; background:#e0dcc8; img { width:90%!important; height:100%; } }
 			#figure_info { .left; width:35%; padding:0 0 0 5%;
 				h2 { font-family:@custom_font; .ls(1px); }
+				p { .pt(14); }
 				#position_select { .pt(14); width:98%;
 					&:not(.mobile) {
 						border:0; outline:0; padding:1%; background:transparent; overflow:hidden!important;
