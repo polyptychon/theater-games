@@ -276,7 +276,7 @@ function toggle_sound() {
 
 function end_game(result) {	
 	$(".position").addClass("no_border"); $("#check_figures_positions_button").addClass("hidden");
-	if (result == "correct") show_message({ "message":eval("game_data.texts." + lang + ".correct_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("instructions"); reset_game("everything"); goto_screen("init");' }]});		
+	if (result == "correct") show_message({ "message":eval("game_data.texts." + lang + ".correct_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".restart_button"), "action":'$("#intro").removeClass("more_instructions"); reset_game("everything"); goto_screen("init");' }]});		
 	else show_message({ "message":eval("game_data.texts." + lang + ".wrong_end"), "buttons":[{ "button":eval("game_data.texts." + lang + ".play_again_button"), "action":'reset_game();' }]});
 }
 /* */
