@@ -184,7 +184,7 @@ function show_figure_info(figure_id) {
 	$("#help, #calendar_button, #game_button").addClass("disabled");
 	var f_speech = "";
 	$.each(game_data.figures, function(i,v) { if (v.id == figure_id) { f_speech = eval("v.text." + lang); } });	
-	var position_select = "<b>" + eval("game_data.texts." + lang + ".position_select") + "</b><br/><select id='position_select' size='6'>" + get_available_seats_options() + "</select><br/><br/><div id='place_figure' class='button' onclick='place_figure(\"" + figure_id + "\",$(\"#position_select\").val())'>" + eval("game_data.texts." + lang + ".place_figure_button") + "</div>";
+	var position_select = "<b>" + eval("game_data.texts." + lang + ".position_select") + "</b><br/><select id='position_select' " + ((isMobile) ? "class='mobile'" : "size='6'") + ">" + get_available_seats_options() + "</select><br/><br/><div id='place_figure' class='button' onclick='place_figure(\"" + figure_id + "\",$(\"#position_select\").val())'>" + eval("game_data.texts." + lang + ".place_figure_button") + "</div>";
 	$("#figure_img").html("").html("<img src='assets/img/" + figure_id + "_big.png'/>");
 	$("#figure_info").html("").html(f_speech + "<br/>" + position_select);
 	$("#figures_popup").addClass("opened");
