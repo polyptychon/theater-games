@@ -191,18 +191,23 @@ a {
 		#intro { width:910px; height:645px; .absPos(50px,57px); overflow:hidden; .transition(all .5s ease-in-out); background-image:url("../img/intro_bg.png"); background-repeat:no-repeat; background-size:cover;
 			.intro_page { width:90%; height:95%; margin:2.5% auto 2.5%; .relPos(0,0); .transition(all .5s ease-in-out); .centeredText;
 				p { .leftText; }
+				p + p { margin:10px 0 0; }
 				&#intro_page_1 { .rel;
 					img:not(.icon) { margin:130px auto 100px; height:200px; }
 					#intro_icon_1 { .absPos(60px,175px); height:150px; }
 					#intro_icon_2 { .absPos(245px,550px); height:150px; }
 				}
 				&#intro_page_2 {
-					hr { border:0px; border-top:dashed 1px @midGray; width:100%; margin:25px 0; }
+					h3 { .pt(20); padding:25px 0; }
+					#continue_intro { .centered; }
+				}
+				&#intro_page_3 {					
 					i { color:@orange; }
 					#start_game { .centered; }
 				}
 			}
 			&.instructions { .intro_page { .relPos(-100%,0); } }
+			&.more_instructions { .intro_page { .relPos(-200%,0); } }
 		}
 		
 		&#level_1, &#level_2 { .transition(all .3s ease-in-out); img, svg { .absPos(0,0); } }

@@ -21,6 +21,7 @@ $(window).load(function() {
 		init();	
 		$("#start_game, #restart").click(function() { goto_screen("level_1"); });
 		$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
+		$("#continue_intro").click(function() { $("#intro").removeClass("instructions").addClass("more_instructions"); });
 		$("#help").click(function() { if (!$(this).hasClass("disabled")) show_help(); });
 		$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 		$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
@@ -51,8 +52,10 @@ function init() {
 		$("head title").html(eval("game_data.texts." + lang + ".game_title"));
 		$("#game_title").attr("src","assets/img/game_2_title_" + lang + ".svg");
 		$("#game_subtitle").html(eval("game_data.texts." + lang + ".intro"));
+		$("#game_instructions").html(eval("game_data.texts." + lang + ".intro_instructions"));
 		$("#enter_game").html(eval("game_data.texts." + lang + ".enter_game_button"));
-		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));		
+		$("#continue_intro").html(eval("game_data.texts." + lang + ".continue_intro_button"));
+		$("#start_game").html(eval("game_data.texts." + lang + ".start_game_button"));
 		$("#help_text").html(eval("game_data.texts." + lang + ".help_text"));
 		$("#intro").removeClass("instructions");
 		render_calendar_content(eval("game_data.texts." + lang + ".the_feast_calendar.pages"));
