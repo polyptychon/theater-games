@@ -1,3 +1,5 @@
+@font-face { font-family:'Viktoras'; src: url('../fonts/Viktoras.eot'); src: url('../fonts/Viktoras.eot?#iefix') format('embedded-opentype'), url('../fonts/Viktoras.woff') format('woff'); font-style:normal; font-weight:400; }
+
 /* css reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -39,6 +41,7 @@ table{border-collapse:collapse;border-spacing:0}
 	@text_main_size:	1em;
 	@text_font:			"Roboto";
 	@display_font:		"Roboto";
+	@custom_font:		"Viktoras";
 	@icons_font:		"icons";
 	/* */	
 	/* */
@@ -192,15 +195,15 @@ a {
 			&.instructions { .intro_page { .relPos(-100%,0); } }
 		}
 		
-		.vas { width:50%; height:100%; .absPos(0,0); background:@lightGray;
+		.vas { width:50%; height:100%; .absPos(0,0); background-color:@lightGray; background-image:url("../img/texture_left.jpg"); background-repeat:none; background-size:cover;
 			.final_vas,.empty_vas { .z(50); }
 			.position { .rel; .z(100); .figure { .active; .absPos(0,0)!important; .z(200); } }
 		}
-		.figures { width:50%; height:100%; .absPos(0,50%); background:@lightGray - #111;
+		.figures { width:50%; height:100%; .absPos(0,50%); background-color:@lightGray - #111; background-image:url("../img/texture_right.jpg"); background-repeat:none; background-size:cover;
 			.figure { .active; .rel; .z(200); .speech { .invisible; } }
 			.vas_caption { .leftText; .absPos(75px, 50px); width:75%; }
 			.vas_check_button { .absPosBottom(25px,-160px); &.invisible { .visible(none); } }
-			.vas_hint { .active; .absPosRight(25px,110px); .pt(18); .capitalized; .bold; padding:15px 20px; background:@white; color:@textGray; &:hover { color:@orange; } &:active { background:@orange; color:@white; } }
+			.vas_hint { .active; .absPosRight(25px,125px); .pt(18); width:117px; height:41px; padding:18px 0 0; font-family:@custom_font; .ls(1px); .capitalized; background-color:transparent; background-image:url("../img/help_button.png"); background-repeat:none; background-size:cover; color:@textGray; &:hover { color:@orange; } &:active { background:@orange; color:@white; } }
 		}
 		
 		&#level_1 {
@@ -252,7 +255,7 @@ a {
 		}			
 		
 	}
-	#clock { .absPosRight(25px,25px); background:@lightGray; padding:15px 20px; .pt(18); .bold; &.last_ten { color:@red; } }
+	#clock { .absPosRight(25px,25px); background:@white; padding:15px 20px; .pt(18); .bold; &.last_ten { color:@red; } }
 	#help {
 		.active; background:@white; .z(1000); .rounded(8px); .absPosBottom(25px,25px); padding:25px; width:415px; height:668px; .shadowed(0,2px,5px); .transition(all .2s ease-in-out);
 		&:hover { background:@white; }
