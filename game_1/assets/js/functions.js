@@ -22,7 +22,7 @@ $(window).load(function() {
 		$("#help").click(function() { show_help(); });
 		$("#close_help").click(function(event) { hide_help(); event.stopPropagation(); });
 		$("#close_message").click(function(event) { hide_message("down"); event.stopPropagation(); });
-		$("#sound_settings").click(function() { toggle_sound(); });
+		/* $("#sound_settings").click(function() { toggle_sound(); }); */
 		/* if (!isMobile) $("#help, .tool").addClass("no_touch"); */
 		if (!isMobile) $("#help, .tool").bind("mouseover", function() { $(this).addClass("hover"); }).bind("mouseout", function() { $(this).removeClass("hover"); });
 		else $("#help, .tool").bind("touchstart", function() { $(this).addClass("hover"); }).bind("touchend", function() { $(this).removeClass("hover"); });
@@ -104,11 +104,11 @@ function show_message(params) {
 }
 function hide_message(where) { if (where == "down") { if (!$("#popup").hasClass("down")) $("#popup").addClass("down"); else $("#popup").removeClass("down"); } else $("#popup").addClass("invisible"); }
 
-function play_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); the_sound.currentTime = 0; the_sound.play(); }
+/* function play_sound(id) { var the_sound = $("#" + id)[0]; the_sound.pause(); the_sound.currentTime = 0; the_sound.play(); }
 function toggle_sound() {
 	if (!$("#sound_settings").hasClass("open")) { $("#sound_settings").addClass("open"); sound = true; }
 	else { $("#sound_settings").removeClass("open"); sound = false; }
-}
+}*/
 
 function end_game(level) {
 	if (level == 1) {
