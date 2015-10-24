@@ -28,6 +28,7 @@ $(window).load(function() {
 		$(".position").droppable({drop: function(event,ui) { var position_id = $(this).attr("id"); drop_figure(event,$(ui.draggable).attr("id"),position_id); } });
 		$(".vas, .figures").droppable({drop: function(event,ui) { if ($(this).hasClass("figures")) remove_figure($(ui.draggable).attr("id")); }});
 		$(".vas_check_button").each(function() { $(this).click(function() { check_positions(); }); });
+		$(".vas_hint").each(function() { $(this).bind("mousedown touchstart", function() { if (game_is_running) show_hint(); }).bind("mouseup touchend", function() { if (game_is_running) hide_hint(); }); });
 		$(document).keyup(function(e) {
 		  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
 		});
@@ -63,8 +64,7 @@ function goto_screen(which) {
 		position_figures();
 		add_figure_text();
 		$("*[theTitle]").titlesBehaviour();
-		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint, #level_" + current_level + "_vas_check_button").removeClass("invisible");
-		$(".vas_hint").each(function() { $(this).bind("mousedown touchstart", function() { if (game_is_running) show_hint(); }).bind("mouseup touchend", function() { if (game_is_running) hide_hint(); }); });
+		$("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + "_vas_hint, #level_" + current_level + "_vas_check_button").removeClass("invisible");		
 		hide_help();
 		reset_timer(); start_timer();
 	}
