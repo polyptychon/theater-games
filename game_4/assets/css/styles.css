@@ -586,6 +586,16 @@ a.footer:hover {
   position: relative;
   z-index: 50;
 }
+#container[lang="en"] #intro_icon_2 {
+  position: absolute !important;
+  top: 55px !important;
+  left: 155px !important;
+}
+#container[lang="en"] #intro_icon_1 {
+  position: absolute !important;
+  top: 55px !important;
+  left: 555px !important;
+}
 #container .screen {
   width: 100%;
   height: 100%;

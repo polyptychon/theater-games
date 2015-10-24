@@ -18,6 +18,7 @@ $(window).load(function() {
 		$("body").html("<div style='width:1024px; text-align:center; margin:25px auto;'>This site uses web technologies that your browser (Internet Explorer " + $.browser.version + ") doesn't support.<br/>Please visit the site using a new version of <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a>, <a href='http://www.mozilla.org/en-US/firefox/new/'>Mozilla Firefox</a>, <a href='https://www.apple.com/safari/'>Safari</a> or <a href='http://www.opera.com/'>Opera</a>.<br/>Sorry for the inconvenience :-/</div>");
 	} else {
 		init();	
+		$("#container").attr("lang",lang);
 		$("#close_descriptions").click(function() { $("#descriptions").removeClass("open"); $(".theater").removeClass("selected"); });
 		$("#check_schedule").unbind("click");
 		$("#num_of_theaters").html(0);

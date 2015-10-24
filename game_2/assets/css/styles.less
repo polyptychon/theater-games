@@ -173,7 +173,7 @@ a {
 #loader { width:100%; height:100%; .fixPos(0,0); .z(20000); background:@sitebeize - #222; overflow:hidden; .centeredText; img { margin:25% auto 0; } }
 #dhtmltooltip { .abs; max-width:350px; background:@lightYellow!important; color:@textGray; padding:10px; visibility:hidden; .z(5500); .pt(14); margin:4px; .transparent(0.95,95); }
 #container { width:1024px; height:768px; background:@textGray; .shadowed(0,2px,5px); margin:0 auto; overflow:hidden; .rel; .z(50);
-	#sound_settings {						
+	/* #sound_settings {						
 		width:100px; height:30px; .absPosBottomRight(35px,25px); .z(4000); .transition(all .2s ease-in-out);
 		#sound_settings_container { width:100%; height:100%; .active;
 			#sound_settings_button { .abs; .z(4010); width:50%; height:100%; background-color:@lightGray; background-image:url("../img/sound_off.svg"); background-repeat:no-repeat; background-position:center center; background-size:50%; }
@@ -183,8 +183,12 @@ a {
 			#sound_settings_bg { background-color:@white!important; }
 			#sound_settings_button { .absPos(0,50px); background-image:url("../img/sound_on.svg")!important; }
 		}
+	} */
+	&[lang="en"] {
+		#intro_icon_1 { .absPos(70px,80px)!important; }
+		#intro_icon_2 { .absPos(200px,610px)!important; }
+		.front_cover { background-image:url("../img/diary_front_en.png")!important; }
 	}
-	
 	.screen { width:100%; height:100%; background:@lightGray; .absPos(0,0); .z(100); .transparent(1,100); .transition(~"opacity .2s ease-in-out, -webkit-opacity .2s ease-in-out"); &.hidden { .absPos(0,0); .transparent(0,0); .z(0); }
 		
 		&#init { background-image:url("../img/acropoli.jpg"); width:100%; height:100%; background-repeat:no-repeat; }
@@ -198,7 +202,7 @@ a {
 					#intro_icon_2 { .absPos(245px,550px); height:150px; }
 				}
 				&#intro_page_2 {
-					h3 { .pt(20); padding:25px 0; }
+					h3 { .pt(24); padding:25px 0; }
 					#continue_intro { .centered; }
 				}
 				&#intro_page_3 {					
@@ -274,7 +278,7 @@ a {
 						.page_content { padding:30px 50px;
 							&.img { padding:50px; background:@lightGray; img { width:100%; } }
 							h2 { .normal; }
-							&.front_cover { background-color:transparent!important; height:100%; background-image:url("../img/diary_front.png"); background-repeat:no-repeat; background-size:cover; background-position:center center; }
+							&.front_cover { background-color:transparent!important; height:100%; background-image:url("../img/diary_front_gr.png"); background-repeat:no-repeat; background-size:cover; background-position:center center; }
 							&.back_cover { background-color:transparent!important; height:100%; background-image:url("../img/diary_back.png"); background-repeat:no-repeat; background-size:cover; }
 						}
 					}

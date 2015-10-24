@@ -19,6 +19,7 @@ $(window).load(function() {
 		$("body").html("<div style='width:1024px; text-align:center; margin:25px auto;'>This site uses web technologies that your browser (Internet Explorer " + $.browser.version + ") doesn't support.<br/>Please visit the site using a new version of <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a>, <a href='http://www.mozilla.org/en-US/firefox/new/'>Mozilla Firefox</a>, <a href='https://www.apple.com/safari/'>Safari</a> or <a href='http://www.opera.com/'>Opera</a>.<br/>Sorry for the inconvenience :-/</div>");
 	} else {
 		init();	
+		$("#container").attr("lang",lang);
 		$("#start_game, #restart").click(function() { goto_screen("level_1"); });
 		$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
 		$("#continue_intro").click(function() { $("#intro").removeClass("instructions").addClass("more_instructions"); });
@@ -118,7 +119,7 @@ function render_calendar_content(texts) {
 	}
 	$("#calendar_flipbook").html(content_html).turn({width:"100%",height:"100%",acceleration:false});
 	$("#calendar_flipbook").bind("turning", function(event,page) {		
-		if (page > 1 && page < 12) {
+		if (page > 1 && page < 11) {
 			if (page % 2 == 0) {
 				if (calendar_pages_seen.indexOf("page_" + page + "_page_" + (Math.round(page) + 1)) == -1) {
 					calendar_pages_seen.push("page_" + page + "_page_" + (Math.round(page) + 1));
@@ -150,7 +151,7 @@ function check_calendar_pages_seen() {
 function change_page(current_page) {
 	var page_num = $(current_page).attr("id").split("_")[1];
 	if (page_num % 2 == 0) { if (page_num > 0) $("#calendar_flipbook").turn("page", parseInt(page_num) - 1); }
-	else { if (page_num < 12) { $("#calendar_flipbook").turn("page", parseInt(page_num) + 1); } }
+	else { if (page_num < 11) { $("#calendar_flipbook").turn("page", parseInt(page_num) + 1); } }
 }
 function activate_figures() { $(".figure").draggable({revert:"invalid", start: function() { $(this).data("info", { "init_position" : $(this).position(), "parent_id" : $(this).parent().attr("id") }); }}).bind("click", function() { if (!$(this).parent().hasClass("position")) show_figure_info($(this).attr("id")); }); }
 function randomize_figures() { $("#figures").shuffleChildren(); }

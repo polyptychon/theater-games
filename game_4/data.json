@@ -5,12 +5,12 @@
 			"img" : "0047",
 			"caption" : {
 				"gr" : "<p>Αγγείο για την αποθήκευση αρωματικών ελαίων (πελίκη). Η παράσταση εικονίζει τον Διόνυσο ανάμεσα σε Μαινάδα και Σάτυρο. 440-430 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>",
-				"en" : "<p>Αγγείο για την αποθήκευση αρωματικών ελαίων (πελίκη). Η παράσταση εικονίζει τον Διόνυσο ανάμεσα σε Μαινάδα και Σάτυρο. 440-430 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>"
+				"en" : "<p>Vessel for storing perfumed oils (pelike).The decoration depicts Dionysus between a Maenad and a Satyr, 440-430 B.C. National Archaeological Museum of Athens.</p>"
 			},
 			"figures": [				
-				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "425px", "left" : "325px", "text" : { "gr" : "<p>Είμαι μια Μαινάδα και πάντοτε ακολουθώ το θεό Διόνυσο. Εδώ με βλέπετε να κρατάω μία δάδα για να φωτίζω το δρόμο μας.</p>", "en" : "-" } },
-				{ "id" : "f_2", "name" : { "gr" : "Διόνυσος", "en" : "-" }, "top" : "250px", "left" : "125px", "text" : { "gr" : "<p>Είμαι ο Διόνυσος. Φοράω στεφάνι από φύλλα  κισσού. Κρατάω τον θύρσο, την ιερή μου ράβδο που είναι διακοσμημένη με ένα κουκουνάρι και στολισμένη με κισσό. Στο δεξί μου χέρι κρατάω κάνθαρο, ένα κύπελλο για να πίνω το κρασί μου.</p>", "en" : "-" } },
-				{ "id" : "f_3", "name" : { "gr" : "Σάτυρος", "en" : "-" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Είμαι ένας Σάτυρος, γι’ αυτό έχω ουρά αλόγου.  Συντροφεύω το θεό Διόνυσο και παίζω με τον αυλό μου τη μουσική που του αρέσει.</p>", "en" : "-" } }
+				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "425px", "left" : "325px", "text" : { "gr" : "<p>Είμαι μια Μαινάδα και πάντοτε ακολουθώ το θεό Διόνυσο. Εδώ με βλέπετε να κρατάω μία δάδα για να φωτίζω το δρόμο μας.</p>", "en" : "<p>I am a Maenad and I always follow god Dionysus. Here you can see me holding a torch to light our way.</p>" } },
+				{ "id" : "f_2", "name" : { "gr" : "Διόνυσος", "en" : "Dionysus" }, "top" : "250px", "left" : "125px", "text" : { "gr" : "<p>Είμαι ο Διόνυσος. Φοράω στεφάνι από φύλλα  κισσού. Κρατάω τον θύρσο, την ιερή μου ράβδο που είναι διακοσμημένη με ένα κουκουνάρι και στολισμένη με κισσό. Στο δεξί μου χέρι κρατάω κάνθαρο, ένα κύπελλο για να πίνω το κρασί μου.</p>", "en" : "<p>I am Dionysus. I am wearing an ivy wreath. I am holding my thyrsus, my sacred rod that is, which is decorated with a pine cone and ivy on the top. In my right hand I am holding a cantharus, a cup for drinking my wine.</p>" } },
+				{ "id" : "f_3", "name" : { "gr" : "Σάτυρος", "en" : "Satyr" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Είμαι ένας Σάτυρος, γι’ αυτό έχω ουρά αλόγου.  Συντροφεύω το θεό Διόνυσο και παίζω με τον αυλό μου τη μουσική που του αρέσει.</p>", "en" : "<p>I am a Satyr that’s why I have a horse tail. I follow god Dionysus and I am playing with my flute his favourite music.</p>" } }
 			]
 		},
 		{
@@ -18,11 +18,11 @@
 			"img" : "0049",
 			"caption" : {
 				"gr" : "<p>Αγγείο για την αποθήκευση αρωματικών ελαίων (πελίκη) με παράσταση Διονύσου και Μαινάδας. 450-440 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>",
-				"en" : "<p>Αγγείο για την αποθήκευση αρωματικών ελαίων (πελίκη) με παράσταση Διονύσου και Μαινάδας. 450-440 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>"
+				"en" : "<p>Vessel for storing perfumed oils (pelike) decorated with Dionysus and a Maenad, 450-440 B.C. National Archaeological Museum of Athens.</p>"
 			},
 			"figures": [
-				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "100px", "left" : "100px", "text" : { "gr" : "<p>Ναι , Διόνυσε σε ακολουθώ και σε συντροφεύω κρατώντας μία δάδα.</p>", "en" : "-" } },
-				{ "id" : "f_2", "name" : { "gr" : "Διόνυσος", "en" : "-" }, "top" : "350px", "left" : "200px", "text" : { "gr" : "<p>Τώρα πια με αναγνωρίζετε από τα σύμβολα μου, το στεφάνι κισσού,  το θύρσο, δηλαδή  την ιερή ράβδο που κρατάω, και τον κάνθαρο για το κρασί μου. Περπατάω μπροστά αλλά κοιτάω τη Μαινάδα, την πιστή μου ακόλουθο.</p>", "en" : "-" } }				
+				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "100px", "left" : "100px", "text" : { "gr" : "<p>Ναι , Διόνυσε σε ακολουθώ και σε συντροφεύω κρατώντας μία δάδα.</p>", "en" : "<p>Yes, Dionysus, I am following you and I am accompanying you holding a torch.</p>" } },
+				{ "id" : "f_2", "name" : { "gr" : "Διόνυσος", "en" : "Dionysus" }, "top" : "350px", "left" : "200px", "text" : { "gr" : "<p>Τώρα πια με αναγνωρίζετε από τα σύμβολα μου, το στεφάνι κισσού,  το θύρσο, δηλαδή  την ιερή ράβδο που κρατάω, και τον κάνθαρο για το κρασί μου. Περπατάω μπροστά αλλά κοιτάω τη Μαινάδα, την πιστή μου ακόλουθο.</p>", "en" : "<p>At last you recognize me from my symbols, the ivy wreath, the thyrsus that is the sacred rod I hold, and my cantharus for drinking my wine. I am walking ahead but I am looking at my Maenad, my loyal follower.</p>" } }				
 			]
 		},
 		{
@@ -30,13 +30,13 @@
 			"img" : "1218",
 			"caption" : {
 				"gr" : "<p>Αγγείο για το κέρασμα του κρασιού (χους). Ένας Σάτυρος υποβαστάζει τον Διόνυσο που είναι μεθυσμένος. Μπροστά τους προχωρά Μαινάδα κρατώντας ένα αυλό και ακολουθεί ένας μικρός Σάτυρος με δάδα. Περ. 425 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>",
-				"en" : "<p>Αγγείο για το κέρασμα του κρασιού (χους). Ένας Σάτυρος υποβαστάζει τον Διόνυσο που είναι μεθυσμένος. Μπροστά τους προχωρά Μαινάδα κρατώντας ένα αυλό και ακολουθεί ένας μικρός Σάτυρος με δάδα. Περ. 425 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p>"
+				"en" : "<p>Wine jug (chous) depicting a satyr supporting drunken Dionysus. In front of them there is a Maenad walking and holding a flute. Behind them a small satyr holding a  torch and a vase, ca. 425 B.C. National Archaeological Museum of Athens.</p>"
 			},
 			"figures": [
-				{ "id" : "f_1", "name" : { "gr" : "Μικρός Σάτυρος", "en" : "-" }, "top" : "500px", "left" : "400px", "text" : { "gr" : "<p>Αν και μικρός, είμαι κι εγώ ένας Σάτυρος. Ακολουθώ τον αγαπημένο μου θεό και κρατάω μια δάδα για να βλέπουμε κι ένα αγγείο.</p>", "en" : "-" } },
-				{ "id" : "f_2", "name" : { "gr" : "Σάτυρος", "en" : "-" }, "top" : "275px", "left" : "150px", "text" : { "gr" : "<p>Ως πιστός ακόλουθος του Διονύσου τον στηρίζω για να περπατήσει. Αυτό θα έκανε κάθε Σάτυρος στη θέση μου.</p>", "en" : "-" } },
-				{ "id" : "f_3", "name" : { "gr" : "Διόνυσος", "en" : "-" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Είμαι ο Διόνυσος. Το όνομά μου ακόμα το θυμάμαι κι ας έχω πιεί λίγο κρασάκι παραπάνω...</p><p>Ευτυχώς που έχω το Σάτυρο να με βοηθάει και το θύρσο μου, την ιερή μου ράβδο δηλαδή, για να στηρίζομαι.</p>", "en" : "-" } },
-				{ "id" : "f_4", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "400px", "left" : "300px", "text" : { "gr" : "<p>Είμαι μια Μαινάδα, πιστή ακόλουθος του θεού Διονύσου. Προχωράω μπροστά και κρατάω έναν αυλό, το αγαπημένο μουσικό όργανο του θεού.</p>", "en" : "-" } }
+				{ "id" : "f_1", "name" : { "gr" : "Μικρός Σάτυρος", "en" : "Little Satyr" }, "top" : "500px", "left" : "400px", "text" : { "gr" : "<p>Αν και μικρός, είμαι κι εγώ ένας Σάτυρος. Ακολουθώ τον αγαπημένο μου θεό και κρατάω μια δάδα για να βλέπουμε κι ένα αγγείο.</p>", "en" : "<p>Although I am small, I am still a Satyr. I am following my favourite god holding a torch to light our way and a vase.</p>" } },
+				{ "id" : "f_2", "name" : { "gr" : "Σάτυρος", "en" : "Satyr" }, "top" : "275px", "left" : "150px", "text" : { "gr" : "<p>Ως πιστός ακόλουθος του Διονύσου τον στηρίζω για να περπατήσει. Αυτό θα έκανε κάθε Σάτυρος στη θέση μου.</p>", "en" : "<p>As a follower of Dionysus, I am supporting him to walk.  This is what every Satyr would do.</p>" } },
+				{ "id" : "f_3", "name" : { "gr" : "Διόνυσος", "en" : "Dionysus" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Είμαι ο Διόνυσος. Το όνομά μου ακόμα το θυμάμαι κι ας έχω πιεί λίγο κρασάκι παραπάνω...</p><p>Ευτυχώς που έχω το Σάτυρο να με βοηθάει και το θύρσο μου, την ιερή μου ράβδο δηλαδή, για να στηρίζομαι.</p>", "en" : "<p>I am Dionysus. I can still remember my name even if I have drunk some wine more. Fortunately I have Satyr to help me and my thyrsus, my sacred rod that is, to support myself.</p>" } },
+				{ "id" : "f_4", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "400px", "left" : "300px", "text" : { "gr" : "<p>Είμαι μια Μαινάδα, πιστή ακόλουθος του θεού Διονύσου. Προχωράω μπροστά και κρατάω έναν αυλό, το αγαπημένο μουσικό όργανο του θεού.</p>", "en" : "<p>I am a Maenad, a faithful follower of the God Dionysus. I am moving forward while holding a flute, the favorite musical instrument of the God.</p>" } }
 			]
 		},		
 		{
@@ -44,12 +44,12 @@
 			"img" : "0056",
 			"caption" : {
 				"gr" : "<p>Μία από τις όψεις αγγείου για την ανάμιξη του κρασιού με νερό (δίνος). Η παράσταση εικονίζει τον Διόνυσο με τον θίασό του που αποτελείται από Σατύρους και Μαινάδες. 420 με 410 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p><p> Αν θέλεις να δεις κι άλλους ακόμα συντρόφους του Διονύσου, συνέχισε στο επόμενο στάδιο.</p>",
-				"en" : "<p>Μία από τις όψεις αγγείου για την ανάμιξη του κρασιού με νερό (δίνος). Η παράσταση εικονίζει τον Διόνυσο με τον θίασό του που αποτελείται από Σατύρους και Μαινάδες. 420 με 410 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p><p> Αν θέλεις να δεις κι άλλους ακόμα συντρόφους του Διονύσου, συνέχισε στο επόμενο στάδιο.</p>"
+				"en" : "<p>View of a vessel for mixing wine with water (dinos). It depicts Dionysus with his troupe, that is Satyrs and Maenads, 420-410 B.C., National Archaeological Museum of Athens.</p><p>If you want to see more followers of Dionysus, continue to the next vas.</p>"
 			},
 			"figures": [
-				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "425px", "left" : "325px", "text" : { "gr" : "-", "en" : "-" } },
-				{ "id" : "f_2", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "225px", "left" : "125px", "text" : { "gr" : "<p>Χορεύω προς τιμή του αγαπημένου μου θεού Διονύσου. Έτσι κάνουμε εμείς οι Μαινάδες. Στο ένα μου χέρι κρατάω τον θύρσο και στο άλλο ένα άγριο ζώο. Μπροστά μου προχωράει ένας Σάτυρος και πίσω μου χορεύει μία ακόμα Μαινάδα. Ποιος την ακολουθεί; Μα ένας Σάτυρος, φυσικά.</p>", "en" : "-" } },
-				{ "id" : "f_3", "name" : { "gr" : "Διόνυσος", "en" : "-" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "-", "en" : "-" } }
+				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "425px", "left" : "325px", "text" : { "gr" : "-", "en" : "-" } },
+				{ "id" : "f_2", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "225px", "left" : "125px", "text" : { "gr" : "<p>Χορεύω προς τιμή του αγαπημένου μου θεού Διονύσου. Έτσι κάνουμε εμείς οι Μαινάδες. Στο ένα μου χέρι κρατάω τον θύρσο και στο άλλο ένα άγριο ζώο. Μπροστά μου προχωράει ένας Σάτυρος και πίσω μου χορεύει μία ακόμα Μαινάδα. Ποιος την ακολουθεί; Μα ένας Σάτυρος, φυσικά.</p>", "en" : "<p>I am dancing in honor of my favourite god Dionysus. This is what we Maenads do. In my one hand I am holding the thyrsus and in the other a wild animal. A Satyr is walking ahead of me and another Maenad is dancing behind me. Who is following her? A Satyr, of course.</p>" } },
+				{ "id" : "f_3", "name" : { "gr" : "Διόνυσος", "en" : "Dionysus" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "-", "en" : "-" } }
 			]
 		},
 		{
@@ -57,13 +57,13 @@
 			"img" : "0055",
 			"caption" : {
 				"gr" : "<p>Άλλη όψη του ίδιου αγγείου για την ανάμιξη του κρασιού με νερό (δίνος) με παράσταση Σατύρων που κυνηγούν Μαινάδες. 420 με 410 π.Χ.  Εθνικό Αρχαιολογικό Μουσείο.</p><br/><br/><p style='color:#f60'><b>Μπράβο! Ολοκλήρωσες όλα αγγεία.</b> Αν θέλεις μπορείς να ξαναπαίξεις το παιχνίδι από την αρχή.</p>",
-				"en" : "<p>Άλλη όψη του ίδιου αγγείου για την ανάμιξη του κρασιού με νερό (δίνος) με παράσταση Σατύρων που κυνηγούν Μαινάδες. 420 με 410 π.Χ.  Εθνικό Αρχαιολογικό Μουσείο.</p><br/><br/><p style='color:#f60'><b>Μπράβο! Ολοκλήρωσες όλα αγγεία.</b> Αν θέλεις μπορείς να ξαναπαίξεις το παιχνίδι από την αρχή.</p>"
+				"en" : "<p>Another view of the same vase for mixing wine with water (dinos) It depicts Dionysus with his troupe, that is Satyrs and Maenads, 420-410 B.C., National Archaeological Museum of Athens.</p><br/><br/><p style='color:#f60'><b>Excellent!</b> You managed to complete successfully the decoration of all the vases. If you like, play the game again.</p>"
 			},
 			"figures": [
-				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "525px", "left" : "375px", "text" : { "gr" : "<p>Μαινάδα είμαι που κρατώ θύρσο κι ακολουθώ τους Σατύρους.</p>", "en" : "-" } },
-				{ "id" : "f_2", "name" : { "gr" : "Σάτυρος", "en" : "-" }, "top" : "225px", "left" : "125px", "text" : { "gr" : "<p>Ελάτε σύντροφοι του Διονύσου! Σας καλώ να με ακολουθήσετε!</p>", "en" : "-" } },
-				{ "id" : "f_3", "name" : { "gr" : "Σάτυρος", "en" : "-" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Κι εγώ πιστός ακόλουθος του Διονύσου, κυνηγώ μια από τις Μαινάδες.</p>", "en" : "-" } },
-				{ "id" : "f_4", "name" : { "gr" : "Μαινάδα", "en" : "-" }, "top" : "355px", "left" : "250px", "text" : { "gr" : "<p>Μαινάδα κι εγώ, τρέχω για να ξεφύγω!</p>", "en" : "-" } }
+				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "525px", "left" : "375px", "text" : { "gr" : "<p>Μαινάδα είμαι που κρατώ θύρσο κι ακολουθώ τους Σατύρους.</p>", "en" : "<p>I am a Maenad, holding a thyrsus and I am following the Satyrs.</p>" } },
+				{ "id" : "f_2", "name" : { "gr" : "Σάτυρος", "en" : "Satyr" }, "top" : "225px", "left" : "125px", "text" : { "gr" : "<p>Ελάτε σύντροφοι του Διονύσου! Σας καλώ να με ακολουθήσετε!</p>", "en" : "<p>Come, followers of Dionysus! I invite you to follow me!</p>" } },
+				{ "id" : "f_3", "name" : { "gr" : "Σάτυρος", "en" : "Satyr" }, "top" : "50px", "left" : "50px", "text" : { "gr" : "<p>Κι εγώ πιστός ακόλουθος του Διονύσου, κυνηγώ μια από τις Μαινάδες.</p>", "en" : "<p>I am a loyal follower of Dionysus too chasing a Maenad.</p>" } },
+				{ "id" : "f_4", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "355px", "left" : "250px", "text" : { "gr" : "<p>Μαινάδα κι εγώ, τρέχω για να ξεφύγω!</p>", "en" : "<p>I am a Maenad too and I’m running to get away!</p>" } }
 			]
 		}				
 	],
@@ -84,15 +84,15 @@
 		"en" : {
 			"enter_game_button" : "ENTER",
 			"start_game_button" : "Start the game",
-			"restart_button" : "Restart game",
-			"next_level_button" : "Go to the next stage",
+			"restart_button" : "Restart the game",
+			"next_level_button" : "Continue to the next vas",
 			"retry_button" : "Try again",
 			"check_button" : "Check positions",
 			"hint_button" : "Hint",
-			"try_again" : "<img src='assets/img/keep_trying_en.svg'/><br/><br/>Κάποιες φιγούρες δεν έχουν τοποθετηθεί σωστά. Έχεις ακόμη χρόνο. Συνέχισε την προσπάθεια. Θυμήσου ότι μπορείς να πατήσεις το κουμπί της βοήθειας ανά πάσα στιγμή (χάνοντας όμως 5 δευτερόλεπτα κάθε φορά που το πατάς).",
+			"try_again" : "<img src='assets/img/keep_trying_en.svg'/><br/><br/>Some figures are not positioned correctly. You still have time. Keep trying. Remember that you can use the Hint button at any time (but you will lose five seconds every time you use it).",
 			"game_title" : "Dionysus and his friends",
-			"intro" : "<br/><hr/><p>The vases were necessary both in everyday life as utensils, and ceremonies as offerings or gifts or even as luxury tableware demonstration economic prosperity. Although the shape of each vessel was closely associated with its use, the decor always played an important role.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_en.svg' style='height:20px;'/></p><br/><p><i>Try to place the figures in the right place. Do it as fast as you can. The time counts.</i></p><br/><br/>",
-			"help_text" : "<img src='assets/img/help.gif'/><br/><p>Τοποθέτησε τις φιγούρες πάνω στο αγγείο για να ολοκληρώσεις το επίπεδο. Μπορείς να πατήσεις το κουμπί της βοήθειας για να εμφανίσεις  προσωρινά το σχέδιο πάνω στο αγγείο. Πρόσεχε όμως! Κάθε φορά που πατάς το κουμπί της βοήθειας χάνεις 5 δευτερόλεπτα.</p>"
+			"intro" : "<br/><hr/><p>The vases were necessary both in the everyday life and ceremonies as offerings, gifts or even luxury vessels which demonstrated the wealth of their owner. Eventhough the shape of each vessel was connected with its use, its decoration always played an important role.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_en.svg' style='height:20px;'/></p><br/><p><i>Try to place the figures in the right position. Do it as fast as you can. Time is running.</i></p><br/><br/>",
+			"help_text" : "<img src='assets/img/help.gif'/><br/><p>Place the figures on the vase to complete the level. You can press the help button to reveal briefly the drawing on the vase. But be careful! Every time you hit the help button you lose 5 seconds.</p>"
 		}
 	}
 }

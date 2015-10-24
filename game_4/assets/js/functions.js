@@ -17,6 +17,7 @@ $(window).load(function() {
 		$("body").html("<div style='width:1024px; text-align:center; margin:25px auto;'>This site uses web technologies that your browser (Internet Explorer " + $.browser.version + ") doesn't support.<br/>Please visit the site using a new version of <a href='https://www.google.com/intl/en/chrome/browser/'>Google Chrome</a>, <a href='http://www.mozilla.org/en-US/firefox/new/'>Mozilla Firefox</a>, <a href='https://www.apple.com/safari/'>Safari</a> or <a href='http://www.opera.com/'>Opera</a>.<br/>Sorry for the inconvenience :-/</div>");
 	} else {
 		init();
+		$("#container").attr("lang",lang);
 		$("*[theTitle]").titlesBehaviour();	
 		$("#start_game").click(function() { goto_screen("level_1"); });
 		$("#enter_game").click(function() { $("#intro").addClass("instructions"); });
@@ -92,8 +93,8 @@ function pause_timer() { clearInterval(timer_interval); }
 function stop_timer() { clearInterval(timer_interval); timer_interval = null; total_seconds = 0; $(".figure").draggable("disable"); }
 function reset_timer() { total_seconds = 120; $("#clock").html("02:00").removeClass("last_ten"); }
 
-function show_hint() { if (game_is_running && total_seconds > 5) { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").addClass("invisible"); total_seconds -= 5; } }
-function hide_hint() { if (game_is_running) $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").removeClass("invisible"); }
+function show_hint() { if (game_is_running && total_seconds > 4) { $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").addClass("invisible"); } }
+function hide_hint() { if (game_is_running) { if (total_seconds > 4) total_seconds -= 4; $("#level_" + current_level + " .vas .empty_vas, #level_" + current_level + " .vas .position, #level_" + current_level + " .figure").removeClass("invisible"); } }
 
 function position_figures() {
 	if ($("#level_" + current_level + " .position .figure").length != 0) $("#level_" + current_level + " .position .figure").each(function() { remove_figure($(this).attr("id"),true); });
