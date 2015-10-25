@@ -31,7 +31,7 @@ $(window).load(function() {
 		$(".vas_hint").each(function() { $(this).bind("mousedown touchstart", function() { if (game_is_running) show_hint(); }).bind("mouseup touchend", function() { if (game_is_running) hide_hint(); }); });
 		$(document).keyup(function(e) {
 		  if (e.keyCode == 27 /* escape */ || e.keyCode == 13 /* enter */) { hide_help(); hide_message(); }
-		});
+		}).mouseup(function() { hide_hint(); });
 		if (touch) { disableHover(); window.scrollTo(0,1); }
 		setTimeout(function() { $("#loader").fadeOut(500, function() { $(this).remove(); }); }, 500);
 	}
