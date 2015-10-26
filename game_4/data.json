@@ -44,7 +44,7 @@
 			"img" : "0056",
 			"caption" : {
 				"gr" : "<p>Μία από τις όψεις αγγείου για την ανάμιξη του κρασιού με νερό (δίνος). Η παράσταση εικονίζει τον Διόνυσο με τον θίασό του που αποτελείται από Σατύρους και Μαινάδες. 420 με 410 π.Χ. Εθνικό Αρχαιολογικό Μουσείο.</p><p> Αν θέλεις να δεις κι άλλους ακόμα συντρόφους του Διονύσου, συνέχισε στο επόμενο στάδιο.</p>",
-				"en" : "<p>View of a vessel for mixing wine with water (dinos). It depicts Dionysus with his troupe, that is Satyrs and Maenads, 420-410 B.C., National Archaeological Museum of Athens.</p><p>If you want to see more followers of Dionysus, continue to the next vas.</p>"
+				"en" : "<p>View of a vessel for mixing wine with water (dinos). It depicts Dionysus with his troupe, that is Satyrs and Maenads, 420-410 B.C., National Archaeological Museum of Athens.</p><p>If you want to see more followers of Dionysus, continue to the next vase.</p>"
 			},
 			"figures": [
 				{ "id" : "f_1", "name" : { "gr" : "Μαινάδα", "en" : "Maenad" }, "top" : "425px", "left" : "325px", "text" : { "gr" : "-", "en" : "-" } },
@@ -79,20 +79,20 @@
 			"try_again" : "<img src='assets/img/keep_trying_gr.svg'/><br/><br/>Κάποιες φιγούρες δεν έχουν τοποθετηθεί σωστά. Έχεις ακόμη χρόνο. Συνέχισε την προσπάθεια. Θυμήσου ότι μπορείς να πατήσεις το κουμπί της βοήθειας ανά πάσα στιγμή (χάνοντας όμως 5 δευτερόλεπτα κάθε φορά που το πατάς).",
 			"game_title" : "Ο Διόνυσος και οι φίλοι του",
 			"intro" : "<br/><hr/><p>Τα αγγεία ήταν απαραίτητα τόσο στην καθημερινή ζωή, ως χρηστικά σκεύη, όσο και σε τελετές ως αναθήματα ή δώρα ή ακόμα και ως πολυτελή σκεύη επίδειξης οικονομι­κής ευμάρειας. Αν και το σχήμα κάθε αγγείου ήταν στενά συνδεδεμένο με τη χρήση του, η διακόσμηση έπαιζε πάντα σημαντικό ρόλο.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_gr.svg' style='height:20px;'/></p><br/><p><i>Προσπάθησε να τοποθετήσεις τις φιγούρες στην σωστή τους θέση. Κάν' το όσο πιο γρήγορα μπορείς. Ο χρόνος μετράει.</i></p><br/><br/>",
-			"help_text" : "<img src='assets/img/help.gif'/><br/><p>Τοποθέτησε τις φιγούρες πάνω στο αγγείο για να ολοκληρώσεις το επίπεδο. Μπορείς να πατήσεις το κουμπί της βοήθειας για να εμφανίσεις προσωρινά το σχέδιο πάνω στο αγγείο. Πρόσεχε όμως! Κάθε φορά που πατάς το κουμπί της βοήθειας χάνεις 5 δευτερόλεπτα.</p>"
+			"help_text" : "<img src='assets/img/help_gr.gif'/><br/><p>Τοποθέτησε τις φιγούρες πάνω στο αγγείο για να ολοκληρώσεις το επίπεδο. Μπορείς να πατήσεις το κουμπί της βοήθειας για να εμφανίσεις προσωρινά το σχέδιο πάνω στο αγγείο. Πρόσεχε όμως! Κάθε φορά που πατάς το κουμπί της βοήθειας χάνεις 5 δευτερόλεπτα.</p>"
 		},
 		"en" : {
 			"enter_game_button" : "ENTER",
 			"start_game_button" : "Start the game",
 			"restart_button" : "Restart the game",
-			"next_level_button" : "Continue to the next vas",
+			"next_level_button" : "Continue to the next vase",
 			"retry_button" : "Try again",
 			"check_button" : "Check positions",
 			"hint_button" : "Hint",
 			"try_again" : "<img src='assets/img/keep_trying_en.svg'/><br/><br/>Some figures are not positioned correctly. You still have time. Keep trying. Remember that you can use the Hint button at any time (but you will lose five seconds every time you use it).",
 			"game_title" : "Dionysus and his friends",
 			"intro" : "<br/><hr/><p>The vases were necessary both in the everyday life and ceremonies as offerings, gifts or even luxury vessels which demonstrated the wealth of their owner. Eventhough the shape of each vessel was connected with its use, its decoration always played an important role.</p><hr/><br/><p class='centeredText'><img src='assets/img/instructions_en.svg' style='height:20px;'/></p><br/><p><i>Try to place the figures in the right position. Do it as fast as you can. Time is running.</i></p><br/><br/>",
-			"help_text" : "<img src='assets/img/help.gif'/><br/><p>Place the figures on the vase to complete the level. You can press the help button to reveal briefly the drawing on the vase. But be careful! Every time you hit the help button you lose 5 seconds.</p>"
+			"help_text" : "<img src='assets/img/help_en.gif'/><br/><p>Place the figures on the vase to complete the level. You can press the help button to reveal briefly the drawing on the vase. But be careful! Every time you hit the help button you lose 5 seconds.</p>"
 		}
 	}
 }
