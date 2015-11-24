@@ -1,0 +1,178 @@
+<!-- Developer George Triantafyllakos [backpacker.gr] -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title></title>	
+	<link rel="icon" href="assets/img/favicon.png"/>		
+	<link rel="apple-touch-icon-precomposed" href="assets/img/favicon.png"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
+</head>
+<body>
+	
+	<!-- preload images -->
+	<script>
+		var img_intro_bg = new Image(932,662); img_intro_bg.src = "assets/img/intro_bg.png";
+		var img_popup_bg = new Image(765,539); img_popup_bg.src = "assets/img/popup_bg.png";
+		var figures_popup_bg = new Image(751,651); figures_popup_bg.src = "assets/img/figures_popup_bg.png";
+		var calendar_front_cover = new Image(485,650); calendar_front_cover.src = "assets/img/diary_front.png";
+		var calendar_back_cover = new Image(485,650); calendar_back_cover.src = "assets/img/diary_back.png";
+		var img_1  = new Image(1024,768); img_1.src = "assets/img/acropoli.jpg";
+		var img_2  = new Image(1024,768); img_2.src = "assets/img/theatre.jpg";
+		var img_3  = new Image(449,655); img_3.src = "assets/img/day_1.jpg";
+		var img_4  = new Image(449,655); img_4.src = "assets/img/day_2.jpg";
+		var img_5  = new Image(449,655); img_5.src = "assets/img/day_3.jpg";
+		var img_6  = new Image(449,655); img_6.src = "assets/img/day_4.jpg";
+		var img_7  = new Image(180,154); img_7.src = "assets/img/f1.png";		
+		var img_8  = new Image(180,154); img_8.src = "assets/img/f2.png";
+		var img_9  = new Image(180,154); img_9.src = "assets/img/f3.png";
+		var img_10 = new Image(180,154); img_10.src = "assets/img/f4.png";
+		var img_11 = new Image(180,154); img_11.src = "assets/img/f5.png";
+		var img_12 = new Image(180,154); img_12.src = "assets/img/f6.png";
+		var img_13 = new Image(595,842); img_13.src = "assets/img/f1_big.png";
+		var img_14 = new Image(595,842); img_14.src = "assets/img/f2_big.png";
+		var img_15 = new Image(595,842); img_15.src = "assets/img/f3_big.png";		
+		var img_16 = new Image(595,842); img_16.src = "assets/img/f4_big.png";		
+		var img_17 = new Image(595,842); img_17.src = "assets/img/f5_big.png";		
+		var img_18 = new Image(595,842); img_18.src = "assets/img/f6_big.png";
+		var svg_1 = new Image(); svg_1.src = "assets/img/calendar.svg";
+		var svg_2 = new Image(); svg_2.src = "assets/img/close.svg";
+		var svg_3 = new Image(); svg_3.src = "assets/img/correct_en.svg";
+		var svg_4 = new Image(); svg_4.src = "assets/img/correct_gr.svg";
+		var svg_5 = new Image(); svg_5.src = "assets/img/game_2_title_en.svg";
+		var svg_6 = new Image(); svg_6.src = "assets/img/game_2_title_gr.svg";
+		var svg_7 = new Image(); svg_7.src = "assets/img/info.svg";
+		var svg_8 = new Image(); svg_8.src = "assets/img/instructions_en.svg";
+		var svg_9 = new Image(); svg_9.src = "assets/img/instructions_gr.svg";
+		var svg_10 = new Image(); svg_10.src = "assets/img/play.svg";
+		var svg_11 = new Image(); svg_11.src = "assets/img/wrong_en.svg";
+		var svg_12 = new Image(); svg_12.src = "assets/img/wrong_gr.svg";
+	</script>
+	
+	<!-- tooltip -->
+	<div id="dhtmltooltip"></div>
+	
+	<!-- external libs -->
+	<script src="assets/libs/jquery-1.11.1.min.js"></script>
+	<script src="assets/libs/jquery-migrate.min.js"></script>
+	<script src="assets/libs/jquery.easing.min.js"></script>
+	<script src="assets/libs/jquery-ui.min.js"></script>
+	<script src="assets/libs/jquery.ui.touch-punch.min.js"></script>
+	<script src="assets/libs/turn.min.js"></script>
+	<!-- custom js -->
+	<script src="assets/js/functions.js"></script>
+	
+	<!-- init loader -->
+	<div id="loader"><img src="assets/img/loading.gif"/></div>
+	
+	<!-- main game board container -->
+	<div id="container">
+		
+		<!-- screens -->
+		<div class="screen" id="init">
+			<div id="intro">
+				<div id="intro_page_1" class="intro_page">
+					<img id="intro_icon_1" class="icon" src="assets/img/f1_big.png"/>
+					<img id="intro_icon_2" class="icon" src="assets/img/f2_big.png"/>					
+					<img id="game_title" src=""/><br/>
+					<div id="enter_game" class="button big"><!-- dynamic content --></div>
+				</div>
+				<div id="intro_page_2" class="intro_page">
+					<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+					<div id="continue_intro" class="button big"><!-- dynamic content --></div>
+				</div>
+				<div id="intro_page_3" class="intro_page">
+					<div id="game_instructions" class="text"><!-- dynamic content --></div>
+					<div id="start_game" class="button big"><!-- dynamic content --></div>
+				</div>
+			</div>
+		</div>
+		<div class="screen hidden" id="level_1">
+		
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="init_stage" x="0px" y="0px" width="1024px" height="768px" viewBox="0 0 1024 768" enable-background="new 0 0 1024 768" xml:space="preserve">
+				<defs>
+					<image id="init_stage_jpg" overflow="visible" width="1024" height="768" xlink:href="assets/img/acropoli.jpg" transform="matrix(1 0 0 1 0 0)"></image>
+					<clipPath id="level_1_area_1_clip"><path id="level_1_area_1_path" d="M792.36,693.445l-44-104h10.5l1-12.5l-10.5-19.5l192.5-8	l57,90.5l-23.5,1.5l23.5,41.5l-186.312,9.453l0.016-16.772l1.625-4.188l-1.021-2.937l-6.479,0.999l-0.5,4.25l1.312,2.084 l-0.01,16.826L792.36,693.445z"/></clipPath>
+					<clipPath id="level_1_area_2_clip"><path id="level_1_area_2_path" d="M473.36,587.445h-9v4.5l-3.5,5h-18.5v-10.5h-23l-2-35l8-24.5c0,0-17.5-27.5-17-58s23-42.5,23-42.5l0.5-9.5	c0,0,20.5-31.5,80.5-34c59.12-2.463,130,6.5,150.5,11.5s43.5,13.5,57,19.5s40.5,29.5,40.5,29.5v18l9,6l10,34.5l-4.5,51l-48,1l5,19 l-11.5,43.5l-26.5-2.5l-5,5.5l-21-2.5v-5.5l-34-4l-0.5,6l-160-17.5V587.445z"/></clipPath>
+					<clipPath id="level_1_area_3_clip"><path id="level_1_area_3_path" d="M419.86,677.945l2.5-26.5h-10l10-21.5h16l10,3l2.5-13.5l7-5l54.5,8l-9.5,20.5l5,2.75l-3,12.25l1.5,15 l-10.5,17l-19-4l-0.5,2.5L419.86,677.945z"/></clipPath>
+					<clipPath id="level_1_rest_area_clip"><path id="level_1_area_rest_path" d="M0,0,1024,768z"/></clipPath>
+				</defs>
+
+				<g id="level_1_area_1_group" clip-path="url(#level_1_area_1_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_2_group" clip-path="url(#level_1_area_2_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_3_group" clip-path="url(#level_1_area_3_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+				<g id="level_1_area_rest_group" clip-path="url(#level_1_area_rest_clip)"><use xlink:href="#init_stage_jpg" overflow="visible"/></g>
+
+				<path id="level_1_area_1" show="page_2" onclick="select_svg_area('level_1',this);" d="M792.36,693.445l-44-104h10.5l1-12.5l-10.5-19.5l192.5-8 l57,90.5l-23.5,1.5l23.5,41.5l-186.312,9.453l0.016-16.772l1.625-4.188l-1.021-2.937l-6.479,0.999l-0.5,4.25l1.312,2.084 l-0.01,16.826L792.36,693.445z"/>
+				<path id="level_1_area_2" show="page_8" onclick="select_svg_area('level_1',this);" d="M473.36,587.445h-9v4.5l-3.5,5h-18.5v-10.5h-23l-2-35l8-24.5c0,0-17.5-27.5-17-58s23-42.5,23-42.5l0.5-9.5 c0,0,20.5-31.5,80.5-34c59.12-2.463,130,6.5,150.5,11.5s43.5,13.5,57,19.5s40.5,29.5,40.5,29.5v18l9,6l10,34.5l-4.5,51l-48,1l5,19 l-11.5,43.5l-26.5-2.5l-5,5.5l-21-2.5v-5.5l-34-4l-0.5,6l-160-17.5V587.445z"/>
+				<path id="level_1_area_3" show="page_6" onclick="select_svg_area('level_1',this);" d="M419.86,677.945l2.5-26.5h-10l10-21.5h16l10,3l2.5-13.5l7-5l54.5,8l-9.5,20.5l5,2.75l-3,12.25l1.5,15 l-10.5,17l-19-4l-0.5,2.5L419.86,677.945z"/>
+			</svg>
+						
+        </div>
+        
+        <!-- game -->
+        <div class="screen hidden" id="level_2">
+        	
+        	<img id="game_board" src="assets/img/theatre.jpg" />
+        	<div id="positions">
+        		<div id="pos1" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos2" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos3" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos4" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos5" class="position" onclick="remove_figure(this);"></div>
+        		<div id="pos6" class="position" onclick="remove_figure(this);"></div>
+        	</div>
+        	<div id="figures">
+        		<div id="f1" class="figure"></div>
+        		<div id="f2" class="figure"></div>
+        		<div id="f3" class="figure"></div>
+        		<div id="f4" class="figure"></div>
+        		<div id="f5" class="figure"></div>
+        		<div id="f6" class="figure"></div>
+        	</div>
+        	<div id="check_figures_positions_button" class="button disabled"><!-- dynamic content --></div>
+        	        
+        </div>        
+        <div id="game_button" class="disabled invisible"></div>
+        <div id="play_button_message" class="hidden"><!-- dynamic content --></div>
+        
+        <!-- figures popup -->
+        <div id="figures_popup">
+        	<div id="figures_popup_content">
+        		<div id="figure_img"><!-- dynamic content --></div>
+        		<div id="figure_info"><!-- dynamic content --></div>
+        	</div>
+        	<div id="close_figures_popup" class="close_button"></div>
+        </div>
+        
+        <!-- calendar -->
+        <div id="calendar">        	
+        	<div id="calendar_container">
+				<div id="calendar_content"><div id="calendar_flipbook"><!-- dynamic content --></div></div>
+				<div id="close_calendar" class="close_button"><!-- dynamic content --></div>
+        	</div>        	
+        </div>
+        <div id="calendar_button"></div>
+		
+		<!-- help icon + popup -->
+		<div id="help" class="hidden invisible">
+			<div id="help_icon"></div>
+			<div id="help_text" class="help_content invisible"><!-- dynamic content --></div>
+			<div id="close_help" class="close_button invisible"></div>
+		</div>				
+		
+		<!-- popups -->
+		<div id="popup" class="invisible">
+			<div id="message_container">
+				<div id="message"><!-- dynamic content --></div>
+				<div id="buttons"><!-- dynamic content --></div>
+				<div id="close_message" class="close_button"></div>
+			</div>
+		</div>
+	</div>	
+	
+</body>
+</html>	

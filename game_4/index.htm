@@ -1,0 +1,188 @@
+<!-- Developer George Triantafyllakos [backpacker.gr] -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title></title>	
+	<link rel="icon" href="assets/img/favicon.png"/>		
+	<link rel="apple-touch-icon-precomposed" href="assets/img/favicon.png"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,greek' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>	
+</head>
+<body>
+	
+	<!-- preload images -->
+	<script>
+		var img_intro_bg = new Image(932,662); img_intro_bg.src = "assets/img/intro_bg.png";
+		var img_popup_bg = new Image(765,539); img_popup_bg.src = "assets/img/popup_bg.png";
+		var img_texture_left = new Image(512,768); img_texture_left.src = "assets/img/texture_left.jpg";
+		var img_texture_right = new Image(512,768); img_texture_right.src = "assets/img/texture_right.jpg";
+		var svg_1 = new Image(); svg_1.src = "assets/img/keep_trying_en.svg";
+		var svg_2 = new Image(); svg_2.src = "assets/img/close.svg";
+		var svg_3 = new Image(); svg_3.src = "assets/img/correct_en.svg";
+		var svg_4 = new Image(); svg_4.src = "assets/img/correct_gr.svg";
+		var svg_5 = new Image(); svg_5.src = "assets/img/game_4_title_en.svg";
+		var svg_6 = new Image(); svg_6.src = "assets/img/game_4_title_gr.svg";
+		var svg_7 = new Image(); svg_7.src = "assets/img/info.svg";
+		var svg_8 = new Image(); svg_8.src = "assets/img/instructions_en.svg";
+		var svg_9 = new Image(); svg_9.src = "assets/img/instructions_gr.svg";
+		var svg_10 = new Image(); svg_10.src = "assets/img/keep_trying_gr.svg";
+		var svg_11 = new Image(); svg_11.src = "assets/img/wrong_en.svg";
+		var svg_12 = new Image(); svg_12.src = "assets/img/wrong_gr.svg";
+	</script>
+	
+	<!-- tooltip -->
+	<div id="dhtmltooltip"></div>
+	
+	<!-- external libs -->
+	<script src="assets/libs/jquery-1.11.1.min.js"></script>
+	<script src="assets/libs/jquery-migrate.min.js"></script>
+	<script src="assets/libs/jquery.easing.min.js"></script>
+	<script src="assets/libs/jquery-ui.min.js"></script>
+	<script src="assets/libs/jquery.ui.touch-punch.min.js"></script>	
+	<!-- custom js -->
+	<script src="assets/js/functions.js"></script>
+	
+	<!-- init loader -->
+	<div id="loader"><img src="assets/img/loading.gif"/></div>
+	
+	<!-- main game board container -->
+	<div id="container">
+	
+		<!-- screens -->
+		<div class="screen" id="init">
+			<div id="intro">
+				<div id="intro_page_1" class="intro_page">
+					<img id="intro_icon_1" class="icon" src="assets/img/level_1/f_2.png"/>
+					<img id="intro_icon_2" class="icon" src="assets/img/level_4/f_2.png"/>
+					<img id="game_title" src=""/><br/>
+					<div id="enter_game" class="button big"><!-- dynamic content --></div>
+				</div>
+				<div id="intro_page_2" class="intro_page">
+					<div id="game_subtitle" class="text"><!-- dynamic content --></div>
+					<div id="start_game" class="button big"><!-- dynamic content --></div>
+				</div>
+			</div>
+		</div>
+		<div class="screen hidden centeredText" id="level_1">
+						
+			<div class="vas">
+				<img class="final_vas" id="level_1_final_vas" src="assets/img/level_1/final_vas.png"/>
+				<img class="empty_vas" id="level_1_empty_vas" src="assets/img/level_1/empty_vas.png"/>
+				<div class="position" id="level_1_pos_1"></div>
+				<div class="position" id="level_1_pos_2"></div>
+				<div class="position" id="level_1_pos_3"></div>
+			</div>
+			<div class="figures" id="level_1_figures">
+				<div class="figure" id="level_1_f_1"></div>
+				<div class="figure" id="level_1_f_2"></div>
+				<div class="figure" id="level_1_f_3"></div>
+				<div class="vas_check_button button" id="level_1_vas_check_button"><!-- dynamic content --></div>
+				<div class="vas_caption" id="level_1_vas_caption"><!-- dynamic content --></div>
+				<div class="vas_hint" id="level_1_vas_hint"><!-- dynamic content --></div>
+			</div>
+						
+        </div>
+        <div class="screen hidden centeredText" id="level_2">
+        	
+        	<div class="vas">
+				<img class="final_vas" id="level_2_final_vas" src="assets/img/level_2/final_vas.png"/>
+				<img class="empty_vas" id="level_2_empty_vas" src="assets/img/level_2/empty_vas.png"/>
+				<div class="position" id="level_2_pos_1"></div>
+				<div class="position" id="level_2_pos_2"></div>
+			</div>
+			<div class="figures" id="level_2_figures">
+				<div class="figure" id="level_2_f_1"></div>
+				<div class="figure" id="level_2_f_2"></div>
+				<div class="vas_check_button button" id="level_2_vas_check_button"><!-- dynamic content --></div>
+				<div class="vas_caption" id="level_2_vas_caption"><!-- dynamic content --></div>
+				<div class="vas_hint" id="level_2_vas_hint"><!-- dynamic content --></div>
+			</div>
+        
+        </div>
+        <div class="screen hidden centeredText" id="level_3">
+        	
+        	<div class="vas">
+				<img class="final_vas" id="level_3_final_vas" src="assets/img/level_3/final_vas.png"/>
+				<img class="empty_vas" id="level_3_empty_vas" src="assets/img/level_3/empty_vas.png"/>
+				<div class="position" id="level_3_pos_1"></div>
+				<div class="position" id="level_3_pos_2"></div>
+				<div class="position" id="level_3_pos_3"></div>
+				<div class="position" id="level_3_pos_4"></div>
+			</div>
+			<div class="figures" id="level_3_figures">
+				<div class="figure" id="level_3_f_1"></div>
+				<div class="figure" id="level_3_f_2"></div>
+				<div class="figure" id="level_3_f_3"></div>
+				<div class="figure" id="level_3_f_4"></div>
+				<div class="vas_check_button button" id="level_3_vas_check_button"><!-- dynamic content --></div>
+				<div class="vas_caption" id="level_3_vas_caption"><!-- dynamic content --></div>
+				<div class="vas_hint" id="level_3_vas_hint"><!-- dynamic content --></div>
+			</div>
+        
+        </div>       
+        <div class="screen hidden centeredText" id="level_4">
+        	
+        	<div class="vas">
+				<img class="final_vas" id="level_4_final_vas" src="assets/img/level_4/final_vas.png"/>
+				<img class="empty_vas" id="level_4_empty_vas" src="assets/img/level_4/empty_vas.png"/>
+				<div class="position" id="level_4_pos_1"></div>
+				<div class="position" id="level_4_pos_2"></div>
+				<div class="position" id="level_4_pos_3"></div>
+			</div>
+			<div class="figures" id="level_4_figures">
+				<div class="figure" id="level_4_f_1"></div>
+				<div class="figure" id="level_4_f_2"></div>
+				<div class="figure" id="level_4_f_3"></div>
+				<div class="vas_check_button button" id="level_4_vas_check_button"><!-- dynamic content --></div>
+				<div class="vas_caption" id="level_4_vas_caption"><!-- dynamic content --></div>
+				<div class="vas_hint" id="level_4_vas_hint"><!-- dynamic content --></div>
+			</div>
+        
+        </div>
+         <div class="screen hidden centeredText" id="level_5">
+        	
+        	<div class="vas">
+				<img class="final_vas" id="level_5_final_vas" src="assets/img/level_5/final_vas.png"/>
+				<img class="empty_vas" id="level_5_empty_vas" src="assets/img/level_5/empty_vas.png"/>
+				<div class="position" id="level_5_pos_1"></div>
+				<div class="position" id="level_5_pos_2"></div>
+				<div class="position" id="level_5_pos_3"></div>
+				<div class="position" id="level_5_pos_4"></div>
+			</div>
+			<div class="figures" id="level_5_figures">
+				<div class="figure" id="level_5_f_1"></div>
+				<div class="figure" id="level_5_f_2"></div>
+				<div class="figure" id="level_5_f_3"></div>
+				<div class="figure" id="level_5_f_4"></div>
+				<div class="vas_check_button button" id="level_5_vas_check_button"><!-- dynamic content --></div>
+				<div class="vas_caption" id="level_5_vas_caption"><!-- dynamic content --></div>
+				<div class="vas_hint" id="level_5_vas_hint"><!-- dynamic content --></div>
+			</div>
+        
+        </div>
+        
+	    <!-- clock -->
+        <div id="clock">02:00</div>
+		
+		<!-- help icon + popup -->
+		<div id="help" class="hidden invisible">
+			<div id="help_icon"></div>
+			<span id="help_text" class="help_content invisible"><!-- dynamic content --></span>
+			<div id="close_help" class="close_button invisible"></div>
+		</div>				
+		
+		<!-- popups -->
+		<div id="popup" class="invisible">
+			<div id="message_container">
+				<div id="message"><!-- dynamic content --></div>
+				<div id="buttons"><!-- dynamic content --></div>
+				<div id="close_message" class="close_button"></div>
+			</div>
+		</div>
+	</div>	
+	
+</body>
+</html>	
